@@ -1,0 +1,7 @@
+bin/
+gen/
+actionscript/bin
+android/bin
+android/gen
+test/bin-debug
+test_flashbuilder4.6/bin-debug

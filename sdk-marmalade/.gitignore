@@ -1,0 +1,30 @@
+# Ignore xcode build files
+ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/*
+
+ios_android/s3eMATSDK/build_s3ematsdk_iphone_iphone_scons_arm/*
+ios_android/s3eMATSDK/build_s3ematsdk_iphone_iphone_scons_arm/
+ios_android/s3eMATSDK/build_s3ematsdk_android_linux_scons_arm/*
+ios_android/s3eMATSDK/build_s3ematsdk_android_java/*
+ios_android/s3eMATSDK/stamp/s3eMATSDK.s4e.stamp
+
+# Xcode
+build/*
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+Resources/Configuration/Private.xcconfig
+# OS X
+.DS_Store
+.pid_file
+.sass-cache
+

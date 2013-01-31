@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" title="MobileAppTracking ANE Test App"
+		xmlns:s="library://ns.adobe.com/flex/spark" xmlns:MobileAppTracker="com.hasoffers.nativeExtensions.*">
+
+	<fx:Script>
+		<![CDATA[
+			import com.hasoffers.nativeExtensions.MobileAppTracker;
+			
+			import spark.events.TextOperationEvent;
+
+			public var mobileAppTracker:MobileAppTracker;
+			public var advertiserId:String;
+			public var advertiserKey:String;
+			public var action:String;
+			public var revenue:Number;
+			public var currencyCode:String;
+			public var item:String;
+			public var unitPrice:Number;
+			public var quantity:int;
+			public var itemRevenue:Number;
+			
+			public var flagAutoGenerateParams:Boolean = false;
+
+			public function init():void 
+			{
+				trace("MATANESampleHomeView.init() start");
+				
+				advertiserId = "877";
+				//advertiserKey = "5afe3bc434184096023e3d8b2ae27e1c"; // johng_test
+				advertiserKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // HarshalTestApp
+				action = "conversion";
+				revenue = 0.42;
+				currencyCode = "USD";
+				item = "item2";
+				unitPrice = 1.56;
+				quantity = 1;
+
+				advId.text = advertiserId;
+				advKey.text = advertiserKey;
+				revenueInput.text = revenue.toString();
+				currencyInput.text = currencyCode;
+				itemInput.text = item;
+				unitPriceInput.text = unitPrice.toString();
+				quantityInput.text = quantity.toString();
+
+				trace("MATANESampleHomeView.init(): getting MobileAppTracker singleton instance.");
+				
+				mobileAppTracker = MobileAppTracker.instance;
+				mobileAppTracker.init(advertiserId, advertiserKey);
+				
+				mobileAppTracker.setDebugMode(true);
+				
+				mobileAppTracker.setDeviceId(true);
+				
+				//mobileAppTracker.setPackageName("com.hasofferstestapp"); // johng_test
+				mobileAppTracker.setPackageName("com.hasoffers.harshaltestapp"); // HarshalTestApp
+				
+				mobileAppTracker.setDelegate(true);
+				
+				trace("MATANESampleHomeView.init() end");
+			}
+
+			protected function trackInstall_clickHandler(event:MouseEvent):void
+			{
+				mobileAppTracker.trackInstall("someref1");
+			}
+
+			protected function trackAction_clickHandler(event:MouseEvent):void
+			{
+				mobileAppTracker.trackAction(action, revenue, currencyCode);
+			}
+
+			protected function trackActionWithEventItem_clickHandler(event:MouseEvent):void
+			{
+				var arrEvents:Array = new Array();
+				
+				var dict:Dictionary = new Dictionary();
+				dict["item"] = item;
+				dict["unit_price"] = unitPrice;
+				dict["quantity"] = quantity;
+				dict["revenue"] = itemRevenue;
+				
+				arrEvents.push(dict);
+				
+				mobileAppTracker.trackActionWithEventItem(action, arrEvents, revenue, currencyCode);
+			}
+
+			protected function advertiserId_changeHandler(event:TextOperationEvent):void
+			{
+				// set advertiser id to id's text input
+				advertiserId = advId.text;
+			}
+
+			protected function advertiserKey_changeHandler(event:TextOperationEvent):void
+			{
+				// set key to key's text input
+				advertiserKey = advKey.text;
+			}
+
+			protected function action_changeHandler(event:TextOperationEvent):void
+			{
+				action = actionInput.text;
+			}
+
+			protected function revenueInput_changeHandler(event:TextOperationEvent):void
+			{
+				revenue = parseFloat(revenueInput.text);
+			}
+
+			protected function currencyInput_changeHandler(event:TextOperationEvent):void
+			{
+				currencyCode = currencyInput.text;
+			}
+
+			protected function itemInput_changeHandler(event:TextOperationEvent):void
+			{
+				item = itemInput.text;
+			}
+
+			protected function unitPriceInput_changeHandler(event:TextOperationEvent):void
+			{
+				unitPrice = parseFloat(unitPriceInput.text);
+			}
+
+			protected function quantityInput_changeHandler(event:TextOperationEvent):void
+			{
+				quantity = parseInt(quantityInput.text);
+			}
+			
+			protected function itemRevenueInput_changeHandler(event:TextOperationEvent):void
+			{
+				itemRevenue = parseFloat(itemRevenueInput.text);
+			}
+			
+			protected function toggleAutoGenerateFlags_changeHandler(event:MouseEvent):void
+			{
+				flagAutoGenerateParams = !flagAutoGenerateParams;
+				mobileAppTracker.setShouldAutoGenerateAdvertiserIdentifier(flagAutoGenerateParams);
+				mobileAppTracker.setShouldAutoGenerateMacAddress(flagAutoGenerateParams);
+				mobileAppTracker.setShouldAutoGenerateODIN1Key(flagAutoGenerateParams);
+				mobileAppTracker.setShouldAutoGenerateOpenUDIDKey(flagAutoGenerateParams);
+				mobileAppTracker.setShouldAutoGenerateVendorIdentifier(flagAutoGenerateParams);
+				
+				var sdkDataParams:String = mobileAppTracker.getSDKDataParameters();
+				sdkDataParams = sdkDataParams.split('","').join('",\n"');
+				textSDKDataParams.text = sdkDataParams;
+			}
+			
+			protected function printSDKDataParameters_changeHandler(event:MouseEvent):void
+			{
+				var sdkDataParams:String = mobileAppTracker.getSDKDataParameters();
+				sdkDataParams = sdkDataParams.split('","').join('",\n"');
+				trace(sdkDataParams);
+				
+				textSDKDataParams.text = sdkDataParams;
+			}
+
+		]]>
+	</fx:Script>
+
+	<s:Scroller width="100%" height="100%">
+		<s:Group width="100%" height="100%">
+			<s:Label text="Advertiser Id" left="10" top="25"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="advId" change="advertiserId_changeHandler(event)" horizontalCenter="0" top="50"/>
+
+			<s:Label text="Advertiser Key" left="10" top="100"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="advKey" change="advertiserKey_changeHandler(event)" initialize="init()" horizontalCenter="0" top="125"/>
+
+			<s:Button label="Track install" click="trackInstall_clickHandler(event)" horizontalCenter="0" top="175" />
+
+			<s:Label text="Event Name" left="10" top="225"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="actionInput" change="action_changeHandler(event)" horizontalCenter="0" top="250"/>
+
+			<s:Label text="Revenue" left="10" top="300"/>
+			<s:Label text="Currency" left="150" top = "300"/>
+
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="revenueInput" restrict=".0-9" change="revenueInput_changeHandler(event)" percentWidth="40" left="10" top="325"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="currencyInput" change="currencyInput_changeHandler(event)" percentWidth="40" left="150" top="325"/>
+
+			<s:Button label="Track action" click="trackAction_clickHandler(event)" horizontalCenter="0" top="375"/>
+
+			<s:Label text="Item" left="10" top="425"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="itemInput" change="itemInput_changeHandler(event)" horizontalCenter="0" top="450"/>
+
+			<s:Label text="Unit Price" left="10" top="500"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="unitPriceInput" change="unitPriceInput_changeHandler(event)" horizontalCenter="0" top="525"/>
+
+			<s:Label text="Quantity" left="10" top="575"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="quantityInput" change="quantityInput_changeHandler(event)" horizontalCenter="0" top="600"/>
+			
+			<s:Label text="Item Revenue" left="10" top="650"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="itemRevenueInput" restrict=".0-9" change="itemRevenueInput_changeHandler(event)" percentWidth="40" left="10" top="675"/>
+
+			<s:Button label="Track action with event item" click="trackActionWithEventItem_clickHandler(event)" horizontalCenter="0" top="725"/>
+			
+			<s:Button label="Toggle AutoGenerated params" click="toggleAutoGenerateFlags_changeHandler(event)" horizontalCenter="0" top="775"/>
+			
+			<s:Button label="Print SDKDataParameters" click="printSDKDataParameters_changeHandler(event)" horizontalCenter="0" top="825"/>
+			
+			<s:Label text="SDKDataParameters" left="10" top="875"/>
+			<s:TextArea id="textSDKDataParams" editable="false" horizontalCenter="0" top="900" height="300"></s:TextArea>
+			
+		</s:Group>
+	</s:Scroller>
+</s:View>

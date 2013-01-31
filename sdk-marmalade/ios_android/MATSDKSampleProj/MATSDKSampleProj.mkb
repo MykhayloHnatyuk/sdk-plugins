@@ -1,0 +1,36 @@
+options
+{
+	s3e-data-dir="data"
+}
+ 
+files
+{
+	(source)
+	MATSDKSampleProj.cpp
+	MATSDKSampleProjMain.cpp
+}
+ 
+subprojects
+{
+	s3eMATSDK
+	iwutil
+	ExamplesMain
+}
+
+assets
+{
+	(data)
+	logo.raw
+	splash.jpg
+}
+
+#### AUTO GENERATED deployment settings from DeployTool.exe. Do not edit below this line ####
+deployments
+{
+	["Default"]
+	app-icf='data/app.icf'
+	iphone-appid='2GLFC47AY5.com.hasoffers.marmaladeTestApp'
+	iphone-provisioning-profile='Marmalade_dev_profile.mobileprovision'
+
+	android-manifest='AndroidManifest.xml'
+}

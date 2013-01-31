@@ -1,0 +1,61 @@
+include:
+#include <s3eTypes.h>
+
+#define S3E_MATSDK_STRING_MAX 50
+
+struct s3eMATTracker;
+
+typedef struct MATSDKEventItem
+{
+	char		item[S3E_MATSDK_STRING_MAX];
+	float 		unitPrice;
+	int		quantity;
+	float		revenue;
+} MATSDKEventItem;
+
+typedef struct s3eMATArray {
+	void *m_items; // Items in array
+	unsigned int m_count; // number of items
+} s3eMATArray;
+
+functions:
+
+void s3eStartMobileAppTracker(const char* adId, const char* adKey) run_on_os_thread
+// iOS only
+void s3eSDKParameters() run_on_os_thread
+void s3eTrackInstall() run_on_os_thread
+void s3eTrackUpdate() run_on_os_thread
+void s3eTrackInstallWithReferenceId(const char* refId) run_on_os_thread
+void s3eTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId) run_on_os_thread
+void s3eTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState) run_on_os_thread
+void s3eTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency) run_on_os_thread
+void s3eStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect) run_on_os_thread
+
+// set methods
+void s3eSetPackageName(const char* packageName) run_on_os_thread
+void s3eSetCurrencyCode(const char* currencyCode) run_on_os_thread
+void s3eSetDeviceId(const char* deviceId) run_on_os_thread
+void s3eSetOpenUDID(const char* openUDID) run_on_os_thread
+void s3eSetUserId(const char* userId) run_on_os_thread
+void s3eSetRevenue(double revenue) run_on_os_thread
+void s3eSetSiteId(const char* siteId) run_on_os_thread
+void s3eSetTRUSTeId(const char* tpid) run_on_os_thread
+// iOS only
+void s3eSetDelegate(bool enable) run_on_os_thread
+void s3eSetUseHTTPS(bool enable) run_on_os_thread
+
+void s3eSetAllowDuplicates(bool allowDuplicates) run_on_os_thread
+void s3eSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate) run_on_os_thread
+void s3eSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate) run_on_os_thread
+void s3eSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate) run_on_os_thread
+void s3eSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate) run_on_os_thread
+void s3eSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate) run_on_os_thread
+void s3eSetUseCookieTracking(bool useCookieTracking) run_on_os_thread
+void s3eSetRedirectUrl(const char* redirectUrl) run_on_os_thread
+void s3eSetAdvertiserIdentifier(const char* advertiserId) run_on_os_thread
+void s3eSetVendorIdentifier(const char* vendorId) run_on_os_thread
+
+// debug method
+void s3eSetDebugResponse(bool shouldDebug) run_on_os_thread
+
+append:
