@@ -9,7 +9,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "open -n /Developer/Marmalade/6.2/s3e/../Applications/DeployTool.app --args --dir /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode">
+               scriptText = "open -n /Developer/Marmalade/6.2/s3e/../Applications/DeployTool.app --args --dir /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode">
             </ActionContent>
          </ExecutionAction>
       </PostActions>

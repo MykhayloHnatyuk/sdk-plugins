@@ -318,10 +318,10 @@
 		A0000000000000000000027b /* s3eMATSDK.defines.txt in interface */ = {isa = PBXBuildFile; fileRef = B0000000000000000000027c;  };
 		A0000000000000000000027e /* s3eMATSDK_interface.cpp in interface */ = {isa = PBXBuildFile; fileRef = B0000000000000000000027f;  };
 		A00000000000000000000280 /* s3eMATSDK.mkf in s3eMATSDK */ = {isa = PBXBuildFile; fileRef = B00000000000000000000281;  };
-		A00000000000000000000282 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf */ = {isa = PBXBuildFile; fileRef = B00000000000000000000283; };
-		A00000000000000000000284 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/development.icf */ = {isa = PBXBuildFile; fileRef = B00000000000000000000285; };
-		A00000000000000000000286 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw */ = {isa = PBXBuildFile; fileRef = B00000000000000000000287; };
-		A00000000000000000000288 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg */ = {isa = PBXBuildFile; fileRef = B00000000000000000000289; };
+		A00000000000000000000282 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf */ = {isa = PBXBuildFile; fileRef = B00000000000000000000283; };
+		A00000000000000000000284 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/development.icf */ = {isa = PBXBuildFile; fileRef = B00000000000000000000285; };
+		A00000000000000000000286 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw */ = {isa = PBXBuildFile; fileRef = B00000000000000000000287; };
+		A00000000000000000000288 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg */ = {isa = PBXBuildFile; fileRef = B00000000000000000000289; };
 		A0000000000000000000028a /* s3e.icf */ = {isa = PBXBuildFile; fileRef = B0000000000000000000028b;  };
 
 /* End PBXBuildFile section */
@@ -611,32 +611,32 @@
 		B0000000000000000000024b /* zconf.h in (zlib) */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "zconf.h"; path = "/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/h/zconf.h";  sourceTree = "<absolute>"; };
 		B0000000000000000000024e /* zlib.h in (zlib) */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "zlib.h"; path = "/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/h/zlib.h";  sourceTree = "<absolute>"; };
 		B00000000000000000000250 /* zlib.mkf in (zlib) */ = {isa = PBXFileReference; lastKnownFileType = file; name = "zlib.mkf"; path = "/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/zlib.mkf";  sourceTree = "<absolute>"; };
-		B00000000000000000000252 /* ExamplesMain.mkf in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ExamplesMain.mkf"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/ExamplesMain.mkf";  sourceTree = "<absolute>"; };
-		B00000000000000000000255 /* examples.defines.txt in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = text; name = "examples.defines.txt"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/examples.defines.txt";  sourceTree = "<absolute>"; };
+		B00000000000000000000252 /* ExamplesMain.mkf in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ExamplesMain.mkf"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/ExamplesMain.mkf";  sourceTree = "<absolute>"; };
+		B00000000000000000000255 /* examples.defines.txt in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = text; name = "examples.defines.txt"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/examples.defines.txt";  sourceTree = "<absolute>"; };
 		B00000000000000000000257 /* Buttons.cpp in (ExamplesMain) */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Buttons.cpp"; path = "../ExamplesMain/src/Buttons.cpp";  sourceTree = SOURCE_ROOT; };
 		B00000000000000000000259 /* ExamplesMain.cpp in (ExamplesMain) */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "ExamplesMain.cpp"; path = "../ExamplesMain/src/ExamplesMain.cpp";  sourceTree = SOURCE_ROOT; };
-		B0000000000000000000025b /* ExamplesMain.h in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ExamplesMain.h"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/ExamplesMain.h";  sourceTree = "<absolute>"; };
+		B0000000000000000000025b /* ExamplesMain.h in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ExamplesMain.h"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/ExamplesMain.h";  sourceTree = "<absolute>"; };
 		B0000000000000000000025d /* Logo.cpp in (ExamplesMain) */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "Logo.cpp"; path = "../ExamplesMain/src/Logo.cpp";  sourceTree = SOURCE_ROOT; };
-		B0000000000000000000025f /* Logo.h in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Logo.h"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/Logo.h";  sourceTree = "<absolute>"; };
+		B0000000000000000000025f /* Logo.h in (ExamplesMain) */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "Logo.h"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/Logo.h";  sourceTree = "<absolute>"; };
 		B00000000000000000000261 /* main.cpp in (ExamplesMain) */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "main.cpp"; path = "../ExamplesMain/src/main.cpp";  sourceTree = SOURCE_ROOT; };
-		B00000000000000000000263 /* MATSDKSampleProj.mkb in root */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MATSDKSampleProj.mkb"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/MATSDKSampleProj.mkb";  sourceTree = "<absolute>"; };
+		B00000000000000000000263 /* MATSDKSampleProj.mkb in root */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MATSDKSampleProj.mkb"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/MATSDKSampleProj.mkb";  sourceTree = "<absolute>"; };
 		B00000000000000000000265 /* Info.plist in 'generated files' */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info.plist"; path = "Info.plist";  sourceTree = SOURCE_ROOT; };
-		B00000000000000000000268 /* Debug (x86).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Debug (x86).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Debug (x86).xcscheme";  sourceTree = "<absolute>"; };
-		B0000000000000000000026a /* Debug GCC (ARM).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Debug GCC (ARM).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Debug GCC (ARM).xcscheme";  sourceTree = "<absolute>"; };
-		B0000000000000000000026c /* Deploy Tool.xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Deploy Tool.xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Deploy Tool.xcscheme";  sourceTree = "<absolute>"; };
-		B0000000000000000000026e /* Release (x86).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Release (x86).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Release (x86).xcscheme";  sourceTree = "<absolute>"; };
-		B00000000000000000000270 /* Release GCC (ARM).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Release GCC (ARM).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Release GCC (ARM).xcscheme";  sourceTree = "<absolute>"; };
-		B00000000000000000000272 /* app.icf in root */ = {isa = PBXFileReference; lastKnownFileType = text; name = "app.icf"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf";  sourceTree = "<absolute>"; };
+		B00000000000000000000268 /* Debug (x86).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Debug (x86).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Debug (x86).xcscheme";  sourceTree = "<absolute>"; };
+		B0000000000000000000026a /* Debug GCC (ARM).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Debug GCC (ARM).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Debug GCC (ARM).xcscheme";  sourceTree = "<absolute>"; };
+		B0000000000000000000026c /* Deploy Tool.xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Deploy Tool.xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Deploy Tool.xcscheme";  sourceTree = "<absolute>"; };
+		B0000000000000000000026e /* Release (x86).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Release (x86).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Release (x86).xcscheme";  sourceTree = "<absolute>"; };
+		B00000000000000000000270 /* Release GCC (ARM).xcscheme in 'generated files' */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Release GCC (ARM).xcscheme"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/MATSDKSampleProj.xcodeproj/xcshareddata/xcschemes/Release GCC (ARM).xcscheme";  sourceTree = "<absolute>"; };
+		B00000000000000000000272 /* app.icf in root */ = {isa = PBXFileReference; lastKnownFileType = text; name = "app.icf"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf";  sourceTree = "<absolute>"; };
 		B00000000000000000000274 /* MATSDKSampleProj.cpp in root */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "MATSDKSampleProj.cpp"; path = "../source/MATSDKSampleProj.cpp";  sourceTree = SOURCE_ROOT; };
 		B00000000000000000000276 /* MATSDKSampleProjMain.cpp in root */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "MATSDKSampleProjMain.cpp"; path = "../source/MATSDKSampleProjMain.cpp";  sourceTree = SOURCE_ROOT; };
-		B00000000000000000000278 /* s3eMATSDK.h in s3eMATSDK */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "s3eMATSDK.h"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/h/s3eMATSDK.h";  sourceTree = "<absolute>"; };
-		B0000000000000000000027c /* s3eMATSDK.defines.txt in interface */ = {isa = PBXFileReference; lastKnownFileType = text; name = "s3eMATSDK.defines.txt"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/interface/s3eMATSDK.defines.txt";  sourceTree = "<absolute>"; };
+		B00000000000000000000278 /* s3eMATSDK.h in s3eMATSDK */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "s3eMATSDK.h"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/h/s3eMATSDK.h";  sourceTree = "<absolute>"; };
+		B0000000000000000000027c /* s3eMATSDK.defines.txt in interface */ = {isa = PBXFileReference; lastKnownFileType = text; name = "s3eMATSDK.defines.txt"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/interface/s3eMATSDK.defines.txt";  sourceTree = "<absolute>"; };
 		B0000000000000000000027f /* s3eMATSDK_interface.cpp in interface */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = "s3eMATSDK_interface.cpp"; path = "../../s3eMATSDK/interface/s3eMATSDK_interface.cpp";  sourceTree = SOURCE_ROOT; };
-		B00000000000000000000281 /* s3eMATSDK.mkf in s3eMATSDK */ = {isa = PBXFileReference; lastKnownFileType = file; name = "s3eMATSDK.mkf"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/s3eMATSDK.mkf";  sourceTree = "<absolute>"; };
-		B00000000000000000000283 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "app.icf"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf";  sourceTree = "<absolute>"; };
-		B00000000000000000000285 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/development.icf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "development.icf"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/development.icf";  sourceTree = "<absolute>"; };
-		B00000000000000000000287 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw */ = {isa = PBXFileReference; lastKnownFileType = file; name = "logo.raw"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw";  sourceTree = "<absolute>"; };
-		B00000000000000000000289 /* /Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "splash.jpg"; path = "/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg";  sourceTree = "<absolute>"; };
+		B00000000000000000000281 /* s3eMATSDK.mkf in s3eMATSDK */ = {isa = PBXFileReference; lastKnownFileType = file; name = "s3eMATSDK.mkf"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/s3eMATSDK.mkf";  sourceTree = "<absolute>"; };
+		B00000000000000000000283 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "app.icf"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf";  sourceTree = "<absolute>"; };
+		B00000000000000000000285 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/development.icf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "development.icf"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/development.icf";  sourceTree = "<absolute>"; };
+		B00000000000000000000287 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw */ = {isa = PBXFileReference; lastKnownFileType = file; name = "logo.raw"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw";  sourceTree = "<absolute>"; };
+		B00000000000000000000289 /* /Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "splash.jpg"; path = "/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg";  sourceTree = "<absolute>"; };
 		B0000000000000000000028b /* s3e.icf */ = {isa = PBXFileReference; lastKnownFileType = file; name = s3e.icf; path = "/Developer/Marmalade/6.2/s3e/s3e.icf";  sourceTree = "<absolute>"; };
 
 /* End PBXFileReference section */
@@ -1212,7 +1212,7 @@ PATH=/Developer/Marmalade/6.2/s3e/gcc/darwin/bin:$PATH
 PATH=/Applications/Xcode.app/contents/developer/usr/bin:$PATH
 PATH=/opt/local/bin:$PATH
 cd \"/Developer/Marmalade/6.2/s3e/loader/osx\"
-/usr/bin/python ./postlink.py \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\" \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
+/usr/bin/python ./postlink.py \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\" \"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
 			showEnvVarsInLog = 0;
 		};
 		shell_script_object2 /* ShellScript */ = {
@@ -1235,7 +1235,7 @@ PATH=/Developer/Marmalade/6.2/s3e/gcc/darwin/bin:$PATH
 PATH=/Applications/Xcode.app/contents/developer/usr/bin:$PATH
 PATH=/opt/local/bin:$PATH
 cd \"/Developer/Marmalade/6.2/s3e/loader/osx\"
-/usr/bin/python ./postlink.py \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\" \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
+/usr/bin/python ./postlink.py \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\" \"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
 			showEnvVarsInLog = 0;
 		};
 		shell_script_object3 /* ShellScript */ = {
@@ -1257,7 +1257,7 @@ PATH=/Developer/Marmalade/6.2/s3e/bin:$PATH
 PATH=/Developer/Marmalade/6.2/s3e/gcc/darwin/bin:$PATH
 PATH=/Applications/Xcode.app/contents/developer/usr/bin:$PATH
 PATH=/opt/local/bin:$PATH
-s3e_plink -l \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
+s3e_plink -l \"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
 			showEnvVarsInLog = 0;
 		};
 		shell_script_object4 /* ShellScript */ = {
@@ -1279,7 +1279,7 @@ PATH=/Developer/Marmalade/6.2/s3e/bin:$PATH
 PATH=/Developer/Marmalade/6.2/s3e/gcc/darwin/bin:$PATH
 PATH=/Applications/Xcode.app/contents/developer/usr/bin:$PATH
 PATH=/opt/local/bin:$PATH
-s3e_plink -l \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
+s3e_plink -l \"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s86\"";
 			showEnvVarsInLog = 0;
 		};
 		shell_script_object5 /* ShellScript */ = {
@@ -1301,7 +1301,7 @@ PATH=/Developer/Marmalade/6.2/s3e/bin:$PATH
 PATH=/Developer/Marmalade/6.2/s3e/gcc/darwin/bin:$PATH
 PATH=/Applications/Xcode.app/contents/developer/usr/bin:$PATH
 PATH=/opt/local/bin:$PATH
-s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s3e\" -d \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\"";
+s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s3e\" -d \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\"";
 			showEnvVarsInLog = 0;
 		};
 		shell_script_object6 /* ShellScript */ = {
@@ -1323,7 +1323,7 @@ PATH=/Developer/Marmalade/6.2/s3e/bin:$PATH
 PATH=/Developer/Marmalade/6.2/s3e/gcc/darwin/bin:$PATH
 PATH=/Applications/Xcode.app/contents/developer/usr/bin:$PATH
 PATH=/opt/local/bin:$PATH
-s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s3e\" -v --arch=armv5TE --vfp \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\"";
+s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/${CONFIGURATION}${EFFECTIVE_PLATFORM_NAME}/MATSDKSampleProj.s3e\" -v --arch=armv5TE --vfp \"${TARGET_BUILD_DIR}/${EXECUTABLE_NAME}\"";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1426,12 +1426,12 @@ s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_eng
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/h/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libjpeg_6b/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libpng_1.2.34/h/",
 					"/Developer/Marmalade/6.2/modules/iwutil/h/",
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
 					"/Developer/Marmalade/6.2/s3e/h/",
 					"/Developer/Marmalade/6.2/s3e/h/ext/",
 					"/Developer/Marmalade/6.2/s3e/h/std/",
@@ -1516,12 +1516,12 @@ s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_eng
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/h/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libjpeg_6b/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libpng_1.2.34/h/",
 					"/Developer/Marmalade/6.2/modules/iwutil/h/",
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
 					"/Developer/Marmalade/6.2/s3e/h/",
 					"/Developer/Marmalade/6.2/s3e/h/ext/",
 					"/Developer/Marmalade/6.2/s3e/h/std/",
@@ -1606,12 +1606,12 @@ s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_eng
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/h/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libjpeg_6b/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libpng_1.2.34/h/",
 					"/Developer/Marmalade/6.2/modules/iwutil/h/",
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
 					"/Developer/Marmalade/6.2/s3e/h/",
 					"/Developer/Marmalade/6.2/s3e/h/ext/",
 					"/Developer/Marmalade/6.2/s3e/h/std/",
@@ -1686,12 +1686,12 @@ s3e_plink -o \"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_eng
 					"$(inherited)",
 				);
 				HEADER_SEARCH_PATHS = (
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/h/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libjpeg_6b/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/h/",
 					"/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libpng_1.2.34/h/",
 					"/Developer/Marmalade/6.2/modules/iwutil/h/",
-					"/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
+					"/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/src/",
 					"/Developer/Marmalade/6.2/s3e/h/",
 					"/Developer/Marmalade/6.2/s3e/h/ext/",
 					"/Developer/Marmalade/6.2/s3e/h/std/",

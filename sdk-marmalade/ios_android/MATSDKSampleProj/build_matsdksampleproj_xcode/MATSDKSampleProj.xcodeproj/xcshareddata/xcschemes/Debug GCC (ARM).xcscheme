@@ -43,7 +43,7 @@
       </PathRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-via:&apos;/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Debug ARM.via&apos;"
+            argument = "-via:&apos;/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Debug ARM.via&apos;"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

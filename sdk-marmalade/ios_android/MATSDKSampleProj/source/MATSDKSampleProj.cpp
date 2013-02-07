@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "ExamplesMain.h"
+#include "s3eDevice.h"
 
 //Simple structure to track touches
 struct CTouch
@@ -65,7 +66,21 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
         // testing set delegate
         s3eSetDelegate(true);
         
-        sprintf(g_TouchEventMsg, "`x666666MAT SDK Started %s %s", g_package_name, g_site_id);
+        // set the device id
+        // this is an example of pulling udid from the device
+        // NOTE: this is deprecated as of iOS 5.0
+        // According to Marmalade Notes:
+        // On iOS the device ID is the UDID. UDIDs are deprecated in iOS 5.0 and newer;
+        // apps should use UUIDs (CFUUIDCreate) via the EDK.
+        int32 osInt = s3eDeviceGetInt(S3E_DEVICE_OS);
+        const char* deviceId = 0;
+        if (osInt == S3E_OS_ID_IPHONE) // only set device id on iPhone
+        {
+            deviceId = s3eDeviceGetString(S3E_DEVICE_UNIQUE_ID);
+            s3eSetDeviceId(deviceId);
+        }
+        
+        sprintf(g_TouchEventMsg, "`x666666MAT SDK Started %s %s %s", g_package_name, g_site_id, deviceId);
     }
     if (isPointInButton(event, showParmsBtn))
     {

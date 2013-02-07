@@ -4,9 +4,9 @@
 # tool during the build process.
 
 config = {}
-cmdline = ['/Developer/Marmalade/6.2/s3e/makefile_builder/mkb.py', '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/MATSDKSampleProj.mkb', '--arm', '--debug', '--deploy=android', '--verbose=2', '--deploy-only']
-mkb = '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/MATSDKSampleProj.mkb'
-mkf = ['/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/s3eMATSDK.mkf', '/Developer/Marmalade/6.2/modules/iwutil/iwutil.mkf', u'/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libjpeg_6b/libjpeg.mkf', u'/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libpng_1.2.34/libpng.mkf', u'/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/zlib.mkf', '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/ExamplesMain.mkf']
+cmdline = ['/Developer/Marmalade/6.2/s3e/makefile_builder/mkb.py', '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/MATSDKSampleProj.mkb', '--arm', '--debug', '--deploy=android', '--verbose=2', '--deploy-only']
+mkb = '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/MATSDKSampleProj.mkb'
+mkf = ['/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/s3eMATSDK.mkf', '/Developer/Marmalade/6.2/modules/iwutil/iwutil.mkf', u'/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libjpeg_6b/libjpeg.mkf', u'/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/libpng_1.2.34/libpng.mkf', u'/Users/davidloewenthal/.local/share/marmalade/packages/6.2.0/zlib_1.2.4/zlib.mkf', '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/ExamplesMain/ExamplesMain.mkf']
 
 class DeployConfig(object):
     pass
@@ -16,8 +16,8 @@ class DeployConfig(object):
 assets = {}
 
 assets['Default'] = [
-    ('/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw', 'logo.raw', 0),
-    ('/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg', 'splash.jpg', 0),
+    ('/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/logo.raw', 'logo.raw', 0),
+    ('/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/splash.jpg', 'splash.jpg', 0),
 ]
 
 ######### DEFAULT CONFIG #############
@@ -30,33 +30,33 @@ class DefaultConfig(DeployConfig):
     caption = 'MATSDKSampleProj'
     long_caption = 'MATSDKSampleProj'
     version = [0, 0, 1]
-    config = ['/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf']
-    data_dir = '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/data'
+    config = ['/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data/app.icf']
+    data_dir = '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/data'
     iphone_link_lib = []
     linux_ext_lib = []
-    iphone_provisioning_profile = '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/Marmalade_dev_profile.mobileprovision'
+    iphone_provisioning_profile = '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/Marmalade_dev_profile.mobileprovision'
     iphone_link_libdir = []
-    android_manifest = '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/AndroidManifest.xml'
+    android_manifest = '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/AndroidManifest.xml'
     iphone_link_opts = ['-framework SystemConfiguration -framework AdSupport -framework CoreTelephony -framework MobileCoreServices ']
     osx_ext_dll = []
     iphone_appid = '2GLFC47AY5.com.hasoffers.marmaladeTestApp'
-    android_external_jars = ['/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/lib/android/libMATSDK/MobileAppTracker.jar', '/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/lib/android/s3eMATSDK.jar']
+    android_external_jars = ['/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/lib/android/libMATSDK/MobileAppTracker.jar', '/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/lib/android/s3eMATSDK.jar']
     android_external_res = []
     android_supports_gl_texture = []
     android_extra_manifest = []
-    iphone_link_libdirs = ['/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/lib/iphone']
+    iphone_link_libdirs = ['/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/lib/iphone']
     android_extra_application_manifest = []
     win32_ext_dll = []
-    android_so = ['/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/lib/android/libs3eMATSDK.so']
+    android_so = ['/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/s3eMATSDK/lib/android/libs3eMATSDK.so']
     iphone_link_libs = ['s3eMATSDK ']
     target = {
          'x86' : {
-                   'debug'   : r'/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Debug/MATSDKSampleProj.s86',
-                   'release' : r'/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Release/MATSDKSampleProj.s86',
+                   'debug'   : r'/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Debug/MATSDKSampleProj.s86',
+                   'release' : r'/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Release/MATSDKSampleProj.s86',
                  },
          'arm_gcc' : {
-                   'debug'   : r'/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Debug ARM/MATSDKSampleProj.s3e',
-                   'release' : r'/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Release ARM/MATSDKSampleProj.s3e',
+                   'debug'   : r'/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Debug ARM/MATSDKSampleProj.s3e',
+                   'release' : r'/Users/davidloewenthal/Projects/HasOffers/sdk-plugins/sdk-marmalade/ios_android/MATSDKSampleProj/build_matsdksampleproj_xcode/build/Release ARM/MATSDKSampleProj.s3e',
                  },
         }
     assets = assets['Default']
