@@ -32,42 +32,39 @@ class s3eMATSDK
 {
     MobileAppTracker mat;
     
-    public void s3eStartMobileAppTracker(String adId, String adKey)
+    public void MATStartMobileAppTracker(String adId, String adKey)
     {
-        // Todo: need a setpackagename s3e method
         mat = new MobileAppTracker(LoaderAPI.getActivity(), adId, adKey);
     }
-    public void s3eSDKParameters()
+    public void MATSDKParameters()
     {
         // no android equivalant in the mat sdk
     }
-    public void s3eTrackInstall()
+    public void MATTrackInstall()
     {
-        mat.setDebugMode(true);
         mat.trackInstall();
     }
-    public void s3eTrackUpdate()
+    public void MATTrackUpdate()
     {
-        mat.setDebugMode(true);
         mat.trackUpdate();
     }
-    public void s3eTrackInstallWithReferenceId(String refId)
+    public void MATTrackInstallWithReferenceId(String refId)
     {
         mat.setRefId(refId);
         mat.trackInstall();
     }
-    public void s3eTrackActionForEventIdOrName(String eventIdOrName, boolean isId, String refId)
+    public void MATTrackActionForEventIdOrName(String eventIdOrName, boolean isId, String refId)
     {
         mat.setRefId(refId);
         mat.trackAction(eventIdOrName);
     }
     
     // items is one or more event item hash maps
-    public void s3eTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List items, String refId, double revenueAmount, String currencyCode, int transactionState)
+    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List items, String refId, double revenueAmount, String currencyCode, int transactionState)
     {
-        Log.d("s3eMATSDK", "in java method " + eventIdOrName);
+        Log.d("MATSDK", "in java method " + eventIdOrName);
         
-        Log.d("s3eMATSDK", "List = " + items);
+        Log.d("MATSDK", "List = " + items);
     
         mat.setCurrencyCode(currencyCode);
         mat.setRefId(refId);
@@ -75,115 +72,115 @@ class s3eMATSDK
         mat.trackAction(eventIdOrName, items);
     }
     
-    public void s3eTrackAction(String eventIdOrName, boolean isId, double revenueAmount, String currencyCode)
+    public void MATTrackAction(String eventIdOrName, boolean isId, double revenueAmount, String currencyCode)
     {
-        Log.d("s3eMATSDK", "in java method " + eventIdOrName);
+        Log.d("MATSDK", "in java method " + eventIdOrName);
         mat.setCurrencyCode(currencyCode);
         mat.setRevenue(revenueAmount);
         mat.trackAction(eventIdOrName);
     }
     
-    public void s3eStartAppToAppTracking(String targetAppId, String advertiserId, String offerId, String publisherId, boolean shouldRedirect)
+    public void MATStartAppToAppTracking(String targetAppId, String advertiserId, String offerId, String publisherId, boolean shouldRedirect)
     {
         mat.setTracking(advertiserId, targetAppId, publisherId, offerId, shouldRedirect);
     }
     
-    public void s3eSetPackageName(String packageName)
+    public void MATSetPackageName(String packageName)
     {
         mat.setPackageName(packageName);
     }
     
-    public void s3eSetCurrencyCode(String currencyCode)
+    public void MATSetCurrencyCode(String currencyCode)
     {
         mat.setCurrencyCode(currencyCode);
     }
     
-    public void s3eSetDeviceId(String deviceId)
+    public void MATSetDeviceId(String deviceId)
     {
         // not available in android
     }
     
-    public void s3eSetOpenUDID(String openUDID)
+    public void MATSetOpenUDID(String openUDID)
     {
         // not implemented in android
     }
     
-    public void s3eSetUserId(String userId)
+    public void MATSetUserId(String userId)
     {
         mat.setUserId(userId);
     }
     
-    public void s3eSetRevenue(double revenue)
+    public void MATSetRevenue(double revenue)
     {
         mat.setRevenue(revenue);
     }
     
-    public void s3eSetSiteId(String siteId)
+    public void MATSetSiteId(String siteId)
     {
         mat.setSiteId(siteId);
     }
     
-    public void s3eSetTRUSTeId(String tpid)
+    public void MATSetTRUSTeId(String tpid)
     {
         mat.setTRUSTeId(tpid);
     }
     
-    public void s3eSetDebugResponse(boolean shouldDebug)
+    public void MATSetDebugResponse(boolean shouldDebug)
     {
         mat.setDebugMode(shouldDebug);
     }
     
-    public void s3eSetAllowDuplicates(boolean allowDuplidates)
+    public void MATSetAllowDuplicates(boolean allowDuplicates)
     {
         // not available in android
     }
     
-    public void s3eSetShouldAutoGenerateMacAddress(boolean shouldAutoGenerate)
+    public void MATSetShouldAutoGenerateMacAddress(boolean shouldAutoGenerate)
     {
         // not available in android
     }
     
-    public void s3eSetShouldAutoGenerateODIN1Key(boolean shouldAutoGenerate)
+    public void MATSetShouldAutoGenerateODIN1Key(boolean shouldAutoGenerate)
     {
         // not available in android
     }
     
-    public void s3eSetShouldAutoGenerateOpenUDIDKey(boolean shouldAutoGenerate)
+    public void MATSetShouldAutoGenerateOpenUDIDKey(boolean shouldAutoGenerate)
     {
         // not available in android
     }
     
-    public void s3eSetShouldAutoGenerateVendorIdentifier(boolean shouldAutoGenerate)
+    public void MATSetShouldAutoGenerateVendorIdentifier(boolean shouldAutoGenerate)
     {
         // not available in android
     }
     
-    public void s3eSetShouldAutoGenerateAdvertiserIdentifier(boolean shouldAutoGenerate)
+    public void MATSetShouldAutoGenerateAdvertiserIdentifier(boolean shouldAutoGenerate)
     {
         // not available in android
     }
     
-    public void s3eSetUseCookieTracking(boolean useCookieTracking)
+    public void MATSetUseCookieTracking(boolean useCookieTracking)
     {
         // not available in android
     }
     
-    public void s3eSetRedirectUrl(String redirectUrl)
+    public void MATSetRedirectUrl(String redirectUrl)
     {
         // not available in android
     }
     
-    public void s3eSetAdvertiserIdentifier(String advertiserId)
+    public void MATSetAdvertiserIdentifier(String advertiserId)
     {
         // not available in android
     }
     
-    public void s3eSetUseHTTPS(boolean useHTTPS)
+    public void MATSetUseHTTPS(boolean useHTTPS)
     {
         // not available in android
     }
     
-    public void s3eSetVendorIdentifier(String vendorId)
+    public void MATSetVendorIdentifier(String vendorId)
     {
         // not available in android
     }

@@ -1,32 +1,58 @@
 Archive member included because of file (symbol)
 
-/Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
-                              release/s3eMATSDK_platform.os (s3eEdkThreadRunOnOS)
+C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                              release\s3eMATSDK_platform.os (s3eEdkThreadRunOnOS)
 
 Discarded input sections
 
+ .text          0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .bss           0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  .note.GNU-stack
-                0x00000000        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  _ZN7_JNIEnv11GetMethodIDEP7_jclassPKcS3_
-                0x00000000        0x0 release/s3eMATSDK_platform.os
+                0x00000000        0x0 release\s3eMATSDK_platform.os
  _ZN7_JNIEnv14CallVoidMethodEP8_jobjectP10_jmethodIDz
-                0x00000000        0x0 release/s3eMATSDK_platform.os
+                0x00000000        0x0 release\s3eMATSDK_platform.os
  _ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
-                0x00000000        0x0 release/s3eMATSDK_platform.os
+                0x00000000        0x0 release\s3eMATSDK_platform.os
  _ZN7_JNIEnv16CallObjectMethodEP8_jobjectP10_jmethodIDz
-                0x00000000        0x0 release/s3eMATSDK_platform.os
+                0x00000000        0x0 release\s3eMATSDK_platform.os
  _ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
-                0x00000000        0x0 release/s3eMATSDK_platform.os
+                0x00000000        0x0 release\s3eMATSDK_platform.os
+ .text          0x00000000        0x0 release\s3eMATSDK_platform.os
+ .data          0x00000000        0x0 release\s3eMATSDK_platform.os
+ .text._Z23MATSetDeviceId_platformPc
+                0x00000000        0x0 release\s3eMATSDK_platform.os
+ .text._Z23MATSetOpenUDID_platformPc
+                0x00000000        0x0 release\s3eMATSDK_platform.os
  .note.GNU-stack
-                0x00000000        0x0 release/s3eMATSDK_platform.os
+                0x00000000        0x0 release\s3eMATSDK_platform.os
+ .text          0x00000000        0x0 release\s3eMATSDK.os
+ .data          0x00000000        0x0 release\s3eMATSDK.os
+ .bss           0x00000000        0x0 release\s3eMATSDK.os
  .note.GNU-stack
-                0x00000000        0x0 release/s3eMATSDK.os
+                0x00000000        0x0 release\s3eMATSDK.os
+ .text          0x00000000        0x0 release\s3eMATSDK_register.os
+ .data          0x00000000        0x0 release\s3eMATSDK_register.os
+ .bss           0x00000000        0x0 release\s3eMATSDK_register.os
+ .text._Z20s3eMATSDKRegisterExtv
+                0x00000000        0x0 release\s3eMATSDK_register.os
  .note.GNU-stack
-                0x00000000        0x0 release/s3eMATSDK_register.os
+                0x00000000        0x0 release\s3eMATSDK_register.os
+ .text          0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text.s3eEdkThreadRunOnOSAsync
+                0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text.s3eEdkErrorSetString
+                0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .note.GNU-stack
-                0x00000000        0x0 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .data          0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .bss           0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  .note.GNU-stack
-                0x00000000        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 Memory Configuration
 
@@ -35,23 +61,23 @@ Name             Origin             Length             Attributes
 
 Linker script and memory map
 
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-LOAD release/s3eMATSDK_platform.os
-LOAD release/s3eMATSDK.os
-LOAD release/s3eMATSDK_register.os
-LOAD /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a
-LOAD /Developer/Marmalade/6.2/s3e/edk/lib/android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/liblog.so
-LOAD /Developer/android-ndk-r8c/sources/cxx-stl/gnu-libstdc++/4.4.3/libs/armeabi/libgnustl_static.a
-LOAD /Developer/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.4.3/libgcc.a
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/libstdc++.so
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/libm.so
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/libc.so
-LOAD /Developer/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.4.3/libgcc.a
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/libc.so
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/libdl.so
-LOAD /Developer/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/darwin-x86/bin/../lib/gcc/arm-linux-androideabi/4.4.3/libgcc.a
-LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+LOAD release\s3eMATSDK_platform.os
+LOAD release\s3eMATSDK.os
+LOAD release\s3eMATSDK_register.os
+LOAD C:\marmalade\6.2\s3e\edk\lib\android\libedk.a
+LOAD C:\marmalade\6.2\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
+LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/liblog.so
+LOAD C:\Users\John\tools\android-ndk-r8c\sources\cxx-stl\gnu-libstdc++\4.4.3\libs\armeabi\libgnustl_static.a
+LOAD c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libstdc++.so
+LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libm.so
+LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libc.so
+LOAD c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libc.so
+LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/libdl.so
+LOAD c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
+LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
                 0x000000d4                . = (0x0 + SIZEOF_HEADERS)
 
 .note.gnu.build-id
@@ -59,34 +85,34 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .hash           0x000000d4       0xa8
  *(.hash)
- .hash          0x000000d4       0xa8 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .hash          0x000000d4       0xa8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .gnu.hash
  *(.gnu.hash)
 
 .dynsym         0x0000017c      0x170
  *(.dynsym)
- .dynsym        0x0000017c      0x170 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .dynsym        0x0000017c      0x170 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.dynstr         0x000002ec      0x166
+.dynstr         0x000002ec      0x13e
  *(.dynstr)
- .dynstr        0x000002ec      0x166 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .dynstr        0x000002ec      0x13e C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.gnu.version    0x00000452        0x0
+.gnu.version    0x0000042a        0x0
  *(.gnu.version)
- .gnu.version   0x00000000        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .gnu.version   0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.gnu.version_d  0x00000454        0x0 load address 0x00000452
+.gnu.version_d  0x0000042c        0x0 load address 0x0000042a
  *(.gnu.version_d)
  .gnu.version_d
-                0x00000000        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.gnu.version_r  0x00000454        0x0 load address 0x00000452
+.gnu.version_r  0x0000042c        0x0 load address 0x0000042a
  *(.gnu.version_r)
  .gnu.version_r
-                0x00000000        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.rel.dyn        0x00000454      0x108
+.rel.dyn        0x0000042c      0x108
  *(.rel.init)
  *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
  *(.rel.fini)
@@ -98,10 +124,10 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(.rel.ctors)
  *(.rel.dtors)
  *(.rel.got)
- .rel.got       0x00000454      0x100 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .rel.got       0x0000042c      0x100 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
  .rel.fini_array
-                0x00000554        0x8 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x0000052c        0x8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .rela.dyn
  *(.rela.init)
@@ -116,9 +142,9 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(.rela.got)
  *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
 
-.rel.plt        0x0000055c       0x48
+.rel.plt        0x00000534       0x30
  *(.rel.plt)
- .rel.plt       0x0000055c       0x48 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .rel.plt       0x00000534       0x30 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .rela.plt
  *(.rela.plt)
@@ -126,113 +152,289 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 .init
  *(.init)
 
-.plt            0x000005a4       0x80
+.plt            0x00000564       0x5c
  *(.plt)
- .plt           0x000005a4       0x80 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .plt           0x00000564       0x5c C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.text           0x00000624     0x20b0
+.text           0x000005c0     0x1cb8
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x00000624       0x14 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00000624                atexit
- .text.exit     0x00000638       0x10 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00000638                __on_dlclose
- .text          0x00000648     0x1418 release/s3eMATSDK_platform.os
-                0x00000654                _Z23s3eSetDelegate_platformb
-                0x00000d10                _Z25s3eSDKParameters_platformv
-                0x00001090                _Z23s3eSetOpenUDID_platformPKc
-                0x00000e70                _Z23s3eSetTRUSTeId_platformPKc
-                0x0000066c                _Z41s3eSetShouldAutoGenerateODIN1Key_platformb
-                0x00001118                _Z26s3eSetPackageName_platformPKc
-                0x00000d60                _Z23s3eSetDeviceId_platformPKc
-                0x00000c70                _Z23s3eTrackUpdate_platformv
-                0x00000680                _Z23s3eSetUseHTTPS_platformb
-                0x00000650                _Z30s3eSetAllowDuplicates_platformb
-                0x00001328                _Z39s3eTrackActionForEventIdOrName_platformPKcbS0_
-                0x00001008                _Z27s3eSetCurrencyCode_platformPKc
-                0x0000067c                _Z32s3eSetUseCookieTracking_platformb
-                0x00000ef8                _Z21s3eSetSiteId_platformPKc
-                0x00000f80                _Z21s3eSetUserId_platformPKc
-                0x00000684                _Z44s3eTrackActionForEventIdOrNameItems_platformPKcbPK11s3eMATArrayS0_dS0_h
-                0x00000660                _Z26s3eSetRedirectUrl_platformPKc
-                0x0000125c                _Z23s3eTrackAction_platformPKcbdS0_
-                0x000015d0                _Z22s3eMATSDKInit_platformv
-                0x00000bbc                _Z28s3eSetDebugResponse_platformb
-                0x0000065c                _Z23s3eSetOpenUDID_platformPc
-                0x00000670                _Z44s3eSetShouldAutoGenerateOpenUDIDKey_platformb
-                0x000011a0                _Z33s3eStartMobileAppTracker_platformPKcS0_
-                0x00000674                _Z49s3eSetShouldAutoGenerateVendorIdentifier_platformb
-                0x00000648                _Z27s3eMATSDKTerminate_platformv
-                0x00000de8                _Z39s3eTrackInstallWithReferenceId_platformPKc
-                0x0000064c                _Z35s3eSetAdvertiserIdentifier_platformPKc
-                0x00000678                _Z31s3eSetVendorIdentifier_platformPKc
-                0x00000cc0                _Z24s3eTrackInstall_platformv
-                0x000014a4                _Z33s3eStartAppToAppTracking_platformPKcS0_S0_S0_b
-                0x00000c14                _Z22s3eSetRevenue_platformd
-                0x00000668                _Z43s3eSetShouldAutoGenerateMacAddress_platformb
-                0x00000658                _Z23s3eSetDeviceId_platformPc
-                0x00000664                _Z53s3eSetShouldAutoGenerateAdvertiserIdentifier_platformb
+ .text.exit     0x000005c0       0x10 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x000005c0                __on_dlclose
  .text._ZN7_JNIEnv11GetMethodIDEP7_jclassPKcS3_
-                0x00001a60       0x14 release/s3eMATSDK_platform.os
-                0x00001a60                _ZN7_JNIEnv11GetMethodIDEP7_jclassPKcS3_
+                0x000005d0       0x14 release\s3eMATSDK_platform.os
+                0x000005d0                _JNIEnv::GetMethodID(_jclass*, char const*, char const*)
+ .text._Z24MATSDKTerminate_platformv
+                0x000005e4        0x4 release\s3eMATSDK_platform.os
+                0x000005e4                MATSDKTerminate_platform()
+ .text._Z35MATSetAdvertiserIdentifier_platformPKc
+                0x000005e8        0x4 release\s3eMATSDK_platform.os
+                0x000005e8                MATSetAdvertiserIdentifier_platform(char const*)
+ .text._Z30MATSetAllowDuplicates_platformb
+                0x000005ec        0x4 release\s3eMATSDK_platform.os
+                0x000005ec                MATSetAllowDuplicates_platform(bool)
+ .text._Z23MATSetDelegate_platformb
+                0x000005f0        0x4 release\s3eMATSDK_platform.os
+                0x000005f0                MATSetDelegate_platform(bool)
+ .text._Z26MATSetRedirectUrl_platformPKc
+                0x000005f4        0x4 release\s3eMATSDK_platform.os
+                0x000005f4                MATSetRedirectUrl_platform(char const*)
+ .text._Z53MATSetShouldAutoGenerateAdvertiserIdentifier_platformb
+                0x000005f8        0x4 release\s3eMATSDK_platform.os
+                0x000005f8                MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool)
+ .text._Z43MATSetShouldAutoGenerateMacAddress_platformb
+                0x000005fc        0x4 release\s3eMATSDK_platform.os
+                0x000005fc                MATSetShouldAutoGenerateMacAddress_platform(bool)
+ .text._Z41MATSetShouldAutoGenerateODIN1Key_platformb
+                0x00000600        0x4 release\s3eMATSDK_platform.os
+                0x00000600                MATSetShouldAutoGenerateODIN1Key_platform(bool)
+ .text._Z44MATSetShouldAutoGenerateOpenUDIDKey_platformb
+                0x00000604        0x4 release\s3eMATSDK_platform.os
+                0x00000604                MATSetShouldAutoGenerateOpenUDIDKey_platform(bool)
+ .text._Z49MATSetShouldAutoGenerateVendorIdentifier_platformb
+                0x00000608        0x4 release\s3eMATSDK_platform.os
+                0x00000608                MATSetShouldAutoGenerateVendorIdentifier_platform(bool)
+ .text._Z31MATSetVendorIdentifier_platformPKc
+                0x0000060c        0x4 release\s3eMATSDK_platform.os
+                0x0000060c                MATSetVendorIdentifier_platform(char const*)
+ .text._Z32MATSetUseCookieTracking_platformb
+                0x00000610        0x4 release\s3eMATSDK_platform.os
+                0x00000610                MATSetUseCookieTracking_platform(bool)
+ .text._Z23MATSetUseHTTPS_platformb
+                0x00000614        0x4 release\s3eMATSDK_platform.os
+                0x00000614                MATSetUseHTTPS_platform(bool)
  .text._ZN7_JNIEnv14CallVoidMethodEP8_jobjectP10_jmethodIDz
-                0x00001a74       0x34 release/s3eMATSDK_platform.os
-                0x00001a74                _ZN7_JNIEnv14CallVoidMethodEP8_jobjectP10_jmethodIDz
+                0x00000618       0x34 release\s3eMATSDK_platform.os
+                0x00000618                _JNIEnv::CallVoidMethod(_jobject*, _jmethodID*, ...)
  .text._ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
-                0x00001aa8       0x34 release/s3eMATSDK_platform.os
-                0x00001aa8                _ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
+                0x0000064c       0x34 release\s3eMATSDK_platform.os
+                0x0000064c                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
  .text._ZN7_JNIEnv16CallObjectMethodEP8_jobjectP10_jmethodIDz
-                0x00001adc       0x34 release/s3eMATSDK_platform.os
-                0x00001adc                _ZN7_JNIEnv16CallObjectMethodEP8_jobjectP10_jmethodIDz
+                0x00000680       0x34 release\s3eMATSDK_platform.os
+                0x00000680                _JNIEnv::CallObjectMethod(_jobject*, _jmethodID*, ...)
  .text._ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
-                0x00001b10       0x34 release/s3eMATSDK_platform.os
-                0x00001b10                _ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
- .text          0x00001b44       0x9c release/s3eMATSDK.os
-                0x00001b54                s3eSetUseCookieTracking
-                0x00001b44                s3eSetUseHTTPS
-                0x00001b64                s3eSetShouldAutoGenerateODIN1Key
-                0x00001b84                s3eSetUserId
-                0x00001b8c                s3eSetDeviceId
-                0x00001ba8                s3eTrackActionForEventIdOrNameItems
-                0x00001b74                s3eSetDelegate
-                0x00001bc4                s3eTrackInstallWithReferenceId
-                0x00001b94                s3eSetPackageName
-                0x00001b5c                s3eSetShouldAutoGenerateVendorIdentifier
-                0x00001bcc                s3eTrackInstall
-                0x00001b68                s3eSetShouldAutoGenerateMacAddress
-                0x00001b4c                s3eSetAdvertiserIdentifier
-                0x00001bdc                _Z13s3eMATSDKInitv
-                0x00001b48                s3eSetVendorIdentifier
-                0x00001b6c                s3eSetAllowDuplicates
-                0x00001b98                s3eStartAppToAppTracking
-                0x00001b58                s3eSetShouldAutoGenerateAdvertiserIdentifier
-                0x00001b70                s3eSetDebugResponse
-                0x00001ba4                s3eTrackAction
-                0x00001b50                s3eSetRedirectUrl
-                0x00001bc8                s3eTrackUpdate
-                0x00001b88                s3eSetOpenUDID
-                0x00001b80                s3eSetRevenue
-                0x00001b78                s3eSetTRUSTeId
-                0x00001b90                s3eSetCurrencyCode
-                0x00001b60                s3eSetShouldAutoGenerateOpenUDIDKey
-                0x00001b7c                s3eSetSiteId
-                0x00001bd4                s3eStartMobileAppTracker
-                0x00001bc0                s3eTrackActionForEventIdOrName
-                0x00001bd0                s3eSDKParameters
-                0x00001bd8                _Z18s3eMATSDKTerminatev
- .text          0x00001be0      0xa64 release/s3eMATSDK_register.os
-                0x00001be0                _Z20s3eMATSDKRegisterExtv
-                0x000022c8                RegisterExt
- .text          0x00002644        0x0 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
- .text.s3eEdkThreadRunOnOSAsync
-                0x00002644       0x30 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
-                0x00002644                s3eEdkThreadRunOnOSAsync
+                0x000006b4       0x34 release\s3eMATSDK_platform.os
+                0x000006b4                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
+ .text._Z44MATTrackActionForEventIdOrNameItems_platformPKcbPK8MATArrayS0_dS0_h
+                0x000006e8      0x538 release\s3eMATSDK_platform.os
+                0x000006e8                MATTrackActionForEventIdOrNameItems_platform(char const*, bool, MATArray const*, char const*, double, char const*, unsigned char)
+ .text._Z28MATSetDebugResponse_platformb
+                0x00000c20       0x58 release\s3eMATSDK_platform.os
+                0x00000c20                MATSetDebugResponse_platform(bool)
+ .text._Z22MATSetRevenue_platformd
+                0x00000c78       0x5c release\s3eMATSDK_platform.os
+                0x00000c78                MATSetRevenue_platform(double)
+ .text._Z23MATTrackUpdate_platformv
+                0x00000cd4       0x50 release\s3eMATSDK_platform.os
+                0x00000cd4                MATTrackUpdate_platform()
+ .text._Z24MATTrackInstall_platformv
+                0x00000d24       0x50 release\s3eMATSDK_platform.os
+                0x00000d24                MATTrackInstall_platform()
+ .text._Z25MATSDKParameters_platformv
+                0x00000d74       0x50 release\s3eMATSDK_platform.os
+                0x00000d74                MATSDKParameters_platform()
+ .text._Z23MATSetDeviceId_platformPKc
+                0x00000dc4       0x88 release\s3eMATSDK_platform.os
+                0x00000dc4                MATSetDeviceId_platform(char const*)
+ .text._Z39MATTrackInstallWithReferenceId_platformPKc
+                0x00000e4c       0x88 release\s3eMATSDK_platform.os
+                0x00000e4c                MATTrackInstallWithReferenceId_platform(char const*)
+ .text._Z23MATSetTRUSTeId_platformPKc
+                0x00000ed4       0x88 release\s3eMATSDK_platform.os
+                0x00000ed4                MATSetTRUSTeId_platform(char const*)
+ .text._Z21MATSetSiteId_platformPKc
+                0x00000f5c       0x88 release\s3eMATSDK_platform.os
+                0x00000f5c                MATSetSiteId_platform(char const*)
+ .text._Z21MATSetUserId_platformPKc
+                0x00000fe4       0x88 release\s3eMATSDK_platform.os
+                0x00000fe4                MATSetUserId_platform(char const*)
+ .text._Z27MATSetCurrencyCode_platformPKc
+                0x0000106c       0x88 release\s3eMATSDK_platform.os
+                0x0000106c                MATSetCurrencyCode_platform(char const*)
+ .text._Z23MATSetOpenUDID_platformPKc
+                0x000010f4       0x88 release\s3eMATSDK_platform.os
+                0x000010f4                MATSetOpenUDID_platform(char const*)
+ .text._Z26MATSetPackageName_platformPKc
+                0x0000117c       0x88 release\s3eMATSDK_platform.os
+                0x0000117c                MATSetPackageName_platform(char const*)
+ .text._Z33MATStartMobileAppTracker_platformPKcS0_
+                0x00001204       0xbc release\s3eMATSDK_platform.os
+                0x00001204                MATStartMobileAppTracker_platform(char const*, char const*)
+ .text._Z23MATTrackAction_platformPKcbdS0_
+                0x000012c0       0xcc release\s3eMATSDK_platform.os
+                0x000012c0                MATTrackAction_platform(char const*, bool, double, char const*)
+ .text._Z39MATTrackActionForEventIdOrName_platformPKcbS0_
+                0x0000138c       0xc4 release\s3eMATSDK_platform.os
+                0x0000138c                MATTrackActionForEventIdOrName_platform(char const*, bool, char const*)
+ .text._ZL27s3eEdkAndroidFindClass_realPKc
+                0x00001450       0xb8 release\s3eMATSDK_platform.os
+ .text._Z33MATStartAppToAppTracking_platformPKcS0_S0_S0_b
+                0x00001508      0x12c release\s3eMATSDK_platform.os
+                0x00001508                MATStartAppToAppTracking_platform(char const*, char const*, char const*, char const*, bool)
+ .text._Z19MATSDKInit_platformv
+                0x00001634      0x490 release\s3eMATSDK_platform.os
+                0x00001634                MATSDKInit_platform()
+ .text.MATSetUseHTTPS
+                0x00001ac4        0x4 release\s3eMATSDK.os
+                0x00001ac4                MATSetUseHTTPS
+ .text.MATSetVendorIdentifier
+                0x00001ac8        0x4 release\s3eMATSDK.os
+                0x00001ac8                MATSetVendorIdentifier
+ .text.MATSetAdvertiserIdentifier
+                0x00001acc        0x4 release\s3eMATSDK.os
+                0x00001acc                MATSetAdvertiserIdentifier
+ .text.MATSetRedirectUrl
+                0x00001ad0        0x4 release\s3eMATSDK.os
+                0x00001ad0                MATSetRedirectUrl
+ .text.MATSetUseCookieTracking
+                0x00001ad4        0x4 release\s3eMATSDK.os
+                0x00001ad4                MATSetUseCookieTracking
+ .text.MATSetShouldAutoGenerateAdvertiserIdentifier
+                0x00001ad8        0x4 release\s3eMATSDK.os
+                0x00001ad8                MATSetShouldAutoGenerateAdvertiserIdentifier
+ .text.MATSetShouldAutoGenerateVendorIdentifier
+                0x00001adc        0x4 release\s3eMATSDK.os
+                0x00001adc                MATSetShouldAutoGenerateVendorIdentifier
+ .text.MATSetShouldAutoGenerateOpenUDIDKey
+                0x00001ae0        0x4 release\s3eMATSDK.os
+                0x00001ae0                MATSetShouldAutoGenerateOpenUDIDKey
+ .text.MATSetShouldAutoGenerateODIN1Key
+                0x00001ae4        0x4 release\s3eMATSDK.os
+                0x00001ae4                MATSetShouldAutoGenerateODIN1Key
+ .text.MATSetShouldAutoGenerateMacAddress
+                0x00001ae8        0x4 release\s3eMATSDK.os
+                0x00001ae8                MATSetShouldAutoGenerateMacAddress
+ .text.MATSetAllowDuplicates
+                0x00001aec        0x4 release\s3eMATSDK.os
+                0x00001aec                MATSetAllowDuplicates
+ .text.MATSetDebugResponse
+                0x00001af0        0x4 release\s3eMATSDK.os
+                0x00001af0                MATSetDebugResponse
+ .text.MATSetDelegate
+                0x00001af4        0x4 release\s3eMATSDK.os
+                0x00001af4                MATSetDelegate
+ .text.MATSetTRUSTeId
+                0x00001af8        0x4 release\s3eMATSDK.os
+                0x00001af8                MATSetTRUSTeId
+ .text.MATSetSiteId
+                0x00001afc        0x4 release\s3eMATSDK.os
+                0x00001afc                MATSetSiteId
+ .text.MATSetRevenue
+                0x00001b00        0x4 release\s3eMATSDK.os
+                0x00001b00                MATSetRevenue
+ .text.MATSetUserId
+                0x00001b04        0x4 release\s3eMATSDK.os
+                0x00001b04                MATSetUserId
+ .text.MATSetOpenUDID
+                0x00001b08        0x4 release\s3eMATSDK.os
+                0x00001b08                MATSetOpenUDID
+ .text.MATSetDeviceId
+                0x00001b0c        0x4 release\s3eMATSDK.os
+                0x00001b0c                MATSetDeviceId
+ .text.MATSetCurrencyCode
+                0x00001b10        0x4 release\s3eMATSDK.os
+                0x00001b10                MATSetCurrencyCode
+ .text.MATSetPackageName
+                0x00001b14        0x4 release\s3eMATSDK.os
+                0x00001b14                MATSetPackageName
+ .text.MATStartAppToAppTracking
+                0x00001b18        0xc release\s3eMATSDK.os
+                0x00001b18                MATStartAppToAppTracking
+ .text.MATTrackAction
+                0x00001b24        0x4 release\s3eMATSDK.os
+                0x00001b24                MATTrackAction
+ .text.MATTrackActionForEventIdOrNameItems
+                0x00001b28       0x18 release\s3eMATSDK.os
+                0x00001b28                MATTrackActionForEventIdOrNameItems
+ .text.MATTrackActionForEventIdOrName
+                0x00001b40        0x4 release\s3eMATSDK.os
+                0x00001b40                MATTrackActionForEventIdOrName
+ .text.MATTrackInstallWithReferenceId
+                0x00001b44        0x4 release\s3eMATSDK.os
+                0x00001b44                MATTrackInstallWithReferenceId
+ .text.MATTrackUpdate
+                0x00001b48        0x4 release\s3eMATSDK.os
+                0x00001b48                MATTrackUpdate
+ .text.MATTrackInstall
+                0x00001b4c        0x4 release\s3eMATSDK.os
+                0x00001b4c                MATTrackInstall
+ .text.MATSDKParameters
+                0x00001b50        0x4 release\s3eMATSDK.os
+                0x00001b50                MATSDKParameters
+ .text.MATStartMobileAppTracker
+                0x00001b54        0x4 release\s3eMATSDK.os
+                0x00001b54                MATStartMobileAppTracker
+ .text._Z18s3eMATSDKTerminatev
+                0x00001b58        0x4 release\s3eMATSDK.os
+                0x00001b58                s3eMATSDKTerminate()
+ .text._Z13s3eMATSDKInitv
+                0x00001b5c        0x4 release\s3eMATSDK.os
+                0x00001b5c                s3eMATSDKInit()
+ .text._ZL24MATSetDebugResponse_wrapb
+                0x00001b60       0x18 release\s3eMATSDK_register.os
+ .text._ZL27MATSetVendorIdentifier_wrapPKc
+                0x00001b78       0x18 release\s3eMATSDK_register.os
+ .text._ZL31MATSetAdvertiserIdentifier_wrapPKc
+                0x00001b90       0x18 release\s3eMATSDK_register.os
+ .text._ZL22MATSetRedirectUrl_wrapPKc
+                0x00001ba8       0x18 release\s3eMATSDK_register.os
+ .text._ZL28MATSetUseCookieTracking_wrapb
+                0x00001bc0       0x18 release\s3eMATSDK_register.os
+ .text._ZL49MATSetShouldAutoGenerateAdvertiserIdentifier_wrapb
+                0x00001bd8       0x18 release\s3eMATSDK_register.os
+ .text._ZL45MATSetShouldAutoGenerateVendorIdentifier_wrapb
+                0x00001bf0       0x18 release\s3eMATSDK_register.os
+ .text._ZL40MATSetShouldAutoGenerateOpenUDIDKey_wrapb
+                0x00001c08       0x18 release\s3eMATSDK_register.os
+ .text._ZL37MATSetShouldAutoGenerateODIN1Key_wrapb
+                0x00001c20       0x18 release\s3eMATSDK_register.os
+ .text._ZL39MATSetShouldAutoGenerateMacAddress_wrapb
+                0x00001c38       0x18 release\s3eMATSDK_register.os
+ .text._ZL26MATSetAllowDuplicates_wrapb
+                0x00001c50       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetUseHTTPS_wrapb
+                0x00001c68       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetDelegate_wrapb
+                0x00001c80       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetTRUSTeId_wrapPKc
+                0x00001c98       0x18 release\s3eMATSDK_register.os
+ .text._ZL17MATSetSiteId_wrapPKc
+                0x00001cb0       0x18 release\s3eMATSDK_register.os
+ .text._ZL18MATSetRevenue_wrapd
+                0x00001cc8       0x1c release\s3eMATSDK_register.os
+ .text._ZL17MATSetUserId_wrapPKc
+                0x00001ce4       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetOpenUDID_wrapPKc
+                0x00001cfc       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetDeviceId_wrapPKc
+                0x00001d14       0x18 release\s3eMATSDK_register.os
+ .text._ZL23MATSetCurrencyCode_wrapPKc
+                0x00001d2c       0x18 release\s3eMATSDK_register.os
+ .text._ZL22MATSetPackageName_wrapPKc
+                0x00001d44       0x18 release\s3eMATSDK_register.os
+ .text._ZL29MATStartAppToAppTracking_wrapPKcS0_S0_S0_b
+                0x00001d5c       0x40 release\s3eMATSDK_register.os
+ .text._ZL19MATTrackAction_wrapPKcbdS0_
+                0x00001d9c       0x3c release\s3eMATSDK_register.os
+ .text._ZL40MATTrackActionForEventIdOrNameItems_wrapPKcbPK8MATArrayS0_dS0_h
+                0x00001dd8       0x50 release\s3eMATSDK_register.os
+ .text._ZL35MATTrackActionForEventIdOrName_wrapPKcbS0_
+                0x00001e28       0x34 release\s3eMATSDK_register.os
+ .text._ZL35MATTrackInstallWithReferenceId_wrapPKc
+                0x00001e5c       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATTrackUpdate_wrapv
+                0x00001e74       0x14 release\s3eMATSDK_register.os
+ .text._ZL20MATTrackInstall_wrapv
+                0x00001e88       0x14 release\s3eMATSDK_register.os
+ .text._ZL21MATSDKParameters_wrapv
+                0x00001e9c       0x14 release\s3eMATSDK_register.os
+ .text._ZL29MATStartMobileAppTracker_wrapPKcS0_
+                0x00001eb0       0x1c release\s3eMATSDK_register.os
+ .text.RegisterExt
+                0x00001ecc      0x37c release\s3eMATSDK_register.os
+                0x00001ecc                RegisterExt
  .text.s3eEdkThreadRunOnOS
-                0x00002674       0x30 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
-                0x00002674                s3eEdkThreadRunOnOS
- .text.s3eEdkErrorSetString
-                0x000026a4       0x30 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
-                0x000026a4                s3eEdkErrorSetString
- .text          0x000026d4        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x00002248       0x30 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00002248                s3eEdkThreadRunOnOS
  *(.gnu.warning)
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
@@ -245,27 +447,27 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .fini
  *(.fini)
-                0x000026d4                PROVIDE (__etext, .)
-                0x000026d4                PROVIDE (_etext, .)
-                0x000026d4                PROVIDE (etext, .)
+                0x00002278                PROVIDE (__etext, .)
+                0x00002278                PROVIDE (_etext, .)
+                0x00002278                PROVIDE (etext, .)
 
-.rodata         0x000026d4      0x390
+.rodata         0x00002278      0x390
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x000026d4      0x390 release/s3eMATSDK_platform.os
+                0x00002278      0x390 release\s3eMATSDK_platform.os
  .rodata.str1.4
-                0x00000000        0xc release/s3eMATSDK_register.os
+                0x00000000        0xc release\s3eMATSDK_register.os
 
 .rodata1
  *(.rodata1)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00002a64                __exidx_start = .
+                0x00002608                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00002a64                __exidx_end = .
+                0x00002608                __exidx_end = .
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -275,8 +477,8 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x00002a64                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x00003e4c                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
+                0x00002608                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00003e78                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -294,15 +496,15 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 .preinit_array
  *(.preinit_array)
 
-.init_array     0x00003e4c        0x4
+.init_array     0x00003e78        0x4
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00003e4c        0x4 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .init_array    0x00003e78        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
-.fini_array     0x00003e50        0x8
+.fini_array     0x00003e7c        0x8
  *(.fini_array)
- .fini_array    0x00003e50        0x4 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .fini_array    0x00003e54        0x4 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .fini_array    0x00003e7c        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .fini_array    0x00003e80        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(SORT(.fini_array.*))
 
 .ctors
@@ -326,29 +528,24 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x00003e58       0xf8
+.dynamic        0x00003e84       0xd8
  *(.dynamic)
- .dynamic       0x00003e58       0xf8 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00003e58                _DYNAMIC
+ .dynamic       0x00003e84       0xd8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00003e84                _DYNAMIC
 
-.got            0x00003f50       0xb0
+.got            0x00003f5c       0xa4
  *(.got.plt)
- .got.plt       0x00003f50       0x30 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00003f50                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x00003f5c       0x24 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00003f5c                _GLOBAL_OFFSET_TABLE_
  *(.got)
- .got           0x00003f80       0x80 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .got           0x00003f80       0x80 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
                 0x00004000                . = (. DATA_SEGMENT_RELRO_END 0x0)
 
 .data           0x00004000        0x4
                 0x00004000                __data_start = .
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00004000        0x4 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .data          0x00004000        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
                 0x00004000                __dso_handle
- .data          0x00004004        0x0 release/s3eMATSDK_platform.os
- .data          0x00004004        0x0 release/s3eMATSDK.os
- .data          0x00004004        0x0 release/s3eMATSDK_register.os
- .data          0x00004004        0x0 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
- .data          0x00004004        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .data1
  *(.data1)
@@ -359,14 +556,9 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .bss            0x00004004       0x4c
  *(.dynbss)
- .dynbss        0x00000000        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .dynbss        0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x00004004        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .bss           0x00004004       0x4c release/s3eMATSDK_platform.os
- .bss           0x00004050        0x0 release/s3eMATSDK.os
- .bss           0x00004050        0x0 release/s3eMATSDK_register.os
- .bss           0x00004050        0x0 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
- .bss           0x00004050        0x0 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .bss           0x00004004       0x4c release\s3eMATSDK_platform.os
  *(COMMON)
                 0x00004050                . = ALIGN ((. != 0x0)?0x4:0x1)
                 0x00004050                _bss_end__ = .
@@ -398,12 +590,12 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
 .comment        0x00000000       0x6d
  *(.comment)
- .comment       0x00000000       0x25 /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .comment       0x00000000       0x25 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
                                  0x26 (size before relaxing)
- .comment       0x00000025       0x12 release/s3eMATSDK_platform.os
- .comment       0x00000037       0x12 release/s3eMATSDK.os
- .comment       0x00000049       0x12 release/s3eMATSDK_register.os
- .comment       0x0000005b       0x12 /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
+ .comment       0x00000025       0x12 release\s3eMATSDK_platform.os
+ .comment       0x00000037       0x12 release\s3eMATSDK.os
+ .comment       0x00000049       0x12 release\s3eMATSDK_register.os
+ .comment       0x0000005b       0x12 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
 
 .debug
  *(.debug)
@@ -471,19 +663,19 @@ LOAD /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 /DISCARD/
  *(.note.GNU-stack)
  *(.gnu_debuglink)
-OUTPUT(/Users/davidloewenthal/Projects/HasOffers/HO_API/api/tracking_engine/sdk-marmalade/ios_android/s3eMATSDK/lib/android/libs3eMATSDK.so elf32-littlearm)
+OUTPUT(C:\Users\John\Documents\GitHub\sdk-plugins\sdk-marmalade\ios_android\s3eMATSDK\lib\android\libs3eMATSDK.so elf32-littlearm)
 
 .ARM.attributes
                 0x00000000       0x31
  .ARM.attributes
-                0x00000000       0x2d /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00000000       0x2d C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  .ARM.attributes
-                0x0000002d       0x2d release/s3eMATSDK_platform.os
+                0x0000002d       0x2d release\s3eMATSDK_platform.os
  .ARM.attributes
-                0x0000005a       0x2b release/s3eMATSDK.os
+                0x0000005a       0x2b release\s3eMATSDK.os
  .ARM.attributes
-                0x00000085       0x2d release/s3eMATSDK_register.os
+                0x00000085       0x2d release\s3eMATSDK_register.os
  .ARM.attributes
-                0x000000b2       0x2b /Developer/Marmalade/6.2/s3e/edk/lib/android/libedk.a(edk_helpers.o)
+                0x000000b2       0x2b C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.attributes
-                0x000000dd       0x1f /Developer/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+                0x000000dd       0x1f C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o

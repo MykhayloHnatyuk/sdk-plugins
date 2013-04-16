@@ -15,162 +15,162 @@ This file should perform any platform-indepedentent functionality
 s3eResult s3eMATSDKInit()
 {
     //Add any generic initialisation code here
-    return s3eMATSDKInit_platform();
+    return MATSDKInit_platform();
 }
 
 
 void s3eMATSDKTerminate()
 {
     //Add any generic termination code here
-    s3eMATSDKTerminate_platform();
+    MATSDKTerminate_platform();
 }
 
-void s3eStartMobileAppTracker(const char* adId, const char* adKey)
+void MATStartMobileAppTracker(const char* adId, const char* adKey)
 {
-	s3eStartMobileAppTracker_platform(adId, adKey);
+	MATStartMobileAppTracker_platform(adId, adKey);
 }
 
-void s3eSDKParameters()
+void MATSDKParameters()
 {
-	s3eSDKParameters_platform();
+	MATSDKParameters_platform();
 }
 
-void s3eTrackInstall()
+void MATTrackInstall()
 {
-	s3eTrackInstall_platform();
+	MATTrackInstall_platform();
 }
 
-void s3eTrackUpdate()
+void MATTrackUpdate()
 {
-	s3eTrackUpdate_platform();
+	MATTrackUpdate_platform();
 }
 
-void s3eTrackInstallWithReferenceId(const char* refId)
+void MATTrackInstallWithReferenceId(const char* refId)
 {
-	s3eTrackInstallWithReferenceId_platform(refId);
+	MATTrackInstallWithReferenceId_platform(refId);
 }
 
-void s3eTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
+void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
 {
-	s3eTrackActionForEventIdOrName_platform(eventIdOrName, isId, refId);
+	MATTrackActionForEventIdOrName_platform(eventIdOrName, isId, refId);
 }
 
-void s3eTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
 {
-	s3eTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
+	MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
 }
 
-void s3eTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
+void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
 {
-    s3eTrackAction_platform(eventIdOrName, isId, revenue, currency);
+    MATTrackAction_platform(eventIdOrName, isId, revenue, currency);
 }
 
-void s3eStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
+void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
 {
-    s3eStartAppToAppTracking_platform(targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
+    MATStartAppToAppTracking_platform(targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
 }
 
-void s3eSetPackageName(const char* packageName)
+void MATSetPackageName(const char* packageName)
 {
-    s3eSetPackageName_platform(packageName);
+    MATSetPackageName_platform(packageName);
 }
 
-void s3eSetCurrencyCode(const char* currencyCode)
+void MATSetCurrencyCode(const char* currencyCode)
 {
-    s3eSetCurrencyCode_platform(currencyCode);
+    MATSetCurrencyCode_platform(currencyCode);
 }
 
-void s3eSetDeviceId(const char* deviceId)
+void MATSetDeviceId(const char* deviceId)
 {
-    s3eSetDeviceId_platform(deviceId);
+    MATSetDeviceId_platform(deviceId);
 }
 
-void s3eSetOpenUDID(const char* openUDID)
+void MATSetOpenUDID(const char* openUDID)
 {
-    s3eSetOpenUDID_platform(openUDID);
+    MATSetOpenUDID_platform(openUDID);
 }
 
-void s3eSetUserId(const char* userId)
+void MATSetUserId(const char* userId)
 {
-    s3eSetUserId_platform(userId);
+    MATSetUserId_platform(userId);
 }
 
-void s3eSetRevenue(double revenue)
+void MATSetRevenue(double revenue)
 {
-    s3eSetRevenue_platform(revenue);
+    MATSetRevenue_platform(revenue);
 }
 
-void s3eSetSiteId(const char* siteId)
+void MATSetSiteId(const char* siteId)
 {
-    s3eSetSiteId_platform(siteId);
+    MATSetSiteId_platform(siteId);
 }
 
-void s3eSetTRUSTeId(const char* tpid)
+void MATSetTRUSTeId(const char* tpid)
 {
-    s3eSetTRUSTeId_platform(tpid);
+    MATSetTRUSTeId_platform(tpid);
 }
 
-void s3eSetDelegate(bool enable)
+void MATSetDelegate(bool enable)
 {
-    s3eSetDelegate_platform(enable);
+    MATSetDelegate_platform(enable);
 }
 
-void s3eSetDebugResponse(bool shouldDebug)
+void MATSetDebugResponse(bool shouldDebug)
 {
-    s3eSetDebugResponse_platform(shouldDebug);
+    MATSetDebugResponse_platform(shouldDebug);
 }
 
-void s3eSetAllowDuplicates(bool allowDuplicates)
+void MATSetAllowDuplicates(bool allowDuplicates)
 {
-    s3eSetAllowDuplicates_platform(allowDuplicates);
+    MATSetAllowDuplicates_platform(allowDuplicates);
 }
 
-void s3eSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
 {
-    s3eSetShouldAutoGenerateMacAddress_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateMacAddress_platform(shouldAutoGenerate);
 }
 
-void s3eSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
 {
-    s3eSetShouldAutoGenerateODIN1Key_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateODIN1Key_platform(shouldAutoGenerate);
 }
 
-void s3eSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
 {
-    s3eSetShouldAutoGenerateOpenUDIDKey_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateOpenUDIDKey_platform(shouldAutoGenerate);
 }
 
-void s3eSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
 {
-    s3eSetShouldAutoGenerateVendorIdentifier_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateVendorIdentifier_platform(shouldAutoGenerate);
 }
 
-void s3eSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
 {
-    s3eSetShouldAutoGenerateAdvertiserIdentifier_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateAdvertiserIdentifier_platform(shouldAutoGenerate);
 }
 
-void s3eSetUseCookieTracking(bool useCookieTracking)
+void MATSetUseCookieTracking(bool useCookieTracking)
 {
-    s3eSetUseCookieTracking_platform(useCookieTracking);
+    MATSetUseCookieTracking_platform(useCookieTracking);
 }
 
-void s3eSetRedirectUrl(const char* redirectUrl)
+void MATSetRedirectUrl(const char* redirectUrl)
 {
-   s3eSetRedirectUrl_platform(redirectUrl);
+   MATSetRedirectUrl_platform(redirectUrl);
 }
 
-void s3eSetAdvertiserIdentifier(const char* advertiserId)
+void MATSetAdvertiserIdentifier(const char* advertiserId)
 {
-    s3eSetAdvertiserIdentifier_platform(advertiserId);
+    MATSetAdvertiserIdentifier_platform(advertiserId);
 }
 
-void s3eSetVendorIdentifier(const char* vendorId)
+void MATSetVendorIdentifier(const char* vendorId)
 {
-    s3eSetVendorIdentifier_platform(vendorId);
+    MATSetVendorIdentifier_platform(vendorId);
 }
 
-void s3eSetUseHTTPS(bool useHTTPS)
+void MATSetUseHTTPS(bool useHTTPS)
 {
-    s3eSetUseHTTPS_platform(useHTTPS);
+    MATSetUseHTTPS_platform(useHTTPS);
 }

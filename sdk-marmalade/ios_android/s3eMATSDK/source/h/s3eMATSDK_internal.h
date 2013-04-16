@@ -30,7 +30,7 @@ s3eResult s3eMATSDKInit();
 /**
  * Platform-specific initialisation, implemented on each platform
  */
-s3eResult s3eMATSDKInit_platform();
+s3eResult MATSDKInit_platform();
 
 /**
  * Terminate the extension.  This is called once on shutdown, but only if the
@@ -41,46 +41,46 @@ void s3eMATSDKTerminate();
 /**
  * Platform-specific termination, implemented on each platform
  */
-void s3eMATSDKTerminate_platform();
-void s3eStartMobileAppTracker_platform(const char* adId, const char* adKey);
+void MATSDKTerminate_platform();
+void MATStartMobileAppTracker_platform(const char* adId, const char* adKey);
 
-void s3eSDKParameters_platform();
+void MATSDKParameters_platform();
 
-void s3eTrackInstall_platform();
+void MATTrackInstall_platform();
 
-void s3eTrackUpdate_platform();
+void MATTrackUpdate_platform();
 
-void s3eTrackInstallWithReferenceId_platform(const char* refId);
+void MATTrackInstallWithReferenceId_platform(const char* refId);
 
-void s3eTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId);
+void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId);
 
-void s3eTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
 
-void s3eTrackAction_platform(const char* action, bool isId, double revenue, const char*  currency);
+void MATTrackAction_platform(const char* action, bool isId, double revenue, const char*  currency);
 
-void s3eStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect);
+void MATStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect);
 
-void s3eSetPackageName_platform(const char* packageName);
-void s3eSetCurrencyCode_platform(const char* currencyCode);
-void s3eSetDeviceId_platform(const char* deviceId);
-void s3eSetOpenUDID_platform(const char* openUDID);
-void s3eSetUserId_platform(const char* userId);
-void s3eSetRevenue_platform(double revenue);
-void s3eSetSiteId_platform(const char* siteId);
-void s3eSetTRUSTeId_platform(const char* tpid);
-void s3eSetDelegate_platform(bool enable);
-void s3eSetDebugResponse_platform(bool shouldDebug);
+void MATSetPackageName_platform(const char* packageName);
+void MATSetCurrencyCode_platform(const char* currencyCode);
+void MATSetDeviceId_platform(const char* deviceId);
+void MATSetOpenUDID_platform(const char* openUDID);
+void MATSetUserId_platform(const char* userId);
+void MATSetRevenue_platform(double revenue);
+void MATSetSiteId_platform(const char* siteId);
+void MATSetTRUSTeId_platform(const char* tpid);
+void MATSetDelegate_platform(bool enable);
+void MATSetDebugResponse_platform(bool shouldDebug);
 
-void s3eSetAllowDuplicates_platform(bool allowDuplicates);
-void s3eSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate);
-void s3eSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate);
-void s3eSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate);
-void s3eSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate);
-void s3eSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate);
-void s3eSetUseCookieTracking_platform(bool useCookieTracking);
-void s3eSetRedirectUrl_platform(const char* redirectUrl);
-void s3eSetAdvertiserIdentifier_platform(const char* advertiserId);
-void s3eSetVendorIdentifier_platform(const char* vendorId);
-void s3eSetUseHTTPS_platform(bool useHTTPS);
+void MATSetAllowDuplicates_platform(bool allowDuplicates);
+void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate);
+void MATSetUseCookieTracking_platform(bool useCookieTracking);
+void MATSetRedirectUrl_platform(const char* redirectUrl);
+void MATSetAdvertiserIdentifier_platform(const char* advertiserId);
+void MATSetVendorIdentifier_platform(const char* vendorId);
+void MATSetUseHTTPS_platform(bool useHTTPS);
 
 #endif /* !S3EMATSDK_INTERNAL_H */

@@ -30,10 +30,10 @@ typedef struct MATSDKEventItem
 	float		revenue;
 } MATSDKEventItem;
 
-typedef struct s3eMATArray {
+typedef struct MATArray {
 	void *m_items; // Items in array
 	unsigned int m_count; // number of items
-} s3eMATArray;
+} MATArray;
 // \cond HIDDEN_DEFINES
 S3E_BEGIN_C_DECL
 // \endcond
@@ -43,65 +43,65 @@ S3E_BEGIN_C_DECL
  */
 s3eBool s3eMATSDKAvailable();
 
-void s3eStartMobileAppTracker(const char* adId, const char* adKey);
+void MATStartMobileAppTracker(const char* adId, const char* adKey);
 
-void s3eSDKParameters();
+void MATSDKParameters();
 
-void s3eTrackInstall();
+void MATTrackInstall();
 
-void s3eTrackUpdate();
+void MATTrackUpdate();
 
-void s3eTrackInstallWithReferenceId(const char* refId);
+void MATTrackInstallWithReferenceId(const char* refId);
 
-void s3eTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId);
+void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId);
 
-void s3eTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
 
-void s3eTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency);
+void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency);
 
-void s3eStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
+void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
 
-void s3eSetPackageName(const char* packageName);
+void MATSetPackageName(const char* packageName);
 
-void s3eSetCurrencyCode(const char* currencyCode);
+void MATSetCurrencyCode(const char* currencyCode);
 
-void s3eSetDeviceId(const char* deviceId);
+void MATSetDeviceId(const char* deviceId);
 
-void s3eSetOpenUDID(const char* openUDID);
+void MATSetOpenUDID(const char* openUDID);
 
-void s3eSetUserId(const char* userId);
+void MATSetUserId(const char* userId);
 
-void s3eSetRevenue(double revenue);
+void MATSetRevenue(double revenue);
 
-void s3eSetSiteId(const char* siteId);
+void MATSetSiteId(const char* siteId);
 
-void s3eSetTRUSTeId(const char* tpid);
+void MATSetTRUSTeId(const char* tpid);
 
-void s3eSetDelegate(bool enable);
+void MATSetDelegate(bool enable);
 
-void s3eSetUseHTTPS(bool enable);
+void MATSetUseHTTPS(bool enable);
 
-void s3eSetAllowDuplicates(bool allowDuplicates);
+void MATSetAllowDuplicates(bool allowDuplicates);
 
-void s3eSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate);
 
-void s3eSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate);
 
-void s3eSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate);
 
-void s3eSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate);
 
-void s3eSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate);
 
-void s3eSetUseCookieTracking(bool useCookieTracking);
+void MATSetUseCookieTracking(bool useCookieTracking);
 
-void s3eSetRedirectUrl(const char* redirectUrl);
+void MATSetRedirectUrl(const char* redirectUrl);
 
-void s3eSetAdvertiserIdentifier(const char* advertiserId);
+void MATSetAdvertiserIdentifier(const char* advertiserId);
 
-void s3eSetVendorIdentifier(const char* vendorId);
+void MATSetVendorIdentifier(const char* vendorId);
 
-void s3eSetDebugResponse(bool shouldDebug);
+void MATSetDebugResponse(bool shouldDebug);
 
 S3E_END_C_DECL
 

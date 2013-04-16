@@ -13,72 +13,72 @@
 /**
  * Definitions for functions types passed to/from s3eExt interface
  */
-typedef       void(*s3eStartMobileAppTracker_t)(const char* adId, const char* adKey);
-typedef       void(*s3eSDKParameters_t)();
-typedef       void(*s3eTrackInstall_t)();
-typedef       void(*s3eTrackUpdate_t)();
-typedef       void(*s3eTrackInstallWithReferenceId_t)(const char* refId);
-typedef       void(*s3eTrackActionForEventIdOrName_t)(const char* eventIdOrName, bool isId, const char* refId);
-typedef       void(*s3eTrackActionForEventIdOrNameItems_t)(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
-typedef       void(*s3eTrackAction_t)(const char* eventIdOrName, bool isId, double revenue, const char* currency);
-typedef       void(*s3eStartAppToAppTracking_t)(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
-typedef       void(*s3eSetPackageName_t)(const char* packageName);
-typedef       void(*s3eSetCurrencyCode_t)(const char* currencyCode);
-typedef       void(*s3eSetDeviceId_t)(const char* deviceId);
-typedef       void(*s3eSetOpenUDID_t)(const char* openUDID);
-typedef       void(*s3eSetUserId_t)(const char* userId);
-typedef       void(*s3eSetRevenue_t)(double revenue);
-typedef       void(*s3eSetSiteId_t)(const char* siteId);
-typedef       void(*s3eSetTRUSTeId_t)(const char* tpid);
-typedef       void(*s3eSetDelegate_t)(bool enable);
-typedef       void(*s3eSetUseHTTPS_t)(bool enable);
-typedef       void(*s3eSetAllowDuplicates_t)(bool allowDuplicates);
-typedef       void(*s3eSetShouldAutoGenerateMacAddress_t)(bool shouldAutoGenerate);
-typedef       void(*s3eSetShouldAutoGenerateODIN1Key_t)(bool shouldAutoGenerate);
-typedef       void(*s3eSetShouldAutoGenerateOpenUDIDKey_t)(bool shouldAutoGenerate);
-typedef       void(*s3eSetShouldAutoGenerateVendorIdentifier_t)(bool shouldAutoGenerate);
-typedef       void(*s3eSetShouldAutoGenerateAdvertiserIdentifier_t)(bool shouldAutoGenerate);
-typedef       void(*s3eSetUseCookieTracking_t)(bool useCookieTracking);
-typedef       void(*s3eSetRedirectUrl_t)(const char* redirectUrl);
-typedef       void(*s3eSetAdvertiserIdentifier_t)(const char* advertiserId);
-typedef       void(*s3eSetVendorIdentifier_t)(const char* vendorId);
-typedef       void(*s3eSetDebugResponse_t)(bool shouldDebug);
+typedef       void(*MATStartMobileAppTracker_t)(const char* adId, const char* adKey);
+typedef       void(*MATSDKParameters_t)();
+typedef       void(*MATTrackInstall_t)();
+typedef       void(*MATTrackUpdate_t)();
+typedef       void(*MATTrackInstallWithReferenceId_t)(const char* refId);
+typedef       void(*MATTrackActionForEventIdOrName_t)(const char* eventIdOrName, bool isId, const char* refId);
+typedef       void(*MATTrackActionForEventIdOrNameItems_t)(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
+typedef       void(*MATTrackAction_t)(const char* eventIdOrName, bool isId, double revenue, const char* currency);
+typedef       void(*MATStartAppToAppTracking_t)(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
+typedef       void(*MATSetPackageName_t)(const char* packageName);
+typedef       void(*MATSetCurrencyCode_t)(const char* currencyCode);
+typedef       void(*MATSetDeviceId_t)(const char* deviceId);
+typedef       void(*MATSetOpenUDID_t)(const char* openUDID);
+typedef       void(*MATSetUserId_t)(const char* userId);
+typedef       void(*MATSetRevenue_t)(double revenue);
+typedef       void(*MATSetSiteId_t)(const char* siteId);
+typedef       void(*MATSetTRUSTeId_t)(const char* tpid);
+typedef       void(*MATSetDelegate_t)(bool enable);
+typedef       void(*MATSetUseHTTPS_t)(bool enable);
+typedef       void(*MATSetAllowDuplicates_t)(bool allowDuplicates);
+typedef       void(*MATSetShouldAutoGenerateMacAddress_t)(bool shouldAutoGenerate);
+typedef       void(*MATSetShouldAutoGenerateODIN1Key_t)(bool shouldAutoGenerate);
+typedef       void(*MATSetShouldAutoGenerateOpenUDIDKey_t)(bool shouldAutoGenerate);
+typedef       void(*MATSetShouldAutoGenerateVendorIdentifier_t)(bool shouldAutoGenerate);
+typedef       void(*MATSetShouldAutoGenerateAdvertiserIdentifier_t)(bool shouldAutoGenerate);
+typedef       void(*MATSetUseCookieTracking_t)(bool useCookieTracking);
+typedef       void(*MATSetRedirectUrl_t)(const char* redirectUrl);
+typedef       void(*MATSetAdvertiserIdentifier_t)(const char* advertiserId);
+typedef       void(*MATSetVendorIdentifier_t)(const char* vendorId);
+typedef       void(*MATSetDebugResponse_t)(bool shouldDebug);
 
 /**
  * struct that gets filled in by s3eMATSDKRegister
  */
 typedef struct s3eMATSDKFuncs
 {
-    s3eStartMobileAppTracker_t m_s3eStartMobileAppTracker;
-    s3eSDKParameters_t m_s3eSDKParameters;
-    s3eTrackInstall_t m_s3eTrackInstall;
-    s3eTrackUpdate_t m_s3eTrackUpdate;
-    s3eTrackInstallWithReferenceId_t m_s3eTrackInstallWithReferenceId;
-    s3eTrackActionForEventIdOrName_t m_s3eTrackActionForEventIdOrName;
-    s3eTrackActionForEventIdOrNameItems_t m_s3eTrackActionForEventIdOrNameItems;
-    s3eTrackAction_t m_s3eTrackAction;
-    s3eStartAppToAppTracking_t m_s3eStartAppToAppTracking;
-    s3eSetPackageName_t m_s3eSetPackageName;
-    s3eSetCurrencyCode_t m_s3eSetCurrencyCode;
-    s3eSetDeviceId_t m_s3eSetDeviceId;
-    s3eSetOpenUDID_t m_s3eSetOpenUDID;
-    s3eSetUserId_t m_s3eSetUserId;
-    s3eSetRevenue_t m_s3eSetRevenue;
-    s3eSetSiteId_t m_s3eSetSiteId;
-    s3eSetTRUSTeId_t m_s3eSetTRUSTeId;
-    s3eSetDelegate_t m_s3eSetDelegate;
-    s3eSetUseHTTPS_t m_s3eSetUseHTTPS;
-    s3eSetAllowDuplicates_t m_s3eSetAllowDuplicates;
-    s3eSetShouldAutoGenerateMacAddress_t m_s3eSetShouldAutoGenerateMacAddress;
-    s3eSetShouldAutoGenerateODIN1Key_t m_s3eSetShouldAutoGenerateODIN1Key;
-    s3eSetShouldAutoGenerateOpenUDIDKey_t m_s3eSetShouldAutoGenerateOpenUDIDKey;
-    s3eSetShouldAutoGenerateVendorIdentifier_t m_s3eSetShouldAutoGenerateVendorIdentifier;
-    s3eSetShouldAutoGenerateAdvertiserIdentifier_t m_s3eSetShouldAutoGenerateAdvertiserIdentifier;
-    s3eSetUseCookieTracking_t m_s3eSetUseCookieTracking;
-    s3eSetRedirectUrl_t m_s3eSetRedirectUrl;
-    s3eSetAdvertiserIdentifier_t m_s3eSetAdvertiserIdentifier;
-    s3eSetVendorIdentifier_t m_s3eSetVendorIdentifier;
-    s3eSetDebugResponse_t m_s3eSetDebugResponse;
+    MATStartMobileAppTracker_t m_MATStartMobileAppTracker;
+    MATSDKParameters_t m_MATSDKParameters;
+    MATTrackInstall_t m_MATTrackInstall;
+    MATTrackUpdate_t m_MATTrackUpdate;
+    MATTrackInstallWithReferenceId_t m_MATTrackInstallWithReferenceId;
+    MATTrackActionForEventIdOrName_t m_MATTrackActionForEventIdOrName;
+    MATTrackActionForEventIdOrNameItems_t m_MATTrackActionForEventIdOrNameItems;
+    MATTrackAction_t m_MATTrackAction;
+    MATStartAppToAppTracking_t m_MATStartAppToAppTracking;
+    MATSetPackageName_t m_MATSetPackageName;
+    MATSetCurrencyCode_t m_MATSetCurrencyCode;
+    MATSetDeviceId_t m_MATSetDeviceId;
+    MATSetOpenUDID_t m_MATSetOpenUDID;
+    MATSetUserId_t m_MATSetUserId;
+    MATSetRevenue_t m_MATSetRevenue;
+    MATSetSiteId_t m_MATSetSiteId;
+    MATSetTRUSTeId_t m_MATSetTRUSTeId;
+    MATSetDelegate_t m_MATSetDelegate;
+    MATSetUseHTTPS_t m_MATSetUseHTTPS;
+    MATSetAllowDuplicates_t m_MATSetAllowDuplicates;
+    MATSetShouldAutoGenerateMacAddress_t m_MATSetShouldAutoGenerateMacAddress;
+    MATSetShouldAutoGenerateODIN1Key_t m_MATSetShouldAutoGenerateODIN1Key;
+    MATSetShouldAutoGenerateOpenUDIDKey_t m_MATSetShouldAutoGenerateOpenUDIDKey;
+    MATSetShouldAutoGenerateVendorIdentifier_t m_MATSetShouldAutoGenerateVendorIdentifier;
+    MATSetShouldAutoGenerateAdvertiserIdentifier_t m_MATSetShouldAutoGenerateAdvertiserIdentifier;
+    MATSetUseCookieTracking_t m_MATSetUseCookieTracking;
+    MATSetRedirectUrl_t m_MATSetRedirectUrl;
+    MATSetAdvertiserIdentifier_t m_MATSetAdvertiserIdentifier;
+    MATSetVendorIdentifier_t m_MATSetVendorIdentifier;
+    MATSetDebugResponse_t m_MATSetDebugResponse;
 } s3eMATSDKFuncs;
 
 static s3eMATSDKFuncs g_Ext;
@@ -124,9 +124,9 @@ s3eBool s3eMATSDKAvailable()
     return g_GotExt ? S3E_TRUE : S3E_FALSE;
 }
 
-void s3eStartMobileAppTracker(const char* adId, const char* adKey)
+void MATStartMobileAppTracker(const char* adId, const char* adKey)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[0] func: s3eStartMobileAppTracker"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[0] func: MATStartMobileAppTracker"));
 
     if (!_extLoad())
         return;
@@ -137,7 +137,7 @@ void s3eStartMobileAppTracker(const char* adId, const char* adKey)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eStartMobileAppTracker(adId, adKey);
+    g_Ext.m_MATStartMobileAppTracker(adId, adKey);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -146,9 +146,9 @@ void s3eStartMobileAppTracker(const char* adId, const char* adKey)
     return;
 }
 
-void s3eSDKParameters()
+void MATSDKParameters()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[1] func: s3eSDKParameters"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[1] func: MATSDKParameters"));
 
     if (!_extLoad())
         return;
@@ -159,7 +159,7 @@ void s3eSDKParameters()
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSDKParameters();
+    g_Ext.m_MATSDKParameters();
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -168,9 +168,9 @@ void s3eSDKParameters()
     return;
 }
 
-void s3eTrackInstall()
+void MATTrackInstall()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[2] func: s3eTrackInstall"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[2] func: MATTrackInstall"));
 
     if (!_extLoad())
         return;
@@ -181,7 +181,7 @@ void s3eTrackInstall()
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eTrackInstall();
+    g_Ext.m_MATTrackInstall();
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -190,9 +190,9 @@ void s3eTrackInstall()
     return;
 }
 
-void s3eTrackUpdate()
+void MATTrackUpdate()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[3] func: s3eTrackUpdate"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[3] func: MATTrackUpdate"));
 
     if (!_extLoad())
         return;
@@ -203,7 +203,7 @@ void s3eTrackUpdate()
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eTrackUpdate();
+    g_Ext.m_MATTrackUpdate();
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -212,9 +212,9 @@ void s3eTrackUpdate()
     return;
 }
 
-void s3eTrackInstallWithReferenceId(const char* refId)
+void MATTrackInstallWithReferenceId(const char* refId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[4] func: s3eTrackInstallWithReferenceId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[4] func: MATTrackInstallWithReferenceId"));
 
     if (!_extLoad())
         return;
@@ -225,7 +225,7 @@ void s3eTrackInstallWithReferenceId(const char* refId)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eTrackInstallWithReferenceId(refId);
+    g_Ext.m_MATTrackInstallWithReferenceId(refId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -234,9 +234,9 @@ void s3eTrackInstallWithReferenceId(const char* refId)
     return;
 }
 
-void s3eTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
+void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[5] func: s3eTrackActionForEventIdOrName"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[5] func: MATTrackActionForEventIdOrName"));
 
     if (!_extLoad())
         return;
@@ -247,7 +247,7 @@ void s3eTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const 
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eTrackActionForEventIdOrName(eventIdOrName, isId, refId);
+    g_Ext.m_MATTrackActionForEventIdOrName(eventIdOrName, isId, refId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -256,9 +256,9 @@ void s3eTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const 
     return;
 }
 
-void s3eTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[6] func: s3eTrackActionForEventIdOrNameItems"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[6] func: MATTrackActionForEventIdOrNameItems"));
 
     if (!_extLoad())
         return;
@@ -269,7 +269,7 @@ void s3eTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, c
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eTrackActionForEventIdOrNameItems(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
+    g_Ext.m_MATTrackActionForEventIdOrNameItems(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -278,9 +278,9 @@ void s3eTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, c
     return;
 }
 
-void s3eTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency)
+void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[7] func: s3eTrackAction"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[7] func: MATTrackAction"));
 
     if (!_extLoad())
         return;
@@ -291,7 +291,7 @@ void s3eTrackAction(const char* eventIdOrName, bool isId, double revenue, const 
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eTrackAction(eventIdOrName, isId, revenue, currency);
+    g_Ext.m_MATTrackAction(eventIdOrName, isId, revenue, currency);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -300,9 +300,9 @@ void s3eTrackAction(const char* eventIdOrName, bool isId, double revenue, const 
     return;
 }
 
-void s3eStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
+void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[8] func: s3eStartAppToAppTracking"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[8] func: MATStartAppToAppTracking"));
 
     if (!_extLoad())
         return;
@@ -313,7 +313,7 @@ void s3eStartAppToAppTracking(const char* targetAppId, const char* advertiserId,
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eStartAppToAppTracking(targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
+    g_Ext.m_MATStartAppToAppTracking(targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -322,9 +322,9 @@ void s3eStartAppToAppTracking(const char* targetAppId, const char* advertiserId,
     return;
 }
 
-void s3eSetPackageName(const char* packageName)
+void MATSetPackageName(const char* packageName)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[9] func: s3eSetPackageName"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[9] func: MATSetPackageName"));
 
     if (!_extLoad())
         return;
@@ -335,7 +335,7 @@ void s3eSetPackageName(const char* packageName)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetPackageName(packageName);
+    g_Ext.m_MATSetPackageName(packageName);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -344,9 +344,9 @@ void s3eSetPackageName(const char* packageName)
     return;
 }
 
-void s3eSetCurrencyCode(const char* currencyCode)
+void MATSetCurrencyCode(const char* currencyCode)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[10] func: s3eSetCurrencyCode"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[10] func: MATSetCurrencyCode"));
 
     if (!_extLoad())
         return;
@@ -357,7 +357,7 @@ void s3eSetCurrencyCode(const char* currencyCode)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetCurrencyCode(currencyCode);
+    g_Ext.m_MATSetCurrencyCode(currencyCode);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -366,9 +366,9 @@ void s3eSetCurrencyCode(const char* currencyCode)
     return;
 }
 
-void s3eSetDeviceId(const char* deviceId)
+void MATSetDeviceId(const char* deviceId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[11] func: s3eSetDeviceId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[11] func: MATSetDeviceId"));
 
     if (!_extLoad())
         return;
@@ -379,7 +379,7 @@ void s3eSetDeviceId(const char* deviceId)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetDeviceId(deviceId);
+    g_Ext.m_MATSetDeviceId(deviceId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -388,9 +388,9 @@ void s3eSetDeviceId(const char* deviceId)
     return;
 }
 
-void s3eSetOpenUDID(const char* openUDID)
+void MATSetOpenUDID(const char* openUDID)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[12] func: s3eSetOpenUDID"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[12] func: MATSetOpenUDID"));
 
     if (!_extLoad())
         return;
@@ -401,7 +401,7 @@ void s3eSetOpenUDID(const char* openUDID)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetOpenUDID(openUDID);
+    g_Ext.m_MATSetOpenUDID(openUDID);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -410,9 +410,9 @@ void s3eSetOpenUDID(const char* openUDID)
     return;
 }
 
-void s3eSetUserId(const char* userId)
+void MATSetUserId(const char* userId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[13] func: s3eSetUserId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[13] func: MATSetUserId"));
 
     if (!_extLoad())
         return;
@@ -423,7 +423,7 @@ void s3eSetUserId(const char* userId)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetUserId(userId);
+    g_Ext.m_MATSetUserId(userId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -432,9 +432,9 @@ void s3eSetUserId(const char* userId)
     return;
 }
 
-void s3eSetRevenue(double revenue)
+void MATSetRevenue(double revenue)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[14] func: s3eSetRevenue"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[14] func: MATSetRevenue"));
 
     if (!_extLoad())
         return;
@@ -445,7 +445,7 @@ void s3eSetRevenue(double revenue)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetRevenue(revenue);
+    g_Ext.m_MATSetRevenue(revenue);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -454,9 +454,9 @@ void s3eSetRevenue(double revenue)
     return;
 }
 
-void s3eSetSiteId(const char* siteId)
+void MATSetSiteId(const char* siteId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[15] func: s3eSetSiteId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[15] func: MATSetSiteId"));
 
     if (!_extLoad())
         return;
@@ -467,7 +467,7 @@ void s3eSetSiteId(const char* siteId)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetSiteId(siteId);
+    g_Ext.m_MATSetSiteId(siteId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -476,9 +476,9 @@ void s3eSetSiteId(const char* siteId)
     return;
 }
 
-void s3eSetTRUSTeId(const char* tpid)
+void MATSetTRUSTeId(const char* tpid)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[16] func: s3eSetTRUSTeId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[16] func: MATSetTRUSTeId"));
 
     if (!_extLoad())
         return;
@@ -489,7 +489,7 @@ void s3eSetTRUSTeId(const char* tpid)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetTRUSTeId(tpid);
+    g_Ext.m_MATSetTRUSTeId(tpid);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -498,9 +498,9 @@ void s3eSetTRUSTeId(const char* tpid)
     return;
 }
 
-void s3eSetDelegate(bool enable)
+void MATSetDelegate(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[17] func: s3eSetDelegate"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[17] func: MATSetDelegate"));
 
     if (!_extLoad())
         return;
@@ -511,7 +511,7 @@ void s3eSetDelegate(bool enable)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetDelegate(enable);
+    g_Ext.m_MATSetDelegate(enable);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -520,9 +520,9 @@ void s3eSetDelegate(bool enable)
     return;
 }
 
-void s3eSetUseHTTPS(bool enable)
+void MATSetUseHTTPS(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[18] func: s3eSetUseHTTPS"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[18] func: MATSetUseHTTPS"));
 
     if (!_extLoad())
         return;
@@ -533,7 +533,7 @@ void s3eSetUseHTTPS(bool enable)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetUseHTTPS(enable);
+    g_Ext.m_MATSetUseHTTPS(enable);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -542,9 +542,9 @@ void s3eSetUseHTTPS(bool enable)
     return;
 }
 
-void s3eSetAllowDuplicates(bool allowDuplicates)
+void MATSetAllowDuplicates(bool allowDuplicates)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[19] func: s3eSetAllowDuplicates"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[19] func: MATSetAllowDuplicates"));
 
     if (!_extLoad())
         return;
@@ -555,7 +555,7 @@ void s3eSetAllowDuplicates(bool allowDuplicates)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetAllowDuplicates(allowDuplicates);
+    g_Ext.m_MATSetAllowDuplicates(allowDuplicates);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -564,9 +564,9 @@ void s3eSetAllowDuplicates(bool allowDuplicates)
     return;
 }
 
-void s3eSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[20] func: s3eSetShouldAutoGenerateMacAddress"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[20] func: MATSetShouldAutoGenerateMacAddress"));
 
     if (!_extLoad())
         return;
@@ -577,7 +577,7 @@ void s3eSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetShouldAutoGenerateMacAddress(shouldAutoGenerate);
+    g_Ext.m_MATSetShouldAutoGenerateMacAddress(shouldAutoGenerate);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -586,9 +586,9 @@ void s3eSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
     return;
 }
 
-void s3eSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[21] func: s3eSetShouldAutoGenerateODIN1Key"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[21] func: MATSetShouldAutoGenerateODIN1Key"));
 
     if (!_extLoad())
         return;
@@ -599,7 +599,7 @@ void s3eSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetShouldAutoGenerateODIN1Key(shouldAutoGenerate);
+    g_Ext.m_MATSetShouldAutoGenerateODIN1Key(shouldAutoGenerate);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -608,9 +608,9 @@ void s3eSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
     return;
 }
 
-void s3eSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[22] func: s3eSetShouldAutoGenerateOpenUDIDKey"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[22] func: MATSetShouldAutoGenerateOpenUDIDKey"));
 
     if (!_extLoad())
         return;
@@ -621,7 +621,7 @@ void s3eSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetShouldAutoGenerateOpenUDIDKey(shouldAutoGenerate);
+    g_Ext.m_MATSetShouldAutoGenerateOpenUDIDKey(shouldAutoGenerate);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -630,9 +630,9 @@ void s3eSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
     return;
 }
 
-void s3eSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[23] func: s3eSetShouldAutoGenerateVendorIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[23] func: MATSetShouldAutoGenerateVendorIdentifier"));
 
     if (!_extLoad())
         return;
@@ -643,7 +643,7 @@ void s3eSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetShouldAutoGenerateVendorIdentifier(shouldAutoGenerate);
+    g_Ext.m_MATSetShouldAutoGenerateVendorIdentifier(shouldAutoGenerate);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -652,9 +652,9 @@ void s3eSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
     return;
 }
 
-void s3eSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[24] func: s3eSetShouldAutoGenerateAdvertiserIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[24] func: MATSetShouldAutoGenerateAdvertiserIdentifier"));
 
     if (!_extLoad())
         return;
@@ -665,7 +665,7 @@ void s3eSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetShouldAutoGenerateAdvertiserIdentifier(shouldAutoGenerate);
+    g_Ext.m_MATSetShouldAutoGenerateAdvertiserIdentifier(shouldAutoGenerate);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -674,9 +674,9 @@ void s3eSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
     return;
 }
 
-void s3eSetUseCookieTracking(bool useCookieTracking)
+void MATSetUseCookieTracking(bool useCookieTracking)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[25] func: s3eSetUseCookieTracking"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[25] func: MATSetUseCookieTracking"));
 
     if (!_extLoad())
         return;
@@ -687,7 +687,7 @@ void s3eSetUseCookieTracking(bool useCookieTracking)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetUseCookieTracking(useCookieTracking);
+    g_Ext.m_MATSetUseCookieTracking(useCookieTracking);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -696,9 +696,9 @@ void s3eSetUseCookieTracking(bool useCookieTracking)
     return;
 }
 
-void s3eSetRedirectUrl(const char* redirectUrl)
+void MATSetRedirectUrl(const char* redirectUrl)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[26] func: s3eSetRedirectUrl"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[26] func: MATSetRedirectUrl"));
 
     if (!_extLoad())
         return;
@@ -709,7 +709,7 @@ void s3eSetRedirectUrl(const char* redirectUrl)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetRedirectUrl(redirectUrl);
+    g_Ext.m_MATSetRedirectUrl(redirectUrl);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -718,9 +718,9 @@ void s3eSetRedirectUrl(const char* redirectUrl)
     return;
 }
 
-void s3eSetAdvertiserIdentifier(const char* advertiserId)
+void MATSetAdvertiserIdentifier(const char* advertiserId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[27] func: s3eSetAdvertiserIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[27] func: MATSetAdvertiserIdentifier"));
 
     if (!_extLoad())
         return;
@@ -731,7 +731,7 @@ void s3eSetAdvertiserIdentifier(const char* advertiserId)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetAdvertiserIdentifier(advertiserId);
+    g_Ext.m_MATSetAdvertiserIdentifier(advertiserId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -740,9 +740,9 @@ void s3eSetAdvertiserIdentifier(const char* advertiserId)
     return;
 }
 
-void s3eSetVendorIdentifier(const char* vendorId)
+void MATSetVendorIdentifier(const char* vendorId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[28] func: s3eSetVendorIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[28] func: MATSetVendorIdentifier"));
 
     if (!_extLoad())
         return;
@@ -753,7 +753,7 @@ void s3eSetVendorIdentifier(const char* vendorId)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetVendorIdentifier(vendorId);
+    g_Ext.m_MATSetVendorIdentifier(vendorId);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
@@ -762,9 +762,9 @@ void s3eSetVendorIdentifier(const char* vendorId)
     return;
 }
 
-void s3eSetDebugResponse(bool shouldDebug)
+void MATSetDebugResponse(bool shouldDebug)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[29] func: s3eSetDebugResponse"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[29] func: MATSetDebugResponse"));
 
     if (!_extLoad())
         return;
@@ -775,7 +775,7 @@ void s3eSetDebugResponse(bool shouldDebug)
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_s3eSetDebugResponse(shouldDebug);
+    g_Ext.m_MATSetDebugResponse(shouldDebug);
 
 #ifdef __mips
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);

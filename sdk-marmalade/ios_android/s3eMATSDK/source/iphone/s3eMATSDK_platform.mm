@@ -58,18 +58,18 @@
 
 MATSDKDelegate *matDelegate;
 
-s3eResult s3eMATSDKInit_platform()
+s3eResult MATSDKInit_platform()
 {
     // Add any platform-specific initialisation code here
     return S3E_RESULT_SUCCESS;
 }
 
-void s3eMATSDKTerminate_platform()
+void MATSDKTerminate_platform()
 {
     // Add any platform-specific termination code here
 }
 
-void s3eStartMobileAppTracker_platform(const char* adId, const char* adKey)
+void MATStartMobileAppTracker_platform(const char* adId, const char* adKey)
 {
     NSLog(@"Starting MAT");
 	NSString* aid = [NSString stringWithUTF8String:adId];
@@ -77,32 +77,32 @@ void s3eStartMobileAppTracker_platform(const char* adId, const char* adKey)
 	[[MobileAppTracker sharedManager] startTrackerWithAdvertiserId:aid advertiserKey:akey withError:NULL];
 }
 
-void s3eSDKParameters_platform()
+void MATSDKParameters_platform()
 {
     NSLog(@"get parameters");
     NSDictionary *dict = [[MobileAppTracker sharedManager] sdkDataParameters];
     NSLog(@"parameters=%@", dict);
 }
 
-void s3eTrackInstall_platform()
+void MATTrackInstall_platform()
 {
     NSLog(@"track install");
     [[MobileAppTracker sharedManager] trackInstall];
 }
 
-void s3eTrackUpdate_platform()
+void MATTrackUpdate_platform()
 {
     NSLog(@"track udpate");
     [[MobileAppTracker sharedManager] trackUpdate];
 }
 
-void s3eTrackInstallWithReferenceId_platform(const char* refId)
+void MATTrackInstallWithReferenceId_platform(const char* refId)
 {
     NSLog(@"track install %@", [NSString stringWithUTF8String:refId]);
     [[MobileAppTracker sharedManager] trackInstallWithReferenceId:[NSString stringWithUTF8String:refId]];
 }
 
-void s3eTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId)
+void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId)
 {
     NSLog(@"track action");
     NSString* eventName = [NSString stringWithUTF8String:eventIdOrName];
@@ -110,9 +110,9 @@ void s3eTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isI
     [[MobileAppTracker sharedManager] trackActionForEventIdOrName:eventName eventIsId:isId referenceId:referenceId];
 }
 
-void s3eTrackAction_platform(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
+void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
 {
-    NSLog(@"s3eTrackAction");
+    NSLog(@"MATTrackAction");
     NSString* eventName = [NSString stringWithUTF8String:eventIdOrName];
     NSString* currencyCode = [NSString stringWithUTF8String:currency];
     [[MobileAppTracker sharedManager] trackActionForEventIdOrName:eventName
@@ -121,7 +121,7 @@ void s3eTrackAction_platform(const char* eventIdOrName, bool isId, double revenu
                                                      currencyCode:currencyCode];
 }
 
-void s3eTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
 {
     NSLog(@"track action");
     NSLog(@"eventName:%@",
@@ -168,135 +168,135 @@ void s3eTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
                                                  transactionState:(int)transactionState];
 }
 
-void s3eSetPackageName_platform(const char* packageName)
+void MATSetPackageName_platform(const char* packageName)
 {
     [[MobileAppTracker sharedManager] setPackageName:[NSString stringWithUTF8String:packageName]];
 }
 
-void s3eSetCurrencyCode_platform(const char* currencyCode)
+void MATSetCurrencyCode_platform(const char* currencyCode)
 {
     [[MobileAppTracker sharedManager] setCurrencyCode:[NSString stringWithUTF8String:currencyCode]];
 }
 
-void s3eSetDeviceId_platform(const char* deviceId)
+void MATSetDeviceId_platform(const char* deviceId)
 {
     [[MobileAppTracker sharedManager] setDeviceId:[NSString stringWithUTF8String:deviceId]];
 }
 
-void s3eSetOpenUDID_platform(const char* openUDID)
+void MATSetOpenUDID_platform(const char* openUDID)
 {
     [[MobileAppTracker sharedManager] setOpenUDID:[NSString stringWithUTF8String:openUDID]];
 }
 
-void s3eSetUserId_platform(const char* userId)
+void MATSetUserId_platform(const char* userId)
 {
     [[MobileAppTracker sharedManager] setUserId:[NSString stringWithUTF8String:userId]];
 }
 
-void s3eSetRevenue_platform(double revenue)
+void MATSetRevenue_platform(double revenue)
 {
     // NOT IMPLEMENTED FOR iOS
 }
 
-void s3eSetSiteId_platform(const char* siteId)
+void MATSetSiteId_platform(const char* siteId)
 {
     [[MobileAppTracker sharedManager] setSiteId:[NSString stringWithUTF8String:siteId]];
 }
 
-void s3eSetTRUSTeId_platform(const char* tpid)
+void MATSetTRUSTeId_platform(const char* tpid)
 {
     [[MobileAppTracker sharedManager] setTrusteTPID:[NSString stringWithUTF8String:tpid]];
 }
 
-void s3eSetDelegate_platform(bool enable)
+void MATSetDelegate_platform(bool enable)
 {
     matDelegate = enable ? (matDelegate ? nil : [[MATSDKDelegate alloc] init]) : nil;
     
     [[MobileAppTracker sharedManager] setDelegate:matDelegate];
 }
 
-void s3eSetDebugResponse_platform(bool shouldDebug)
+void MATSetDebugResponse_platform(bool shouldDebug)
 {
     [[MobileAppTracker sharedManager] setShouldDebugResponseFromServer:shouldDebug];
 }
 
-void s3eSetAllowDuplicates_platform(bool allowDuplicates)
+void MATSetAllowDuplicates_platform(bool allowDuplicates)
 {
     NSLog(@"Native: setAllowDuplicates");
     
     [[MobileAppTracker sharedManager] setShouldAllowDuplicateRequests:allowDuplicates];
 }
 
-void s3eSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate)
 {
     NSLog(@"Native: setShouldAutoGenerateMacAddress");
     
     [[MobileAppTracker sharedManager] setShouldAutoGenerateMacAddress:shouldAutoGenerate];
 }
 
-void s3eSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate)
 {
     NSLog(@"Native: setShouldAutoGenerateODIN1Key");
     
     [[MobileAppTracker sharedManager] setShouldAutoGenerateODIN1Key:shouldAutoGenerate];
 }
 
-void s3eSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
 {
     NSLog(@"Native: setShouldAutoGenerateOpenUDIDKey");
     
     [[MobileAppTracker sharedManager] setShouldAutoGenerateOpenUDIDKey:shouldAutoGenerate];
 }
 
-void s3eSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate)
 {
     NSLog(@"Native: setShouldAutoGenerateVendorIdentifier");
     
     [[MobileAppTracker sharedManager] setShouldAutoGenerateVendorIdentifier:shouldAutoGenerate];
 }
 
-void s3eSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate)
 {
     NSLog(@"Native: setShouldAutoGenerateAdvertiserIdentifier");
     
     [[MobileAppTracker sharedManager] setShouldAutoGenerateAdvertiserIdentifier:shouldAutoGenerate];
 }
-void s3eSetUseCookieTracking_platform(bool useCookieTracking)
+void MATSetUseCookieTracking_platform(bool useCookieTracking)
 {
     NSLog(@"Native: setUseCookieTracking");
     
     [[MobileAppTracker sharedManager] setUseCookieTracking:useCookieTracking];
 }
 
-void s3eSetUseHTTPS_platform(bool useHTTPS)
+void MATSetUseHTTPS_platform(bool useHTTPS)
 {
     NSLog(@"Native: setUseHTTPS");
     
     [[MobileAppTracker sharedManager] setUseHTTPS:useHTTPS];
 }
 
-void s3eSetRedirectUrl_platform(const char* redirectUrl)
+void MATSetRedirectUrl_platform(const char* redirectUrl)
 {
     NSLog(@"Native: setRedirectUrl = %@", [NSString stringWithUTF8String:redirectUrl]);
     
     [[MobileAppTracker sharedManager] setRedirectUrl:[NSString stringWithUTF8String:redirectUrl]];
 }
 
-void s3eSetAdvertiserIdentifier_platform(const char* advertiserId)
+void MATSetAdvertiserIdentifier_platform(const char* advertiserId)
 {
     NSLog(@"Native: setAdvertiserIdentifier: %@", [NSString stringWithUTF8String:advertiserId]);
     
     [[MobileAppTracker sharedManager] setAdvertiserIdentifier:[[NSUUID alloc] initWithUUIDString:[NSString stringWithUTF8String:advertiserId]] ];
 }
 
-void s3eSetVendorIdentifier_platform(const char* vendorId)
+void MATSetVendorIdentifier_platform(const char* vendorId)
 {
     NSLog(@"Native: setVendorIdentifier: %@", [NSString stringWithUTF8String:vendorId]);
     
     [[MobileAppTracker sharedManager] setVendorIdentifier:[[NSUUID alloc] initWithUUIDString:[NSString stringWithUTF8String:vendorId]] ];
 }
 
-void s3eStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect)
+void MATStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect)
 {
     NSLog(@"Native: startAppToAppTracking: %@, %@, %@, %@, %d",
           [NSString stringWithUTF8String:targetAppId],

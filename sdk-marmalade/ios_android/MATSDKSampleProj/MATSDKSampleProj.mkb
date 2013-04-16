@@ -1,6 +1,10 @@
 options
 {
 	s3e-data-dir="data"
+	arm
+	compiler=gcc
+	debug
+	verbose=2
 }
  
 files

@@ -24,216 +24,216 @@ extern void s3eMATSDKTerminate();
 // code is oftern build standalone, outside the main loader build.
 #if defined I3D_OS_IPHONE || defined I3D_OS_OSX || defined I3D_OS_LINUX || defined I3D_OS_WINDOWS
 
-static void s3eStartMobileAppTracker_wrap(const char* adId, const char* adKey)
+static void MATStartMobileAppTracker_wrap(const char* adId, const char* adKey)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eStartMobileAppTracker"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eStartMobileAppTracker, 2, adId, adKey);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATStartMobileAppTracker"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATStartMobileAppTracker, 2, adId, adKey);
 }
 
-static void s3eSDKParameters_wrap()
+static void MATSDKParameters_wrap()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSDKParameters"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSDKParameters, 0);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSDKParameters"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSDKParameters, 0);
 }
 
-static void s3eTrackInstall_wrap()
+static void MATTrackInstall_wrap()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eTrackInstall"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eTrackInstall, 0);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackInstall"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackInstall, 0);
 }
 
-static void s3eTrackUpdate_wrap()
+static void MATTrackUpdate_wrap()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eTrackUpdate"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eTrackUpdate, 0);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackUpdate"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackUpdate, 0);
 }
 
-static void s3eTrackInstallWithReferenceId_wrap(const char* refId)
+static void MATTrackInstallWithReferenceId_wrap(const char* refId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eTrackInstallWithReferenceId"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eTrackInstallWithReferenceId, 1, refId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackInstallWithReferenceId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackInstallWithReferenceId, 1, refId);
 }
 
-static void s3eTrackActionForEventIdOrName_wrap(const char* eventIdOrName, bool isId, const char* refId)
+static void MATTrackActionForEventIdOrName_wrap(const char* eventIdOrName, bool isId, const char* refId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eTrackActionForEventIdOrName"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eTrackActionForEventIdOrName, 3, eventIdOrName, isId, refId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackActionForEventIdOrName"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackActionForEventIdOrName, 3, eventIdOrName, isId, refId);
 }
 
-static void s3eTrackActionForEventIdOrNameItems_wrap(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+static void MATTrackActionForEventIdOrNameItems_wrap(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eTrackActionForEventIdOrNameItems"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eTrackActionForEventIdOrNameItems, 7, eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackActionForEventIdOrNameItems"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackActionForEventIdOrNameItems, 7, eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
 }
 
-static void s3eTrackAction_wrap(const char* eventIdOrName, bool isId, double revenue, const char* currency)
+static void MATTrackAction_wrap(const char* eventIdOrName, bool isId, double revenue, const char* currency)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eTrackAction"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eTrackAction, 4, eventIdOrName, isId, revenue, currency);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackAction"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackAction, 4, eventIdOrName, isId, revenue, currency);
 }
 
-static void s3eStartAppToAppTracking_wrap(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
+static void MATStartAppToAppTracking_wrap(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eStartAppToAppTracking"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eStartAppToAppTracking, 5, targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATStartAppToAppTracking"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATStartAppToAppTracking, 5, targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
 }
 
-static void s3eSetPackageName_wrap(const char* packageName)
+static void MATSetPackageName_wrap(const char* packageName)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetPackageName"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetPackageName, 1, packageName);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetPackageName"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetPackageName, 1, packageName);
 }
 
-static void s3eSetCurrencyCode_wrap(const char* currencyCode)
+static void MATSetCurrencyCode_wrap(const char* currencyCode)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetCurrencyCode"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetCurrencyCode, 1, currencyCode);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetCurrencyCode"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetCurrencyCode, 1, currencyCode);
 }
 
-static void s3eSetDeviceId_wrap(const char* deviceId)
+static void MATSetDeviceId_wrap(const char* deviceId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetDeviceId"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetDeviceId, 1, deviceId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetDeviceId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetDeviceId, 1, deviceId);
 }
 
-static void s3eSetOpenUDID_wrap(const char* openUDID)
+static void MATSetOpenUDID_wrap(const char* openUDID)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetOpenUDID"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetOpenUDID, 1, openUDID);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetOpenUDID"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetOpenUDID, 1, openUDID);
 }
 
-static void s3eSetUserId_wrap(const char* userId)
+static void MATSetUserId_wrap(const char* userId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetUserId"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetUserId, 1, userId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetUserId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetUserId, 1, userId);
 }
 
-static void s3eSetRevenue_wrap(double revenue)
+static void MATSetRevenue_wrap(double revenue)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetRevenue"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetRevenue, 1, revenue);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetRevenue"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetRevenue, 1, revenue);
 }
 
-static void s3eSetSiteId_wrap(const char* siteId)
+static void MATSetSiteId_wrap(const char* siteId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetSiteId"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetSiteId, 1, siteId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetSiteId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetSiteId, 1, siteId);
 }
 
-static void s3eSetTRUSTeId_wrap(const char* tpid)
+static void MATSetTRUSTeId_wrap(const char* tpid)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetTRUSTeId"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetTRUSTeId, 1, tpid);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetTRUSTeId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetTRUSTeId, 1, tpid);
 }
 
-static void s3eSetDelegate_wrap(bool enable)
+static void MATSetDelegate_wrap(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetDelegate"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetDelegate, 1, enable);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetDelegate"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetDelegate, 1, enable);
 }
 
-static void s3eSetUseHTTPS_wrap(bool enable)
+static void MATSetUseHTTPS_wrap(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetUseHTTPS"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetUseHTTPS, 1, enable);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetUseHTTPS"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetUseHTTPS, 1, enable);
 }
 
-static void s3eSetAllowDuplicates_wrap(bool allowDuplicates)
+static void MATSetAllowDuplicates_wrap(bool allowDuplicates)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetAllowDuplicates"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetAllowDuplicates, 1, allowDuplicates);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetAllowDuplicates"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetAllowDuplicates, 1, allowDuplicates);
 }
 
-static void s3eSetShouldAutoGenerateMacAddress_wrap(bool shouldAutoGenerate)
+static void MATSetShouldAutoGenerateMacAddress_wrap(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetShouldAutoGenerateMacAddress"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetShouldAutoGenerateMacAddress, 1, shouldAutoGenerate);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetShouldAutoGenerateMacAddress"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetShouldAutoGenerateMacAddress, 1, shouldAutoGenerate);
 }
 
-static void s3eSetShouldAutoGenerateODIN1Key_wrap(bool shouldAutoGenerate)
+static void MATSetShouldAutoGenerateODIN1Key_wrap(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetShouldAutoGenerateODIN1Key"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetShouldAutoGenerateODIN1Key, 1, shouldAutoGenerate);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetShouldAutoGenerateODIN1Key"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetShouldAutoGenerateODIN1Key, 1, shouldAutoGenerate);
 }
 
-static void s3eSetShouldAutoGenerateOpenUDIDKey_wrap(bool shouldAutoGenerate)
+static void MATSetShouldAutoGenerateOpenUDIDKey_wrap(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetShouldAutoGenerateOpenUDIDKey"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetShouldAutoGenerateOpenUDIDKey, 1, shouldAutoGenerate);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetShouldAutoGenerateOpenUDIDKey"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetShouldAutoGenerateOpenUDIDKey, 1, shouldAutoGenerate);
 }
 
-static void s3eSetShouldAutoGenerateVendorIdentifier_wrap(bool shouldAutoGenerate)
+static void MATSetShouldAutoGenerateVendorIdentifier_wrap(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetShouldAutoGenerateVendorIdentifier"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetShouldAutoGenerateVendorIdentifier, 1, shouldAutoGenerate);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetShouldAutoGenerateVendorIdentifier"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetShouldAutoGenerateVendorIdentifier, 1, shouldAutoGenerate);
 }
 
-static void s3eSetShouldAutoGenerateAdvertiserIdentifier_wrap(bool shouldAutoGenerate)
+static void MATSetShouldAutoGenerateAdvertiserIdentifier_wrap(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetShouldAutoGenerateAdvertiserIdentifier"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetShouldAutoGenerateAdvertiserIdentifier, 1, shouldAutoGenerate);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetShouldAutoGenerateAdvertiserIdentifier"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetShouldAutoGenerateAdvertiserIdentifier, 1, shouldAutoGenerate);
 }
 
-static void s3eSetUseCookieTracking_wrap(bool useCookieTracking)
+static void MATSetUseCookieTracking_wrap(bool useCookieTracking)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetUseCookieTracking"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetUseCookieTracking, 1, useCookieTracking);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetUseCookieTracking"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetUseCookieTracking, 1, useCookieTracking);
 }
 
-static void s3eSetRedirectUrl_wrap(const char* redirectUrl)
+static void MATSetRedirectUrl_wrap(const char* redirectUrl)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetRedirectUrl"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetRedirectUrl, 1, redirectUrl);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetRedirectUrl"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetRedirectUrl, 1, redirectUrl);
 }
 
-static void s3eSetAdvertiserIdentifier_wrap(const char* advertiserId)
+static void MATSetAdvertiserIdentifier_wrap(const char* advertiserId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetAdvertiserIdentifier"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetAdvertiserIdentifier, 1, advertiserId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetAdvertiserIdentifier"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetAdvertiserIdentifier, 1, advertiserId);
 }
 
-static void s3eSetVendorIdentifier_wrap(const char* vendorId)
+static void MATSetVendorIdentifier_wrap(const char* vendorId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetVendorIdentifier"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetVendorIdentifier, 1, vendorId);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetVendorIdentifier"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetVendorIdentifier, 1, vendorId);
 }
 
-static void s3eSetDebugResponse_wrap(bool shouldDebug)
+static void MATSetDebugResponse_wrap(bool shouldDebug)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: s3eSetDebugResponse"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)s3eSetDebugResponse, 1, shouldDebug);
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetDebugResponse"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetDebugResponse, 1, shouldDebug);
 }
 
-#define s3eStartMobileAppTracker s3eStartMobileAppTracker_wrap
-#define s3eSDKParameters s3eSDKParameters_wrap
-#define s3eTrackInstall s3eTrackInstall_wrap
-#define s3eTrackUpdate s3eTrackUpdate_wrap
-#define s3eTrackInstallWithReferenceId s3eTrackInstallWithReferenceId_wrap
-#define s3eTrackActionForEventIdOrName s3eTrackActionForEventIdOrName_wrap
-#define s3eTrackActionForEventIdOrNameItems s3eTrackActionForEventIdOrNameItems_wrap
-#define s3eTrackAction s3eTrackAction_wrap
-#define s3eStartAppToAppTracking s3eStartAppToAppTracking_wrap
-#define s3eSetPackageName s3eSetPackageName_wrap
-#define s3eSetCurrencyCode s3eSetCurrencyCode_wrap
-#define s3eSetDeviceId s3eSetDeviceId_wrap
-#define s3eSetOpenUDID s3eSetOpenUDID_wrap
-#define s3eSetUserId s3eSetUserId_wrap
-#define s3eSetRevenue s3eSetRevenue_wrap
-#define s3eSetSiteId s3eSetSiteId_wrap
-#define s3eSetTRUSTeId s3eSetTRUSTeId_wrap
-#define s3eSetDelegate s3eSetDelegate_wrap
-#define s3eSetUseHTTPS s3eSetUseHTTPS_wrap
-#define s3eSetAllowDuplicates s3eSetAllowDuplicates_wrap
-#define s3eSetShouldAutoGenerateMacAddress s3eSetShouldAutoGenerateMacAddress_wrap
-#define s3eSetShouldAutoGenerateODIN1Key s3eSetShouldAutoGenerateODIN1Key_wrap
-#define s3eSetShouldAutoGenerateOpenUDIDKey s3eSetShouldAutoGenerateOpenUDIDKey_wrap
-#define s3eSetShouldAutoGenerateVendorIdentifier s3eSetShouldAutoGenerateVendorIdentifier_wrap
-#define s3eSetShouldAutoGenerateAdvertiserIdentifier s3eSetShouldAutoGenerateAdvertiserIdentifier_wrap
-#define s3eSetUseCookieTracking s3eSetUseCookieTracking_wrap
-#define s3eSetRedirectUrl s3eSetRedirectUrl_wrap
-#define s3eSetAdvertiserIdentifier s3eSetAdvertiserIdentifier_wrap
-#define s3eSetVendorIdentifier s3eSetVendorIdentifier_wrap
-#define s3eSetDebugResponse s3eSetDebugResponse_wrap
+#define MATStartMobileAppTracker MATStartMobileAppTracker_wrap
+#define MATSDKParameters MATSDKParameters_wrap
+#define MATTrackInstall MATTrackInstall_wrap
+#define MATTrackUpdate MATTrackUpdate_wrap
+#define MATTrackInstallWithReferenceId MATTrackInstallWithReferenceId_wrap
+#define MATTrackActionForEventIdOrName MATTrackActionForEventIdOrName_wrap
+#define MATTrackActionForEventIdOrNameItems MATTrackActionForEventIdOrNameItems_wrap
+#define MATTrackAction MATTrackAction_wrap
+#define MATStartAppToAppTracking MATStartAppToAppTracking_wrap
+#define MATSetPackageName MATSetPackageName_wrap
+#define MATSetCurrencyCode MATSetCurrencyCode_wrap
+#define MATSetDeviceId MATSetDeviceId_wrap
+#define MATSetOpenUDID MATSetOpenUDID_wrap
+#define MATSetUserId MATSetUserId_wrap
+#define MATSetRevenue MATSetRevenue_wrap
+#define MATSetSiteId MATSetSiteId_wrap
+#define MATSetTRUSTeId MATSetTRUSTeId_wrap
+#define MATSetDelegate MATSetDelegate_wrap
+#define MATSetUseHTTPS MATSetUseHTTPS_wrap
+#define MATSetAllowDuplicates MATSetAllowDuplicates_wrap
+#define MATSetShouldAutoGenerateMacAddress MATSetShouldAutoGenerateMacAddress_wrap
+#define MATSetShouldAutoGenerateODIN1Key MATSetShouldAutoGenerateODIN1Key_wrap
+#define MATSetShouldAutoGenerateOpenUDIDKey MATSetShouldAutoGenerateOpenUDIDKey_wrap
+#define MATSetShouldAutoGenerateVendorIdentifier MATSetShouldAutoGenerateVendorIdentifier_wrap
+#define MATSetShouldAutoGenerateAdvertiserIdentifier MATSetShouldAutoGenerateAdvertiserIdentifier_wrap
+#define MATSetUseCookieTracking MATSetUseCookieTracking_wrap
+#define MATSetRedirectUrl MATSetRedirectUrl_wrap
+#define MATSetAdvertiserIdentifier MATSetAdvertiserIdentifier_wrap
+#define MATSetVendorIdentifier MATSetVendorIdentifier_wrap
+#define MATSetDebugResponse MATSetDebugResponse_wrap
 
 #endif
 
@@ -241,36 +241,36 @@ void s3eMATSDKRegisterExt()
 {
     /* fill in the function pointer struct for this extension */
     void* funcPtrs[30];
-    funcPtrs[0] = (void*)s3eStartMobileAppTracker;
-    funcPtrs[1] = (void*)s3eSDKParameters;
-    funcPtrs[2] = (void*)s3eTrackInstall;
-    funcPtrs[3] = (void*)s3eTrackUpdate;
-    funcPtrs[4] = (void*)s3eTrackInstallWithReferenceId;
-    funcPtrs[5] = (void*)s3eTrackActionForEventIdOrName;
-    funcPtrs[6] = (void*)s3eTrackActionForEventIdOrNameItems;
-    funcPtrs[7] = (void*)s3eTrackAction;
-    funcPtrs[8] = (void*)s3eStartAppToAppTracking;
-    funcPtrs[9] = (void*)s3eSetPackageName;
-    funcPtrs[10] = (void*)s3eSetCurrencyCode;
-    funcPtrs[11] = (void*)s3eSetDeviceId;
-    funcPtrs[12] = (void*)s3eSetOpenUDID;
-    funcPtrs[13] = (void*)s3eSetUserId;
-    funcPtrs[14] = (void*)s3eSetRevenue;
-    funcPtrs[15] = (void*)s3eSetSiteId;
-    funcPtrs[16] = (void*)s3eSetTRUSTeId;
-    funcPtrs[17] = (void*)s3eSetDelegate;
-    funcPtrs[18] = (void*)s3eSetUseHTTPS;
-    funcPtrs[19] = (void*)s3eSetAllowDuplicates;
-    funcPtrs[20] = (void*)s3eSetShouldAutoGenerateMacAddress;
-    funcPtrs[21] = (void*)s3eSetShouldAutoGenerateODIN1Key;
-    funcPtrs[22] = (void*)s3eSetShouldAutoGenerateOpenUDIDKey;
-    funcPtrs[23] = (void*)s3eSetShouldAutoGenerateVendorIdentifier;
-    funcPtrs[24] = (void*)s3eSetShouldAutoGenerateAdvertiserIdentifier;
-    funcPtrs[25] = (void*)s3eSetUseCookieTracking;
-    funcPtrs[26] = (void*)s3eSetRedirectUrl;
-    funcPtrs[27] = (void*)s3eSetAdvertiserIdentifier;
-    funcPtrs[28] = (void*)s3eSetVendorIdentifier;
-    funcPtrs[29] = (void*)s3eSetDebugResponse;
+    funcPtrs[0] = (void*)MATStartMobileAppTracker;
+    funcPtrs[1] = (void*)MATSDKParameters;
+    funcPtrs[2] = (void*)MATTrackInstall;
+    funcPtrs[3] = (void*)MATTrackUpdate;
+    funcPtrs[4] = (void*)MATTrackInstallWithReferenceId;
+    funcPtrs[5] = (void*)MATTrackActionForEventIdOrName;
+    funcPtrs[6] = (void*)MATTrackActionForEventIdOrNameItems;
+    funcPtrs[7] = (void*)MATTrackAction;
+    funcPtrs[8] = (void*)MATStartAppToAppTracking;
+    funcPtrs[9] = (void*)MATSetPackageName;
+    funcPtrs[10] = (void*)MATSetCurrencyCode;
+    funcPtrs[11] = (void*)MATSetDeviceId;
+    funcPtrs[12] = (void*)MATSetOpenUDID;
+    funcPtrs[13] = (void*)MATSetUserId;
+    funcPtrs[14] = (void*)MATSetRevenue;
+    funcPtrs[15] = (void*)MATSetSiteId;
+    funcPtrs[16] = (void*)MATSetTRUSTeId;
+    funcPtrs[17] = (void*)MATSetDelegate;
+    funcPtrs[18] = (void*)MATSetUseHTTPS;
+    funcPtrs[19] = (void*)MATSetAllowDuplicates;
+    funcPtrs[20] = (void*)MATSetShouldAutoGenerateMacAddress;
+    funcPtrs[21] = (void*)MATSetShouldAutoGenerateODIN1Key;
+    funcPtrs[22] = (void*)MATSetShouldAutoGenerateOpenUDIDKey;
+    funcPtrs[23] = (void*)MATSetShouldAutoGenerateVendorIdentifier;
+    funcPtrs[24] = (void*)MATSetShouldAutoGenerateAdvertiserIdentifier;
+    funcPtrs[25] = (void*)MATSetUseCookieTracking;
+    funcPtrs[26] = (void*)MATSetRedirectUrl;
+    funcPtrs[27] = (void*)MATSetAdvertiserIdentifier;
+    funcPtrs[28] = (void*)MATSetVendorIdentifier;
+    funcPtrs[29] = (void*)MATSetDebugResponse;
 
     /*
      * Flags that specify the extension's use of locking and stackswitching

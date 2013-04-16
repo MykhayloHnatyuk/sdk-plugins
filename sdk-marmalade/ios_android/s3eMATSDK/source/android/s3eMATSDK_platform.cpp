@@ -15,37 +15,37 @@
 #include <android/log.h>
 
 static jobject g_Obj;
-static jmethodID g_s3eStartMobileAppTracker;
-static jmethodID g_s3eSDKParameters;
-static jmethodID g_s3etrackInstall;
-static jmethodID g_s3etrackUpdate;
-static jmethodID g_s3etrackInstallWithReferenceId;
-static jmethodID g_s3etrackActionForEventIdOrName;
-static jmethodID g_s3etrackActionForEventIdOrNameItems;
-static jmethodID g_s3etrackAction;
-static jmethodID g_s3eSetPackageName;
-static jmethodID g_s3eStartAppToAppTracking;
+static jmethodID g_MATStartMobileAppTracker;
+static jmethodID g_MATSDKParameters;
+static jmethodID g_MATTrackInstall;
+static jmethodID g_MATTrackUpdate;
+static jmethodID g_MATTrackInstallWithReferenceId;
+static jmethodID g_MATTrackActionForEventIdOrName;
+static jmethodID g_MATTrackActionForEventIdOrNameItems;
+static jmethodID g_MATTrackAction;
+static jmethodID g_MATSetPackageName;
+static jmethodID g_MATStartAppToAppTracking;
 
-static jmethodID g_s3eSetCurrencyCode;
-static jmethodID g_s3eSetDeviceId;
-static jmethodID g_s3eSetOpenUDID;
-static jmethodID g_s3eSetUserId;
-static jmethodID g_s3eSetRevenue;
-static jmethodID g_s3eSetSiteId;
-static jmethodID g_s3eSetTRUSTeId;
-static jmethodID g_s3eSetDebugResponse;
+static jmethodID g_MATSetCurrencyCode;
+static jmethodID g_MATSetDeviceId;
+static jmethodID g_MATSetOpenUDID;
+static jmethodID g_MATSetUserId;
+static jmethodID g_MATSetRevenue;
+static jmethodID g_MATSetSiteId;
+static jmethodID g_MATSetTRUSTeId;
+static jmethodID g_MATSetDebugResponse;
 
-static jmethodID g_s3eSetAllowDuplicates;
-static jmethodID g_s3eSetShouldAutoGenerateMacAddress;
-static jmethodID g_s3eSetShouldAutoGenerateOpenUDIDKey;
-static jmethodID g_s3eSetShouldAutoGenerateVendorIdentifier;
-static jmethodID g_s3eSetShouldAutoGenerateAdvertiserIdentifier;
-static jmethodID g_s3eSetUseCookieTracking;
-static jmethodID g_s3eSetRedirectUrl;
-static jmethodID g_s3eSetAdvertiserIdentifier;
-static jmethodID g_s3eSetVendorIdentifier;
+static jmethodID g_MATSetAllowDuplicates;
+static jmethodID g_MATSetShouldAutoGenerateMacAddress;
+static jmethodID g_MATSetShouldAutoGenerateOpenUDIDKey;
+static jmethodID g_MATSetShouldAutoGenerateVendorIdentifier;
+static jmethodID g_MATSetShouldAutoGenerateAdvertiserIdentifier;
+static jmethodID g_MATSetUseCookieTracking;
+static jmethodID g_MATSetRedirectUrl;
+static jmethodID g_MATSetAdvertiserIdentifier;
+static jmethodID g_MATSetVendorIdentifier;
 
-s3eResult s3eMATSDKInit_platform()
+s3eResult MATSDKInit_platform()
 {
     // Get the environment from the pointer
     JNIEnv* env = s3eEdkJNIGetEnv();
@@ -68,69 +68,69 @@ s3eResult s3eMATSDKInit_platform()
         goto fail;
 
     // Get all the extension methods
-    g_s3eStartMobileAppTracker = env->GetMethodID(cls, "s3eStartMobileAppTracker", "(Ljava/lang/String;Ljava/lang/String;)V");
-    if (!g_s3eStartMobileAppTracker)
+    g_MATStartMobileAppTracker = env->GetMethodID(cls, "MATStartMobileAppTracker", "(Ljava/lang/String;Ljava/lang/String;)V");
+    if (!g_MATStartMobileAppTracker)
         goto fail;
 
-    g_s3eSDKParameters = env->GetMethodID(cls, "s3eSDKParameters", "()V");
-    if (!g_s3eSDKParameters)
+    g_MATSDKParameters = env->GetMethodID(cls, "MATSDKParameters", "()V");
+    if (!g_MATSDKParameters)
         goto fail;
 
-    g_s3etrackInstall = env->GetMethodID(cls, "s3eTrackInstall", "()V");
-    if (!g_s3etrackInstall)
+    g_MATTrackInstall = env->GetMethodID(cls, "MATTrackInstall", "()V");
+    if (!g_MATTrackInstall)
         goto fail;
 
-    g_s3etrackUpdate = env->GetMethodID(cls, "s3eTrackUpdate", "()V");
-    if (!g_s3etrackUpdate)
+    g_MATTrackUpdate = env->GetMethodID(cls, "MATTrackUpdate", "()V");
+    if (!g_MATTrackUpdate)
         goto fail;
 
-    g_s3etrackInstallWithReferenceId = env->GetMethodID(cls, "s3eTrackInstallWithReferenceId", "(Ljava/lang/String;)V");
-    if (!g_s3etrackInstallWithReferenceId)
+    g_MATTrackInstallWithReferenceId = env->GetMethodID(cls, "MATTrackInstallWithReferenceId", "(Ljava/lang/String;)V");
+    if (!g_MATTrackInstallWithReferenceId)
         goto fail;
 
-    g_s3etrackActionForEventIdOrName = env->GetMethodID(cls, "s3eTrackActionForEventIdOrName", "(Ljava/lang/String;ZLjava/lang/String;)V");
-    if (!g_s3etrackActionForEventIdOrName)
+    g_MATTrackActionForEventIdOrName = env->GetMethodID(cls, "MATTrackActionForEventIdOrName", "(Ljava/lang/String;ZLjava/lang/String;)V");
+    if (!g_MATTrackActionForEventIdOrName)
         goto fail;
 
-    g_s3etrackActionForEventIdOrNameItems = env->GetMethodID(cls, "s3eTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;I)V");
-    if (!g_s3etrackActionForEventIdOrNameItems)
+    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;I)V");
+    if (!g_MATTrackActionForEventIdOrNameItems)
         goto fail;
     
-    g_s3etrackAction = env->GetMethodID(cls, "s3eTrackAction", "(Ljava/lang/String;ZDLjava/lang/String;)V");
-    if (!g_s3etrackAction)
+    g_MATTrackAction = env->GetMethodID(cls, "MATTrackAction", "(Ljava/lang/String;ZDLjava/lang/String;)V");
+    if (!g_MATTrackAction)
         goto fail;
 
-    g_s3eSetPackageName = env->GetMethodID(cls, "s3eSetPackageName", "(Ljava/lang/String;)V");
-    if (!g_s3eSetPackageName)
+    g_MATSetPackageName = env->GetMethodID(cls, "MATSetPackageName", "(Ljava/lang/String;)V");
+    if (!g_MATSetPackageName)
         goto fail;
     
-    g_s3eStartAppToAppTracking = env->GetMethodID(cls, "s3eStartAppToAppTracking", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V");
-    if (!g_s3eStartAppToAppTracking)
+    g_MATStartAppToAppTracking = env->GetMethodID(cls, "MATStartAppToAppTracking", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V");
+    if (!g_MATStartAppToAppTracking)
         goto fail;
     ///////
-    g_s3eSetCurrencyCode = env->GetMethodID(cls, "s3eSetCurrencyCode", "(Ljava/lang/String;)V");
-    if (!g_s3eSetCurrencyCode)
+    g_MATSetCurrencyCode = env->GetMethodID(cls, "MATSetCurrencyCode", "(Ljava/lang/String;)V");
+    if (!g_MATSetCurrencyCode)
         goto fail;
-    g_s3eSetDeviceId = env->GetMethodID(cls, "s3eSetDeviceId", "(Ljava/lang/String;)V");
-    if (!g_s3eSetDeviceId)
+    g_MATSetDeviceId = env->GetMethodID(cls, "MATSetDeviceId", "(Ljava/lang/String;)V");
+    if (!g_MATSetDeviceId)
         goto fail;
-    g_s3eSetOpenUDID = env->GetMethodID(cls, "s3eSetOpenUDID", "(Ljava/lang/String;)V");
-    if (!g_s3eSetOpenUDID)
+    g_MATSetOpenUDID = env->GetMethodID(cls, "MATSetOpenUDID", "(Ljava/lang/String;)V");
+    if (!g_MATSetOpenUDID)
         goto fail;
-    g_s3eSetUserId = env->GetMethodID(cls, "s3eSetUserId", "(Ljava/lang/String;)V");
-    if (!g_s3eSetUserId)
+    g_MATSetUserId = env->GetMethodID(cls, "MATSetUserId", "(Ljava/lang/String;)V");
+    if (!g_MATSetUserId)
         goto fail;
-    g_s3eSetRevenue = env->GetMethodID(cls, "s3eSetRevenue", "(D)V");
-    if (!g_s3eSetRevenue)
+    g_MATSetRevenue = env->GetMethodID(cls, "MATSetRevenue", "(D)V");
+    if (!g_MATSetRevenue)
         goto fail;
-    g_s3eSetSiteId = env->GetMethodID(cls, "s3eSetSiteId", "(Ljava/lang/String;)V");
-    if (!g_s3eSetSiteId)
+    g_MATSetSiteId = env->GetMethodID(cls, "MATSetSiteId", "(Ljava/lang/String;)V");
+    if (!g_MATSetSiteId)
         goto fail;
-    g_s3eSetTRUSTeId = env->GetMethodID(cls, "s3eSetTRUSTeId", "(Ljava/lang/String;)V");
-    if (!g_s3eSetTRUSTeId)
+    g_MATSetTRUSTeId = env->GetMethodID(cls, "MATSetTRUSTeId", "(Ljava/lang/String;)V");
+    if (!g_MATSetTRUSTeId)
         goto fail;
-    g_s3eSetDebugResponse = env->GetMethodID(cls, "s3eSetDebugResponse", "(Z)V");
-    if (!g_s3eSetDebugResponse)
+    g_MATSetDebugResponse = env->GetMethodID(cls, "MATSetDebugResponse", "(Z)V");
+    if (!g_MATSetDebugResponse)
         goto fail;
     //////
     IwTrace(MATSDK, ("MATSDK init success"));
@@ -153,68 +153,68 @@ fail:
 
 }
 
-void s3eMATSDKTerminate_platform()
+void MATSDKTerminate_platform()
 {
     // Add any platform-specific termination code here
 }
 
-void s3eStartMobileAppTracker_platform(const char* adId, const char* adKey)
+void MATStartMobileAppTracker_platform(const char* adId, const char* adKey)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring adId_jstr = env->NewStringUTF(adId);
     jstring adKey_jstr = env->NewStringUTF(adKey);
-    env->CallVoidMethod(g_Obj, g_s3eStartMobileAppTracker, adId_jstr, adKey_jstr);
+    env->CallVoidMethod(g_Obj, g_MATStartMobileAppTracker, adId_jstr, adKey_jstr);
     env->DeleteLocalRef(adId_jstr);
     env->DeleteLocalRef(adKey_jstr);
 }
 
-void s3eSDKParameters_platform()
+void MATSDKParameters_platform()
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-    env->CallVoidMethod(g_Obj, g_s3eSDKParameters);
+    env->CallVoidMethod(g_Obj, g_MATSDKParameters);
 }
 
-void s3eTrackInstall_platform()
+void MATTrackInstall_platform()
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-    env->CallVoidMethod(g_Obj, g_s3etrackInstall);
+    env->CallVoidMethod(g_Obj, g_MATTrackInstall);
 }
 
-void s3eTrackUpdate_platform()
+void MATTrackUpdate_platform()
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-    env->CallVoidMethod(g_Obj, g_s3etrackUpdate);
+    env->CallVoidMethod(g_Obj, g_MATTrackUpdate);
 }
 
-void s3eTrackInstallWithReferenceId_platform(const char* refId)
+void MATTrackInstallWithReferenceId_platform(const char* refId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring refId_jstr = env->NewStringUTF(refId);
-    env->CallVoidMethod(g_Obj, g_s3etrackInstallWithReferenceId, refId_jstr);
+    env->CallVoidMethod(g_Obj, g_MATTrackInstallWithReferenceId, refId_jstr);
     env->DeleteLocalRef(refId_jstr);
 }
 
-void s3eTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId)
+void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring eventIdOrName_jstr = env->NewStringUTF(eventIdOrName);
     jstring refId_jstr = env->NewStringUTF(refId);
-    env->CallVoidMethod(g_Obj, g_s3etrackActionForEventIdOrName, eventIdOrName_jstr, isId, refId_jstr);
+    env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrName, eventIdOrName_jstr, isId, refId_jstr);
     env->DeleteLocalRef(eventIdOrName_jstr);
     env->DeleteLocalRef(refId_jstr);
 }
 
-void s3eTrackAction_platform(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
+void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring eventIdOrName_jstr = env->NewStringUTF(eventIdOrName);
     jstring currency_jstr = env->NewStringUTF(currency);
-    env->CallVoidMethod(g_Obj, g_s3etrackAction, eventIdOrName_jstr, isId, revenue, currency_jstr);
+    env->CallVoidMethod(g_Obj, g_MATTrackAction, eventIdOrName_jstr, isId, revenue, currency_jstr);
     env->DeleteLocalRef(eventIdOrName_jstr);
     env->DeleteLocalRef(currency_jstr);
 }
 
-void s3eTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const s3eMATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
 {
     IwTrace(s3eMATSDK, ("In event items method"));
     JNIEnv* jni_env = s3eEdkJNIGetEnv();
@@ -295,14 +295,14 @@ void s3eTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     }
     
     IwTrace(s3eMATSDK, ("calling track method with list"));
-    jni_env->CallVoidMethod(g_Obj, g_s3etrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState);
+    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState);
     
     jni_env->DeleteLocalRef(eventIdOrName_jstr);
     jni_env->DeleteLocalRef(refId_jstr);
     jni_env->DeleteLocalRef(currencyCode_jstr);
 }
 
-void s3eStartAppToAppTracking_platform(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
+void MATStartAppToAppTracking_platform(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     
@@ -312,7 +312,7 @@ void s3eStartAppToAppTracking_platform(const char* targetAppId, const char* adve
     jstring publisherIdUTF = env->NewStringUTF(publisherId);
     
     // Call setTracking from Android SDK
-    env->CallVoidMethod(g_Obj, g_s3eStartAppToAppTracking, advertiserIdUTF, targetAppIdUTF, publisherIdUTF, offerIdUTF, shouldRedirect);
+    env->CallVoidMethod(g_Obj, g_MATStartAppToAppTracking, advertiserIdUTF, targetAppIdUTF, publisherIdUTF, offerIdUTF, shouldRedirect);
     
     env->DeleteLocalRef(targetAppIdUTF);
     env->DeleteLocalRef(advertiserIdUTF);
@@ -323,135 +323,135 @@ void s3eStartAppToAppTracking_platform(const char* targetAppId, const char* adve
 }
 
 // Set Methods
-void s3eSetPackageName_platform(const char* packageName)
+void MATSetPackageName_platform(const char* packageName)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring packageName_jstr = env->NewStringUTF(packageName);
-    env->CallVoidMethod(g_Obj, g_s3eSetPackageName, packageName_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetPackageName, packageName_jstr);
     env->DeleteLocalRef(packageName_jstr);
 }
 
-void s3eSetCurrencyCode_platform(const char* currencyCode)
+void MATSetCurrencyCode_platform(const char* currencyCode)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(currencyCode);
-    env->CallVoidMethod(g_Obj, g_s3eSetCurrencyCode, data_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetCurrencyCode, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void s3eSetDeviceId_platform(const char* deviceId)
+void MATSetDeviceId_platform(const char* deviceId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(deviceId);
-    env->CallVoidMethod(g_Obj, g_s3eSetDeviceId, data_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetDeviceId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void s3eSetOpenUDID_platform(const char* openUDID)
+void MATSetOpenUDID_platform(const char* openUDID)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(openUDID);
-    env->CallVoidMethod(g_Obj, g_s3eSetOpenUDID, data_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetOpenUDID, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void s3eSetUserId_platform(const char* userId)
+void MATSetUserId_platform(const char* userId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(userId);
-    env->CallVoidMethod(g_Obj, g_s3eSetUserId, data_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetUserId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void s3eSetRevenue_platform(double revenue)
+void MATSetRevenue_platform(double revenue)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-    env->CallVoidMethod(g_Obj, g_s3eSetRevenue, revenue);
+    env->CallVoidMethod(g_Obj, g_MATSetRevenue, revenue);
 }
-void s3eSetSiteId_platform(const char* siteId)
+void MATSetSiteId_platform(const char* siteId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(siteId);
-    env->CallVoidMethod(g_Obj, g_s3eSetSiteId, data_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetSiteId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void s3eSetTRUSTeId_platform(const char* tpid)
+void MATSetTRUSTeId_platform(const char* tpid)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(tpid);
-    env->CallVoidMethod(g_Obj, g_s3eSetTRUSTeId, data_jstr);
+    env->CallVoidMethod(g_Obj, g_MATSetTRUSTeId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void s3eSetDebugResponse_platform(bool shouldDebug)
+void MATSetDebugResponse_platform(bool shouldDebug)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-    env->CallVoidMethod(g_Obj, g_s3eSetDebugResponse, shouldDebug);
+    env->CallVoidMethod(g_Obj, g_MATSetDebugResponse, shouldDebug);
 }
 
 // iOS only functions that do nothing on Android
 
-void s3eSetAdvertiserIdentifier_platform(const char* advertiserIdentifier)
+void MATSetAdvertiserIdentifier_platform(const char* advertiserIdentifier)
 {
     
 }
 
-void s3eSetAllowDuplicates_platform(bool allowDuplicates)
+void MATSetAllowDuplicates_platform(bool allowDuplicates)
 {
     
 }
 
-void s3eSetDelegate_platform(bool enable)
+void MATSetDelegate_platform(bool enable)
 {
     
 }
 
-void s3eSetDeviceId_platform(char* deviceId)
+void MATSetDeviceId_platform(char* deviceId)
 {
     
 }
 
-void s3eSetOpenUDID_platform(char* openUdid)
+void MATSetOpenUDID_platform(char* openUdid)
 {
     
 }
 
-void s3eSetRedirectUrl_platform(const char* redirectUrl)
+void MATSetRedirectUrl_platform(const char* redirectUrl)
 {
     
 }
 
-void s3eSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate)
 {
     
 }
 
-void s3eSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate)
 {
     
 }
 
-void s3eSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate)
 {
     
 }
 
-void s3eSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
 {
     
 }
 
-void s3eSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate)
 {
     
 }
 
-void s3eSetVendorIdentifier_platform(const char* vendorIdentifier)
+void MATSetVendorIdentifier_platform(const char* vendorIdentifier)
 {
     
 }
 
-void s3eSetUseCookieTracking_platform(bool useCookieTracking)
+void MATSetUseCookieTracking_platform(bool useCookieTracking)
 {
     
 }
 
-void s3eSetUseHTTPS_platform(bool useHTTPS)
+void MATSetUseHTTPS_platform(bool useHTTPS)
 {
     
 }

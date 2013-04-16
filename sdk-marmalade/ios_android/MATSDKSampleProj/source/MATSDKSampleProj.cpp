@@ -59,49 +59,35 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
 	
     if (isPointInButton(event, startBtn))
     {
-        s3eStartMobileAppTracker("877", "8c14d6bbe466b65211e781d62e301eec");
-        s3eSetPackageName(g_package_name);
-        s3eSetSiteId(g_site_id);
+        MATStartMobileAppTracker("877", "8c14d6bbe466b65211e781d62e301eec");
+        MATSetPackageName(g_package_name);
+        MATSetSiteId(g_site_id);
         
         // testing set delegate
-        s3eSetDelegate(true);
+        MATSetDelegate(true);
         
-        // set the device id
-        // this is an example of pulling udid from the device
-        // NOTE: this is deprecated as of iOS 5.0
-        // According to Marmalade Notes:
-        // On iOS the device ID is the UDID. UDIDs are deprecated in iOS 5.0 and newer;
-        // apps should use UUIDs (CFUUIDCreate) via the EDK.
-        int32 osInt = s3eDeviceGetInt(S3E_DEVICE_OS);
-        const char* deviceId = 0;
-        if (osInt == S3E_OS_ID_IPHONE) // only set device id on iPhone
-        {
-            deviceId = s3eDeviceGetString(S3E_DEVICE_UNIQUE_ID);
-            s3eSetDeviceId(deviceId);
-        }
-        
-        sprintf(g_TouchEventMsg, "`x666666MAT SDK Started %s %s %s", g_package_name, g_site_id, deviceId);
+        sprintf(g_TouchEventMsg, "`x666666MAT SDK Started %s %s", g_package_name, g_site_id);
     }
     if (isPointInButton(event, showParmsBtn))
     {
-        s3eSDKParameters();
+        MATSDKParameters();
     }
     if (isPointInButton(event, sendInstallBtn))
     {
-        s3eTrackInstall();
-       // s3eTrackInstallWithReferenceId("Marmalade Install Test");
+        MATTrackInstall();
+       // MATTrackInstallWithReferenceId("Marmalade Install Test");
         sprintf(g_TouchEventMsg, "`x666666MAT SDK Install sent");
     }
     if (isPointInButton(event, setDebugBtn))
     {
         shouldDebug = !shouldDebug;
-        s3eSetDebugResponse(shouldDebug);
+        MATSetDebugResponse(shouldDebug);
         sprintf(g_TouchEventMsg, "`x666666Debug Set to %s", (shouldDebug)?"true":"false");
     }
     if (isPointInButton(event, sendEventRefBtn))
     {
-        //void s3etrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
-        s3eTrackActionForEventIdOrName("testDCLEventItemRef", false, "testDCLRef");
+        //void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
+        MATTrackActionForEventIdOrName("testDCLEventItemRef", false, "testDCLRef");
         sprintf(g_TouchEventMsg, "`x666666MAT SDK Event with Reference Sent");
     }
     if (isPointInButton(event, sendEventBtn))
@@ -111,18 +97,18 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
         strncpy(items[0].item,
                 "coin",
                 S3E_MATSDK_STRING_MAX);
-        items[0].unitPrice = 1.55;
+        items[0].unitPrice = 1.55f;
         items[0].quantity = 1;
-        items[0].revenue = 1.55;
+        items[0].revenue = 1.55f;
         
         strncpy(items[1].item,
                 "sword",
                 S3E_MATSDK_STRING_MAX);
-        items[1].unitPrice = 2.10;
+        items[1].unitPrice = 2.10f;
         items[1].quantity = 1;
-        items[1].revenue = 2.00;
+        items[1].revenue = 2.00f;
         
-        s3eMATArray array;
+        MATArray array;
         array.m_count = 2;
         array.m_items = items;
         
@@ -136,7 +122,7 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
 //        }
 
         double revAmount = 1.67;
-        s3eTrackActionForEventIdOrNameItems("testDCLEventItems",
+        MATTrackActionForEventIdOrNameItems("testDCLEventItems",
                                                  false,
                                                  &array,
                                                  "testdclitems",
@@ -225,4 +211,8 @@ void ExampleRender()
     ButtonsRender();
     
     s3eDebugPrint(20, 365, g_TouchEventMsg, 1);
+}
+
+void ExampleTerm()
+{
 }
