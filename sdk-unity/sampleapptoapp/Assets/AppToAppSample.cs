@@ -109,6 +109,8 @@ public class AppToAppSample : MonoBehaviour {
 	private static extern void setAdvertiserIdentifier(string advertiserIdentifier);
 	[DllImport ("__Internal")]
 	private static extern void setVendorIdentifier(string vendorIdentifier);
+	[DllImport ("__Internal")]
+	private static extern void setDelegate(bool enable);
 	
 	[DllImport ("__Internal")]
 	private static extern void startAppToAppTracking(string targetAppId, string advertiserId, string offerId, string publisherId, bool shouldRedirect);
@@ -123,20 +125,11 @@ public class AppToAppSample : MonoBehaviour {
 	
 	#endif
 	
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-	
 	void Awake () {
 		//initNativeCode("877", "5afe3bc434184096023e3d8b2ae27e1c"); // Android
 		initNativeCode("877", "8c14d6bbe466b65211e781d62e301eec"); // iOS
 		setDebugMode(true);
+		setDelegate(true);
 		
 		return;
 	}
@@ -156,5 +149,38 @@ public class AppToAppSample : MonoBehaviour {
 			
 			startAppToAppTracking(targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
 		}
+	}
+	
+	/// <summary>
+	/// The method to handle MobileAppTracker success callback.
+	/// </summary>
+	/// <param name='data'>
+	/// Data.
+	/// </param>
+	public void trackerDidSucceed(string data)
+	{
+		print("trackerDidSucceed: " + DecodeFrom64(data));
+	}
+	
+	/// <summary>
+	/// The method to handle MobileAppTracker failure callback.
+	/// </summary>
+	/// <param name='error'>
+	/// Error.
+	/// </param>
+	private void trackerDidFail(string error)
+	{
+		print("trackerDidFail: " + error);
+	}
+	
+	/// <summary>
+	/// The method to decode base64 strings.
+	/// </summary>
+	/// <param name="encodedData">A base64 encoded string.</param>
+	/// <returns>A decoded string.</returns>
+	public static string DecodeFrom64(string encodedString)
+	{
+		print("MATSampleScript.DecodeFrom64(string)");
+	    return System.Text.Encoding.UTF8.GetString(System.Convert.FromBase64String(encodedString));
 	}
 }
