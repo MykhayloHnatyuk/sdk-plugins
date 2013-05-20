@@ -47,14 +47,14 @@ package com.hasoffers.nativeExtensions
 				this.matAdvertiserId = matAdvertiserId;
 				this.matConversionKey = matConversionKey;
 				
-				initExtension(advertiserId, conversionKey);
+				initExtension(matAdvertiserId, matConversionKey);
 			}
 		}
 		
 		// Initialize the extension by calling our "initNativeCode" ANE function
-		private static function initExtension(advertiserId:String, conversionKey:String):void
+		private static function initExtension(matAdvertiserId:String, matConversionKey:String):void
 		{
-			//trace ("MATAS.initExtension(" + advertiserId + ", " + conversionKey + "): Create an extension context");
+			//trace ("MATAS.initExtension(" + matAdvertiserId + ", " + matConversionKey + "): Create an extension context");
 			
 			// The extension context's context type is NULL, because this extension
 			// has only one context type.
