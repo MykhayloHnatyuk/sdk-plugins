@@ -1,8 +1,8 @@
 <platform xmlns="http://ns.adobe.com/air/extension/3.5">
     <description>iPhone platform description</description>
-    <sdkVersion>4.3</sdkVersion>
+    <sdkVersion>6.1</sdkVersion>
     <linkerOptions>
-        <option>-ios_version_min 4.0</option>
+        <option>-ios_version_min 4.3</option>
         <option>-framework AdSupport</option>
         <option>-framework CoreTelephony</option>
         <option>-framework MobileCoreServices</option>

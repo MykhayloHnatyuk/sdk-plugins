@@ -25,6 +25,7 @@ public class MATExtensionContext extends FREContext {
         functionMap.put(TrackActionWithEventItemFunction.NAME, new TrackActionWithEventItemFunction());
         functionMap.put(TrackUpdateFunction.NAME,  new TrackUpdateFunction());
 
+        functionMap.put(SetAllowDuplicatesFunction.NAME, new SetAllowDuplicatesFunction());
         functionMap.put(SetCurrencyCodeFunction.NAME, new SetCurrencyCodeFunction());
         functionMap.put(SetDebugModeFunction.NAME, new SetDebugModeFunction());
         functionMap.put(SetPackageNameFunction.NAME, new SetPackageNameFunction());
@@ -35,10 +36,10 @@ public class MATExtensionContext extends FREContext {
         functionMap.put(StartAppToAppFunction.NAME, new StartAppToAppFunction());
 
         // iOS functions that are no-op on Android
-        functionMap.put(iOSNoOpFunction.ALLOW_DUP, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.DELEGATE, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.DEVICE_ID, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.JAILBROKEN, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.GEN_MAC, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.GEN_JAILBROKEN, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.GEN_ODIN, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.GEN_OPEN_UDID, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.GEN_ADVERTISER, new iOSNoOpFunction());

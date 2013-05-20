@@ -16,16 +16,16 @@ public class InitFunction implements FREFunction {
             Log.i(MATExtensionContext.TAG, "Initialize MobileAppTracker");
             MATExtensionContext mec = (MATExtensionContext) context;
 
-            // Get advertiser id and key from params passed to initNativeCode
+            // Get advertiser id and conversion key from params passed to initNativeCode
             String advertiserId = "";
-            String key = "";
+            String conversionKey = "";
             try {
                 advertiserId = passedArgs[0].getAsString();
-                key = passedArgs[1].getAsString();
+                conversionKey = passedArgs[1].getAsString();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            mec.mat = new MobileAppTracker(context.getActivity().getBaseContext(), advertiserId, key);
+            mec.mat = new MobileAppTracker(context.getActivity(), advertiserId, conversionKey);
 
             return FREObject.newObject(true);
         } catch (Exception e) {

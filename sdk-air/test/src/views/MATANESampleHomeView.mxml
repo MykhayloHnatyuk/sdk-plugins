@@ -9,8 +9,8 @@
 			import spark.events.TextOperationEvent;
 
 			public var mobileAppTracker:MobileAppTracker;
-			public var advertiserId:String;
-			public var advertiserKey:String;
+			public var matAdvertiserId:String;
+			public var matConversionKey:String;
 			public var action:String;
 			public var revenue:Number;
 			public var currencyCode:String;
@@ -25,9 +25,9 @@
 			{
 				trace("MATANESampleHomeView.init() start");
 				
-				advertiserId = "877";
-				//advertiserKey = "5afe3bc434184096023e3d8b2ae27e1c"; // johng_test
-				advertiserKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // HarshalTestApp
+				matAdvertiserId = "877";
+				//matConversionKey = "5afe3bc434184096023e3d8b2ae27e1c"; // johng_test
+				matConversionKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // HarshalTestApp
 				action = "conversion";
 				revenue = 0.42;
 				currencyCode = "USD";
@@ -35,8 +35,8 @@
 				unitPrice = 1.56;
 				quantity = 1;
 
-				advId.text = advertiserId;
-				advKey.text = advertiserKey;
+				advId.text = matAdvertiserId;
+				convKey.text = matConversionKey;
 				revenueInput.text = revenue.toString();
 				currencyInput.text = currencyCode;
 				itemInput.text = item;
@@ -46,11 +46,10 @@
 				trace("MATANESampleHomeView.init(): getting MobileAppTracker singleton instance.");
 				
 				mobileAppTracker = MobileAppTracker.instance;
-				mobileAppTracker.init(advertiserId, advertiserKey);
+				mobileAppTracker.init(matAdvertiserId, matConversionKey);
 				
 				mobileAppTracker.setDebugMode(true);
-				
-				mobileAppTracker.setDeviceId(true);
+				mobileAppTracker.setAllowDuplicates(true);
 				
 				//mobileAppTracker.setPackageName("com.hasofferstestapp"); // johng_test
 				mobileAppTracker.setPackageName("com.hasoffers.harshaltestapp"); // HarshalTestApp
@@ -88,13 +87,13 @@
 			protected function advertiserId_changeHandler(event:TextOperationEvent):void
 			{
 				// set advertiser id to id's text input
-				advertiserId = advId.text;
+				matAdvertiserId = advId.text;
 			}
 
-			protected function advertiserKey_changeHandler(event:TextOperationEvent):void
+			protected function conversionKey_changeHandler(event:TextOperationEvent):void
 			{
 				// set key to key's text input
-				advertiserKey = advKey.text;
+				matConversionKey = convKey.text;
 			}
 
 			protected function action_changeHandler(event:TextOperationEvent):void
@@ -135,11 +134,12 @@
 			protected function toggleAutoGenerateFlags_changeHandler(event:MouseEvent):void
 			{
 				flagAutoGenerateParams = !flagAutoGenerateParams;
-				mobileAppTracker.setShouldAutoGenerateAdvertiserIdentifier(flagAutoGenerateParams);
+				
+				mobileAppTracker.setShouldAutoGenerateAppleAdvertisingIdentifier(flagAutoGenerateParams);
 				mobileAppTracker.setShouldAutoGenerateMacAddress(flagAutoGenerateParams);
 				mobileAppTracker.setShouldAutoGenerateODIN1Key(flagAutoGenerateParams);
 				mobileAppTracker.setShouldAutoGenerateOpenUDIDKey(flagAutoGenerateParams);
-				mobileAppTracker.setShouldAutoGenerateVendorIdentifier(flagAutoGenerateParams);
+				mobileAppTracker.setShouldAutoGenerateAppleVendorIdentifier(flagAutoGenerateParams);
 				
 				var sdkDataParams:String = mobileAppTracker.getSDKDataParameters();
 				sdkDataParams = sdkDataParams.split('","').join('",\n"');
@@ -163,8 +163,8 @@
 			<s:Label text="Advertiser Id" left="10" top="25"/>
 			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="advId" change="advertiserId_changeHandler(event)" horizontalCenter="0" top="50"/>
 
-			<s:Label text="Advertiser Key" left="10" top="100"/>
-			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="advKey" change="advertiserKey_changeHandler(event)" initialize="init()" horizontalCenter="0" top="125"/>
+			<s:Label text="Conversion Key" left="10" top="100"/>
+			<s:TextInput skinClass="spark.skins.mobile.TextInputSkin" id="convKey" change="conversionKey_changeHandler(event)" initialize="init()" horizontalCenter="0" top="125"/>
 
 			<s:Button label="Track install" click="trackInstall_clickHandler(event)" horizontalCenter="0" top="175" />
 
