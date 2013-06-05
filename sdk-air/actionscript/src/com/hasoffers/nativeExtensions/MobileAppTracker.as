@@ -247,6 +247,11 @@ package com.hasoffers.nativeExtensions
 			return extContext.call(NativeMethods.getSDKDataParameters) as String;
 		}
 		
+		public function getReferrer():String
+		{
+			return extContext.call(NativeMethods.getReferrer) as String;
+		}
+		
 		public static function onStatusEvent(event:StatusEvent):void
 		{
 			//trace("MATAS.statusHandler(): " + event);

@@ -25,6 +25,8 @@ public class MATExtensionContext extends FREContext {
         functionMap.put(TrackActionWithEventItemFunction.NAME, new TrackActionWithEventItemFunction());
         functionMap.put(TrackUpdateFunction.NAME,  new TrackUpdateFunction());
 
+        functionMap.put(GetReferrerFunction.NAME, new GetReferrerFunction());
+
         functionMap.put(SetAllowDuplicatesFunction.NAME, new SetAllowDuplicatesFunction());
         functionMap.put(SetCurrencyCodeFunction.NAME, new SetCurrencyCodeFunction());
         functionMap.put(SetDebugModeFunction.NAME, new SetDebugModeFunction());

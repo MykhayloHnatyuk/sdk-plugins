@@ -572,6 +572,11 @@ DEFINE_ANE_FUNCTION(GetSDKDataParametersFunction)
     return params;
 }
 
+DEFINE_ANE_FUNCTION(GetReferrerFunction)
+{
+    return NULL;
+}
+
 #pragma mark - Extension Context Setup Methods
 
 void MATExtContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet)
@@ -611,8 +616,9 @@ void MATExtContextInitializer(void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION(setAppleAdvertisingIdentifier,                     NULL, SetAppleAdvertisingIdentifierFunction),
         MAP_FUNCTION(setAppleVendoerIdentifier,                         NULL, SetAppleVendorIdentifierFunction),
         MAP_FUNCTION(setShouldAutoGenerateAppleAdvertisingIdentifier,   NULL, SetShouldAutoGenerateAppleAdvertisingIdentifierFunction),
-        MAP_FUNCTION(setShouldAutoGenerateAppleVendorIdentifier,        NULL, SetShouldAutoGenerateAppleVendorIdentifierFunction)
+        MAP_FUNCTION(setShouldAutoGenerateAppleVendorIdentifier,        NULL, SetShouldAutoGenerateAppleVendorIdentifierFunction),
         
+	MAP_FUNCTION(getReferrer,				NULL, GetReferrerFunction)
     };
     
     *numFunctionsToSet = sizeof( functions ) / sizeof( FRENamedFunction );

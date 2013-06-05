@@ -45,5 +45,8 @@ package com.hasoffers.nativeExtensions
 		internal static const setAppleVendorIdentifier							: String = "setAppleVendorIdentifier";
 		internal static const setShouldAutoGenerateAppleAdvertisingIdentifier	: String = "setShouldAutoGenerateAppleAdvertisingIdentifier";
 		internal static const setShouldAutoGenerateAppleVendorIdentifier 		: String = "setShouldAutoGenerateAppleVendorIdentifier";
+		
+		// Android getter
+		internal static const getReferrer						: String = "getReferrer";
 	}
 }
