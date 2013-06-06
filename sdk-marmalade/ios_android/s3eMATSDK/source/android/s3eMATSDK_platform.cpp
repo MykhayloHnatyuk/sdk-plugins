@@ -27,23 +27,26 @@ static jmethodID g_MATSetPackageName;
 static jmethodID g_MATStartAppToAppTracking;
 
 static jmethodID g_MATSetCurrencyCode;
-static jmethodID g_MATSetDeviceId;
 static jmethodID g_MATSetOpenUDID;
 static jmethodID g_MATSetUserId;
 static jmethodID g_MATSetRevenue;
 static jmethodID g_MATSetSiteId;
 static jmethodID g_MATSetTRUSTeId;
-static jmethodID g_MATSetDebugResponse;
-
+static jmethodID g_MATSetDebugMode;
 static jmethodID g_MATSetAllowDuplicates;
+
+static jmethodID g_MATSetAge;
+static jmethodID g_MATSetGender;
+static jmethodID g_MATSetLocation;
+
 static jmethodID g_MATSetShouldAutoGenerateMacAddress;
 static jmethodID g_MATSetShouldAutoGenerateOpenUDIDKey;
-static jmethodID g_MATSetShouldAutoGenerateVendorIdentifier;
-static jmethodID g_MATSetShouldAutoGenerateAdvertiserIdentifier;
+static jmethodID g_MATSetShouldAutoGenerateAppleVendorIdentifier;
+static jmethodID g_MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
 static jmethodID g_MATSetUseCookieTracking;
 static jmethodID g_MATSetRedirectUrl;
-static jmethodID g_MATSetAdvertiserIdentifier;
-static jmethodID g_MATSetVendorIdentifier;
+static jmethodID g_MATSetAppleAdvertisingIdentifier;
+static jmethodID g_MATSetAppleVendorIdentifier;
 
 s3eResult MATSDKInit_platform()
 {
@@ -111,27 +114,47 @@ s3eResult MATSDKInit_platform()
     g_MATSetCurrencyCode = env->GetMethodID(cls, "MATSetCurrencyCode", "(Ljava/lang/String;)V");
     if (!g_MATSetCurrencyCode)
         goto fail;
-    g_MATSetDeviceId = env->GetMethodID(cls, "MATSetDeviceId", "(Ljava/lang/String;)V");
-    if (!g_MATSetDeviceId)
-        goto fail;
+    
     g_MATSetOpenUDID = env->GetMethodID(cls, "MATSetOpenUDID", "(Ljava/lang/String;)V");
     if (!g_MATSetOpenUDID)
         goto fail;
+    
     g_MATSetUserId = env->GetMethodID(cls, "MATSetUserId", "(Ljava/lang/String;)V");
     if (!g_MATSetUserId)
         goto fail;
+    
     g_MATSetRevenue = env->GetMethodID(cls, "MATSetRevenue", "(D)V");
     if (!g_MATSetRevenue)
         goto fail;
+    
     g_MATSetSiteId = env->GetMethodID(cls, "MATSetSiteId", "(Ljava/lang/String;)V");
     if (!g_MATSetSiteId)
         goto fail;
+    
     g_MATSetTRUSTeId = env->GetMethodID(cls, "MATSetTRUSTeId", "(Ljava/lang/String;)V");
     if (!g_MATSetTRUSTeId)
         goto fail;
-    g_MATSetDebugResponse = env->GetMethodID(cls, "MATSetDebugResponse", "(Z)V");
-    if (!g_MATSetDebugResponse)
+    
+    g_MATSetDebugMode = env->GetMethodID(cls, "MATSetDebugMode", "(Z)V");
+    if (!g_MATSetDebugMode)
         goto fail;
+    
+	g_MATSetAllowDuplicates = env->GetMethodID(cls, "MATSetAllowDuplicates", "(Z)V");
+	if (!g_MATSetAllowDuplicates)
+		goto fail;
+    
+    g_MATSetAge = env->GetMethodID(cls, "MATSetAge", "(I)V");
+	if (!g_MATSetAge)
+		goto fail;
+    
+    g_MATSetGender = env->GetMethodID(cls, "MATSetGender", "(I)V");
+	if (!g_MATSetGender)
+		goto fail;
+    
+    g_MATSetLocation = env->GetMethodID(cls, "MATSetLocation", "(DDD)V");
+	if (!g_MATSetLocation)
+		goto fail;
+    
     //////
     IwTrace(MATSDK, ("MATSDK init success"));
     g_Obj = env->NewGlobalRef(obj);
@@ -158,14 +181,14 @@ void MATSDKTerminate_platform()
     // Add any platform-specific termination code here
 }
 
-void MATStartMobileAppTracker_platform(const char* adId, const char* adKey)
+void MATStartMobileAppTracker_platform(const char* adId, const char* convKey)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring adId_jstr = env->NewStringUTF(adId);
-    jstring adKey_jstr = env->NewStringUTF(adKey);
-    env->CallVoidMethod(g_Obj, g_MATStartMobileAppTracker, adId_jstr, adKey_jstr);
+    jstring convKey_jstr = env->NewStringUTF(convKey);
+    env->CallVoidMethod(g_Obj, g_MATStartMobileAppTracker, adId_jstr, convKey_jstr);
     env->DeleteLocalRef(adId_jstr);
-    env->DeleteLocalRef(adKey_jstr);
+    env->DeleteLocalRef(convKey_jstr);
 }
 
 void MATSDKParameters_platform()
@@ -224,7 +247,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     jstring refId_jstr = jni_env->NewStringUTF(refId);
     jstring currencyCode_jstr = jni_env->NewStringUTF(currencyCode);
     
-    // create a List class
+    // create an ArrayList class
     const char* list_class_name = "java/util/ArrayList";
     jclass clsList = jni_env->FindClass(list_class_name);
     jmethodID constructorIDList = jni_env->GetMethodID(clsList, "<init>", "()V");
@@ -232,69 +255,55 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     jmethodID list_add_mid = 0;
     list_add_mid = jni_env->GetMethodID(clsList, "add", "(Ljava/lang/Object;)Z");
     
-    // hashmap definition
-    const char* hashmap_class_name = "java/util/HashMap";
-    jclass clsHashMap = jni_env->FindClass(hashmap_class_name);
-    jmethodID constructorID = jni_env->GetMethodID(clsHashMap, "<init>", "()V");
-    
-    // add a hashmap for each item to a List
-    for (uint i=0; i < items->m_count; i++) {
-        IwTrace(s3eMATSDK, ("Item %s, unitPrice %f, quantity %i, revenue %f",
-              ((MATSDKEventItem*)items->m_items)[i].item,
-              ((MATSDKEventItem*)items->m_items)[i].unitPrice,
-              ((MATSDKEventItem*)items->m_items)[i].quantity,
-              ((MATSDKEventItem*)items->m_items)[i].revenue));
-    
-        // create a HashMap class
-        jobject jmapobj = jni_env->NewObject(clsHashMap, constructorID);
-        jmethodID map_put_mid = 0;
-        map_put_mid = jni_env->GetMethodID(clsHashMap, "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
-        
-        // item
-        jstring itemArg = jni_env->NewStringUTF("item");
-        jstring itemVal = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].item);
-        jni_env->CallObjectMethod(jmapobj, map_put_mid, itemArg, itemVal);
-        const char *str;
-        str = jni_env->GetStringUTFChars(itemVal, 0);
-        IwTrace(s3eMATSDK, ("item = %s", str));
-        jni_env->DeleteLocalRef(itemArg);
-        jni_env->DeleteLocalRef(itemVal);
+    // MATEventItem definition
+    const char* mateventitem_class_name = "com/mobileapptracker/MATEventItem";
+    jclass clsMATEventItem = jni_env->FindClass(mateventitem_class_name);
+    jmethodID constructorID = jni_env->GetMethodID(clsMATEventItem, "<init>", "(Ljava/lang/String;IDDLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
 
-        // quantity
-        jstring quantityArg = jni_env->NewStringUTF("quantity");
-        char qtyArray[10];
-        snprintf(qtyArray, sizeof(qtyArray), "%i", ((MATSDKEventItem*)items->m_items)[i].quantity);
-        jstring quantityVal = jni_env->NewStringUTF(qtyArray);
-        jni_env->CallObjectMethod(jmapobj, map_put_mid, quantityArg, quantityVal);
-        IwTrace(s3eMATSDK, ("quantity = %s", qtyArray));
-        jni_env->DeleteLocalRef(quantityArg);
-        jni_env->DeleteLocalRef(quantityVal);
-        
-        // revenue
-        char revArr[10];
-        jstring revenueArg = jni_env->NewStringUTF("revenue");
-        snprintf(revArr, sizeof(revArr), "%f", ((MATSDKEventItem*)items->m_items)[i].revenue);
-        jstring revenueVal = jni_env->NewStringUTF(revArr);
-        jni_env->CallObjectMethod(jmapobj, map_put_mid, revenueArg, revenueVal);
-        IwTrace(s3eMATSDK, ("revenue = %s", revArr));
-        jni_env->DeleteLocalRef(revenueArg);
-        jni_env->DeleteLocalRef(revenueVal);
-        
-        // unit_price
-        char unitPriceArr[10];
-        jstring unitPriceArg = jni_env->NewStringUTF("unit_price");
-        snprintf(unitPriceArr, sizeof(unitPriceArr), "%f", ((MATSDKEventItem*)items->m_items)[i].unitPrice);
-        jstring unitPriceVal = jni_env->NewStringUTF(unitPriceArr);
-        jni_env->CallObjectMethod(jmapobj, map_put_mid, unitPriceArg, unitPriceVal);
-        IwTrace(s3eMATSDK, ("unit_price = %s", unitPriceArr));
-        jni_env->DeleteLocalRef(unitPriceArg);
-        jni_env->DeleteLocalRef(unitPriceVal);
+    // Add a MATEventItem for each item to a List
+    for (uint i = 0; i < items->m_count; i++) {
+        /*
+        IwTrace(s3eMATSDK, ("Item %s, unitPrice %f, quantity %i, revenue %f, attribute1 %s, attribute2 %s, attribute3 %s, attribute4 %s, attribute5 %s",
+            ((MATSDKEventItem*)items->m_items)[i].name,
+            ((MATSDKEventItem*)items->m_items)[i].unitPrice,
+            ((MATSDKEventItem*)items->m_items)[i].quantity,
+            ((MATSDKEventItem*)items->m_items)[i].revenue,
+            ((MATSDKEventItem*)items->m_items)[i].attribute1,
+            ((MATSDKEventItem*)items->m_items)[i].attribute2,
+            ((MATSDKEventItem*)items->m_items)[i].attribute3,
+            ((MATSDKEventItem*)items->m_items)[i].attribute4,
+            ((MATSDKEventItem*)items->m_items)[i].attribute5));*/
 
-        // add the hashmap to the list
-        jboolean jbool = jni_env->CallBooleanMethod(jlistobj, list_add_mid, jmapobj);
+        jstring nameVal = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].name);
+        jstring att1Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute1);
+        jstring att2Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute2);
+        jstring att3Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute3);
+        jstring att4Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute4);
+        jstring att5Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute5);
+        
+        // Create a MATEventItem
+        jobject jeventitemobj = jni_env->NewObject(clsMATEventItem, constructorID,
+            nameVal,
+            ((MATSDKEventItem*)items->m_items)[i].quantity,
+            ((MATSDKEventItem*)items->m_items)[i].unitPrice,
+            ((MATSDKEventItem*)items->m_items)[i].revenue,
+            att1Val,
+            att2Val,
+            att3Val,
+            att4Val,
+            att5Val);
+
+        // Add the MATEventItem to the List
+        jboolean jbool = jni_env->CallBooleanMethod(jlistobj, list_add_mid, jeventitemobj);
+
+        jni_env->DeleteLocalRef(nameVal);
+        jni_env->DeleteLocalRef(att1Val);
+        jni_env->DeleteLocalRef(att2Val);
+        jni_env->DeleteLocalRef(att3Val);
+        jni_env->DeleteLocalRef(att4Val);
+        jni_env->DeleteLocalRef(att5Val);
     }
-    
-    IwTrace(s3eMATSDK, ("calling track method with list"));
+
     jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState);
     
     jni_env->DeleteLocalRef(eventIdOrName_jstr);
@@ -338,13 +347,6 @@ void MATSetCurrencyCode_platform(const char* currencyCode)
     env->CallVoidMethod(g_Obj, g_MATSetCurrencyCode, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void MATSetDeviceId_platform(const char* deviceId)
-{
-    JNIEnv* env = s3eEdkJNIGetEnv();
-    jstring data_jstr = env->NewStringUTF(deviceId);
-    env->CallVoidMethod(g_Obj, g_MATSetDeviceId, data_jstr);
-    env->DeleteLocalRef(data_jstr);
-}
 void MATSetOpenUDID_platform(const char* openUDID)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
@@ -378,20 +380,44 @@ void MATSetTRUSTeId_platform(const char* tpid)
     env->CallVoidMethod(g_Obj, g_MATSetTRUSTeId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void MATSetDebugResponse_platform(bool shouldDebug)
+void MATSetDebugMode_platform(bool shouldDebug)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
-    env->CallVoidMethod(g_Obj, g_MATSetDebugResponse, shouldDebug);
+    env->CallVoidMethod(g_Obj, g_MATSetDebugMode, shouldDebug);
+}
+
+void MATSetAllowDuplicates_platform(bool allowDuplicates)
+{
+	JNIEnv* env = s3eEdkJNIGetEnv();
+	env->CallVoidMethod(g_Obj, g_MATSetAllowDuplicates, allowDuplicates);
+}
+
+void MATSetAge_platform(int age)
+{
+	JNIEnv* env = s3eEdkJNIGetEnv();
+	env->CallVoidMethod(g_Obj, g_MATSetAge, age);
+}
+
+void MATSetGender_platform(int gender)
+{
+	JNIEnv* env = s3eEdkJNIGetEnv();
+	env->CallVoidMethod(g_Obj, g_MATSetGender, gender);
+}
+
+void MATSetLocation_platform(double latitude, double longitude, double altitude)
+{
+	JNIEnv* env = s3eEdkJNIGetEnv();
+	env->CallVoidMethod(g_Obj, g_MATSetLocation, latitude, longitude, altitude);
 }
 
 // iOS only functions that do nothing on Android
 
-void MATSetAdvertiserIdentifier_platform(const char* advertiserIdentifier)
+void MATSetAppleAdvertisingIdentifier_platform(const char* appleAdvertisingIdentifier)
 {
     
 }
 
-void MATSetAllowDuplicates_platform(bool allowDuplicates)
+void MATSetAppleVendorIdentifier_platform(const char* appleVendorIdentifier)
 {
     
 }
@@ -401,7 +427,7 @@ void MATSetDelegate_platform(bool enable)
     
 }
 
-void MATSetDeviceId_platform(char* deviceId)
+void MATSetJailbroken_platform(bool isJailbroken)
 {
     
 }
@@ -416,7 +442,12 @@ void MATSetRedirectUrl_platform(const char* redirectUrl)
     
 }
 
-void MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoDetectJailbroken_platform(bool shouldAutoDetect)
+{
+    
+}
+
+void MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool shouldAutoGenerate)
 {
     
 }
@@ -436,12 +467,7 @@ void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
     
 }
 
-void MATSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate)
-{
-    
-}
-
-void MATSetVendorIdentifier_platform(const char* vendorIdentifier)
+void MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool shouldAutoGenerate)
 {
     
 }
@@ -455,4 +481,3 @@ void MATSetUseHTTPS_platform(bool useHTTPS)
 {
     
 }
-

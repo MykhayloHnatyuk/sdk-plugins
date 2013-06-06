@@ -42,7 +42,7 @@ void s3eMATSDKTerminate();
  * Platform-specific termination, implemented on each platform
  */
 void MATSDKTerminate_platform();
-void MATStartMobileAppTracker_platform(const char* adId, const char* adKey);
+void MATStartMobileAppTracker_platform(const char* adId, const char* convKey);
 
 void MATSDKParameters_platform();
 
@@ -62,25 +62,29 @@ void MATStartAppToAppTracking_platform(const char *targetAppId, const char *adve
 
 void MATSetPackageName_platform(const char* packageName);
 void MATSetCurrencyCode_platform(const char* currencyCode);
-void MATSetDeviceId_platform(const char* deviceId);
+void MATSetJailbroken_platform(bool isJailbroken);
 void MATSetOpenUDID_platform(const char* openUDID);
 void MATSetUserId_platform(const char* userId);
 void MATSetRevenue_platform(double revenue);
 void MATSetSiteId_platform(const char* siteId);
 void MATSetTRUSTeId_platform(const char* tpid);
 void MATSetDelegate_platform(bool enable);
-void MATSetDebugResponse_platform(bool shouldDebug);
+void MATSetDebugMode_platform(bool shouldDebug);
+void MATSetAge_platform(int age);
+void MATSetGender_platform(int gender);
+void MATSetLocation_platform(double latitude, double longitude, double altitude);
 
 void MATSetAllowDuplicates_platform(bool allowDuplicates);
+void MATSetShouldAutoDetectJailbroken_platform(bool shouldAutoDetect);
 void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate);
 void MATSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate);
 void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate);
-void MATSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate);
-void MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool shouldAutoGenerate);
+void MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool shouldAutoGenerate);
 void MATSetUseCookieTracking_platform(bool useCookieTracking);
 void MATSetRedirectUrl_platform(const char* redirectUrl);
-void MATSetAdvertiserIdentifier_platform(const char* advertiserId);
-void MATSetVendorIdentifier_platform(const char* vendorId);
+void MATSetAppleAdvertisingIdentifier_platform(const char* advertiserId);
+void MATSetAppleVendorIdentifier_platform(const char* vendorId);
 void MATSetUseHTTPS_platform(bool useHTTPS);
 
 #endif /* !S3EMATSDK_INTERNAL_H */

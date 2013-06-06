@@ -24,10 +24,15 @@ struct s3eMATTracker;
 
 typedef struct MATSDKEventItem
 {
-	char		item[S3E_MATSDK_STRING_MAX];
+	char		name[S3E_MATSDK_STRING_MAX];
 	float 		unitPrice;
 	int		quantity;
 	float		revenue;
+	char		attribute1[S3E_MATSDK_STRING_MAX];
+	char		attribute2[S3E_MATSDK_STRING_MAX];
+	char		attribute3[S3E_MATSDK_STRING_MAX];
+	char		attribute4[S3E_MATSDK_STRING_MAX];
+	char		attribute5[S3E_MATSDK_STRING_MAX];
 } MATSDKEventItem;
 
 typedef struct MATArray {
@@ -43,7 +48,7 @@ S3E_BEGIN_C_DECL
  */
 s3eBool s3eMATSDKAvailable();
 
-void MATStartMobileAppTracker(const char* adId, const char* adKey);
+void MATStartMobileAppTracker(const char* adId, const char* convKey);
 
 void MATSDKParameters();
 
@@ -59,13 +64,9 @@ void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, c
 
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency);
 
-void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
-
 void MATSetPackageName(const char* packageName);
 
 void MATSetCurrencyCode(const char* currencyCode);
-
-void MATSetDeviceId(const char* deviceId);
 
 void MATSetOpenUDID(const char* openUDID);
 
@@ -77,11 +78,19 @@ void MATSetSiteId(const char* siteId);
 
 void MATSetTRUSTeId(const char* tpid);
 
+void MATSetAge(int age);
+
+void MATSetGender(int gender);
+
+void MATSetLocation(double latitude, double longitude, double altitude);
+
 void MATSetDelegate(bool enable);
 
 void MATSetUseHTTPS(bool enable);
 
-void MATSetAllowDuplicates(bool allowDuplicates);
+void MATSetJailbroken(bool isJailbroken);
+
+void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect);
 
 void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate);
 
@@ -89,19 +98,23 @@ void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate);
 
 void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate);
 
-void MATSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate);
-
-void MATSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate);
-
 void MATSetUseCookieTracking(bool useCookieTracking);
+
+void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
 
 void MATSetRedirectUrl(const char* redirectUrl);
 
-void MATSetAdvertiserIdentifier(const char* advertiserId);
+void MATSetAppleAdvertisingIdentifier(const char* advertiserId);
 
-void MATSetVendorIdentifier(const char* vendorId);
+void MATSetAppleVendorIdentifier(const char* vendorId);
 
-void MATSetDebugResponse(bool shouldDebug);
+void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate);
+
+void MATSetShouldAutoGenerateAppleAdvertisingIdentifier(bool shouldAutoGenerate);
+
+void MATSetDebugMode(bool shouldDebug);
+
+void MATSetAllowDuplicates(bool allowDuplicates);
 
 S3E_END_C_DECL
 

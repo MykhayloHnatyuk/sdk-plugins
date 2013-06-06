@@ -69,12 +69,12 @@ void MATSDKTerminate_platform()
     // Add any platform-specific termination code here
 }
 
-void MATStartMobileAppTracker_platform(const char* adId, const char* adKey)
+void MATStartMobileAppTracker_platform(const char* adId, const char* convKey)
 {
     NSLog(@"Starting MAT");
 	NSString* aid = [NSString stringWithUTF8String:adId];
-	NSString* akey = [NSString stringWithUTF8String:adKey];
-	[[MobileAppTracker sharedManager] startTrackerWithAdvertiserId:aid advertiserKey:akey withError:NULL];
+	NSString* ckey = [NSString stringWithUTF8String:convKey];
+	[[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:aid MATConversionKey:ckey];
 }
 
 void MATSDKParameters_platform()
@@ -136,27 +136,37 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     // print the items array
     NSLog(@"MATSDK events array: %i", items->m_count);
     for (uint i=0; i < items->m_count; i++) {
-        NSLog(@"Item %s, unitPrice %f, quanity %i, revenue %f",
-                            ((MATSDKEventItem*)items->m_items)[i].item,
+        NSLog(@"Item name %s, unitPrice %f, quanity %i, revenue %f, attribute1 %s, attribute2 %s, attribute3 %s, attribute4 %s, attribute5 %s",
+                            ((MATSDKEventItem*)items->m_items)[i].name,
                             ((MATSDKEventItem*)items->m_items)[i].unitPrice,
                             ((MATSDKEventItem*)items->m_items)[i].quantity,
-                            ((MATSDKEventItem*)items->m_items)[i].revenue);
+                            ((MATSDKEventItem*)items->m_items)[i].revenue,
+                            ((MATSDKEventItem*)items->m_items)[i].attribute1,
+                            ((MATSDKEventItem*)items->m_items)[i].attribute2,
+                            ((MATSDKEventItem*)items->m_items)[i].attribute3,
+                            ((MATSDKEventItem*)items->m_items)[i].attribute4,
+                            ((MATSDKEventItem*)items->m_items)[i].attribute5);
     }
     // reformat the items array as an nsarray of dictionary
     NSMutableArray *array = [NSMutableArray array];
     for (uint i=0; i < items->m_count; i++)
     {
-        NSString *item = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].item];
-        NSNumber *unitPrice = [NSNumber numberWithDouble:((MATSDKEventItem*)items->m_items)[i].unitPrice];
-        NSNumber *quantity = [NSNumber numberWithInt:((MATSDKEventItem*)items->m_items)[i].quantity];
-        NSNumber *revenue = [NSNumber numberWithDouble:((MATSDKEventItem*)items->m_items)[i].revenue];
+        NSString *name = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].name];
+        float unitPrice = ((MATSDKEventItem*)items->m_items)[i].unitPrice;
+        int quantity = ((MATSDKEventItem*)items->m_items)[i].quantity;
+        float revenue = ((MATSDKEventItem*)items->m_items)[i].revenue;
         
-        NSDictionary *dict = [[[NSDictionary alloc]initWithObjectsAndKeys:item, @"item",
-                              unitPrice, @"unit_price",
-                              quantity, @"quantity",
-                              revenue, @"revenue", nil] autorelease];
-        [array addObject:dict];
+        NSString *attribute1 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute1];
+        NSString *attribute2 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute2];
+        NSString *attribute3 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute3];
+        NSString *attribute4 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute4];
+        NSString *attribute5 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute5];
+        
+        MATEventItem *item = [MATEventItem eventItemWithName:name unitPrice:unitPrice quantity:quantity revenue:revenue attribute1:attribute1 attribute2:attribute2 attribute3:attribute3 attribute4:attribute4 attribute5:attribute5];
+        
+        [array addObject:item];
     }
+    
     MATSDKDelegate *delegate = [[MATSDKDelegate alloc]init];
     [[MobileAppTracker sharedManager] setDelegate:delegate];
     [[MobileAppTracker sharedManager] trackActionForEventIdOrName:[NSString stringWithUTF8String:eventIdOrName]
@@ -176,11 +186,6 @@ void MATSetPackageName_platform(const char* packageName)
 void MATSetCurrencyCode_platform(const char* currencyCode)
 {
     [[MobileAppTracker sharedManager] setCurrencyCode:[NSString stringWithUTF8String:currencyCode]];
-}
-
-void MATSetDeviceId_platform(const char* deviceId)
-{
-    [[MobileAppTracker sharedManager] setDeviceId:[NSString stringWithUTF8String:deviceId]];
 }
 
 void MATSetOpenUDID_platform(const char* openUDID)
@@ -210,21 +215,45 @@ void MATSetTRUSTeId_platform(const char* tpid)
 
 void MATSetDelegate_platform(bool enable)
 {
-    matDelegate = enable ? (matDelegate ? nil : [[MATSDKDelegate alloc] init]) : nil;
+    matDelegate = enable ? (matDelegate ? matDelegate : [[MATSDKDelegate alloc] init]) : nil;
     
     [[MobileAppTracker sharedManager] setDelegate:matDelegate];
 }
 
-void MATSetDebugResponse_platform(bool shouldDebug)
+void MATSetDebugMode_platform(bool shouldDebug)
 {
-    [[MobileAppTracker sharedManager] setShouldDebugResponseFromServer:shouldDebug];
+    [[MobileAppTracker sharedManager] setDebugMode:shouldDebug];
+}
+
+void MATSetAge_platform(int age)
+{
+    [[MobileAppTracker sharedManager] setAge:age];
+}
+
+void MATSetGender_platform(int gender)
+{
+    NSLog(@"MATSetGender_platform gender = %d", gender);
+    
+    [[MobileAppTracker sharedManager] setGender:(1 == gender ? FEMALE : MALE)];
+}
+
+void MATSetLocation_platform(double latitude, double longitude, double altitude)
+{
+    [[MobileAppTracker sharedManager] setLatitude:latitude longitude:longitude altitude:altitude];
 }
 
 void MATSetAllowDuplicates_platform(bool allowDuplicates)
 {
     NSLog(@"Native: setAllowDuplicates");
     
-    [[MobileAppTracker sharedManager] setShouldAllowDuplicateRequests:allowDuplicates];
+    [[MobileAppTracker sharedManager] setAllowDuplicateRequests:allowDuplicates];
+}
+
+void MATSetShouldAutoDetectJailbroken_platform(bool shouldAutoDetect)
+{
+    NSLog(@"Native: setShouldAutoDetectJailbroken");
+    
+    [[MobileAppTracker sharedManager] setShouldAutoDetectJailbroken:shouldAutoDetect];
 }
 
 void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate)
@@ -248,18 +277,18 @@ void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
     [[MobileAppTracker sharedManager] setShouldAutoGenerateOpenUDIDKey:shouldAutoGenerate];
 }
 
-void MATSetShouldAutoGenerateVendorIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool shouldAutoGenerate)
 {
-    NSLog(@"Native: setShouldAutoGenerateVendorIdentifier");
+    NSLog(@"Native: setShouldAutoGenerateAppleVendorIdentifier");
     
-    [[MobileAppTracker sharedManager] setShouldAutoGenerateVendorIdentifier:shouldAutoGenerate];
+    [[MobileAppTracker sharedManager] setShouldAutoGenerateAppleVendorIdentifier:shouldAutoGenerate];
 }
 
-void MATSetShouldAutoGenerateAdvertiserIdentifier_platform(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool shouldAutoGenerate)
 {
-    NSLog(@"Native: setShouldAutoGenerateAdvertiserIdentifier");
+    NSLog(@"Native: setShouldAutoGenerateAppleAdvertisingIdentifier");
     
-    [[MobileAppTracker sharedManager] setShouldAutoGenerateAdvertiserIdentifier:shouldAutoGenerate];
+    [[MobileAppTracker sharedManager] setShouldAutoGenerateAppleAdvertisingIdentifier:shouldAutoGenerate];
 }
 void MATSetUseCookieTracking_platform(bool useCookieTracking)
 {
@@ -275,6 +304,13 @@ void MATSetUseHTTPS_platform(bool useHTTPS)
     [[MobileAppTracker sharedManager] setUseHTTPS:useHTTPS];
 }
 
+void MATSetJailbroken_platform(bool isJailbroken)
+{
+    NSLog(@"Native: setJailbroken");
+    
+    [[MobileAppTracker sharedManager] setJailbroken:isJailbroken];
+}
+
 void MATSetRedirectUrl_platform(const char* redirectUrl)
 {
     NSLog(@"Native: setRedirectUrl = %@", [NSString stringWithUTF8String:redirectUrl]);
@@ -282,18 +318,18 @@ void MATSetRedirectUrl_platform(const char* redirectUrl)
     [[MobileAppTracker sharedManager] setRedirectUrl:[NSString stringWithUTF8String:redirectUrl]];
 }
 
-void MATSetAdvertiserIdentifier_platform(const char* advertiserId)
+void MATSetAppleAdvertisingIdentifier_platform(const char* advertiserId)
 {
-    NSLog(@"Native: setAdvertiserIdentifier: %@", [NSString stringWithUTF8String:advertiserId]);
+    NSLog(@"Native: setAppleAdvertisingIdentifier: %@", [NSString stringWithUTF8String:advertiserId]);
     
-    [[MobileAppTracker sharedManager] setAdvertiserIdentifier:[[NSUUID alloc] initWithUUIDString:[NSString stringWithUTF8String:advertiserId]] ];
+    [[MobileAppTracker sharedManager] setAppleAdvertisingIdentifier:[[NSUUID alloc] initWithUUIDString:[NSString stringWithUTF8String:advertiserId]] ];
 }
 
-void MATSetVendorIdentifier_platform(const char* vendorId)
+void MATSetAppleVendorIdentifier_platform(const char* vendorId)
 {
-    NSLog(@"Native: setVendorIdentifier: %@", [NSString stringWithUTF8String:vendorId]);
+    NSLog(@"Native: setAppleVendorIdentifier: %@", [NSString stringWithUTF8String:vendorId]);
     
-    [[MobileAppTracker sharedManager] setVendorIdentifier:[[NSUUID alloc] initWithUUIDString:[NSString stringWithUTF8String:vendorId]] ];
+    [[MobileAppTracker sharedManager] setAppleVendorIdentifier:[[NSUUID alloc] initWithUUIDString:[NSString stringWithUTF8String:vendorId]] ];
 }
 
 void MATStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect)

@@ -2,66 +2,106 @@
 //  MobileAppTracker.h
 //  MobileAppTracker
 //
-//  Created by HasOffers on 11/15/12.
-//  Copyright (c) 2012 HasOffers. All rights reserved.
+//  Created by HasOffers on 05/03/13.
+//  Copyright (c) 2013 HasOffers. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define MATVERSION @"2.2"
+#define MATVERSION @"2.4"
+
+@protocol MobileAppTrackerDelegate;
 
 /*!
  MobileAppTracker provides the methods to send events and actions to the
  HasOffers servers.
  */
-
-@protocol MobileAppTrackerDelegate;
-
 @interface MobileAppTracker : NSObject
 
-#pragma mark - Properties
+#pragma mark -
 
-/*!
- A Delegate used by MobileAppTracker to callback
- */
-@property (nonatomic, assign) id <MobileAppTrackerDelegate> delegate;
+typedef enum MATGender
+{
+    MALE = 0,
+    FEMALE = 1
+} MATGender;
 
-/*!
- Provides a view of the parameters used by the sdk at any time.
- */
-@property (nonatomic, readonly) NSDictionary *sdkDataParameters;
+#pragma mark - MobileAppTracker Shared Instance
 
-#pragma mark - Constructors
-
+/** @name MobileAppTracker Shared Instance */
 /*!
  A singleton of the MobileAppTracker Class
  */
 + (MobileAppTracker *)sharedManager;
 
+
+#pragma mark - Main Initializer
+
+/** @name Intitializing MobileAppTracker With Advertiser Information */
+/*!
+ Starts Mobile App Tracker with MAT Advertiser Id and MAT Conversion Key. Both values are required.
+ @param aid the MAT Advertiser Id provided in Mobile App Tracking.
+ @param key the MAT Conversion Key provided in Mobile App Tracking.
+ @return TRUE if error occurs, FALSE otherwise.
+ */
+- (BOOL)startTrackerWithMATAdvertiserId:(NSString *)aid MATConversionKey:(NSString *)key;
+
+
+#pragma mark - Properties
+
+/** @name MAT SDK Callback Delegate */
+/*!
+ [MobileAppTrackerDelegate](MobileAppTrackerDelegate) : A Delegate used by MobileAppTracker to callback.
+ Set this to receive success and failure callbacks from the MAT SDK.
+ */
+@property (nonatomic, assign) id <MobileAppTrackerDelegate> delegate;
+
+/** @name MAT Data Parameters */
+/*!
+ Provides a view of the parameters used by the sdk at any time.
+ */
+@property (nonatomic, readonly) NSDictionary *sdkDataParameters;
+
+
+#pragma mark - Debug And Test
+
+/** @name Debug And Test */
+
+/*!
+ Specifies that the server responses should include debug information.
+ 
+ @warning This is only for testing. You must turn this off for release builds.
+ 
+ @param yesorno defaults to NO.
+ */
+- (void)setDebugMode:(BOOL)yesorno;
+
+/*!
+ Set to YES to allow duplicate requests to be registered with the tracking engine.
+ 
+ @warning This is only for testing. You must turn this off for release builds.
+ 
+ @param yesorno defaults to NO.
+ */
+- (void)setAllowDuplicateRequests:(BOOL)yesorno;
+
+
 #pragma mark - Data Parameters
 
-/** @name Advertiser Id */
-/*!
- Sets the advertiser id for the engine.
- @param advertiser_id The string id for the advertiser id.
- */
-- (void)setAdvertiserId:(NSString *)advertiser_id;
+/** @name Setter Methods */
 
-/* @name Advertiser Identifier */
 /*!
- Set the Advertiser Identifier available in iOS 6
- @param advertiser_identifier - Advertiser Identifier
+ Set the Apple Advertising Identifier available in iOS 6
+ @param advertising_identifier - Apple Advertising Identifier
  */
-- (void)setAdvertiserIdentifier:(NSUUID *)advertiser_identifier;
+- (void)setAppleAdvertisingIdentifier:(NSUUID *)advertising_identifier;
 
-/** @name Advertiser Key */
 /*!
- Sets the advertiser key for the engine.
- @param advertiser_key The string value for the advertiser key.
+ Set the Apple Vendor Identifier available in iOS 6
+ @param vendor_identifier - Apple Vendor Identifier
  */
-- (void)setAdvertiserKey:(NSString *)advertiser_key;
+- (void)setAppleVendorIdentifier:(NSUUID * )vendor_identifier;
 
-/** @name Currency Code */
 /*!
  Sets the currency code for the engine.
  Default: USD
@@ -69,29 +109,30 @@
  */
 - (void)setCurrencyCode:(NSString *)currency_code;
 
-/** @name Device Id */
 /*!
- A device id that can be used for tracking events.
- @param device_id The string name for the device id.
+ Sets the jailbroken device flag for the engine.
+ @param yesorno The jailbroken device flag.
  */
-- (void)setDeviceId:(NSString *)device_id;
+- (void)setJailbroken:(BOOL)yesorno;
 
-/** @name Use HTTPS */
 /*!
- Use HTTPS for the urls to the tracking engine.
- YES/NO
- @param yesorno yes means use https, default is yes.
+ Sets the MAT advertiser id for the engine.
+ @param advertiser_id The string id for the MAT advertiser id.
  */
-- (void)setUseHTTPS:(BOOL)yesorno;
+- (void)setMATAdvertiserId:(NSString *)advertiser_id;
 
-/** @name Open UDID */
 /*!
- Set the OpenUDID for the tracker.
+ Sets the MAT conversion key for the engine.
+ @param conversion_key The string value for the MAT conversion key.
+ */
+- (void)setMATConversionKey:(NSString *)conversion_key;
+
+/*!
+ Set the OpenUDID for the engine.
  @param open_udid a string value for the open udid value.
  */
 - (void)setOpenUDID:(NSString *)open_udid;
 
-/** @name Package Name */
 /*!
  Sets the package name (bundle_id) for the engine.
  Defaults to the bundle_id of the app that is running the sdk.
@@ -99,24 +140,26 @@
  */
 - (void)setPackageName:(NSString *)package_name;
 
-/** @name Redirect URL */
 /*!
- Sets a url to be used with app-to-app tracking so that
- the sdk can open the download (redirect) url. This is
- used in conjunction with the setTracking: method.
- @param redirect_url The string name for the url.
+ Specifies if the sdk should auto detect if the iOS device is jailbroken.
+ YES/NO
+ @param yesorno yes will detect if the device is jailbroken, defaults to yes.
  */
-- (void)setRedirectUrl:(NSString *)redirect_url;
+- (void)setShouldAutoDetectJailbroken:(BOOL)yesorno;
 
-/** @name Set this to allow duplicate requests to the tracking engine */
 /*!
- Set to YES to allow duplicate requests to be registered with the tracking engine.
- NOTE: This is for testing, turn off for release.
- @param yesorno defaults to NO.
+ Specifies if the sdk should pull the Apple Advertising Identifier from the device.
+ YES/NO
+ @param yesorno yes will set the Apple Advertising Identifier key, defaults to no.
  */
-- (void)setShouldAllowDuplicateRequests:(BOOL)yesorno;
+- (void)setShouldAutoGenerateAppleAdvertisingIdentifier:(BOOL)yesorno;
 
-/** @name Should Auto Generate Mac Address */
+/*!
+ Specifies if the sdk should pull the Apple Vendor Identifier from the device.
+ YES/NO
+ @param yesorno yes will set the Apple Vendor Identifier key, defaults to no.
+ */
+- (void)setShouldAutoGenerateAppleVendorIdentifier:(BOOL)yesorno;
 
 /*!
  Specifies if the sdk should auto generate a mac address identifier.
@@ -125,7 +168,6 @@
  */
 - (void)setShouldAutoGenerateMacAddress:(BOOL)yesorno;
 
-/** @name Should Auto Generate ODIN1 Key */
 /*!
  Specifies if the sdk should auto generate an ODIN-1 key.
  YES/NO
@@ -133,88 +175,43 @@
  */
 - (void)setShouldAutoGenerateODIN1Key:(BOOL)yesorno;
 
-/** @name Should Auto Generate Open UDID Key */
 /*!
- Specifies if the sdk should auto generate an Open UDID key.
+ Specifies if the sdk should auto generate an OpenUDID key.
  YES/NO
- @param yesorno yes will create an ODIN-1 key, defaults to yes.
+ @param yesorno yes will create an OpenUDID key, defaults to yes.
  */
 - (void)setShouldAutoGenerateOpenUDIDKey:(BOOL)yesorno;
 
-/** @name Should Auto Generate Vendor Identifier */
-/*!
- Specifies if the sdk should pull a vendor identifier from the device.
- YES/NO
- @param yesorno yes will set the vendor identifier key, defaults to no.
- */
-- (void)setShouldAutoGenerateVendorIdentifier:(BOOL)yesorno;
-
-/** @name Should Auto Generate Advertiser Identifier */
-/*!
- Specifies if the sdk should pull a advertiser identifier from the device.
- YES/NO
- @param yesorno yes will set the advertiser identifier key, defaults to no.
- */
-- (void)setShouldAutoGenerateAdvertiserIdentifier:(BOOL)yesorno;
-
-/** @name Set this to see debug output from server requests */
-/*!
- Specifies that the server responses should log to the console. NOTE: You must turn this off for release builds.
- If set to YES, debug data will be sent to the console.
- NOTE: This is for testing, turn off for release.
- @param yesorno defaults to NO.
- */
-- (void)setShouldDebugResponseFromServer:(BOOL)yesorno;
-
-/** @name Site Id */
 /*!
  Sets the site id for the engine.
  @param site_id The string id for the site id.
  */
 - (void)setSiteId:(NSString *)site_id;
 
-/** @name Truste TPID */
 /*!
  Set the Trusted Preference Identifier (TPID).
  @param truste_tpid - Trusted Preference Identifier (TPID)
  */
 - (void)setTrusteTPID:(NSString *)truste_tpid;
 
-/** @name User Id */
+/*!
+ Use HTTPS for the urls to the tracking engine.
+ YES/NO
+ @param yesorno yes means use https, default is yes.
+ */
+- (void)setUseHTTPS:(BOOL)yesorno;
+
 /*!
  Sets the user id for the engine.
  @param user_id The string name for the user id.
  */
 - (void)setUserId:(NSString *)user_id;
 
-/** @name Cookie Tracking */
-/*!
- Sets whether or not to user cookie based tracking.
- Default: NO
- @param yesorno YES/NO for cookie based tracking.
- */
-- (void)setUseCookieTracking:(BOOL)yesorno;
+- (void)setAge:(NSInteger)userAge;
+- (void)setGender:(MATGender)userGender;
 
-/** @name Vendor Identifier */
-/*!
- Set the Vendor Identifier available in iOS 6
- @param vendor_identifier - Vendor Identifier
- */
-- (void)setVendorIdentifier:(NSUUID * )vendor_identifier;
-
-#pragma mark - Main Initializer
-
-/** @name Intitializing MobileAppTracker with Advertiser Information */
-
-/*!
- Starts Mobile App Tracker with Advertiser Id and Advertiser Key. Both values are required.
- @param aid the Advertiser Id provided in Mobile App Tracking.
- @param key the Advertiser Key provided in Mobile App Tracking.
- @param error optional, use this to view an error in starting mobile app tracker.
- @return TRUE if error occurs, FALSE otherwise.
- */
-- (BOOL)startTrackerWithAdvertiserId:(NSString *)aid advertiserKey:(NSString *)key withError:(NSError **)error;
-
+- (void)setLatitude:(double)latitude longitude:(double)longitude;
+- (void)setLatitude:(double)latitude longitude:(double)longitude altitude:(double)altitude;
 
 #pragma mark - Track Install/Update Methods
 
@@ -231,8 +228,19 @@
 - (void)trackInstall;
 
 /*!
- Instead of an Install, force an Update to be recorded. 
- To be used if MAT sdk was not integrated in the previous 
+ Record an Install or an Update by determining if a previous
+ version of this app is already installed on the user's device.
+ To be used if this is the first version of the app
+ or the previous version also included MAT sdk.
+ To be called when an app opens; typically in the didFinishLaunching event.
+ Works only once per app version, does not have any effect if called again in the same app version.
+ @param refId A reference id used to track an install and/or update, corresponds to advertiser_ref_id on the website.
+ */
+- (void)trackInstallWithReferenceId:(NSString *)refId;
+
+/*!
+ Instead of an Install, force an Update to be recorded.
+ To be used if MAT sdk was not integrated in the previous
  version of this app. Only use this method if your app can distinguish
  between an install and an update, else use trackInstall.
  To be called when an app opens; typically in the didFinishLaunching event.
@@ -241,26 +249,16 @@
 - (void)trackUpdate;
 
 /*!
- Record an Install or an Update by determining if a previous
- version of this app is already installed on the user's device.
- To be used if this is the first version of the app
- or the previous version also included MAT sdk.
- To be called when an app opens; typically in the didFinishLaunching event.
- Works only once per app version, does not have any effect if called again in the same app version.
- @param refId A reference id used to track an install and/or update.
- */
-- (void)trackInstallWithReferenceId:(NSString *)refId;
-
-/*!
  Instead of an Install, force an Update to be recorded.
  To be used if MAT sdk was not integrated in the previous
  version of this app. Only use this method if your app can distinguish
  between an install and an update, else use trackInstallWithReferenceId.
  To be called when an app opens; typically in the didFinishLaunching event.
  Works only once per app version, does not have any effect if called again in the same app version.
- @param refId A reference id used to track an update.
+ @param refId A reference id used to track an update, corresponds to advertiser_ref_id on the website.
  */
 - (void)trackUpdateWithReferenceId:(NSString *)refId;
+
 
 #pragma mark - Track Actions
 
@@ -278,33 +276,12 @@
  Record a Track Action for an Event Id or Name and reference id.
  @param eventIdOrName The event name or event id.
  @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param refId The referencId for an event.
+ @param refId The referencId for an event, corresponds to advertiser_ref_id on the website.
  */
 - (void)trackActionForEventIdOrName:(NSString *)eventIdOrName
                           eventIsId:(BOOL)isId
                         referenceId:(NSString *)refId;
 
-/*!
- Record a Track Action for an Event Id or Name and a list of event items.
- @param eventIdOrName The event name or event id.
- @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param eventItems A list of dictionaries that contain elements: item, unit_price, quantity and revenue
- */
-- (void)trackActionForEventIdOrName:(NSString *)eventIdOrName
-                          eventIsId:(BOOL)isId
-                         eventItems:(NSArray *)eventItems;
-
-/*!
- Record a Track Action for an Event Name or Id.
- @param eventIdOrName The event name or event id.
- @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param eventItems A list of dictionaries that contain elements: item, unit_price, quantity and revenue
- @param refId The referencId for an event.
- */
-- (void)trackActionForEventIdOrName:(NSString *)eventIdOrName
-                          eventIsId:(BOOL)isId
-                         eventItems:(NSArray *)eventItems
-                        referenceId:(NSString *)refId;
 
 /*!
  Record a Track Action for an Event Id or Name, revenue and currency.
@@ -321,8 +298,8 @@
 /*!
  Record a Track Action for an Event Id or Name and reference id, revenue and currency.
  @param eventIdOrName The event name or event id.
- @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param refId The referencId for an event.
+ @param isId Yes if eventIdOrName is the event id for a pre-defined event on the MAT website, no otherwise
+ @param refId The referencId for an event, corresponds to advertiser_ref_id on the website.
  @param revenueAmount The revenue amount for the event.
  @param currencyCode The currency code override for the event. Blank defaults to sdk setting.
  */
@@ -332,11 +309,38 @@
                       revenueAmount:(float)revenueAmount
                        currencyCode:(NSString *)currencyCode;
 
+
+#pragma mark - Track Actions With Event Items
+
+/** @name Track Actions With Event Items */
+
+/*!
+ Record a Track Action for an Event Id or Name and a list of event items.
+ @param eventIdOrName The event name or event id.
+ @param isId Yes if the event is an Id otherwise No if the event is a name only.
+ @param eventItems An array of MATEventItem objects
+ */
+- (void)trackActionForEventIdOrName:(NSString *)eventIdOrName
+                          eventIsId:(BOOL)isId
+                         eventItems:(NSArray *)eventItems;
+
 /*!
  Record a Track Action for an Event Name or Id.
  @param eventIdOrName The event name or event id.
  @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param eventItems A list of dictionaries that contain elements: item, unit_price, quantity and revenue
+ @param eventItems An array of MATEventItem objects
+ @param refId The referencId for an event, corresponds to advertiser_ref_id on the website.
+ */
+- (void)trackActionForEventIdOrName:(NSString *)eventIdOrName
+                          eventIsId:(BOOL)isId
+                         eventItems:(NSArray *)eventItems
+                        referenceId:(NSString *)refId;
+
+/*!
+ Record a Track Action for an Event Name or Id.
+ @param eventIdOrName The event name or event id.
+ @param isId Yes if the event is an Id otherwise No if the event is a name only.
+ @param eventItems An array of MATEventItem objects
  @param revenueAmount The revenue amount for the event.
  @param currencyCode The currency code override for the event. Blank defaults to sdk setting.
  */
@@ -350,8 +354,8 @@
  Record a Track Action for an Event Name or Id.
  @param eventIdOrName The event name or event id.
  @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param eventItems A list of dictionaries that contain elements: item, unit_price, quantity and revenue
- @param refId The referencId for an event.
+ @param eventItems An array of MATEventItem objects
+ @param refId The referencId for an event, corresponds to advertiser_ref_id on the website.
  @param revenueAmount The revenue amount for the event.
  @param currencyCode The currency code override for the event. Blank defaults to sdk setting.
  */
@@ -362,13 +366,12 @@
                       revenueAmount:(float)revenueAmount
                        currencyCode:(NSString *)currencyCode;
 
-
 /*!
  Record a Track Action for an Event Name or Id.
  @param eventIdOrName The event name or event id.
  @param isId Yes if the event is an Id otherwise No if the event is a name only.
- @param eventItems A list of dictionaries that contain elements: item, unit_price, quantity and revenue
- @param refId The referencId for an event.
+ @param eventItems An array of MATEventItem objects
+ @param refId The referencId for an event, corresponds to advertiser_ref_id on the website.
  @param revenueAmount The revenue amount for the event.
  @param currencyCode The currency code override for the event. Blank defaults to sdk setting.
  @param transactionState The in-app purchase transaction SKPaymentTransactionState as received from the iTunes store.
@@ -381,22 +384,42 @@
                        currencyCode:(NSString *)currencyCode
                    transactionState:(NSInteger)transactionState;
 
-#pragma mark - Track Setters
 
-/** @name Start a Tracking Session used with App-To-App Tracking */
+#pragma mark - Cookie Tracking
+
+/** @name Cookie Tracking */
+/*!
+ Sets whether or not to user cookie based tracking.
+ Default: NO
+ @param yesorno YES/NO for cookie based tracking.
+ */
+- (void)setUseCookieTracking:(BOOL)yesorno;
+
+
+#pragma mark - App-to-app Tracking
+
+/** @name App-To-App Tracking */
+
+/*!
+ Sets a url to be used with app-to-app tracking so that
+ the sdk can open the download (redirect) url. This is
+ used in conjunction with the setTracking:advertiserId:offerId:publisherId:redirect: method.
+ @param redirect_url The string name for the url.
+ */
+- (void)setRedirectUrl:(NSString *)redirect_url;
 
 /*!
  Start a Tracking Session on the MAT server.
- @param targetAppId The bundle identifier of the target app.
- @param advertiserId The MAT advertiser id of the target app.
+ @param targetAppPackageName The bundle identifier of the target app.
+ @param targetAppAdvertiserId The MAT advertiser id of the target app.
  @param offerId The MAT offer id of the target app.
  @param publisherId The MAT publisher id of the target app.
  @param shouldRedirect Should redirect to the download url if the tracking session was successfully created. See setRedirectUrl:.
  */
-- (void)setTracking:(NSString *)targetAppId
-       advertiserId:(NSString *)advertiserId
-            offerId:(NSString *)offerId
-        publisherId:(NSString *)publisherId
+- (void)setTracking:(NSString *)targetAppPackageName
+       advertiserId:(NSString *)targetAppAdvertiserId
+            offerId:(NSString *)targetAdvertiserOfferId
+        publisherId:(NSString *)targetAdvertiserPublisherId
            redirect:(BOOL)shouldRedirect;
 
 
@@ -416,6 +439,74 @@
 
 @end
 
+#pragma mark - Deprecated Methods
+
+@interface MobileAppTracker (Deprecated)
+
+// Note: A method identified as deprecated has been superseded and may become unsupported in the future.
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use startTrackerWithMATAdvertiserId:MATConversionKey
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (BOOL)startTrackerWithAdvertiserId:(NSString *)aid advertiserKey:(NSString *)key withError:(NSError **)error __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use startTrackerWithMATAdvertiserId:MATConversionKey
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (BOOL)startTrackerWithMATAdvertiserId:(NSString *)aid MATConversionKey:(NSString *)key withError:(NSError **)error __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setMATAdvertiserId:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setAdvertiserId:(NSString *)advertiser_id __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setMATConversionKey:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setAdvertiserKey:(NSString *)advertiser_key __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setAppleAdvertisingIdentifier:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setAdvertiserIdentifier:(NSUUID *)advertiser_identifier __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setAppleVendorIdentifier:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setVendorIdentifier:(NSUUID * )vendor_identifier __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setShouldAutoGenerateAppleAdvertisingIdentifier:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setShouldAutoGenerateAdvertiserIdentifier:(BOOL)yesorno __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setShouldAutoGenerateAppleVendorIdentifier:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setShouldAutoGenerateVendorIdentifier:(BOOL)yesorno __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setDebugMode:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setShouldDebugResponseFromServer:(BOOL)yesorno __deprecated;
+
+/*!
+ <span style="color:red">Deprecated Method:</span> Instead use setAllowDuplicateRequests:
+ @warning <span style="color:red">Deprecated Method</span>
+ */
+- (void)setShouldAllowDuplicateRequests:(BOOL)yesorno __deprecated;
+
+@end
+
 
 #pragma mark - MobileAppTrackerDelegate
 
@@ -423,7 +514,7 @@
 
 /*!
  Protocol that allows for callbacks from the MobileAppTracker methods.
- To use, implement the delegate in your app and implement these methods.
+ To use, set your class as the delegate for MAT and implement these methods.
  */
 @protocol MobileAppTrackerDelegate <NSObject>
 @optional
@@ -441,5 +532,99 @@
  @param error Error object returned by the MobileAppTracker.
  */
 - (void)mobileAppTracker:(MobileAppTracker *)tracker didFailWithError:(NSError *)error;
+
 @end
 
+#pragma mark - MATEventItem
+
+/*!
+ MATEventItem represents event items for use with MAT events.
+ */
+@interface MATEventItem : NSObject
+
+/** @name MATEventItem Properties */
+/*!
+ name of the event item
+ */
+@property (nonatomic, copy) NSString *item;
+/*!
+ unit price of the event item
+ */
+@property (nonatomic, assign) float unitPrice;
+/*!
+ quantity of the event item
+ */
+@property (nonatomic, assign) int quantity;
+/*!
+ revenue of the event item
+ */
+@property (nonatomic, assign) float revenue;
+
+/*!
+ an extra parameter that corresponds to attribute_sub1 property of the event item
+ */
+@property (nonatomic, copy) NSString *attribute1;
+/*!
+ an extra parameter that corresponds to attribute_sub2 property of the event item
+ */
+@property (nonatomic, copy) NSString *attribute2;
+/*!
+ an extra parameter that corresponds to attribute_sub3 property of the event item
+ */
+@property (nonatomic, copy) NSString *attribute3;
+/*!
+ an extra parameter that corresponds to attribute_sub4 property of the event item
+ */
+@property (nonatomic, copy) NSString *attribute4;
+/*!
+ an extra parameter that corresponds to attribute_sub5 property of the event item
+ */
+@property (nonatomic, copy) NSString *attribute5;
+
+
+/** @name Methods to create MATEventItem objects.*/
+
+/*!
+ Method to create an event item.
+ @param name name of the event item
+ @param unitPrice unit price of the event item
+ @param quantity quantity of the event item
+ @param revenue revenue of the event item
+ */
++ (MATEventItem *)eventItemWithName:(NSString *)name unitPrice:(float)unitPrice quantity:(int)quantity revenue:(float)revenue;
+
+/*!
+ Method to create an event item.
+ @param name name of the event item
+ @param attribute1 an extra parameter that corresponds to attribute_sub1 property of the event item
+ @param attribute2 an extra parameter that corresponds to attribute_sub2 property of the event item
+ @param attribute3 an extra parameter that corresponds to attribute_sub3 property of the event item
+ @param attribute4 an extra parameter that corresponds to attribute_sub4 property of the event item
+ @param attribute5 an extra parameter that corresponds to attribute_sub5 property of the event item
+ */
++ (MATEventItem *)eventItemWithName:(NSString *)name
+                         attribute1:(NSString *)attribute1
+                         attribute2:(NSString *)attribute2
+                         attribute3:(NSString *)attribute3
+                         attribute4:(NSString *)attribute4
+                         attribute5:(NSString *)attribute5;
+
+/*!
+ Method to create an event item.
+ @param name name of the event item
+ @param unitPrice unit price of the event item
+ @param quantity quantity of the event item
+ @param revenue revenue of the event item
+ @param attribute1 an extra parameter that corresponds to attribute_sub1 property of the event item
+ @param attribute2 an extra parameter that corresponds to attribute_sub2 property of the event item
+ @param attribute3 an extra parameter that corresponds to attribute_sub3 property of the event item
+ @param attribute4 an extra parameter that corresponds to attribute_sub4 property of the event item
+ @param attribute5 an extra parameter that corresponds to attribute_sub5 property of the event item
+ */
++ (MATEventItem *)eventItemWithName:(NSString *)name unitPrice:(float)unitPrice quantity:(int)quantity revenue:(float)revenue
+                         attribute1:(NSString *)attribute1
+                         attribute2:(NSString *)attribute2
+                         attribute3:(NSString *)attribute3
+                         attribute4:(NSString *)attribute4
+                         attribute5:(NSString *)attribute5;
+@end

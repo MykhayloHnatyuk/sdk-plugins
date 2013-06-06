@@ -25,9 +25,9 @@ void s3eMATSDKTerminate()
     MATSDKTerminate_platform();
 }
 
-void MATStartMobileAppTracker(const char* adId, const char* adKey)
+void MATStartMobileAppTracker(const char* adId, const char* convKey)
 {
-	MATStartMobileAppTracker_platform(adId, adKey);
+	MATStartMobileAppTracker_platform(adId, convKey);
 }
 
 void MATSDKParameters()
@@ -80,9 +80,9 @@ void MATSetCurrencyCode(const char* currencyCode)
     MATSetCurrencyCode_platform(currencyCode);
 }
 
-void MATSetDeviceId(const char* deviceId)
+void MATSetJailbroken(bool isJailbroken)
 {
-    MATSetDeviceId_platform(deviceId);
+    MATSetJailbroken_platform(isJailbroken);
 }
 
 void MATSetOpenUDID(const char* openUDID)
@@ -115,14 +115,19 @@ void MATSetDelegate(bool enable)
     MATSetDelegate_platform(enable);
 }
 
-void MATSetDebugResponse(bool shouldDebug)
+void MATSetDebugMode(bool shouldDebug)
 {
-    MATSetDebugResponse_platform(shouldDebug);
+    MATSetDebugMode_platform(shouldDebug);
 }
 
 void MATSetAllowDuplicates(bool allowDuplicates)
 {
     MATSetAllowDuplicates_platform(allowDuplicates);
+}
+
+void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect)
+{
+    MATSetShouldAutoDetectJailbroken_platform(shouldAutoDetect);
 }
 
 void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
@@ -140,14 +145,14 @@ void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
     MATSetShouldAutoGenerateOpenUDIDKey_platform(shouldAutoGenerate);
 }
 
-void MATSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate)
 {
-    MATSetShouldAutoGenerateVendorIdentifier_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateAppleVendorIdentifier_platform(shouldAutoGenerate);
 }
 
-void MATSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate)
+void MATSetShouldAutoGenerateAppleAdvertisingIdentifier(bool shouldAutoGenerate)
 {
-    MATSetShouldAutoGenerateAdvertiserIdentifier_platform(shouldAutoGenerate);
+    MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(shouldAutoGenerate);
 }
 
 void MATSetUseCookieTracking(bool useCookieTracking)
@@ -160,17 +165,32 @@ void MATSetRedirectUrl(const char* redirectUrl)
    MATSetRedirectUrl_platform(redirectUrl);
 }
 
-void MATSetAdvertiserIdentifier(const char* advertiserId)
+void MATSetAppleAdvertisingIdentifier(const char* appleAdvertisingId)
 {
-    MATSetAdvertiserIdentifier_platform(advertiserId);
+    MATSetAppleAdvertisingIdentifier_platform(appleAdvertisingId);
 }
 
-void MATSetVendorIdentifier(const char* vendorId)
+void MATSetAppleVendorIdentifier(const char* vendorId)
 {
-    MATSetVendorIdentifier_platform(vendorId);
+    MATSetAppleVendorIdentifier_platform(vendorId);
 }
 
 void MATSetUseHTTPS(bool useHTTPS)
 {
     MATSetUseHTTPS_platform(useHTTPS);
+}
+
+void MATSetAge(int age)
+{
+    MATSetAge_platform(age);
+}
+
+void MATSetGender(int gender)
+{
+    MATSetGender_platform(gender);
+}
+
+void MATSetLocation(double latitude, double longitude, double altitude)
+{
+    MATSetLocation_platform(latitude, longitude, altitude);
 }

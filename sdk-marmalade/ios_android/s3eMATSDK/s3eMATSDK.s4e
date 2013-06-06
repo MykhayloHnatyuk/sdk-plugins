@@ -7,10 +7,15 @@ struct s3eMATTracker;
 
 typedef struct MATSDKEventItem
 {
-	char		item[S3E_MATSDK_STRING_MAX];
+	char		name[S3E_MATSDK_STRING_MAX];
 	float 		unitPrice;
 	int		quantity;
 	float		revenue;
+	char		attribute1[S3E_MATSDK_STRING_MAX];
+	char		attribute2[S3E_MATSDK_STRING_MAX];
+	char		attribute3[S3E_MATSDK_STRING_MAX];
+	char		attribute4[S3E_MATSDK_STRING_MAX];
+	char		attribute5[S3E_MATSDK_STRING_MAX];
 } MATSDKEventItem;
 
 typedef struct MATArray {
@@ -20,7 +25,9 @@ typedef struct MATArray {
 
 functions:
 
-void MATStartMobileAppTracker(const char* adId, const char* adKey) run_on_os_thread
+// Main MAT Initializer Method
+void MATStartMobileAppTracker(const char* adId, const char* convKey) run_on_os_thread
+
 // iOS only
 void MATSDKParameters() run_on_os_thread
 void MATTrackInstall() run_on_os_thread
@@ -29,33 +36,43 @@ void MATTrackInstallWithReferenceId(const char* refId) run_on_os_thread
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId) run_on_os_thread
 void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState) run_on_os_thread
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency) run_on_os_thread
-void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect) run_on_os_thread
 
-// set methods
+// Setter Methods
 void MATSetPackageName(const char* packageName) run_on_os_thread
 void MATSetCurrencyCode(const char* currencyCode) run_on_os_thread
-void MATSetDeviceId(const char* deviceId) run_on_os_thread
 void MATSetOpenUDID(const char* openUDID) run_on_os_thread
 void MATSetUserId(const char* userId) run_on_os_thread
 void MATSetRevenue(double revenue) run_on_os_thread
 void MATSetSiteId(const char* siteId) run_on_os_thread
 void MATSetTRUSTeId(const char* tpid) run_on_os_thread
-// iOS only
+
+void MATSetAge(int age) run_on_os_thread
+void MATSetGender(int gender) run_on_os_thread
+void MATSetLocation(double latitude, double longitude, double altitude) run_on_os_thread
+
+// iOS Only
 void MATSetDelegate(bool enable) run_on_os_thread
 void MATSetUseHTTPS(bool enable) run_on_os_thread
+void MATSetJailbroken(bool isJailbroken) run_on_os_thread
 
-void MATSetAllowDuplicates(bool allowDuplicates) run_on_os_thread
+void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect) run_on_os_thread
 void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate) run_on_os_thread
 void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate) run_on_os_thread
 void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate) run_on_os_thread
-void MATSetShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate) run_on_os_thread
-void MATSetShouldAutoGenerateAdvertiserIdentifier(bool shouldAutoGenerate) run_on_os_thread
 void MATSetUseCookieTracking(bool useCookieTracking) run_on_os_thread
-void MATSetRedirectUrl(const char* redirectUrl) run_on_os_thread
-void MATSetAdvertiserIdentifier(const char* advertiserId) run_on_os_thread
-void MATSetVendorIdentifier(const char* vendorId) run_on_os_thread
 
-// debug method
-void MATSetDebugResponse(bool shouldDebug) run_on_os_thread
+// App-to-App Tracking
+void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect) run_on_os_thread
+void MATSetRedirectUrl(const char* redirectUrl) run_on_os_thread
+
+// Apple Advertising Identifier and Vendor Identifier
+void MATSetAppleAdvertisingIdentifier(const char* advertiserId) run_on_os_thread
+void MATSetAppleVendorIdentifier(const char* vendorId) run_on_os_thread
+void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate) run_on_os_thread
+void MATSetShouldAutoGenerateAppleAdvertisingIdentifier(bool shouldAutoGenerate) run_on_os_thread
+
+// Debug Methods
+void MATSetDebugMode(bool shouldDebug) run_on_os_thread
+void MATSetAllowDuplicates(bool allowDuplicates) run_on_os_thread
 
 append:
