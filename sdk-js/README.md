@@ -12,6 +12,7 @@ This document outlines the MAT JavaScript SDK integration and use cases.
 ## Implementation
 
 1. Include the JavaScript file as a script in your HTML file.
+	[https://s3.amazonaws.com/hasfiles/scripts/attribution.js](https://s3.amazonaws.com/hasfiles/scripts/attribution.js)
 2. Initialize the "MobileAppTracker" class to allow you to call the functions from the
 SDK. Generally, the initialization should be called inside a function that runs on
 window.onload of the first screen of your app.
