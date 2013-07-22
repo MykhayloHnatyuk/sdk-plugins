@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Air Native Extension Build Scripts" default="all">
-
+    
     <!-- Config -->
     <property file="build.config"/>
-
+    
     <!-- All -->
     <target name="all" depends="clean,android,ios,swc,package" description="Full build of extension">
         <echo level="verbose">MAT AIR Native Extension created!</echo>
     </target>
-
+    
     <!-- Clean -->
     <target name="clean" description="Clean the output and temp folders">
         <echo level="verbose">Cleaning ANE output and temp folders...</echo>
@@ -21,13 +21,13 @@
         <echo level="verbose">Creating iPhone library build...</echo>
         <mkdir dir="../temp/ios/build/" />
         <mkdir dir="../temp/ios/build/Release-universal" />
-
+        
         <echo level="verbose">Cleaning iPhone project target(s) output folders...</echo>
         <exec executable="xcodebuild" failonerror="true" dir="../ios/">
             <arg line="-project ${name}.xcodeproj"/>
             <arg line="-alltargets clean"/>
         </exec>
-
+        
         <echo level="verbose">Creating iPhone device arch armv7 build...</echo>
         <exec executable="xcodebuild" failonerror="true" dir="../ios/">
             <arg line="-project ${name}.xcodeproj"/>
@@ -66,7 +66,7 @@
         <echo level="verbose">Deleting temp iOS build folder...</echo>
 		<delete dir="../temp/ios/build"/>
     </target>
-
+    
     <!-- Android -->
     <target name="android" description="Build Android Library">
         <echo level="verbose">Creating Android library build...</echo>
@@ -80,7 +80,7 @@
                 <pathelement location="../android/libs/MobileAppTracker.jar"/>
             </classpath>
         </javac>
-
+        
         <mkdir dir="../android/temp/zip"/>
         <unzip src="../android/libs/MobileAppTracker.jar" dest="../android/temp/zip"/>
         <copy todir="../android/temp/classes/com" overwrite="true">
@@ -88,13 +88,12 @@
                 <include name="**/*"/>
 			</fileset>
 		</copy>
-
-
+        
         <mkdir dir="../temp/android/"/>
         <jar basedir="../android/temp/classes" destfile="../temp/android/lib${name}.jar"/>
         <delete dir="../android/temp"/>
     </target>
-
+    
     <!-- Actionscript -->
     <target name="swc" description="Build SWC library">
         <echo level="verbose">Creating SWC library...</echo>
@@ -128,7 +127,7 @@
         
         <delete dir="../temp/swc/content/"/>
     </target>
-
+    
     <!-- Package -->
     <target name="package" description="Create the extension package">
         <echo level="verbose">Creating MAT AIR Native Extension package (.ane)...</echo>
@@ -149,5 +148,3 @@
     </target>
 
 </project>
-
-

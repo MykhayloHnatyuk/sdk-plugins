@@ -10,7 +10,7 @@ import com.mobileapptracker.MobileAppTracker;
 public class MATExtensionContext extends FREContext {
     public static final String TAG = "MobileAppTrackerANE";
     public MobileAppTracker mat;
-
+    
     @Override
     public void dispose() {
     }
@@ -35,22 +35,31 @@ public class MATExtensionContext extends FREContext {
         functionMap.put(SetTRUSTeIdFunction.NAME,  new SetTRUSTeIdFunction());
         functionMap.put(SetUserIdFunction.NAME,  new SetUserIdFunction());
 
+        functionMap.put(SetAgeFunction.NAME,  new SetAgeFunction());
+        functionMap.put(SetGenderFunction.NAME,  new SetGenderFunction());
+        functionMap.put(SetLocationFunction.NAME,  new SetLocationFunction());
+        
         functionMap.put(StartAppToAppFunction.NAME, new StartAppToAppFunction());
 
         // iOS functions that are no-op on Android
         functionMap.put(iOSNoOpFunction.DELEGATE, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.JAILBROKEN, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GEN_MAC, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GEN_JAILBROKEN, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GEN_ODIN, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GEN_OPEN_UDID, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GEN_ADVERTISER, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GEN_VENDOR, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.GET_PARAMS, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.MAC, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.ODIN1, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.OPEN_UDID, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.REDIRECT_URL, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.UIID, new iOSNoOpFunction());
+        
+        functionMap.put(iOSNoOpFunction.GEN_JAILBROKEN, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.GEN_ADVERTISER, new iOSNoOpFunction());
+        functionMap.put(iOSNoOpFunction.GEN_VENDOR, new iOSNoOpFunction());
+        
+        functionMap.put(iOSNoOpFunction.GET_PARAMS, new iOSNoOpFunction());
+        
+        functionMap.put(iOSNoOpFunction.SET_APP_AD_TRACKING, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.SET_ADVERTISER, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.SET_VENDOR, new iOSNoOpFunction());
+        
         functionMap.put(iOSNoOpFunction.USE_COOKIE, new iOSNoOpFunction());
         functionMap.put(iOSNoOpFunction.USE_HTTPS, new iOSNoOpFunction());
 

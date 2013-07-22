@@ -1,7 +1,6 @@
 package com.mobileapptrackernative;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import android.util.Log;
 
@@ -9,45 +8,52 @@ import com.adobe.fre.FREArray;
 import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
+import com.mobileapptracker.MATEventItem;
 
 public class TrackActionWithEventItemFunction implements FREFunction {
     public static final String NAME = "trackActionWithEventItem";
 
     @Override
     public FREObject call(FREContext context, FREObject[] passedArgs) {
-        if (passedArgs.length == 7) {
+        if (passedArgs.length >= 5) {
             try {
                 String event = "";
                 double revenue = 0;
                 String currency = "";
                 String refId = "";
-                ArrayList<HashMap<String, String>> eventItems = new ArrayList<HashMap<String, String>>();
+                ArrayList<MATEventItem> eventItems = new ArrayList<MATEventItem>();
                 
                 if (passedArgs[0] != null) {
                     event = passedArgs[0].getAsString();
                 }
-                // Read in list of HashMaps for event items
+                // Read in list of MATEventItems
                 if (passedArgs[1] != null) {
                     FREArray freEventItems = (FREArray) passedArgs[1];
                     
                     String itemName;
-                    String unitPrice;
-                    String itemQuantity;
-                    String itemRevenue;
-                    
-                    for (int i = 0; i < freEventItems.getLength(); i+=4) {
+                    double unitPrice;
+                    int itemQuantity;
+                    double itemRevenue;
+                    String attribute1;
+                    String attribute2;
+                    String attribute3;
+                    String attribute4;
+                    String attribute5;
+
+                    for (int i = 0; i < freEventItems.getLength(); i+=9) {
                         itemName = freEventItems.getObjectAt(i).getAsString();
-                        unitPrice = freEventItems.getObjectAt(i+1).getAsString();
-                        itemQuantity = freEventItems.getObjectAt(i+2).getAsString();
-                        itemRevenue = freEventItems.getObjectAt(i+3).getAsString();
+                        unitPrice = freEventItems.getObjectAt(i+1).getAsDouble();
+                        itemQuantity = freEventItems.getObjectAt(i+2).getAsInt();
+                        itemRevenue = freEventItems.getObjectAt(i+3).getAsDouble();
+                        attribute1 = freEventItems.getObjectAt(i+4).getAsString();
+                        attribute2 = freEventItems.getObjectAt(i+5).getAsString();
+                        attribute3 = freEventItems.getObjectAt(i+6).getAsString();
+                        attribute4 = freEventItems.getObjectAt(i+7).getAsString();
+                        attribute5 = freEventItems.getObjectAt(i+8).getAsString();
                         
-                        HashMap<String, String> eventItemMap = new HashMap<String, String>();
-                        eventItemMap.put("item", itemName);
-                        eventItemMap.put("unit_price", unitPrice);
-                        eventItemMap.put("quantity", itemQuantity);
-                        eventItemMap.put("revenue", itemRevenue);
+                        MATEventItem eventItem = new MATEventItem(itemName, itemQuantity, unitPrice, itemRevenue, attribute1, attribute2, attribute3, attribute4, attribute5);
                         
-                        eventItems.add(eventItemMap);
+                        eventItems.add(eventItem);
                     }
                 }
                 if (passedArgs[2] != null) {
@@ -68,7 +74,7 @@ public class TrackActionWithEventItemFunction implements FREFunction {
                 mec.mat.setRevenue(revenue);
                 mec.mat.setCurrencyCode(currency);
                 mec.mat.trackAction(event, eventItems);
-
+                
                 return FREObject.newObject(true);
             } catch (Exception e) {
                 Log.d(MATExtensionContext.TAG, "ERROR: " + e);

@@ -78,8 +78,7 @@ DEFINE_ANE_FUNCTION(initNativeCode)
     MAT_FREGetObjectAsString(argv[1], &conversionKey);
     
     [[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:advId
-                                                     MATConversionKey:conversionKey
-                                                            withError:nil];
+                                                     MATConversionKey:conversionKey];
     
     DLog(@"initNativeCode end");
     
@@ -127,6 +126,10 @@ DEFINE_ANE_FUNCTION(TrackActionWithEventItemFunction)
     int32_t transactionState = 0;
     result = FREGetObjectAsInt32(argv[6], &transactionState);
     
+    NSString *strReceipt = nil;
+    result = MAT_FREGetObjectAsString(argv[7], &strReceipt);
+    NSData *receipt = [strReceipt dataUsingEncoding:NSUTF8StringEncoding];
+    
     uint32_t arrayLength = 0;
     NSMutableArray *eventItems = [NSMutableArray array];
     
@@ -138,33 +141,49 @@ DEFINE_ANE_FUNCTION(TrackActionWithEventItemFunction)
             arrayLength = 0;
         }
         
-        NSArray *arrKeys = [NSArray arrayWithObjects:@"item", @"unit_price", @"quantity", @"revenue", nil];
-        
-        for (uint32_t i = 0; i < arrayLength; i += 4)
+        for (uint32_t i = 0; i < arrayLength; i += 9)
         {
             NSString *itemName;
-            NSString *itemUnitPrice;
-            NSString *itemQty;
-            NSString *itemRevenue;
+            double_t itemUnitPrice;
+            uint32_t itemQty;
+            double_t itemRevenue;
+            NSString *itemAttr1;
+            NSString *itemAttr2;
+            NSString *itemAttr3;
+            NSString *itemAttr4;
+            NSString *itemAttr5;
             
             FREObject freItemName = NULL;
             FREObject freItemUnitPrice = NULL;
             FREObject freItemQty = NULL;
             FREObject freItemRevenue = NULL;
+            FREObject freItemAttr1 = NULL;
+            FREObject freItemAttr2 = NULL;
+            FREObject freItemAttr3 = NULL;
+            FREObject freItemAttr4 = NULL;
+            FREObject freItemAttr5 = NULL;
             
             if(FRE_OK == FREGetArrayElementAt(arrEventItems, i, &freItemName)
-                && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 1, &freItemUnitPrice)
-                && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 2, &freItemQty)
-                && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 2, &freItemRevenue))
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 1, &freItemUnitPrice)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 2, &freItemQty)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 3, &freItemRevenue)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 4, &freItemAttr1)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 5, &freItemAttr2)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 6, &freItemAttr3)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 7, &freItemAttr4)
+               && FRE_OK == FREGetArrayElementAt(arrEventItems, i + 8, &freItemAttr5))
             {
                 if(FRE_OK == MAT_FREGetObjectAsString(freItemName, &itemName)
-                   && FRE_OK == MAT_FREGetObjectAsString(freItemUnitPrice, &itemUnitPrice)
-                   && FRE_OK == MAT_FREGetObjectAsString(freItemQty, &itemQty)
-                   && FRE_OK == MAT_FREGetObjectAsString(freItemRevenue, &itemRevenue))
+                   && FRE_OK == FREGetObjectAsDouble(freItemUnitPrice, &itemUnitPrice)
+                   && FRE_OK == FREGetObjectAsUint32(freItemQty, &itemQty)
+                   && FRE_OK == FREGetObjectAsDouble(freItemRevenue, &itemRevenue)
+                   && FRE_OK == MAT_FREGetObjectAsString(freItemAttr1, &itemAttr1)
+                   && FRE_OK == MAT_FREGetObjectAsString(freItemAttr2, &itemAttr2)
+                   && FRE_OK == MAT_FREGetObjectAsString(freItemAttr3, &itemAttr3)
+                   && FRE_OK == MAT_FREGetObjectAsString(freItemAttr4, &itemAttr4)
+                   && FRE_OK == MAT_FREGetObjectAsString(freItemAttr5, &itemAttr5))
                 {
-                    NSArray *arrValues = [NSArray arrayWithObjects:itemName, itemUnitPrice, itemQty, itemRevenue, nil];
-                    
-                    NSDictionary *eventItem = [NSDictionary dictionaryWithObjects:arrValues forKeys:arrKeys];
+                    MATEventItem *eventItem = [MATEventItem eventItemWithName:itemName unitPrice:itemUnitPrice quantity:itemQty revenue:itemRevenue attribute1:itemAttr1 attribute2:itemAttr2 attribute3:itemAttr3 attribute4:itemAttr4 attribute5:itemAttr5];
                     
                     // Add the eventItem to the array
                     [eventItems addObject:eventItem];
@@ -179,7 +198,8 @@ DEFINE_ANE_FUNCTION(TrackActionWithEventItemFunction)
                                                       referenceId:refId
                                                     revenueAmount:revenue
                                                      currencyCode:currencyCode
-                                                 transactionState:transactionState];
+                                                 transactionState:transactionState
+                                                          receipt:receipt];
     
     DLog(@"TrackPurchaseActionFunction end");
     
@@ -308,45 +328,6 @@ DEFINE_ANE_FUNCTION(SetShouldAutoDetectJailbrokenFunction)
     return NULL;
 }
 
-DEFINE_ANE_FUNCTION(SetShouldAutoGenerateMacAddressFunction)
-{
-    DLog(@"Native: SetShouldAutoGenerateMacAddressFunction");
-    
-    uint32_t isAutoGenerate;
-    FREGetObjectAsBool(argv[0], &isAutoGenerate);
-    BOOL shouldAutoGenerate = 1 == isAutoGenerate;
-    
-    [[MobileAppTracker sharedManager] setShouldAutoGenerateMacAddress:shouldAutoGenerate];
-    
-    return NULL;
-}
-
-DEFINE_ANE_FUNCTION(SetShouldAutoGenerateODIN1KeyFunction)
-{
-    DLog(@"Native: SetShouldAutoGenerateODIN1KeyFunction");
-    
-    uint32_t isAutoGenerate;
-    FREGetObjectAsBool(argv[0], &isAutoGenerate);
-    BOOL shouldAutoGenerate = 1 == isAutoGenerate;
-    
-    [[MobileAppTracker sharedManager] setShouldAutoGenerateODIN1Key:shouldAutoGenerate];
-    
-    return NULL;
-}
-
-DEFINE_ANE_FUNCTION(SetShouldAutoGenerateOpenUDIDKeyFunction)
-{
-    DLog(@"Native: setShouldAutoGenerateOpenUDIDKey");
-    
-    uint32_t isAutoGenerate;
-    FREGetObjectAsBool(argv[0], &isAutoGenerate);
-    BOOL shouldAutoGenerate = 1 == isAutoGenerate;
-    
-    [[MobileAppTracker sharedManager] setShouldAutoGenerateOpenUDIDKey:shouldAutoGenerate];
-    
-    return NULL;
-}
-
 DEFINE_ANE_FUNCTION(SetShouldAutoGenerateAppleVendorIdentifierFunction)
 {
     DLog(@"Native: setShouldAutoGenerateAppleVendorIdentifier");
@@ -438,6 +419,19 @@ DEFINE_ANE_FUNCTION(SetCurrencyCodeFunction)
     return NULL;
 }
 
+DEFINE_ANE_FUNCTION(SetUIIDFunction)
+{
+    DLog(@"SetUIIDFunction");
+    
+    NSString *uiid = nil;
+    //FREResult result =
+    MAT_FREGetObjectAsString(argv[0], &uiid);
+    
+    [[MobileAppTracker sharedManager] setUIID:uiid];
+    
+    return NULL;
+}
+
 DEFINE_ANE_FUNCTION(SetUserIdFunction)
 {
     DLog(@"SetUserIdFunction");
@@ -447,6 +441,32 @@ DEFINE_ANE_FUNCTION(SetUserIdFunction)
     MAT_FREGetObjectAsString(argv[0], &userId);
     
     [[MobileAppTracker sharedManager] setUserId:userId];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetAppAdTrackingFunction)
+{
+    DLog(@"SetAppAdTrackingFunction");
+    
+    uint32_t isOptOut;
+    FREGetObjectAsBool(argv[0], &isOptOut);
+    BOOL optout = 1 == isOptOut;
+    
+    [[MobileAppTracker sharedManager] setAppAdTracking:optout];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetMACAddressFunction)
+{
+    DLog(@"SetMACAddressFunction");
+    
+    NSString *mac = nil;
+    //FREResult result =
+    MAT_FREGetObjectAsString(argv[0], &mac);
+    
+    [[MobileAppTracker sharedManager] setMACAddress:mac];
     
     return NULL;
 }
@@ -464,6 +484,19 @@ DEFINE_ANE_FUNCTION(SetOpenUDIDFunction)
     return NULL;
 }
 
+DEFINE_ANE_FUNCTION(SetODIN1Function)
+{
+    DLog(@"SetODIN1Function");
+    
+    NSString *odin1 = nil;
+    //FREResult result =
+    MAT_FREGetObjectAsString(argv[0], &odin1);
+    
+    [[MobileAppTracker sharedManager] setODIN1:odin1];
+    
+    return NULL;
+}
+
 DEFINE_ANE_FUNCTION(SetPackageNameFunction)
 {
     DLog(@"SetPackageNameFunction");
@@ -473,6 +506,48 @@ DEFINE_ANE_FUNCTION(SetPackageNameFunction)
     MAT_FREGetObjectAsString(argv[0], &pkgName);
     
     [[MobileAppTracker sharedManager] setPackageName:pkgName];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetAgeFunction)
+{
+    DLog(@"SetAgeFunction");
+    
+    int32_t age;
+    FREGetObjectAsInt32(argv[0], &age);
+    
+    [[MobileAppTracker sharedManager] setAge:age];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetGenderFunction)
+{
+    DLog(@"SetGenderFunction");
+    
+    uint32_t gender;
+    FREGetObjectAsUint32(argv[0], &gender);
+    
+    [[MobileAppTracker sharedManager] setGender:gender];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetLocationFunction)
+{
+    DLog(@"SetLocationFunction");
+    
+    double_t lat;
+    FREGetObjectAsDouble(argv[0], &lat);
+    
+    double_t lon;
+    FREGetObjectAsDouble(argv[0], &lon);
+    
+    double_t alt;
+    FREGetObjectAsDouble(argv[0], &alt);
+    
+    [[MobileAppTracker sharedManager] setLatitude:lat longitude:lon altitude:alt];
     
     return NULL;
 }
@@ -574,6 +649,7 @@ DEFINE_ANE_FUNCTION(GetSDKDataParametersFunction)
 
 DEFINE_ANE_FUNCTION(GetReferrerFunction)
 {
+    // Dummy Function for Android -- not applicable in iOS
     return NULL;
 }
 
@@ -599,26 +675,32 @@ void MATExtContextInitializer(void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION(setCurrencyCode,                           NULL, SetCurrencyCodeFunction),
         MAP_FUNCTION(setDebugMode,                              NULL, SetDebugModeFunction),
         MAP_FUNCTION(setDelegate,                               NULL, SetDelegateFunction),
+        MAP_FUNCTION(setAppAdTracking,                          NULL, SetAppAdTrackingFunction),
         MAP_FUNCTION(setJailbroken,                             NULL, SetJailbrokenFunction),
+        MAP_FUNCTION(setMACAddress,                             NULL, SetMACAddressFunction),
+        MAP_FUNCTION(setODIN1,                                  NULL, SetODIN1Function),
         MAP_FUNCTION(setOpenUDID,                               NULL, SetOpenUDIDFunction),
         MAP_FUNCTION(setPackageName,                            NULL, SetPackageNameFunction),
         MAP_FUNCTION(setRedirectUrl,                            NULL, SetRedirectUrlFunction),
         MAP_FUNCTION(setShouldAutoDetectJailbroken,             NULL, SetShouldAutoDetectJailbrokenFunction),
-        MAP_FUNCTION(setShouldAutoGenerateMacAddress,           NULL, SetShouldAutoGenerateMacAddressFunction),
-        MAP_FUNCTION(setShouldAutoGenerateODIN1Key,             NULL, SetShouldAutoGenerateODIN1KeyFunction),
-        MAP_FUNCTION(setShouldAutoGenerateOpenUDIDKey,          NULL, SetShouldAutoGenerateOpenUDIDKeyFunction),
         MAP_FUNCTION(setSiteId,                                 NULL, SetSiteIdFunction),
         MAP_FUNCTION(setTRUSTeId,                               NULL, SetTRUSTeIdFunction),
+        MAP_FUNCTION(setUIID,                                   NULL, SetUIIDFunction),
         MAP_FUNCTION(setUseCookieTracking,                      NULL, SetUseCookieTrackingFunction),
         MAP_FUNCTION(setUseHTTPS,                               NULL, SetUseHTTPSFunction),
         MAP_FUNCTION(setUserId,                                 NULL, SetUserIdFunction),
         
+        MAP_FUNCTION(setAge,                                    NULL, SetAgeFunction),
+        MAP_FUNCTION(setGender,                                 NULL, SetGenderFunction),
+        MAP_FUNCTION(setLocation,                               NULL, SetLocationFunction),
+        
         MAP_FUNCTION(setAppleAdvertisingIdentifier,                     NULL, SetAppleAdvertisingIdentifierFunction),
-        MAP_FUNCTION(setAppleVendoerIdentifier,                         NULL, SetAppleVendorIdentifierFunction),
+        MAP_FUNCTION(setAppleVendorIdentifier,                          NULL, SetAppleVendorIdentifierFunction),
+        
         MAP_FUNCTION(setShouldAutoGenerateAppleAdvertisingIdentifier,   NULL, SetShouldAutoGenerateAppleAdvertisingIdentifierFunction),
         MAP_FUNCTION(setShouldAutoGenerateAppleVendorIdentifier,        NULL, SetShouldAutoGenerateAppleVendorIdentifierFunction),
         
-	MAP_FUNCTION(getReferrer,				NULL, GetReferrerFunction)
+        MAP_FUNCTION(getReferrer,                                       NULL, GetReferrerFunction)
     };
     
     *numFunctionsToSet = sizeof( functions ) / sizeof( FRENamedFunction );

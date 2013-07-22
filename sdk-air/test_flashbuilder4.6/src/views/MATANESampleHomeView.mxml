@@ -23,8 +23,8 @@
 				trace("MATANESampleHomeView.init() start");
 				
 				advertiserId = "877";
-				//advertiserKey = "5afe3bc434184096023e3d8b2ae27e1c"; // johng_test
-				advertiserKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // HarshalTestApp
+				advertiserKey = "5afe3bc434184096023e3d8b2ae27e1c"; // johng_test
+				//advertiserKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // HarshalTestApp
 				action = "conversion";
 				revenue = 0.42;
 				currencyCode = "USD";
@@ -45,6 +45,7 @@
 				mobileAppTracker = MobileAppTracker.instance;
 				mobileAppTracker.init(advertiserId, advertiserKey);
 
+				mobileAppTracker.setAllowDuplicates(true);
 				mobileAppTracker.setDebugMode(true);
 				mobileAppTracker.setPackageName("com.hasofferstestapp");
 				//mobileAppTracker.setPackageName("com.hasoffers.harshaltestapp");

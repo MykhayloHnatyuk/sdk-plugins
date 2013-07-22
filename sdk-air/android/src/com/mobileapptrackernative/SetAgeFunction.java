@@ -6,20 +6,19 @@ import com.adobe.fre.FREContext;
 import com.adobe.fre.FREFunction;
 import com.adobe.fre.FREObject;
 
-public class SetAllowDuplicatesFunction implements FREFunction {
-    public static final String NAME = "setAllowDuplicates";
+public class SetAgeFunction implements FREFunction {
+    public static final String NAME = "setAge";
 
     @Override
     public FREObject call(FREContext context, FREObject[] passedArgs) {
         try {
-            boolean allowDuplicates = false;
-            if (passedArgs[0] != null) {
-                allowDuplicates = passedArgs[0].getAsBool();
-            }
-
             Log.i(MATExtensionContext.TAG, "Call " + NAME);
-            MATExtensionContext mec = (MATExtensionContext)context;
-            mec.mat.setAllowDuplicates(allowDuplicates);
+            
+            if (passedArgs[0] != null) {
+                int age = passedArgs[0].getAsInt();
+                MATExtensionContext mec = (MATExtensionContext)context;
+                mec.mat.setAge(age);
+            }
 
             return FREObject.newObject(true);
         } catch (Exception e) {
