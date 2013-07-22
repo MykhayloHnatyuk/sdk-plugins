@@ -54,37 +54,43 @@ void MATTrackInstallWithReferenceId_platform(const char* refId);
 
 void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId);
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt);
 
 void MATTrackAction_platform(const char* action, bool isId, double revenue, const char*  currency);
 
 void MATStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect);
 
-void MATSetPackageName_platform(const char* packageName);
+
+
+void MATSetAge_platform(int age);
+void MATSetAllowDuplicates_platform(bool allowDuplicates);
+void MATSetAppAdTracking_platform(bool enable);
+void MATSetAppleAdvertisingIdentifier_platform(const char* advertiserId);
+void MATSetAppleVendorIdentifier_platform(const char* vendorId);
 void MATSetCurrencyCode_platform(const char* currencyCode);
+void MATSetDelegate_platform(bool enable);
+void MATSetDebugMode_platform(bool shouldDebug);
+void MATSetGender_platform(int gender);
 void MATSetJailbroken_platform(bool isJailbroken);
+void MATSetLocation_platform(double latitude, double longitude, double altitude);
+void MATSetMACAddress_platform(const char* mac);
+void MATSetODIN1_platform(const char* odin1);
 void MATSetOpenUDID_platform(const char* openUDID);
-void MATSetUserId_platform(const char* userId);
+void MATSetPackageName_platform(const char* packageName);
 void MATSetRevenue_platform(double revenue);
 void MATSetSiteId_platform(const char* siteId);
 void MATSetTRUSTeId_platform(const char* tpid);
-void MATSetDelegate_platform(bool enable);
-void MATSetDebugMode_platform(bool shouldDebug);
-void MATSetAge_platform(int age);
-void MATSetGender_platform(int gender);
-void MATSetLocation_platform(double latitude, double longitude, double altitude);
+void MATSetUIID_platform(const char* uiid);
+void MATSetUseHTTPS_platform(bool useHTTPS);
+void MATSetUserId_platform(const char* userId);
 
-void MATSetAllowDuplicates_platform(bool allowDuplicates);
 void MATSetShouldAutoDetectJailbroken_platform(bool shouldAutoDetect);
-void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate);
-void MATSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate);
-void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate);
 void MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool shouldAutoGenerate);
 void MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool shouldAutoGenerate);
+
 void MATSetUseCookieTracking_platform(bool useCookieTracking);
 void MATSetRedirectUrl_platform(const char* redirectUrl);
-void MATSetAppleAdvertisingIdentifier_platform(const char* advertiserId);
-void MATSetAppleVendorIdentifier_platform(const char* vendorId);
-void MATSetUseHTTPS_platform(bool useHTTPS);
+
+
 
 #endif /* !S3EMATSDK_INTERNAL_H */

@@ -60,15 +60,17 @@ void MATTrackInstallWithReferenceId(const char* refId);
 
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId);
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState);
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt);
 
-void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency);
+void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency);
 
 void MATSetPackageName(const char* packageName);
 
 void MATSetCurrencyCode(const char* currencyCode);
 
 void MATSetOpenUDID(const char* openUDID);
+
+void MATSetUIID(const char* uiid);
 
 void MATSetUserId(const char* userId);
 
@@ -78,11 +80,7 @@ void MATSetSiteId(const char* siteId);
 
 void MATSetTRUSTeId(const char* tpid);
 
-void MATSetAge(int age);
-
-void MATSetGender(int gender);
-
-void MATSetLocation(double latitude, double longitude, double altitude);
+void MATSetAppAdTracking(bool enable);
 
 void MATSetDelegate(bool enable);
 
@@ -92,13 +90,17 @@ void MATSetJailbroken(bool isJailbroken);
 
 void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect);
 
-void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate);
+void MATSetMACAddress(const char* mac);
 
-void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate);
-
-void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate);
+void MATSetODIN1(const char* odin1);
 
 void MATSetUseCookieTracking(bool useCookieTracking);
+
+void MATSetAge(int age);
+
+void MATSetGender(int gender);
+
+void MATSetLocation(double latitude, double longitude, double altitude);
 
 void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
 

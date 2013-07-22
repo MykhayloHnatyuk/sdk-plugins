@@ -34,32 +34,29 @@ void MATTrackInstall() run_on_os_thread
 void MATTrackUpdate() run_on_os_thread
 void MATTrackInstallWithReferenceId(const char* refId) run_on_os_thread
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId) run_on_os_thread
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState) run_on_os_thread
-void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency) run_on_os_thread
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt) run_on_os_thread
+void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency) run_on_os_thread
 
 // Setter Methods
 void MATSetPackageName(const char* packageName) run_on_os_thread
 void MATSetCurrencyCode(const char* currencyCode) run_on_os_thread
 void MATSetOpenUDID(const char* openUDID) run_on_os_thread
+void MATSetUIID(const char* uiid) run_on_os_thread
 void MATSetUserId(const char* userId) run_on_os_thread
 void MATSetRevenue(double revenue) run_on_os_thread
 void MATSetSiteId(const char* siteId) run_on_os_thread
 void MATSetTRUSTeId(const char* tpid) run_on_os_thread
-
-void MATSetAge(int age) run_on_os_thread
-void MATSetGender(int gender) run_on_os_thread
-void MATSetLocation(double latitude, double longitude, double altitude) run_on_os_thread
-
-// iOS Only
+void MATSetAppAdTracking(bool enable) run_on_os_thread
 void MATSetDelegate(bool enable) run_on_os_thread
 void MATSetUseHTTPS(bool enable) run_on_os_thread
 void MATSetJailbroken(bool isJailbroken) run_on_os_thread
-
 void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect) run_on_os_thread
-void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate) run_on_os_thread
-void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate) run_on_os_thread
-void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate) run_on_os_thread
+void MATSetMACAddress(const char* mac) run_on_os_thread
+void MATSetODIN1(const char* odin1) run_on_os_thread
 void MATSetUseCookieTracking(bool useCookieTracking) run_on_os_thread
+void MATSetAge(int age) run_on_os_thread
+void MATSetGender(int gender) run_on_os_thread
+void MATSetLocation(double latitude, double longitude, double altitude) run_on_os_thread
 
 // App-to-App Tracking
 void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect) run_on_os_thread

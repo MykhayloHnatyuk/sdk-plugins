@@ -142,7 +142,8 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
                                                  "testdclitems",
                                                  revAmount,
                                                  "USD",
-                                                 0);
+                                                 0,
+                                                 "");
         sprintf(g_TouchEventMsg, "`x666666MAT SDK Event Sent");
     }
 

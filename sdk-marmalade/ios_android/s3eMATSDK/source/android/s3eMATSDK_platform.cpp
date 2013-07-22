@@ -27,7 +27,6 @@ static jmethodID g_MATSetPackageName;
 static jmethodID g_MATStartAppToAppTracking;
 
 static jmethodID g_MATSetCurrencyCode;
-static jmethodID g_MATSetOpenUDID;
 static jmethodID g_MATSetUserId;
 static jmethodID g_MATSetRevenue;
 static jmethodID g_MATSetSiteId;
@@ -38,15 +37,6 @@ static jmethodID g_MATSetAllowDuplicates;
 static jmethodID g_MATSetAge;
 static jmethodID g_MATSetGender;
 static jmethodID g_MATSetLocation;
-
-static jmethodID g_MATSetShouldAutoGenerateMacAddress;
-static jmethodID g_MATSetShouldAutoGenerateOpenUDIDKey;
-static jmethodID g_MATSetShouldAutoGenerateAppleVendorIdentifier;
-static jmethodID g_MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
-static jmethodID g_MATSetUseCookieTracking;
-static jmethodID g_MATSetRedirectUrl;
-static jmethodID g_MATSetAppleAdvertisingIdentifier;
-static jmethodID g_MATSetAppleVendorIdentifier;
 
 s3eResult MATSDKInit_platform()
 {
@@ -95,7 +85,7 @@ s3eResult MATSDKInit_platform()
     if (!g_MATTrackActionForEventIdOrName)
         goto fail;
 
-    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;I)V");
+    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;)V");
     if (!g_MATTrackActionForEventIdOrNameItems)
         goto fail;
     
@@ -113,10 +103,6 @@ s3eResult MATSDKInit_platform()
     ///////
     g_MATSetCurrencyCode = env->GetMethodID(cls, "MATSetCurrencyCode", "(Ljava/lang/String;)V");
     if (!g_MATSetCurrencyCode)
-        goto fail;
-    
-    g_MATSetOpenUDID = env->GetMethodID(cls, "MATSetOpenUDID", "(Ljava/lang/String;)V");
-    if (!g_MATSetOpenUDID)
         goto fail;
     
     g_MATSetUserId = env->GetMethodID(cls, "MATSetUserId", "(Ljava/lang/String;)V");
@@ -237,7 +223,7 @@ void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenu
     env->DeleteLocalRef(currency_jstr);
 }
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt)
 {
     IwTrace(s3eMATSDK, ("In event items method"));
     JNIEnv* jni_env = s3eEdkJNIGetEnv();
@@ -246,6 +232,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     jstring eventIdOrName_jstr = jni_env->NewStringUTF(eventIdOrName);
     jstring refId_jstr = jni_env->NewStringUTF(refId);
     jstring currencyCode_jstr = jni_env->NewStringUTF(currencyCode);
+    jstring receipt_jstr = jni_env->NewStringUTF(receipt);
     
     // create an ArrayList class
     const char* list_class_name = "java/util/ArrayList";
@@ -304,11 +291,12 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
         jni_env->DeleteLocalRef(att5Val);
     }
 
-    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState);
+    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState, receipt_jstr);
     
     jni_env->DeleteLocalRef(eventIdOrName_jstr);
     jni_env->DeleteLocalRef(refId_jstr);
     jni_env->DeleteLocalRef(currencyCode_jstr);
+    jni_env->DeleteLocalRef(receipt_jstr);
 }
 
 void MATStartAppToAppTracking_platform(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
@@ -347,13 +335,7 @@ void MATSetCurrencyCode_platform(const char* currencyCode)
     env->CallVoidMethod(g_Obj, g_MATSetCurrencyCode, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void MATSetOpenUDID_platform(const char* openUDID)
-{
-    JNIEnv* env = s3eEdkJNIGetEnv();
-    jstring data_jstr = env->NewStringUTF(openUDID);
-    env->CallVoidMethod(g_Obj, g_MATSetOpenUDID, data_jstr);
-    env->DeleteLocalRef(data_jstr);
-}
+
 void MATSetUserId_platform(const char* userId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
@@ -422,6 +404,11 @@ void MATSetAppleVendorIdentifier_platform(const char* appleVendorIdentifier)
     
 }
 
+void MATSetAppAdTracking_platform(bool enable)
+{
+    
+}
+
 void MATSetDelegate_platform(bool enable)
 {
     
@@ -432,7 +419,7 @@ void MATSetJailbroken_platform(bool isJailbroken)
     
 }
 
-void MATSetOpenUDID_platform(char* openUdid)
+void MATSetOpenUDID_platform(const char* openUDID)
 {
     
 }
@@ -452,22 +439,22 @@ void MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool shouldAuto
     
 }
 
-void MATSetShouldAutoGenerateMacAddress_platform(bool shouldAutoGenerate)
-{
-    
-}
-
-void MATSetShouldAutoGenerateODIN1Key_platform(bool shouldAutoGenerate)
-{
-    
-}
-
-void MATSetShouldAutoGenerateOpenUDIDKey_platform(bool shouldAutoGenerate)
-{
-    
-}
-
 void MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool shouldAutoGenerate)
+{
+    
+}
+
+void MATSetMACAddress_platform(const char* mac)
+{
+    
+}
+
+void MATSetODIN1_platform(const char* odin1)
+{
+    
+}
+
+void MATSetUIID_platform(const char* uiid)
 {
     
 }

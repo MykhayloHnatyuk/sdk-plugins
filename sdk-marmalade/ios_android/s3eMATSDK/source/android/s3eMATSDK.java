@@ -61,7 +61,7 @@ class s3eMATSDK
     }
     
     // items is one or more event item hash maps
-    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List<MATEventItem> items, String refId, double revenueAmount, String currencyCode, int transactionState)
+    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List<MATEventItem> items, String refId, double revenueAmount, String currencyCode, int transactionState, String receipt)
     {
         mat.setCurrencyCode(currencyCode);
         mat.setRefId(refId);
@@ -138,22 +138,27 @@ class s3eMATSDK
         mat.setAltitude(altitude);
     }
     
+    public void MATSetAppAdTracking(boolean enable)
+    {
+        // not available in android
+    }
+    
     public void MATSetShouldAutoDetectJailbroken(boolean shouldAutoDetect)
     {
         // not available in android
     }
     
-    public void MATSetShouldAutoGenerateMacAddress(boolean shouldAutoGenerate)
+    public void MATSetMACAddress(String mac)
     {
         // not available in android
     }
     
-    public void MATSetShouldAutoGenerateODIN1Key(boolean shouldAutoGenerate)
+    public void MATSetODIN1(String odin1)
     {
         // not available in android
     }
     
-    public void MATSetShouldAutoGenerateOpenUDIDKey(boolean shouldAutoGenerate)
+    public void MATSetUIID(String uiid)
     {
         // not available in android
     }

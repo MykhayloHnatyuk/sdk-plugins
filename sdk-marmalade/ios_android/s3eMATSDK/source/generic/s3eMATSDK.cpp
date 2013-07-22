@@ -55,9 +55,9 @@ void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const 
 	MATTrackActionForEventIdOrName_platform(eventIdOrName, isId, refId);
 }
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt)
 {
-	MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState);
+	MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt);
 }
 
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
@@ -110,6 +110,11 @@ void MATSetTRUSTeId(const char* tpid)
     MATSetTRUSTeId_platform(tpid);
 }
 
+void MATSetAppAdTracking(bool enable)
+{
+    MATSetAppAdTracking_platform(enable);
+}
+
 void MATSetDelegate(bool enable)
 {
     MATSetDelegate_platform(enable);
@@ -130,19 +135,19 @@ void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect)
     MATSetShouldAutoDetectJailbroken_platform(shouldAutoDetect);
 }
 
-void MATSetShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
+void MATSetMACAddress(const char* mac)
 {
-    MATSetShouldAutoGenerateMacAddress_platform(shouldAutoGenerate);
+    MATSetMACAddress_platform(mac);
 }
 
-void MATSetShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
+void MATSetODIN1(const char* odin1)
 {
-    MATSetShouldAutoGenerateODIN1Key_platform(shouldAutoGenerate);
+    MATSetODIN1_platform(odin1);
 }
 
-void MATSetShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
+void MATSetUIID(const char* uiid)
 {
-    MATSetShouldAutoGenerateOpenUDIDKey_platform(shouldAutoGenerate);
+    MATSetUIID_platform(uiid);
 }
 
 void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate)
