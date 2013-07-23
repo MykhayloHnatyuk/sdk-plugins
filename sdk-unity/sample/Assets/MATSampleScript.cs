@@ -6,12 +6,17 @@ using System.Runtime.InteropServices;
 
 public class MATSampleScript : MonoBehaviour {
 	
-	public struct MATEventItem
+	public struct MATItem
 	{
-		public string	item;
+		public string	name;
 		public double 	unitPrice;
 		public int		quantity;
 		public double	revenue;
+		public string 	attribute1;
+		public string 	attribute2;
+		public string 	attribute3;
+		public string 	attribute4;
+		public string 	attribute5;
 	}
 
 #if UNITY_ANDROID	
@@ -44,7 +49,7 @@ public class MATSampleScript : MonoBehaviour {
 	private static extern void trackAction(string action, bool isId, double revenue, string currencyCode);
 
 	[DllImport ("mobileapptracker")]
-	private static extern void trackActionWithEventItem(string action, bool isId, MATEventItem[] items, int eventItemCount, string refId, double revenue, string currency, int transactionState);
+	private static extern void trackActionWithEventItem(string action, bool isId, MATItem[] items, int eventItemCount, string refId, double revenue, string currency, int transactionState, string receipt);
 
 	[DllImport ("mobileapptracker")]
 	private static extern int trackInstall();
@@ -57,17 +62,25 @@ public class MATSampleScript : MonoBehaviour {
 
 	// iOS-only functions that are imported for cross-platform coding convenience
 	[DllImport ("mobileapptracker")]
+	private static extern void setAppAdTracking(bool enable);
+	[DllImport ("mobileapptracker")]
 	private static extern void setDelegate(bool enable);	
 	[DllImport ("mobileapptracker")]
-	private static extern void setOpenUDID(string open_udid);
+	private static extern void setMACAddress(string mac);
+	[DllImport ("mobileapptracker")]
+    private static extern void setODIN1(string odin1);
+	[DllImport ("mobileapptracker")]
+    private static extern void setOpenUDID(string openUDID);
 	[DllImport ("mobileapptracker")]
 	private static extern void setRedirectUrl(string redirectUrl);	
 	[DllImport ("mobileapptracker")]
-    private static extern void setShouldAutoGenerateMacAddress(bool shouldAutoGenerate);
+    private static extern void setUIID(string uiid);
 	[DllImport ("mobileapptracker")]
-    private static extern void setShouldAutoGenerateODIN1Key(bool shouldAutoGenerate);
+	private static extern void setAge(int age);
 	[DllImport ("mobileapptracker")]
-    private static extern void setShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate);
+	private static extern void setGender(int gender);
+	[DllImport ("mobileapptracker")]
+	private static extern void setLocation(double latitude, double longitude, double altitude);
 	[DllImport ("mobileapptracker")]
     private static extern void setShouldAutoGenerateVendorIdentifier(bool shouldAutoGenerate);
 	[DllImport ("mobileapptracker")]
@@ -107,25 +120,37 @@ public class MATSampleScript : MonoBehaviour {
 	
 	// Optional Setter Methods
 	[DllImport ("__Internal")]
-	private static extern void setShouldAutoGenerateMacAddress(bool shouldAutoGenerate);
+	private static extern void setAppAdTracking(bool enable);
 	[DllImport ("__Internal")]
-    private static extern void setShouldAutoGenerateODIN1Key(bool shouldAutoGenerate);
+	private static extern void setMACAddress(string mac);
 	[DllImport ("__Internal")]
-    private static extern void setShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate);
+    private static extern void setODIN1(string odin1);
 	[DllImport ("__Internal")]
-	private static extern void setCurrencyCode(string currency_code);
+    private static extern void setOpenUDID(string openUDID);
 	[DllImport ("__Internal")]
-	private static extern void setOpenUDID(string open_udid);
+	private static extern void setCurrencyCode(string currencyCode);
 	[DllImport ("__Internal")]
-	private static extern void setPackageName(string package_name);
+	private static extern void setPackageName(string packageName);
 	[DllImport ("__Internal")]
-	private static extern void setSiteId(string site_id);
+	private static extern void setSiteId(string siteId);
 	[DllImport ("__Internal")]
-	private static extern void setTRUSTeId(string truste_tpid);
+	private static extern void setTRUSTeId(string trusteTPID);
 	[DllImport ("__Internal")]
-	private static extern void setUserId(string user_id);
+	private static extern void setUIID(string uiid);
+	[DllImport ("__Internal")]
+	private static extern void setUserId(string userId);
 	[DllImport ("__Internal")]
 	private static extern void setUseHTTPS(bool useHTTPS);
+	[DllImport ("__Internal")]
+	private static extern void setJailbroken(bool isJailbroken);
+	[DllImport ("__Internal")]
+	private static extern void setShouldAutoDetectJailbroken(bool shouldAutoDetect);
+	[DllImport ("__Internal")]
+	private static extern void setAge(int age);
+	[DllImport ("__Internal")]
+	private static extern void setGender(int gender);
+	[DllImport ("__Internal")]
+	private static extern void setLocation(double latitude, double longitude, double altitude);
 	
 	// Method to enable cookie based tracking
 	[DllImport ("__Internal")]
@@ -151,7 +176,7 @@ public class MATSampleScript : MonoBehaviour {
 	[DllImport ("__Internal")]
 	private static extern void trackAction(string action, bool isId, double revenue, string  currencyCode);
 	[DllImport ("__Internal")]
-	private static extern void trackActionWithEventItem(string action, bool isId, MATEventItem[] items, int eventItemCount, string refId, double revenue, string currency, int transactionState);
+	private static extern void trackActionWithEventItem(string action, bool isId, MATItem[] items, int eventItemCount, string refId, double revenue, string currency, int transactionState, string receipt);
 	
 	// Methods to track install, update events
 	[DllImport ("__Internal")]
@@ -164,7 +189,7 @@ public class MATSampleScript : MonoBehaviour {
 	private static extern void trackUpdateWithReferenceId(string refId);
 	
 #endif
-	
+
 	void Awake ()
 	{
 		string MAT_ADVERTISER_ID = null;
@@ -180,12 +205,28 @@ public class MATSampleScript : MonoBehaviour {
 		MAT_CONVERSION_KEY = "8c14d6bbe466b65211e781d62e301eec";
 #endif
 		
+		print("Awake called: " + MAT_ADVERTISER_ID + ", " + MAT_CONVERSION_KEY);
+		
 		initNativeCode(MAT_ADVERTISER_ID, MAT_CONVERSION_KEY);
 		
-		setAllowDuplicateRequests(true);
-		setDebugMode(true);
 		setDelegate(true);
-				
+		
+		// NOTE: !!! ONLY FOR DEBUG !!!
+		// !!! Make sure you set to false 
+		//     OR 
+		//     remove the setDebugMode and setAllowDuplicateRequests calls for Production builds !!!
+		setDebugMode(true);
+		setAllowDuplicateRequests(true);
+		
+		setAppAdTracking(true);
+		
+		setAge(28);
+		setGender(1); // 0 = male, 1 = female
+		
+		print("MATSampleScript Awake: sdk data parameters: " + getSDKDataParameters());
+		
+		print("MATSampleScript Awake: sdk data parameters: finished");
+		
 		return;
 	}
 	
@@ -194,6 +235,7 @@ public class MATSampleScript : MonoBehaviour {
 		if (GUI.Button(new Rect(10, 10, 350, 100), "Track Install"))
 		{
         	print("trackInstall clicked");
+			
 			trackInstall();
 		}
 		
@@ -203,28 +245,34 @@ public class MATSampleScript : MonoBehaviour {
 			trackAction("evt11", false, 0.35, "CAD");
 		}
 		
-		if (GUI.Button(new Rect(10, 230, 350, 100), "Track Action With Event"))
+		if (GUI.Button(new Rect(10, 230, 350, 100), "Track Action With Event Items"))
 		{
         	print("trackActionWithEvent clicked");
 			
-			MATEventItem item1 = new MATEventItem();
-			item1.item = "subitem1";
+			MATItem item1 = new MATItem();
+			item1.name = "subitem1";
 			item1.unitPrice = 5;
 			item1.quantity = 5;
 			item1.revenue = 3;
+			item1.attribute2 = "attrValue2";
+			item1.attribute3 = "attrValue3";
+			item1.attribute4 = "attrValue4";
+			item1.attribute5 = "attrValue5";
 			
-			MATEventItem item2 = new MATEventItem();
-			item2.item = "subitem2";
+			MATItem item2 = new MATItem();
+			item2.name = "subitem2";
 			item2.unitPrice = 1;
 			item2.quantity = 3;
 			item2.revenue = 1.5;
+			item2.attribute1 = "attrValue1";
+			item2.attribute3 = "attrValue3";
 			
-			MATEventItem[] arr = { item1, item2 };
+			MATItem[] arr = { item1, item2 };
 			
 			// transaction state may be set to the value received from the iOS/Android app store.
 			int transactionState = 1;
 			
-			trackActionWithEventItem("event6With2Items", false, arr, arr.Length, null, 10, "USD", transactionState);
+			trackActionWithEventItem("event6With2Items", false, arr, arr.Length, null, 10, "USD", transactionState, null);
 		}
 	}
 	

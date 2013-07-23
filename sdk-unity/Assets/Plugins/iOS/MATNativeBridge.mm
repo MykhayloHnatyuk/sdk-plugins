@@ -57,10 +57,21 @@ NSString* CreateNSString (const char* string)
 	return [NSString stringWithUTF8String:string ? string : ""];
 }
 
+// Ref: http://answers.unity3d.com/questions/364779/passing-nsdictionary-from-obj-c-to-c.html
+char* AutonomousStringCopy (const char* string)
+{
+	if (string == NULL)
+		return NULL;
+	
+	char* res = (char*)malloc(strlen(string) + 1);
+	strcpy(res, string);
+	return res;
+}
+
 MATSDKDelegate *matDelegate;
 
 // When native code plugin is implemented in .mm / .cpp file, then functions
-// should be surrounded with extern "C" block to conform C function naming rules
+// should be surrounded with extern "C" block to conform to C function naming rules.
 extern "C" {
     
     void initNativeCode (const char* advertiserId, const char* conversionKey)
@@ -68,8 +79,7 @@ extern "C" {
         printf("Native: initNativeCode = %s, %s", advertiserId, conversionKey);
         
         [[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:CreateNSString(advertiserId)
-                                                         MATConversionKey:CreateNSString(conversionKey)
-                                                                withError:nil];
+                                                         MATConversionKey:CreateNSString(conversionKey)];
     }
     
     void setDelegate(bool enable)
@@ -89,25 +99,39 @@ extern "C" {
         [[MobileAppTracker sharedManager] setAllowDuplicateRequests:allowDuplicateRequests];
     }
     
-    void setShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
+    void setShouldAutoDetectJailbroken(bool shouldAutoDetect)
     {
-        NSLog(@"Native: setShouldAutoGenerateMacAddress = %d", shouldAutoGenerate);
+        NSLog(@"Native: setShouldAutoDetectJailbroken = %d", shouldAutoDetect);
         
-        [[MobileAppTracker sharedManager] setShouldAutoGenerateMacAddress:shouldAutoGenerate];
+        [[MobileAppTracker sharedManager] setShouldAutoDetectJailbroken:shouldAutoDetect];
     }
     
-    void setShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
+    void setMACAddress(const char * mac)
     {
-        NSLog(@"Native: setShouldAutoGenerateODIN1Key = %d", shouldAutoGenerate);
+        NSLog(@"Native: setMACAddress = %s", mac);
         
-        [[MobileAppTracker sharedManager] setShouldAutoGenerateODIN1Key:shouldAutoGenerate];
+        [[MobileAppTracker sharedManager] setMACAddress:CreateNSString(mac)];
     }
     
-    void setShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
+    void setODIN1(const char * odin1)
     {
-        NSLog(@"Native: setShouldAutoGenerateOpenUDIDKey = %d", shouldAutoGenerate);
+        NSLog(@"Native: setODIN1 = %s", odin1);
         
-        [[MobileAppTracker sharedManager] setShouldAutoGenerateOpenUDIDKey:shouldAutoGenerate];
+        [[MobileAppTracker sharedManager] setODIN1:CreateNSString(odin1)];
+    }
+    
+    void setOpenUDID(const char * openUDID)
+    {
+        NSLog(@"Native: setOpenUDID = %s", openUDID);
+        
+        [[MobileAppTracker sharedManager] setOpenUDID:CreateNSString(openUDID)];
+    }
+    
+    void setUIID(const char * uiid)
+    {
+        NSLog(@"Native: setUIID = %s", uiid);
+        
+        [[MobileAppTracker sharedManager] setUIID:CreateNSString(uiid)];
     }
     
     void setShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate)
@@ -131,6 +155,13 @@ extern "C" {
         [[MobileAppTracker sharedManager] setUseCookieTracking:useCookieTracking];
     }
     
+    void setJailbroken(bool isJailbroken)
+    {
+        NSLog(@"Native: setJailbroken = %d", isJailbroken);
+        
+        [[MobileAppTracker sharedManager] setJailbroken:isJailbroken];
+    }
+    
 	void setUseHTTPS(bool useHTTPS)
     {
         NSLog(@"Native: setUseHTTPS = %d", useHTTPS);
@@ -138,11 +169,18 @@ extern "C" {
         [[MobileAppTracker sharedManager] setUseHTTPS:useHTTPS];
     }
     
-    void setCurrencyCode(const char* currency_code)
+    void setAppAdTracking(bool enable)
     {
-        NSLog(@"Native: setCurrencyCode = %s", currency_code);
+        NSLog(@"Native: setAppAdTracking = %d", enable);
         
-        [[MobileAppTracker sharedManager] setCurrencyCode:CreateNSString(currency_code)];
+        [[MobileAppTracker sharedManager] setAppAdTracking:enable];
+    }
+    
+    void setCurrencyCode(const char* currencyCode)
+    {
+        NSLog(@"Native: setCurrencyCode = %s", currencyCode);
+        
+        [[MobileAppTracker sharedManager] setCurrencyCode:CreateNSString(currencyCode)];
     }
     
     void setRedirectUrl(const char* redirectUrl)
@@ -159,39 +197,32 @@ extern "C" {
         [[MobileAppTracker sharedManager] setDebugMode:enable];
     }
     
-    void setOpenUDID(const char* open_udid)
+    void setPackageName(const char* packageName)
     {
-        NSLog(@"Native: setOpenUDID = %s", open_udid);
+        NSLog(@"Native: setPackageName = %s", packageName);
         
-        [[MobileAppTracker sharedManager] setOpenUDID:CreateNSString(open_udid)];
+        [[MobileAppTracker sharedManager] setPackageName:CreateNSString(packageName)];
     }
     
-    void setPackageName(const char* package_name)
+    void setSiteId(const char* siteId)
     {
-        NSLog(@"Native: setPackageName = %s", package_name);
+        NSLog(@"Native: setSiteId: %s", siteId);
         
-        [[MobileAppTracker sharedManager] setPackageName:CreateNSString(package_name)];
+        [[MobileAppTracker sharedManager] setSiteId:CreateNSString(siteId)];
     }
     
-    void setSiteId(const char* site_id)
+    void setTRUSTeId(const char* trusteTPID)
     {
-        NSLog(@"Native: setSiteId: %s", site_id);
+        NSLog(@"Native: setTRUSTeId: %s", trusteTPID);
         
-        [[MobileAppTracker sharedManager] setSiteId:CreateNSString(site_id)];
+        [[MobileAppTracker sharedManager] setTrusteTPID:CreateNSString(trusteTPID)];
     }
     
-    void setTRUSTeId(const char* truste_tpid)
+    void setUserId(const char* userId)
     {
-        NSLog(@"Native: setTRUSTeId: %s", truste_tpid);
+        NSLog(@"Native: setUserId: %s", userId);
         
-        [[MobileAppTracker sharedManager] setTrusteTPID:CreateNSString(truste_tpid)];
-    }
-    
-    void setUserId(const char* user_id)
-    {
-        NSLog(@"Native: setUserId: %s", user_id);
-        
-        [[MobileAppTracker sharedManager] setUserId:CreateNSString(user_id)];
+        [[MobileAppTracker sharedManager] setUserId:CreateNSString(userId)];
     }
     
     void setAppleAdvertisingIdentifier(const char* appleAdvertisingId)
@@ -211,16 +242,39 @@ extern "C" {
     void startAppToAppTracking(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect)
     {
         NSLog(@"Native: startAppToAppTracking: %s, %s, %s, %s, %d", targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
+        
         [[MobileAppTracker sharedManager] setTracking:CreateNSString(targetAppId) advertiserId:CreateNSString(advertiserId) offerId:CreateNSString(offerId) publisherId:CreateNSString(publisherId) redirect:shouldRedirect];
+    }
+    
+    void setAge(int age)
+    {
+        NSLog(@"Native: setAge = %d", age);
+        
+        [[MobileAppTracker sharedManager] setAge:age];
+    }
+    
+    void setGender(MATGender gender)
+    {
+        NSLog(@"Native: setGender = %d", gender);
+        
+        [[MobileAppTracker sharedManager] setGender:gender];
+    }
+    
+    void setLocation(double latitude, double longitude, double altitude)
+    {
+        NSLog(@"Native: setLocation: %f, %f, %f", latitude, longitude, altitude);
+        
+        [[MobileAppTracker sharedManager] setLatitude:latitude longitude:longitude altitude:altitude];
     }
     
     const char * getSDKDataParameters()
     {
-        // NSDictionary to NSString as it is -- non-json string
+        // return the default NSString representation of the NSDictionary -- non-json string
         //return [[[[MobileAppTracker sharedManager] sdkDataParameters] description] UTF8String];
         
         NSLog(@"Native: getSDKDataParameters");
         
+        // create an equivalent json representation of the NSDictionary
         NSMutableString *strParams = [NSMutableString stringWithFormat:@"{\"sdkDataParams\":{"];
         
         NSDictionary *dictParams = [[MobileAppTracker sharedManager] sdkDataParameters];
@@ -236,7 +290,9 @@ extern "C" {
         
         [strParams appendFormat:@"}}"];
         
-        return [strParams UTF8String];
+        char *strDataParams = AutonomousStringCopy([strParams UTF8String]);
+        
+        return strDataParams;
     }
     
     void trackInstall()
@@ -267,17 +323,17 @@ extern "C" {
         [[MobileAppTracker sharedManager] trackUpdateWithReferenceId:refId ? CreateNSString(refId) : nil];
     }
     
-    void trackAction(const char* action, bool isId, double revenue, const char*  currency)
+    void trackAction(const char* eventName, bool isId, double revenue, const char*  currency)
     {
         NSLog(@"Native: trackAction");
         
-        [[MobileAppTracker sharedManager] trackActionForEventIdOrName:CreateNSString(action)
+        [[MobileAppTracker sharedManager] trackActionForEventIdOrName:CreateNSString(eventName)
                                                             eventIsId:isId
                                                         revenueAmount:revenue
                                                          currencyCode:CreateNSString(currency)];
     }
     
-    void trackActionWithEventItem(const char* action, bool isId, MATEventItem eventItems[], int eventItemCount, const char* refId, double revenue, const char* currency, int transactionState)
+    void trackActionWithEventItem(const char* eventName, bool isId, MATItem eventItems[], int eventItemCount, const char* refId, double revenue, const char* currency, int transactionState, const char* receiptData)
     {
         NSLog(@"Native: trackActionWithEventItem");
         
@@ -285,26 +341,40 @@ extern "C" {
         NSMutableArray *arrEventItems = [NSMutableArray array];
         for (uint i = 0; i < eventItemCount; i++)
         {
-            MATEventItem eventItem = eventItems[i];
+            MATItem item = eventItems[i];
             
-            NSString *item = CreateNSString(eventItem.item);
-            NSNumber *unitPrice = [NSNumber numberWithDouble:eventItem.unitPrice];
-            NSNumber *quantity = [NSNumber numberWithInt:eventItem.quantity];
-            NSNumber *revenue = [NSNumber numberWithDouble:eventItem.revenue];
+            NSString *name = CreateNSString(item.name);
+            float unitPrice = (float)item.unitPrice;
+            int quantity = item.quantity;
+            float revenue = (float)item.revenue;
             
-            NSDictionary *dict = [[[NSDictionary alloc]initWithObjectsAndKeys:item, @"item",
-                                   unitPrice, @"unit_price",
-                                   quantity, @"quantity",
-                                   revenue, @"revenue", nil] autorelease];
-            [arrEventItems addObject:dict];
+            NSString *attr1 = CreateNSString(item.attribute1);
+            NSString *attr2 = CreateNSString(item.attribute2);
+            NSString *attr3 = CreateNSString(item.attribute3);
+            NSString *attr4 = CreateNSString(item.attribute4);
+            NSString *attr5 = CreateNSString(item.attribute5);
+            
+            // convert from MATItem struct to MATEventItem object
+            MATEventItem *eventItem = [MATEventItem eventItemWithName:name unitPrice:unitPrice quantity:quantity revenue:revenue
+                                                           attribute1:attr1
+                                                           attribute2:attr2
+                                                           attribute3:attr3
+                                                           attribute4:attr4
+                                                           attribute5:attr5];
+            
+            [arrEventItems addObject:eventItem];
         }
         
-        [[MobileAppTracker sharedManager] trackActionForEventIdOrName:CreateNSString(action)
+        NSString *strReceipt = CreateNSString(receiptData);
+        NSData *receipt = [strReceipt dataUsingEncoding:NSUTF8StringEncoding];
+        
+        [[MobileAppTracker sharedManager] trackActionForEventIdOrName:CreateNSString(eventName)
                                                             eventIsId:isId
                                                            eventItems:arrEventItems
                                                           referenceId:CreateNSString(refId)
                                                         revenueAmount:revenue
                                                          currencyCode:CreateNSString(currency)
-                                                     transactionState:(NSInteger)transactionState];
+                                                     transactionState:(NSInteger)transactionState
+                                                              receipt:receipt];
     }
 }

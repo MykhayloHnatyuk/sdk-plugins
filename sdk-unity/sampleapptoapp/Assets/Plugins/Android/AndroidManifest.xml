@@ -39,7 +39,5 @@
             <meta-data android:name="android.app.lib_name" android:value="unity" />
             <meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="false" />
         </activity>
-		<provider android:name="com.mobileapptracker.MATProvider"
-				  android:authorities="com.hasoffers.MATUnitySample" />
     </application>
 </manifest>

@@ -262,7 +262,7 @@ char *NewBase64Encode(
 	return outputBuffer;
 }
 
-@implementation NSData (Base64)
+@implementation NSData (MATBase64)
 
 //
 // dataFromBase64String:

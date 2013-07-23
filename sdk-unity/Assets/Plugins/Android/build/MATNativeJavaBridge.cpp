@@ -7,10 +7,15 @@ extern "C"
 	typedef struct
 	{
 		char * item;
-		double unit_price;
+		double unitPrice;
 		int    quantity;
 		double revenue;
-	} MATEventItem;
+		char * attribute1;
+		char * attribute2;
+		char * attribute3;
+		char * attribute4;
+		char * attribute5;
+	} MATItem;
 
 	JavaVM*		java_vm;
 	JNIEnv*		jni_env;
@@ -25,6 +30,7 @@ extern "C"
 	jmethodID	setDebugModeMethod;
 	jmethodID	setPackageNameMethod;
 	jmethodID	setRefIdMethod;
+	jmethodID	setRevenueMethod;
 	jmethodID	setSiteIdMethod;
 	jmethodID	setTRUSTeIdMethod;
 	jmethodID	setUserIdMethod;
@@ -73,6 +79,7 @@ extern "C"
 		setDebugModeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setDebugMode", "(Z)V");
 		setPackageNameMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setPackageName", "(Ljava/lang/String;)V");
 		setRefIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setRefId", "(Ljava/lang/String;)V");
+		setRevenueMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setRevenue", "(D)V");
 		setSiteIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setSiteId", "(Ljava/lang/String;)V");
 		setTRUSTeIdMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setTRUSTeId", "(Ljava/lang/String;)V");
 		setUserIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setUserId", "(Ljava/lang/String;)V");
@@ -117,12 +124,15 @@ extern "C"
 		return;
 	}
 
-	const void trackActionWithEventItem(char* eventName, bool isId, MATEventItem items[], int eventItemCount, char* refId, double revenue, char* currency, int transactionState)
+	const void trackActionWithEventItem(char* eventName, bool isId, MATItem items[], int eventItemCount, char* refId, double revenue, char* currency, int transactionState, char* receipt)
 	{
 		// Set the ref ID
 		jstring refIdUTF = jni_env->NewStringUTF(refId);
 		jni_env->CallVoidMethod(MobileAppTracker, setRefIdMethod, refIdUTF);
 		jni_env->DeleteLocalRef(refIdUTF);
+
+		// Set the revenue
+		jni_env->CallVoidMethod(MobileAppTracker, setRevenueMethod, revenue);
 
 		// Set the currency code
 		jstring currencyCodeUTF = jni_env->NewStringUTF(currency);
@@ -141,74 +151,57 @@ extern "C"
 		jmethodID list_add_mid = 0;
 		list_add_mid = jni_env->GetMethodID(clsArrayList, "add", "(Ljava/lang/Object;)Z");
 
-		// Get Java Integer class constructor
-		jclass clsInteger = jni_env->FindClass("java/lang/Integer");
-		jmethodID intConstructorID = jni_env->GetMethodID(clsInteger, "<init>", "(I)V");
+		// Get MATEventItem class constructor
+		const char* mateventitem_class_name = "com/mobileapptracker/MATEventItem";
+		jclass clsMATEventItem = jni_env->FindClass(mateventitem_class_name);
+		jmethodID constructorID = jni_env->GetMethodID(clsMATEventItem, "<init>", "(Ljava/lang/String;IDDLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
 
-		// Get Java Double class constructor
-		jclass clsDouble = jni_env->FindClass("java/lang/Double");
-		jmethodID doubleConstructorID = jni_env->GetMethodID(clsDouble, "<init>", "(D)V");
-
-		// Create a jobject of ArrayList for storing HashMaps
+		// Create a jobject of ArrayList for storing MATEventItems
 		jobject jlistobj = jni_env->NewObject(clsArrayList, listConstructorID);
+
+		// Add a MATEventItem for each item to a List
+		for (uint i = 0; i < eventItemCount; i++) {
+			jstring nameVal = jni_env->NewStringUTF(items[i].item);
+			jstring att1Val = jni_env->NewStringUTF(items[i].attribute1);
+			jstring att2Val = jni_env->NewStringUTF(items[i].attribute2);
+			jstring att3Val = jni_env->NewStringUTF(items[i].attribute3);
+			jstring att4Val = jni_env->NewStringUTF(items[i].attribute4);
+			jstring att5Val = jni_env->NewStringUTF(items[i].attribute5);
+
+			// Create a MATEventItem
+			jobject jeventitemobj = jni_env->NewObject(clsMATEventItem, constructorID,
+				nameVal,
+				items[i].quantity,
+				items[i].unitPrice,
+				items[i].revenue,
+				att1Val,
+				att2Val,
+				att3Val,
+				att4Val,
+				att5Val);
+
+			// Add the MATEventItem to the List
+			jboolean jbool = jni_env->CallBooleanMethod(jlistobj, list_add_mid, jeventitemobj);
+
+			jni_env->DeleteLocalRef(jeventitemobj);
+			jni_env->DeleteLocalRef(nameVal);
+			jni_env->DeleteLocalRef(att1Val);
+			jni_env->DeleteLocalRef(att2Val);
+			jni_env->DeleteLocalRef(att3Val);
+			jni_env->DeleteLocalRef(att4Val);
+			jni_env->DeleteLocalRef(att5Val);
+		}
 
 		// Convert event name to UTF
 		jstring eventNameUTF = jni_env->NewStringUTF(eventName);
 
-		// Convert keys for event item values to UTF
-		jstring itemArg = jni_env->NewStringUTF("item");
-		jstring unitpriceArg = jni_env->NewStringUTF("unit_price");
-		jstring quantityArg = jni_env->NewStringUTF("quantity");
-		jstring revenueArg = jni_env->NewStringUTF("revenue");
-
-		// For storing event item values
-		jobject jmapobj;
-		jstring itemVal;
-		jobject unitpriceVal;
-		jobject quantityVal;
-		jobject revenueVal;
-
-		for (int i = 0; i < eventItemCount; i++)
-		{
-			// Create a new HashMap for storing event item values
-			jmapobj = jni_env->NewObject(clsHashMap, mapConstructorID);
-			
-			// Current event item in item array
-			MATEventItem eventItem = items[i];
-
-			// Convert event item values to Java-readable objects
-			itemVal = jni_env->NewStringUTF(eventItem.item);
-			unitpriceVal = jni_env->NewObject(clsDouble, doubleConstructorID, eventItem.unit_price);
-			quantityVal = jni_env->NewObject(clsInteger, intConstructorID, eventItem.quantity);
-			revenueVal = jni_env->NewObject(clsDouble, doubleConstructorID, eventItem.revenue);
-
-			// Populate event item map with values from MATEventItem
-			jni_env->CallObjectMethod(jmapobj, map_put_mid, itemArg, itemVal);
-			jni_env->CallObjectMethod(jmapobj, map_put_mid, unitpriceArg, unitpriceVal);
-			jni_env->CallObjectMethod(jmapobj, map_put_mid, quantityArg, quantityVal);
-			jni_env->CallObjectMethod(jmapobj, map_put_mid, revenueArg, revenueVal);
-
-			// Add HashMap to ArrayList of event items
-			jni_env->CallBooleanMethod(jlistobj, list_add_mid, jmapobj);
-		}
-		
 		// Call trackActionWithEventItem
 		jint trackStatus = jni_env->CallIntMethod(MobileAppTracker, trackActionWithEventItemMethod, eventNameUTF, jlistobj, (jint)eventItemCount);
 		__android_log_print(ANDROID_LOG_INFO, "MATJavaBridge", "[%s] trackActionWithEventItem status = %d\n", __FUNCTION__, trackStatus);
 
 		// Delete local variables used
-		jni_env->DeleteLocalRef(jmapobj);
+		jni_env->DeleteLocalRef(eventNameUTF);
 		jni_env->DeleteLocalRef(jlistobj);
-
-		jni_env->DeleteLocalRef(itemArg);
-		jni_env->DeleteLocalRef(unitpriceArg);
-		jni_env->DeleteLocalRef(quantityArg);
-		jni_env->DeleteLocalRef(revenueArg);
-
-		jni_env->DeleteLocalRef(itemVal);
-		jni_env->DeleteLocalRef(unitpriceVal);
-		jni_env->DeleteLocalRef(quantityVal);
-		jni_env->DeleteLocalRef(revenueVal);
 
 		return;
 	}
@@ -305,7 +298,17 @@ extern "C"
 
 	// iOS only functions that do nothing on Android
 	
+    const void setAppLevelOptOut(bool optout)
+	{
+		return;
+	}
+    
 	const void setAppleAdvertisingIdentifier(char* appleAdvertisingIdentifier)
+	{
+		return;
+	}
+    
+	const void setAppleVendorIdentifier(char* appleVendorIdentifier)
 	{
 		return;
 	}
@@ -330,17 +333,12 @@ extern "C"
 		return;
 	}
 	
-	const void setShouldAutoGenerateMacAddress(bool shouldAutoGenerate)
+	const void setMACAddress(char* mac)
 	{
 		return;
 	}
 
-	const void setShouldAutoGenerateODIN1Key(bool shouldAutoGenerate)
-	{
-		return;
-	}
-
-	const void setShouldAutoGenerateOpenUDIDKey(bool shouldAutoGenerate)
+	const void setODIN1(char* odin1)
 	{
 		return;
 	}
@@ -359,8 +357,8 @@ extern "C"
 	{
 		return;
 	}
-
-	const void setAppleVendorIdentifier(char* appleVendorIdentifier)
+    
+    const void setUIID(char* uiid)
 	{
 		return;
 	}
