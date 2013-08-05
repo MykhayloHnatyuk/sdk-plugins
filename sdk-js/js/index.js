@@ -14,10 +14,19 @@ function init()
     console.log("MobileAppTracker initialized");
 }
 
+// Callback to receive MAT request
+function responseCallback(data) {
+    if (data) {
+        console.log("Got MAT response");
+    } else {
+        console.log("MAT request hit timeout max");
+    }
+}
+
 // Track an app install, should be called after directly after init
 function trackInstall()
 {
-    MobileAppTracker.trackInstall();
+    MobileAppTracker.trackInstall(responseCallback);
     console.log("trackInstall called");
 }
 
@@ -28,10 +37,12 @@ function trackOpen()
     console.log("trackAction(\"open\") called");
 }
 
-// Track an app event, you may define event name, optional: revenue, currency, advertiser reference id
+// Track an app event, you may define event name
+// optional parameters: revenue, currency, advertiser reference id
+// event items (see trackEventItem), callback function on response, and max callback timeout (default 3000ms)
 function trackAction()
 {
-    MobileAppTracker.trackAction("test", 1, "USD", "ref_id");
+    MobileAppTracker.trackAction("test", 1, "USD", "ref_id", null, responseCallback, 3000);
     console.log("trackAction(\"test\", 1, \"USD\", \"ref_id\") called");
 }
 
@@ -60,5 +71,5 @@ function trackEventItem()
     });
     eventItems[1] = eventItem2;
     
-    MobileAppTracker.trackAction("test event item", 1, "USD", "", eventItems);
+    MobileAppTracker.trackAction("test event item", 1, "USD", "", eventItems, responseCallback);
 }
