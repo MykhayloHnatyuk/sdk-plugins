@@ -34,6 +34,10 @@ The JavaScript SDK does not collect any device identifiers by default. You shoul
 these before making any tracking calls, in order to attribute device installs and
 events to clicks.
 
+For examples of how to pass native values to JavaScript, see here:
+
+[Passing native device identifiers to JavaScript](http://support.mobileapptracking.com/entries/21888969-Passing-native-device-identifiers-to-JavaScript)
+
 ### Android
 
 __Android ID__  
