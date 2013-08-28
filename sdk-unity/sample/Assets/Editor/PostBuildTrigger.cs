@@ -34,7 +34,7 @@ public static class PostBuildTrigger
 	
 	const string DEFAULT_UNITY_IPHONE_PROJECT_NAME = "Unity-iPhone.xcodeproj";
 	
-	const string MAT_FRAMEWORK_FOLDER_PATH = "../Assets/Plugins/iOS"; // <------- Path of folder that contains the MAT framework folder
+	const string MAT_FRAMEWORK_FOLDER_PATH = "Assets/Plugins/iOS"; // <------- Path of folder that contains the MAT framework folder
 	
     // List of all the frameworks to be added to the project
 	public struct framework

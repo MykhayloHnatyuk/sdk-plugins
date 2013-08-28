@@ -55,9 +55,9 @@ void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const 
 	MATTrackActionForEventIdOrName_platform(eventIdOrName, isId, refId);
 }
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
-	MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt);
+	MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt, receiptSignature);
 }
 
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency)

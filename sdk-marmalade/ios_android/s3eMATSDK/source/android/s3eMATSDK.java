@@ -61,12 +61,16 @@ class s3eMATSDK
     }
     
     // items is one or more event item hash maps
-    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List<MATEventItem> items, String refId, double revenueAmount, String currencyCode, int transactionState, String receipt)
+    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List<MATEventItem> items, String refId, double revenueAmount, String currencyCode, int transactionState, String receipt, String receiptSignature)
     {
         mat.setCurrencyCode(currencyCode);
         mat.setRefId(refId);
         mat.setRevenue(revenueAmount);
-        mat.trackAction(eventIdOrName, items);
+        if (receiptSignature != null && receiptSignature.length() > 0) {
+            mat.trackAction(eventIdOrName, items, receipt, receiptSignature);
+        } else {
+            mat.trackAction(eventIdOrName, items);
+        }
     }
     
     public void MATTrackAction(String eventIdOrName, boolean isId, double revenueAmount, String currencyCode)

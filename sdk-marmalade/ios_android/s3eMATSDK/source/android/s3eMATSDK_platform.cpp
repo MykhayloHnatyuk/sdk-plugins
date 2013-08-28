@@ -85,7 +85,7 @@ s3eResult MATSDKInit_platform()
     if (!g_MATTrackActionForEventIdOrName)
         goto fail;
 
-    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;)V");
+    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;Ljava/lang/String;)V");
     if (!g_MATTrackActionForEventIdOrNameItems)
         goto fail;
     
@@ -223,7 +223,7 @@ void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenu
     env->DeleteLocalRef(currency_jstr);
 }
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt)
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
     IwTrace(s3eMATSDK, ("In event items method"));
     JNIEnv* jni_env = s3eEdkJNIGetEnv();
@@ -233,6 +233,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     jstring refId_jstr = jni_env->NewStringUTF(refId);
     jstring currencyCode_jstr = jni_env->NewStringUTF(currencyCode);
     jstring receipt_jstr = jni_env->NewStringUTF(receipt);
+    jstring receiptSignature_jstr = jni_env->NewStringUTF(receiptSignature);
     
     // create an ArrayList class
     const char* list_class_name = "java/util/ArrayList";
@@ -291,12 +292,13 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
         jni_env->DeleteLocalRef(att5Val);
     }
 
-    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState, receipt_jstr);
+    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState, receipt_jstr, receiptSignature_jstr);
     
     jni_env->DeleteLocalRef(eventIdOrName_jstr);
     jni_env->DeleteLocalRef(refId_jstr);
     jni_env->DeleteLocalRef(currencyCode_jstr);
     jni_env->DeleteLocalRef(receipt_jstr);
+    jni_env->DeleteLocalRef(receiptSignature_jstr);
 }
 
 void MATStartAppToAppTracking_platform(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)

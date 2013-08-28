@@ -1,6 +1,6 @@
 Archive member included because of file (symbol)
 
-C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
                               release\s3eMATSDK_platform.os (s3eEdkThreadRunOnOS)
 
 Discarded input sections
@@ -33,15 +33,15 @@ Discarded input sections
                 0x00000000        0x0 release\s3eMATSDK_register.os
  .note.GNU-stack
                 0x00000000        0x0 release\s3eMATSDK_register.os
- .text          0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .data          0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .bss           0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .text          0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkThreadRunOnOSAsync
-                0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkErrorSetString
-                0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .note.GNU-stack
-                0x00000000        0x0 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text          0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  .data          0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  .bss           0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
@@ -59,8 +59,8 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 LOAD release\s3eMATSDK_platform.os
 LOAD release\s3eMATSDK.os
 LOAD release\s3eMATSDK_register.os
-LOAD C:\marmalade\6.2\s3e\edk\lib\android\libedk.a
-LOAD C:\marmalade\6.2\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
+LOAD C:\marmalade\6.3\s3e\edk\lib\android\libedk.a
+LOAD C:\marmalade\6.3\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
 LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/liblog.so
 LOAD C:\Users\John\tools\android-ndk-r8c\sources\cxx-stl\gnu-libstdc++\4.4.3\libs\armeabi\libgnustl_static.a
 LOAD c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
@@ -150,7 +150,7 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  *(.plt)
  .plt           0x00000568       0x50 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.text           0x000005b8     0x1d7c
+.text           0x000005b8     0x1dc8
  *(.text .stub .text.* .gnu.linkonce.t.*)
  .text.exit     0x000005b8       0x10 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
                 0x000005b8                __on_dlclose
@@ -214,258 +214,258 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  .text._ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
                 0x00000684       0x34 release\s3eMATSDK_platform.os
                 0x00000684                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
- .text._Z23MATSetLocation_platformddd
-                0x000006b8       0x6c release\s3eMATSDK_platform.os
-                0x000006b8                MATSetLocation_platform(double, double, double)
- .text._Z21MATSetGender_platformi
-                0x00000724       0x58 release\s3eMATSDK_platform.os
-                0x00000724                MATSetGender_platform(int)
- .text._Z22MATSetRevenue_platformd
-                0x0000077c       0x5c release\s3eMATSDK_platform.os
-                0x0000077c                MATSetRevenue_platform(double)
  .text._Z23MATTrackUpdate_platformv
-                0x000007d8       0x50 release\s3eMATSDK_platform.os
-                0x000007d8                MATTrackUpdate_platform()
+                0x000006b8       0x4c release\s3eMATSDK_platform.os
+                0x000006b8                MATTrackUpdate_platform()
  .text._Z24MATTrackInstall_platformv
-                0x00000828       0x50 release\s3eMATSDK_platform.os
-                0x00000828                MATTrackInstall_platform()
- .text._Z18MATSetAge_platformi
-                0x00000878       0x58 release\s3eMATSDK_platform.os
-                0x00000878                MATSetAge_platform(int)
+                0x00000704       0x50 release\s3eMATSDK_platform.os
+                0x00000704                MATTrackInstall_platform()
  .text._Z25MATSDKParameters_platformv
-                0x000008d0       0x50 release\s3eMATSDK_platform.os
-                0x000008d0                MATSDKParameters_platform()
- .text._Z30MATSetAllowDuplicates_platformb
-                0x00000920       0x58 release\s3eMATSDK_platform.os
-                0x00000920                MATSetAllowDuplicates_platform(bool)
+                0x00000754       0x50 release\s3eMATSDK_platform.os
+                0x00000754                MATSDKParameters_platform()
  .text._Z24MATSetDebugMode_platformb
+                0x000007a4       0x58 release\s3eMATSDK_platform.os
+                0x000007a4                MATSetDebugMode_platform(bool)
+ .text._Z22MATSetRevenue_platformd
+                0x000007fc       0x5c release\s3eMATSDK_platform.os
+                0x000007fc                MATSetRevenue_platform(double)
+ .text._Z23MATSetLocation_platformddd
+                0x00000858       0x70 release\s3eMATSDK_platform.os
+                0x00000858                MATSetLocation_platform(double, double, double)
+ .text._Z21MATSetGender_platformi
+                0x000008c8       0x58 release\s3eMATSDK_platform.os
+                0x000008c8                MATSetGender_platform(int)
+ .text._Z18MATSetAge_platformi
+                0x00000920       0x58 release\s3eMATSDK_platform.os
+                0x00000920                MATSetAge_platform(int)
+ .text._Z30MATSetAllowDuplicates_platformb
                 0x00000978       0x58 release\s3eMATSDK_platform.os
-                0x00000978                MATSetDebugMode_platform(bool)
- .text._Z21MATSetUserId_platformPKc
-                0x000009d0       0x88 release\s3eMATSDK_platform.os
-                0x000009d0                MATSetUserId_platform(char const*)
+                0x00000978                MATSetAllowDuplicates_platform(bool)
  .text._Z23MATSetTRUSTeId_platformPKc
+                0x000009d0       0x88 release\s3eMATSDK_platform.os
+                0x000009d0                MATSetTRUSTeId_platform(char const*)
+ .text._Z21MATSetUserId_platformPKc
                 0x00000a58       0x88 release\s3eMATSDK_platform.os
-                0x00000a58                MATSetTRUSTeId_platform(char const*)
- .text._Z21MATSetSiteId_platformPKc
-                0x00000ae0       0x88 release\s3eMATSDK_platform.os
-                0x00000ae0                MATSetSiteId_platform(char const*)
- .text._Z39MATTrackInstallWithReferenceId_platformPKc
-                0x00000b68       0x88 release\s3eMATSDK_platform.os
-                0x00000b68                MATTrackInstallWithReferenceId_platform(char const*)
- .text._Z27MATSetCurrencyCode_platformPKc
-                0x00000bf0       0x88 release\s3eMATSDK_platform.os
-                0x00000bf0                MATSetCurrencyCode_platform(char const*)
+                0x00000a58                MATSetUserId_platform(char const*)
  .text._Z26MATSetPackageName_platformPKc
+                0x00000ae0       0x88 release\s3eMATSDK_platform.os
+                0x00000ae0                MATSetPackageName_platform(char const*)
+ .text._Z27MATSetCurrencyCode_platformPKc
+                0x00000b68       0x88 release\s3eMATSDK_platform.os
+                0x00000b68                MATSetCurrencyCode_platform(char const*)
+ .text._Z21MATSetSiteId_platformPKc
+                0x00000bf0       0x88 release\s3eMATSDK_platform.os
+                0x00000bf0                MATSetSiteId_platform(char const*)
+ .text._Z39MATTrackInstallWithReferenceId_platformPKc
                 0x00000c78       0x88 release\s3eMATSDK_platform.os
-                0x00000c78                MATSetPackageName_platform(char const*)
- .text._Z39MATTrackActionForEventIdOrName_platformPKcbS0_
-                0x00000d00       0xc4 release\s3eMATSDK_platform.os
-                0x00000d00                MATTrackActionForEventIdOrName_platform(char const*, bool, char const*)
- .text._Z23MATTrackAction_platformPKcbdS0_
-                0x00000dc4       0xcc release\s3eMATSDK_platform.os
-                0x00000dc4                MATTrackAction_platform(char const*, bool, double, char const*)
+                0x00000c78                MATTrackInstallWithReferenceId_platform(char const*)
  .text._Z33MATStartMobileAppTracker_platformPKcS0_
-                0x00000e90       0xbc release\s3eMATSDK_platform.os
-                0x00000e90                MATStartMobileAppTracker_platform(char const*, char const*)
+                0x00000d00       0xbc release\s3eMATSDK_platform.os
+                0x00000d00                MATStartMobileAppTracker_platform(char const*, char const*)
+ .text._Z23MATTrackAction_platformPKcbdS0_
+                0x00000dbc       0xcc release\s3eMATSDK_platform.os
+                0x00000dbc                MATTrackAction_platform(char const*, bool, double, char const*)
+ .text._Z39MATTrackActionForEventIdOrName_platformPKcbS0_
+                0x00000e88       0xc4 release\s3eMATSDK_platform.os
+                0x00000e88                MATTrackActionForEventIdOrName_platform(char const*, bool, char const*)
  .text._ZL27s3eEdkAndroidFindClass_realPKc
                 0x00000f4c       0xb8 release\s3eMATSDK_platform.os
  .text._Z33MATStartAppToAppTracking_platformPKcS0_S0_S0_b
                 0x00001004      0x12c release\s3eMATSDK_platform.os
                 0x00001004                MATStartAppToAppTracking_platform(char const*, char const*, char const*, char const*, bool)
- .text._Z44MATTrackActionForEventIdOrNameItems_platformPKcbPK8MATArrayS0_dS0_hS0_
-                0x00001130      0x3fc release\s3eMATSDK_platform.os
-                0x00001130                MATTrackActionForEventIdOrNameItems_platform(char const*, bool, MATArray const*, char const*, double, char const*, unsigned char, char const*)
+ .text._Z44MATTrackActionForEventIdOrNameItems_platformPKcbPK8MATArrayS0_dS0_hS0_S0_
+                0x00001130      0x444 release\s3eMATSDK_platform.os
+                0x00001130                MATTrackActionForEventIdOrNameItems_platform(char const*, bool, MATArray const*, char const*, double, char const*, unsigned char, char const*, char const*)
  .text._Z19MATSDKInit_platformv
-                0x0000152c      0x4f8 release\s3eMATSDK_platform.os
-                0x0000152c                MATSDKInit_platform()
+                0x00001574      0x4f8 release\s3eMATSDK_platform.os
+                0x00001574                MATSDKInit_platform()
  .text.MATSetLocation
-                0x00001a24        0x4 release\s3eMATSDK.os
-                0x00001a24                MATSetLocation
- .text.MATSetGender
-                0x00001a28        0x4 release\s3eMATSDK.os
-                0x00001a28                MATSetGender
- .text.MATSetAge
-                0x00001a2c        0x4 release\s3eMATSDK.os
-                0x00001a2c                MATSetAge
- .text.MATSetUseHTTPS
-                0x00001a30        0x4 release\s3eMATSDK.os
-                0x00001a30                MATSetUseHTTPS
- .text.MATSetAppleVendorIdentifier
-                0x00001a34        0x4 release\s3eMATSDK.os
-                0x00001a34                MATSetAppleVendorIdentifier
- .text.MATSetAppleAdvertisingIdentifier
-                0x00001a38        0x4 release\s3eMATSDK.os
-                0x00001a38                MATSetAppleAdvertisingIdentifier
- .text.MATSetRedirectUrl
-                0x00001a3c        0x4 release\s3eMATSDK.os
-                0x00001a3c                MATSetRedirectUrl
- .text.MATSetUseCookieTracking
-                0x00001a40        0x4 release\s3eMATSDK.os
-                0x00001a40                MATSetUseCookieTracking
- .text.MATSetShouldAutoGenerateAppleAdvertisingIdentifier
-                0x00001a44        0x4 release\s3eMATSDK.os
-                0x00001a44                MATSetShouldAutoGenerateAppleAdvertisingIdentifier
- .text.MATSetShouldAutoGenerateAppleVendorIdentifier
-                0x00001a48        0x4 release\s3eMATSDK.os
-                0x00001a48                MATSetShouldAutoGenerateAppleVendorIdentifier
- .text.MATSetUIID
-                0x00001a4c        0x4 release\s3eMATSDK.os
-                0x00001a4c                MATSetUIID
- .text.MATSetODIN1
-                0x00001a50        0x4 release\s3eMATSDK.os
-                0x00001a50                MATSetODIN1
- .text.MATSetMACAddress
-                0x00001a54        0x4 release\s3eMATSDK.os
-                0x00001a54                MATSetMACAddress
- .text.MATSetShouldAutoDetectJailbroken
-                0x00001a58        0x4 release\s3eMATSDK.os
-                0x00001a58                MATSetShouldAutoDetectJailbroken
- .text.MATSetAllowDuplicates
-                0x00001a5c        0x4 release\s3eMATSDK.os
-                0x00001a5c                MATSetAllowDuplicates
- .text.MATSetDebugMode
-                0x00001a60        0x4 release\s3eMATSDK.os
-                0x00001a60                MATSetDebugMode
- .text.MATSetDelegate
-                0x00001a64        0x4 release\s3eMATSDK.os
-                0x00001a64                MATSetDelegate
- .text.MATSetAppAdTracking
-                0x00001a68        0x4 release\s3eMATSDK.os
-                0x00001a68                MATSetAppAdTracking
- .text.MATSetTRUSTeId
                 0x00001a6c        0x4 release\s3eMATSDK.os
-                0x00001a6c                MATSetTRUSTeId
- .text.MATSetSiteId
+                0x00001a6c                MATSetLocation
+ .text.MATSetGender
                 0x00001a70        0x4 release\s3eMATSDK.os
-                0x00001a70                MATSetSiteId
- .text.MATSetRevenue
+                0x00001a70                MATSetGender
+ .text.MATSetAge
                 0x00001a74        0x4 release\s3eMATSDK.os
-                0x00001a74                MATSetRevenue
- .text.MATSetUserId
+                0x00001a74                MATSetAge
+ .text.MATSetUseHTTPS
                 0x00001a78        0x4 release\s3eMATSDK.os
-                0x00001a78                MATSetUserId
- .text.MATSetOpenUDID
+                0x00001a78                MATSetUseHTTPS
+ .text.MATSetAppleVendorIdentifier
                 0x00001a7c        0x4 release\s3eMATSDK.os
-                0x00001a7c                MATSetOpenUDID
- .text.MATSetJailbroken
+                0x00001a7c                MATSetAppleVendorIdentifier
+ .text.MATSetAppleAdvertisingIdentifier
                 0x00001a80        0x4 release\s3eMATSDK.os
-                0x00001a80                MATSetJailbroken
- .text.MATSetCurrencyCode
+                0x00001a80                MATSetAppleAdvertisingIdentifier
+ .text.MATSetRedirectUrl
                 0x00001a84        0x4 release\s3eMATSDK.os
-                0x00001a84                MATSetCurrencyCode
- .text.MATSetPackageName
+                0x00001a84                MATSetRedirectUrl
+ .text.MATSetUseCookieTracking
                 0x00001a88        0x4 release\s3eMATSDK.os
-                0x00001a88                MATSetPackageName
- .text.MATStartAppToAppTracking
-                0x00001a8c        0xc release\s3eMATSDK.os
-                0x00001a8c                MATStartAppToAppTracking
- .text.MATTrackAction
+                0x00001a88                MATSetUseCookieTracking
+ .text.MATSetShouldAutoGenerateAppleAdvertisingIdentifier
+                0x00001a8c        0x4 release\s3eMATSDK.os
+                0x00001a8c                MATSetShouldAutoGenerateAppleAdvertisingIdentifier
+ .text.MATSetShouldAutoGenerateAppleVendorIdentifier
+                0x00001a90        0x4 release\s3eMATSDK.os
+                0x00001a90                MATSetShouldAutoGenerateAppleVendorIdentifier
+ .text.MATSetUIID
+                0x00001a94        0x4 release\s3eMATSDK.os
+                0x00001a94                MATSetUIID
+ .text.MATSetODIN1
                 0x00001a98        0x4 release\s3eMATSDK.os
-                0x00001a98                MATTrackAction
- .text.MATTrackActionForEventIdOrNameItems
-                0x00001a9c       0x18 release\s3eMATSDK.os
-                0x00001a9c                MATTrackActionForEventIdOrNameItems
- .text.MATTrackActionForEventIdOrName
+                0x00001a98                MATSetODIN1
+ .text.MATSetMACAddress
+                0x00001a9c        0x4 release\s3eMATSDK.os
+                0x00001a9c                MATSetMACAddress
+ .text.MATSetShouldAutoDetectJailbroken
+                0x00001aa0        0x4 release\s3eMATSDK.os
+                0x00001aa0                MATSetShouldAutoDetectJailbroken
+ .text.MATSetAllowDuplicates
+                0x00001aa4        0x4 release\s3eMATSDK.os
+                0x00001aa4                MATSetAllowDuplicates
+ .text.MATSetDebugMode
+                0x00001aa8        0x4 release\s3eMATSDK.os
+                0x00001aa8                MATSetDebugMode
+ .text.MATSetDelegate
+                0x00001aac        0x4 release\s3eMATSDK.os
+                0x00001aac                MATSetDelegate
+ .text.MATSetAppAdTracking
+                0x00001ab0        0x4 release\s3eMATSDK.os
+                0x00001ab0                MATSetAppAdTracking
+ .text.MATSetTRUSTeId
                 0x00001ab4        0x4 release\s3eMATSDK.os
-                0x00001ab4                MATTrackActionForEventIdOrName
- .text.MATTrackInstallWithReferenceId
+                0x00001ab4                MATSetTRUSTeId
+ .text.MATSetSiteId
                 0x00001ab8        0x4 release\s3eMATSDK.os
-                0x00001ab8                MATTrackInstallWithReferenceId
- .text.MATTrackUpdate
+                0x00001ab8                MATSetSiteId
+ .text.MATSetRevenue
                 0x00001abc        0x4 release\s3eMATSDK.os
-                0x00001abc                MATTrackUpdate
- .text.MATTrackInstall
+                0x00001abc                MATSetRevenue
+ .text.MATSetUserId
                 0x00001ac0        0x4 release\s3eMATSDK.os
-                0x00001ac0                MATTrackInstall
- .text.MATSDKParameters
+                0x00001ac0                MATSetUserId
+ .text.MATSetOpenUDID
                 0x00001ac4        0x4 release\s3eMATSDK.os
-                0x00001ac4                MATSDKParameters
- .text.MATStartMobileAppTracker
+                0x00001ac4                MATSetOpenUDID
+ .text.MATSetJailbroken
                 0x00001ac8        0x4 release\s3eMATSDK.os
-                0x00001ac8                MATStartMobileAppTracker
- .text._Z18s3eMATSDKTerminatev
+                0x00001ac8                MATSetJailbroken
+ .text.MATSetCurrencyCode
                 0x00001acc        0x4 release\s3eMATSDK.os
-                0x00001acc                s3eMATSDKTerminate()
- .text._Z13s3eMATSDKInitv
+                0x00001acc                MATSetCurrencyCode
+ .text.MATSetPackageName
                 0x00001ad0        0x4 release\s3eMATSDK.os
-                0x00001ad0                s3eMATSDKInit()
+                0x00001ad0                MATSetPackageName
+ .text.MATStartAppToAppTracking
+                0x00001ad4        0xc release\s3eMATSDK.os
+                0x00001ad4                MATStartAppToAppTracking
+ .text.MATTrackAction
+                0x00001ae0        0x4 release\s3eMATSDK.os
+                0x00001ae0                MATTrackAction
+ .text.MATTrackActionForEventIdOrNameItems
+                0x00001ae4       0x18 release\s3eMATSDK.os
+                0x00001ae4                MATTrackActionForEventIdOrNameItems
+ .text.MATTrackActionForEventIdOrName
+                0x00001afc        0x4 release\s3eMATSDK.os
+                0x00001afc                MATTrackActionForEventIdOrName
+ .text.MATTrackInstallWithReferenceId
+                0x00001b00        0x4 release\s3eMATSDK.os
+                0x00001b00                MATTrackInstallWithReferenceId
+ .text.MATTrackUpdate
+                0x00001b04        0x4 release\s3eMATSDK.os
+                0x00001b04                MATTrackUpdate
+ .text.MATTrackInstall
+                0x00001b08        0x4 release\s3eMATSDK.os
+                0x00001b08                MATTrackInstall
+ .text.MATSDKParameters
+                0x00001b0c        0x4 release\s3eMATSDK.os
+                0x00001b0c                MATSDKParameters
+ .text.MATStartMobileAppTracker
+                0x00001b10        0x4 release\s3eMATSDK.os
+                0x00001b10                MATStartMobileAppTracker
+ .text._Z18s3eMATSDKTerminatev
+                0x00001b14        0x4 release\s3eMATSDK.os
+                0x00001b14                s3eMATSDKTerminate()
+ .text._Z13s3eMATSDKInitv
+                0x00001b18        0x4 release\s3eMATSDK.os
+                0x00001b18                s3eMATSDKInit()
  .text._ZL26MATSetAllowDuplicates_wrapb
-                0x00001ad4       0x18 release\s3eMATSDK_register.os
- .text._ZL20MATSetDebugMode_wrapb
-                0x00001aec       0x18 release\s3eMATSDK_register.os
- .text._ZL55MATSetShouldAutoGenerateAppleAdvertisingIdentifier_wrapb
-                0x00001b04       0x18 release\s3eMATSDK_register.os
- .text._ZL50MATSetShouldAutoGenerateAppleVendorIdentifier_wrapb
                 0x00001b1c       0x18 release\s3eMATSDK_register.os
- .text._ZL32MATSetAppleVendorIdentifier_wrapPKc
+ .text._ZL20MATSetDebugMode_wrapb
                 0x00001b34       0x18 release\s3eMATSDK_register.os
- .text._ZL37MATSetAppleAdvertisingIdentifier_wrapPKc
-                0x00001b4c       0x18 release\s3eMATSDK_register.os
- .text._ZL22MATSetRedirectUrl_wrapPKc
-                0x00001b64       0x18 release\s3eMATSDK_register.os
- .text._ZL29MATStartAppToAppTracking_wrapPKcS0_S0_S0_b
-                0x00001b7c       0x40 release\s3eMATSDK_register.os
- .text._ZL19MATSetLocation_wrapddd
-                0x00001bbc       0x40 release\s3eMATSDK_register.os
- .text._ZL17MATSetGender_wrapi
-                0x00001bfc       0x18 release\s3eMATSDK_register.os
- .text._ZL14MATSetAge_wrapi
-                0x00001c14       0x18 release\s3eMATSDK_register.os
- .text._ZL28MATSetUseCookieTracking_wrapb
-                0x00001c2c       0x18 release\s3eMATSDK_register.os
- .text._ZL16MATSetODIN1_wrapPKc
-                0x00001c44       0x18 release\s3eMATSDK_register.os
- .text._ZL21MATSetMACAddress_wrapPKc
-                0x00001c5c       0x18 release\s3eMATSDK_register.os
- .text._ZL37MATSetShouldAutoDetectJailbroken_wrapb
-                0x00001c74       0x18 release\s3eMATSDK_register.os
- .text._ZL21MATSetJailbroken_wrapb
-                0x00001c8c       0x18 release\s3eMATSDK_register.os
- .text._ZL19MATSetUseHTTPS_wrapb
-                0x00001ca4       0x18 release\s3eMATSDK_register.os
- .text._ZL19MATSetDelegate_wrapb
-                0x00001cbc       0x18 release\s3eMATSDK_register.os
- .text._ZL24MATSetAppAdTracking_wrapb
-                0x00001cd4       0x18 release\s3eMATSDK_register.os
- .text._ZL19MATSetTRUSTeId_wrapPKc
-                0x00001cec       0x18 release\s3eMATSDK_register.os
- .text._ZL17MATSetSiteId_wrapPKc
-                0x00001d04       0x18 release\s3eMATSDK_register.os
- .text._ZL18MATSetRevenue_wrapd
-                0x00001d1c       0x1c release\s3eMATSDK_register.os
- .text._ZL17MATSetUserId_wrapPKc
-                0x00001d38       0x18 release\s3eMATSDK_register.os
- .text._ZL15MATSetUIID_wrapPKc
-                0x00001d50       0x18 release\s3eMATSDK_register.os
- .text._ZL19MATSetOpenUDID_wrapPKc
-                0x00001d68       0x18 release\s3eMATSDK_register.os
- .text._ZL23MATSetCurrencyCode_wrapPKc
-                0x00001d80       0x18 release\s3eMATSDK_register.os
- .text._ZL22MATSetPackageName_wrapPKc
-                0x00001d98       0x18 release\s3eMATSDK_register.os
- .text._ZL19MATTrackAction_wrapPKcbdS0_
-                0x00001db0       0x3c release\s3eMATSDK_register.os
- .text._ZL40MATTrackActionForEventIdOrNameItems_wrapPKcbPK8MATArrayS0_dS0_hS0_
-                0x00001dec       0x58 release\s3eMATSDK_register.os
- .text._ZL35MATTrackActionForEventIdOrName_wrapPKcbS0_
-                0x00001e44       0x34 release\s3eMATSDK_register.os
- .text._ZL35MATTrackInstallWithReferenceId_wrapPKc
-                0x00001e78       0x18 release\s3eMATSDK_register.os
- .text._ZL19MATTrackUpdate_wrapv
-                0x00001e90       0x14 release\s3eMATSDK_register.os
- .text._ZL20MATTrackInstall_wrapv
-                0x00001ea4       0x14 release\s3eMATSDK_register.os
  .text._ZL21MATSDKParameters_wrapv
-                0x00001eb8       0x14 release\s3eMATSDK_register.os
+                0x00001b4c       0x14 release\s3eMATSDK_register.os
+ .text._ZL55MATSetShouldAutoGenerateAppleAdvertisingIdentifier_wrapb
+                0x00001b60       0x18 release\s3eMATSDK_register.os
+ .text._ZL50MATSetShouldAutoGenerateAppleVendorIdentifier_wrapb
+                0x00001b78       0x18 release\s3eMATSDK_register.os
+ .text._ZL32MATSetAppleVendorIdentifier_wrapPKc
+                0x00001b90       0x18 release\s3eMATSDK_register.os
+ .text._ZL37MATSetAppleAdvertisingIdentifier_wrapPKc
+                0x00001ba8       0x18 release\s3eMATSDK_register.os
+ .text._ZL22MATSetRedirectUrl_wrapPKc
+                0x00001bc0       0x18 release\s3eMATSDK_register.os
+ .text._ZL29MATStartAppToAppTracking_wrapPKcS0_S0_S0_b
+                0x00001bd8       0x40 release\s3eMATSDK_register.os
+ .text._ZL19MATSetLocation_wrapddd
+                0x00001c18       0x40 release\s3eMATSDK_register.os
+ .text._ZL17MATSetGender_wrapi
+                0x00001c58       0x18 release\s3eMATSDK_register.os
+ .text._ZL14MATSetAge_wrapi
+                0x00001c70       0x18 release\s3eMATSDK_register.os
+ .text._ZL28MATSetUseCookieTracking_wrapb
+                0x00001c88       0x18 release\s3eMATSDK_register.os
+ .text._ZL16MATSetODIN1_wrapPKc
+                0x00001ca0       0x18 release\s3eMATSDK_register.os
+ .text._ZL21MATSetMACAddress_wrapPKc
+                0x00001cb8       0x18 release\s3eMATSDK_register.os
+ .text._ZL37MATSetShouldAutoDetectJailbroken_wrapb
+                0x00001cd0       0x18 release\s3eMATSDK_register.os
+ .text._ZL21MATSetJailbroken_wrapb
+                0x00001ce8       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetUseHTTPS_wrapb
+                0x00001d00       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetDelegate_wrapb
+                0x00001d18       0x18 release\s3eMATSDK_register.os
+ .text._ZL24MATSetAppAdTracking_wrapb
+                0x00001d30       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetTRUSTeId_wrapPKc
+                0x00001d48       0x18 release\s3eMATSDK_register.os
+ .text._ZL17MATSetSiteId_wrapPKc
+                0x00001d60       0x18 release\s3eMATSDK_register.os
+ .text._ZL18MATSetRevenue_wrapd
+                0x00001d78       0x1c release\s3eMATSDK_register.os
+ .text._ZL17MATSetUserId_wrapPKc
+                0x00001d94       0x18 release\s3eMATSDK_register.os
+ .text._ZL15MATSetUIID_wrapPKc
+                0x00001dac       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATSetOpenUDID_wrapPKc
+                0x00001dc4       0x18 release\s3eMATSDK_register.os
+ .text._ZL23MATSetCurrencyCode_wrapPKc
+                0x00001ddc       0x18 release\s3eMATSDK_register.os
+ .text._ZL22MATSetPackageName_wrapPKc
+                0x00001df4       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATTrackAction_wrapPKcbdS0_
+                0x00001e0c       0x3c release\s3eMATSDK_register.os
+ .text._ZL40MATTrackActionForEventIdOrNameItems_wrapPKcbPK8MATArrayS0_dS0_hS0_S0_
+                0x00001e48       0x5c release\s3eMATSDK_register.os
+ .text._ZL35MATTrackActionForEventIdOrName_wrapPKcbS0_
+                0x00001ea4       0x34 release\s3eMATSDK_register.os
+ .text._ZL35MATTrackInstallWithReferenceId_wrapPKc
+                0x00001ed8       0x18 release\s3eMATSDK_register.os
+ .text._ZL19MATTrackUpdate_wrapv
+                0x00001ef0       0x14 release\s3eMATSDK_register.os
+ .text._ZL20MATTrackInstall_wrapv
+                0x00001f04       0x14 release\s3eMATSDK_register.os
  .text._ZL29MATStartMobileAppTracker_wrapPKcS0_
-                0x00001ecc       0x1c release\s3eMATSDK_register.os
+                0x00001f18       0x1c release\s3eMATSDK_register.os
  .text.RegisterExt
-                0x00001ee8      0x41c release\s3eMATSDK_register.os
-                0x00001ee8                RegisterExt
+                0x00001f34      0x41c release\s3eMATSDK_register.os
+                0x00001f34                RegisterExt
  .text.s3eEdkThreadRunOnOS
-                0x00002304       0x30 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
-                0x00002304                s3eEdkThreadRunOnOS
+                0x00002350       0x30 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00002350                s3eEdkThreadRunOnOS
  *(.gnu.warning)
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
@@ -478,14 +478,14 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 
 .fini
  *(.fini)
-                0x00002334                PROVIDE (__etext, .)
-                0x00002334                PROVIDE (_etext, .)
-                0x00002334                PROVIDE (etext, .)
+                0x00002380                PROVIDE (__etext, .)
+                0x00002380                PROVIDE (_etext, .)
+                0x00002380                PROVIDE (etext, .)
 
-.rodata         0x00002334      0x3e4
+.rodata         0x00002380      0x3f8
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata.str1.4
-                0x00002334      0x3e4 release\s3eMATSDK_platform.os
+                0x00002380      0x3f8 release\s3eMATSDK_platform.os
  .rodata.str1.4
                 0x00000000        0xc release\s3eMATSDK_register.os
 
@@ -494,11 +494,11 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x00002718                __exidx_start = .
+                0x00002778                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x00002718                __exidx_end = .
+                0x00002778                __exidx_end = .
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -508,7 +508,7 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x00002718                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00002778                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
                 0x00003e68                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
 
 .eh_frame
@@ -626,7 +626,7 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  .comment       0x00000025       0x12 release\s3eMATSDK_platform.os
  .comment       0x00000037       0x12 release\s3eMATSDK.os
  .comment       0x00000049       0x12 release\s3eMATSDK_register.os
- .comment       0x0000005b       0x12 C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .comment       0x0000005b       0x12 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
 
 .debug
  *(.debug)
@@ -694,7 +694,7 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 /DISCARD/
  *(.note.GNU-stack)
  *(.gnu_debuglink)
-OUTPUT(C:\Users\John\Documents\GitHub\sdk\sdk-marmalade\ios_android\s3eMATSDK\lib\android\libs3eMATSDK.so elf32-littlearm)
+OUTPUT(C:\Users\John\Documents\GitHub\harshal-sdk\sdk\sdk-marmalade\ios_android\s3eMATSDK\lib\android\libs3eMATSDK.so elf32-littlearm)
 
 .ARM.attributes
                 0x00000000       0x31
@@ -707,6 +707,6 @@ OUTPUT(C:\Users\John\Documents\GitHub\sdk\sdk-marmalade\ios_android\s3eMATSDK\li
  .ARM.attributes
                 0x00000085       0x2d release\s3eMATSDK_register.os
  .ARM.attributes
-                0x000000b2       0x2b C:\marmalade\6.2\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x000000b2       0x2b C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.attributes
                 0x000000dd       0x1f C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o

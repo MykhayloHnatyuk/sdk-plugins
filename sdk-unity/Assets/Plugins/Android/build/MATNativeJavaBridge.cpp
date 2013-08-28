@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <stdlib.h>
 #include <jni.h>
 #include <android/log.h>
@@ -23,11 +24,18 @@ extern "C"
 	jobject		MobileAppTracker;
 	jmethodID	trackActionMethod;
 	jmethodID	trackActionWithEventItemMethod;
+	jmethodID	trackActionWithEventItemAndReceiptMethod;
 	jmethodID	trackInstallMethod;
 	jmethodID	trackUpdateMethod;
+	jmethodID	setAgeMethod;
 	jmethodID	setAllowDuplicatesMethod;
+	jmethodID	setAltitudeMethod;
+	jmethodID	setAppAdTrackingMethod;
 	jmethodID	setCurrencyCodeMethod;
 	jmethodID	setDebugModeMethod;
+	jmethodID	setGenderMethod;
+	jmethodID	setLatitudeMethod;
+	jmethodID	setLongitudeMethod;
 	jmethodID	setPackageNameMethod;
 	jmethodID	setRefIdMethod;
 	jmethodID	setRevenueMethod;
@@ -72,11 +80,18 @@ extern "C"
 		trackInstallMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "trackInstall", "()I");
 		trackActionMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "trackAction", "(Ljava/lang/String;DLjava/lang/String;)I");
 		trackActionWithEventItemMethod = jni_env->GetMethodID(cls_MobileAppTracker, "trackAction", "(Ljava/lang/String;Ljava/util/List;)I");
+		trackActionWithEventItemAndReceiptMethod = jni_env->GetMethodID(cls_MobileAppTracker, "trackAction", "(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;)I");
 		trackUpdateMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "trackUpdate", "()I");
 
+		setAgeMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setAge", "(I)V");
 		setAllowDuplicatesMethod 	= jni_env->GetMethodID(cls_MobileAppTracker, "setAllowDuplicates", "(Z)V");
+		setAltitudeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setAltitude", "(D)V");
+		setAppAdTrackingMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setAppAdTracking", "(Z)V");
 		setCurrencyCodeMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setCurrencyCode", "(Ljava/lang/String;)V");
 		setDebugModeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setDebugMode", "(Z)V");
+		setGenderMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setGender", "(I)V");
+		setLatitudeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setLatitude", "(D)V");
+		setLongitudeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setLongitude", "(D)V");
 		setPackageNameMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setPackageName", "(Ljava/lang/String;)V");
 		setRefIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setRefId", "(Ljava/lang/String;)V");
 		setRevenueMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setRevenue", "(D)V");
@@ -124,7 +139,7 @@ extern "C"
 		return;
 	}
 
-	const void trackActionWithEventItem(char* eventName, bool isId, MATItem items[], int eventItemCount, char* refId, double revenue, char* currency, int transactionState, char* receipt)
+	const void trackActionWithEventItem(char* eventName, bool isId, MATItem items[], int eventItemCount, char* refId, double revenue, char* currency, int transactionState, char* receiptData, char* receiptSignature)
 	{
 		// Set the ref ID
 		jstring refIdUTF = jni_env->NewStringUTF(refId);
@@ -138,12 +153,6 @@ extern "C"
 		jstring currencyCodeUTF = jni_env->NewStringUTF(currency);
 		jni_env->CallVoidMethod(MobileAppTracker, setCurrencyCodeMethod, currencyCodeUTF);
 		jni_env->DeleteLocalRef(currencyCodeUTF);
-
-		// Get Java HashMap class and put method
-		jclass clsHashMap = jni_env->FindClass("java/util/HashMap");
-		jmethodID mapConstructorID = jni_env->GetMethodID(clsHashMap, "<init>", "()V");
-		jmethodID map_put_mid = 0;
-		map_put_mid = jni_env->GetMethodID(clsHashMap, "put", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;");
 
 		// Get Java ArrayList class and add method
 		jclass clsArrayList = jni_env->FindClass("java/util/ArrayList");
@@ -194,9 +203,19 @@ extern "C"
 
 		// Convert event name to UTF
 		jstring eventNameUTF = jni_env->NewStringUTF(eventName);
-
-		// Call trackActionWithEventItem
-		jint trackStatus = jni_env->CallIntMethod(MobileAppTracker, trackActionWithEventItemMethod, eventNameUTF, jlistobj, (jint)eventItemCount);
+		
+		jint trackStatus;
+		if (receiptData && strlen(receiptData) > 0 && receiptSignature && strlen(receiptSignature) > 0) {
+			jstring receiptDataUTF = jni_env->NewStringUTF(receiptData);
+			jstring receiptSignatureUTF = jni_env->NewStringUTF(receiptSignature);
+			// Call trackActionWithEventItem with receipt data
+			trackStatus = jni_env->CallIntMethod(MobileAppTracker, trackActionWithEventItemAndReceiptMethod, eventNameUTF, jlistobj, receiptDataUTF, receiptSignatureUTF);
+			jni_env->DeleteLocalRef(receiptDataUTF);
+			jni_env->DeleteLocalRef(receiptSignatureUTF);
+		} else {
+			// Call trackActionWithEventItem
+			trackStatus = jni_env->CallIntMethod(MobileAppTracker, trackActionWithEventItemMethod, eventNameUTF, jlistobj);
+		}
 		__android_log_print(ANDROID_LOG_INFO, "MATJavaBridge", "[%s] trackActionWithEventItem status = %d\n", __FUNCTION__, trackStatus);
 
 		// Delete local variables used
@@ -244,9 +263,20 @@ extern "C"
 		return;	
 	}
 
+	const void setAge(int age)
+	{
+		jni_env->CallVoidMethod(MobileAppTracker, setAgeMethod, age);
+		return;
+	}
+
 	const void setAllowDuplicateRequests(bool allowDuplicateRequests)
 	{
 		jni_env->CallVoidMethod(MobileAppTracker, setAllowDuplicatesMethod, allowDuplicateRequests);
+		return;
+	}
+
+	const void setAppAdTracking(bool appAdTracking) {
+		jni_env->CallVoidMethod(MobileAppTracker, setAppAdTrackingMethod, appAdTracking);
 		return;
 	}
 	
@@ -261,6 +291,20 @@ extern "C"
 	const void setDebugMode(bool debugMode)
 	{
 		jni_env->CallVoidMethod(MobileAppTracker, setDebugModeMethod, debugMode);
+		return;
+	}
+
+	const void setGender(int gender)
+	{
+		jni_env->CallVoidMethod(MobileAppTracker, setGenderMethod, gender);
+		return;
+	}
+
+	const void setLocation(double latitude, double longitude, double altitude)
+	{
+		jni_env->CallVoidMethod(MobileAppTracker, setLatitudeMethod, latitude);
+		jni_env->CallVoidMethod(MobileAppTracker, setLongitudeMethod, longitude);
+		jni_env->CallVoidMethod(MobileAppTracker, setAltitudeMethod, altitude);
 		return;
 	}
 

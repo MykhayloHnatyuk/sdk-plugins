@@ -18,7 +18,7 @@
 
 #include <s3eTypes.h>
 
-#define S3E_MATSDK_STRING_MAX 50
+#define S3E_MATSDK_STRING_MAX 255
 
 struct s3eMATTracker;
 
@@ -26,7 +26,7 @@ typedef struct MATSDKEventItem
 {
 	char		name[S3E_MATSDK_STRING_MAX];
 	float 		unitPrice;
-	int		quantity;
+	int			quantity;
 	float		revenue;
 	char		attribute1[S3E_MATSDK_STRING_MAX];
 	char		attribute2[S3E_MATSDK_STRING_MAX];
@@ -50,8 +50,6 @@ s3eBool s3eMATSDKAvailable();
 
 void MATStartMobileAppTracker(const char* adId, const char* convKey);
 
-void MATSDKParameters();
-
 void MATTrackInstall();
 
 void MATTrackUpdate();
@@ -60,7 +58,7 @@ void MATTrackInstallWithReferenceId(const char* refId);
 
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId);
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt);
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
 
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency);
 
@@ -113,6 +111,8 @@ void MATSetAppleVendorIdentifier(const char* vendorId);
 void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate);
 
 void MATSetShouldAutoGenerateAppleAdvertisingIdentifier(bool shouldAutoGenerate);
+
+void MATSDKParameters();
 
 void MATSetDebugMode(bool shouldDebug);
 

@@ -54,7 +54,7 @@ void MATTrackInstallWithReferenceId_platform(const char* refId);
 
 void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId);
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt);
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
 
 void MATTrackAction_platform(const char* action, bool isId, double revenue, const char*  currency);
 

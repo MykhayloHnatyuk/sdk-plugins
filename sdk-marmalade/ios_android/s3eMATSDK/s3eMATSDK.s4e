@@ -1,7 +1,7 @@
 include:
 #include <s3eTypes.h>
 
-#define S3E_MATSDK_STRING_MAX 50
+#define S3E_MATSDK_STRING_MAX 255
 
 struct s3eMATTracker;
 
@@ -9,7 +9,7 @@ typedef struct MATSDKEventItem
 {
 	char		name[S3E_MATSDK_STRING_MAX];
 	float 		unitPrice;
-	int		quantity;
+	int			quantity;
 	float		revenue;
 	char		attribute1[S3E_MATSDK_STRING_MAX];
 	char		attribute2[S3E_MATSDK_STRING_MAX];
@@ -28,13 +28,12 @@ functions:
 // Main MAT Initializer Method
 void MATStartMobileAppTracker(const char* adId, const char* convKey) run_on_os_thread
 
-// iOS only
-void MATSDKParameters() run_on_os_thread
+// Tracking Methods
 void MATTrackInstall() run_on_os_thread
 void MATTrackUpdate() run_on_os_thread
 void MATTrackInstallWithReferenceId(const char* refId) run_on_os_thread
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId) run_on_os_thread
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt) run_on_os_thread
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature) run_on_os_thread
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency) run_on_os_thread
 
 // Setter Methods
@@ -69,6 +68,7 @@ void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate) run_
 void MATSetShouldAutoGenerateAppleAdvertisingIdentifier(bool shouldAutoGenerate) run_on_os_thread
 
 // Debug Methods
+void MATSDKParameters() run_on_os_thread
 void MATSetDebugMode(bool shouldDebug) run_on_os_thread
 void MATSetAllowDuplicates(bool allowDuplicates) run_on_os_thread
 

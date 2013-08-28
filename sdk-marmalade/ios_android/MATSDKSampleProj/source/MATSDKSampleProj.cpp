@@ -79,7 +79,7 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
     if (isPointInButton(event, sendInstallBtn))
     {
         MATTrackInstall();
-       // MATTrackInstallWithReferenceId("Marmalade Install Test");
+        //MATTrackInstallWithReferenceId("Marmalade Install Test");
         sprintf(g_TouchEventMsg, "`x666666MAT SDK Install sent");
     }
     if (isPointInButton(event, setDebugBtn))
@@ -143,7 +143,8 @@ void SingleTouchButtonCB(s3ePointerEvent* event)
                                                  revAmount,
                                                  "USD",
                                                  0,
-                                                 "");
+                                                 NULL,
+                                                 NULL);
         sprintf(g_TouchEventMsg, "`x666666MAT SDK Event Sent");
     }
 

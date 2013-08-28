@@ -10,16 +10,22 @@
 
 #include "s3eMATSDK.h"
 
+
+// For MIPs (and WP8) platform we do not have asm code for stack switching 
+// implemented. So we make LoaderCallStart call manually to set GlobalLock
+#if defined __mips || defined S3E_ANDROID_X86 || (defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP))
+#define LOADER_CALL
+#endif
+
 /**
  * Definitions for functions types passed to/from s3eExt interface
  */
 typedef       void(*MATStartMobileAppTracker_t)(const char* adId, const char* convKey);
-typedef       void(*MATSDKParameters_t)();
 typedef       void(*MATTrackInstall_t)();
 typedef       void(*MATTrackUpdate_t)();
 typedef       void(*MATTrackInstallWithReferenceId_t)(const char* refId);
 typedef       void(*MATTrackActionForEventIdOrName_t)(const char* eventIdOrName, bool isId, const char* refId);
-typedef       void(*MATTrackActionForEventIdOrNameItems_t)(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt);
+typedef       void(*MATTrackActionForEventIdOrNameItems_t)(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
 typedef       void(*MATTrackAction_t)(const char* eventIdOrName, bool isId, double revenue, const char* currency);
 typedef       void(*MATSetPackageName_t)(const char* packageName);
 typedef       void(*MATSetCurrencyCode_t)(const char* currencyCode);
@@ -46,6 +52,7 @@ typedef       void(*MATSetAppleAdvertisingIdentifier_t)(const char* advertiserId
 typedef       void(*MATSetAppleVendorIdentifier_t)(const char* vendorId);
 typedef       void(*MATSetShouldAutoGenerateAppleVendorIdentifier_t)(bool shouldAutoGenerate);
 typedef       void(*MATSetShouldAutoGenerateAppleAdvertisingIdentifier_t)(bool shouldAutoGenerate);
+typedef       void(*MATSDKParameters_t)();
 typedef       void(*MATSetDebugMode_t)(bool shouldDebug);
 typedef       void(*MATSetAllowDuplicates_t)(bool allowDuplicates);
 
@@ -55,7 +62,6 @@ typedef       void(*MATSetAllowDuplicates_t)(bool allowDuplicates);
 typedef struct s3eMATSDKFuncs
 {
     MATStartMobileAppTracker_t m_MATStartMobileAppTracker;
-    MATSDKParameters_t m_MATSDKParameters;
     MATTrackInstall_t m_MATTrackInstall;
     MATTrackUpdate_t m_MATTrackUpdate;
     MATTrackInstallWithReferenceId_t m_MATTrackInstallWithReferenceId;
@@ -87,6 +93,7 @@ typedef struct s3eMATSDKFuncs
     MATSetAppleVendorIdentifier_t m_MATSetAppleVendorIdentifier;
     MATSetShouldAutoGenerateAppleVendorIdentifier_t m_MATSetShouldAutoGenerateAppleVendorIdentifier;
     MATSetShouldAutoGenerateAppleAdvertisingIdentifier_t m_MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
+    MATSDKParameters_t m_MATSDKParameters;
     MATSetDebugMode_t m_MATSetDebugMode;
     MATSetAllowDuplicates_t m_MATSetAllowDuplicates;
 } s3eMATSDKFuncs;
@@ -141,37 +148,13 @@ void MATStartMobileAppTracker(const char* adId, const char* convKey)
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATStartMobileAppTracker(adId, convKey);
 
-#ifdef __mips
-    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
-#endif
-
-    return;
-}
-
-void MATSDKParameters()
-{
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[1] func: MATSDKParameters"));
-
-    if (!_extLoad())
-        return;
-
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
-    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
-#endif
-
-    g_Ext.m_MATSDKParameters();
-
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -180,20 +163,18 @@ void MATSDKParameters()
 
 void MATTrackInstall()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[2] func: MATTrackInstall"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[1] func: MATTrackInstall"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATTrackInstall();
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -202,20 +183,18 @@ void MATTrackInstall()
 
 void MATTrackUpdate()
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[3] func: MATTrackUpdate"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[2] func: MATTrackUpdate"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATTrackUpdate();
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -224,20 +203,18 @@ void MATTrackUpdate()
 
 void MATTrackInstallWithReferenceId(const char* refId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[4] func: MATTrackInstallWithReferenceId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[3] func: MATTrackInstallWithReferenceId"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATTrackInstallWithReferenceId(refId);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -246,42 +223,38 @@ void MATTrackInstallWithReferenceId(const char* refId)
 
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[5] func: MATTrackActionForEventIdOrName"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[4] func: MATTrackActionForEventIdOrName"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATTrackActionForEventIdOrName(eventIdOrName, isId, refId);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
     return;
 }
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[6] func: MATTrackActionForEventIdOrNameItems"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[5] func: MATTrackActionForEventIdOrNameItems"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
-    g_Ext.m_MATTrackActionForEventIdOrNameItems(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt);
+    g_Ext.m_MATTrackActionForEventIdOrNameItems(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt, receiptSignature);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -290,20 +263,18 @@ void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, c
 
 void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[7] func: MATTrackAction"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[6] func: MATTrackAction"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATTrackAction(eventIdOrName, isId, revenue, currency);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -312,20 +283,18 @@ void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const 
 
 void MATSetPackageName(const char* packageName)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[8] func: MATSetPackageName"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[7] func: MATSetPackageName"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetPackageName(packageName);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -334,20 +303,18 @@ void MATSetPackageName(const char* packageName)
 
 void MATSetCurrencyCode(const char* currencyCode)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[9] func: MATSetCurrencyCode"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[8] func: MATSetCurrencyCode"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetCurrencyCode(currencyCode);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -356,20 +323,18 @@ void MATSetCurrencyCode(const char* currencyCode)
 
 void MATSetOpenUDID(const char* openUDID)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[10] func: MATSetOpenUDID"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[9] func: MATSetOpenUDID"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetOpenUDID(openUDID);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -378,20 +343,18 @@ void MATSetOpenUDID(const char* openUDID)
 
 void MATSetUIID(const char* uiid)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[11] func: MATSetUIID"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[10] func: MATSetUIID"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetUIID(uiid);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -400,20 +363,18 @@ void MATSetUIID(const char* uiid)
 
 void MATSetUserId(const char* userId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[12] func: MATSetUserId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[11] func: MATSetUserId"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetUserId(userId);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -422,20 +383,18 @@ void MATSetUserId(const char* userId)
 
 void MATSetRevenue(double revenue)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[13] func: MATSetRevenue"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[12] func: MATSetRevenue"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetRevenue(revenue);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -444,20 +403,18 @@ void MATSetRevenue(double revenue)
 
 void MATSetSiteId(const char* siteId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[14] func: MATSetSiteId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[13] func: MATSetSiteId"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetSiteId(siteId);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -466,20 +423,18 @@ void MATSetSiteId(const char* siteId)
 
 void MATSetTRUSTeId(const char* tpid)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[15] func: MATSetTRUSTeId"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[14] func: MATSetTRUSTeId"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetTRUSTeId(tpid);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -488,20 +443,18 @@ void MATSetTRUSTeId(const char* tpid)
 
 void MATSetAppAdTracking(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[16] func: MATSetAppAdTracking"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[15] func: MATSetAppAdTracking"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetAppAdTracking(enable);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -510,20 +463,18 @@ void MATSetAppAdTracking(bool enable)
 
 void MATSetDelegate(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[17] func: MATSetDelegate"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[16] func: MATSetDelegate"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetDelegate(enable);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -532,20 +483,18 @@ void MATSetDelegate(bool enable)
 
 void MATSetUseHTTPS(bool enable)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[18] func: MATSetUseHTTPS"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[17] func: MATSetUseHTTPS"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetUseHTTPS(enable);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -554,20 +503,18 @@ void MATSetUseHTTPS(bool enable)
 
 void MATSetJailbroken(bool isJailbroken)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[19] func: MATSetJailbroken"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[18] func: MATSetJailbroken"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetJailbroken(isJailbroken);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -576,20 +523,18 @@ void MATSetJailbroken(bool isJailbroken)
 
 void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[20] func: MATSetShouldAutoDetectJailbroken"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[19] func: MATSetShouldAutoDetectJailbroken"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetShouldAutoDetectJailbroken(shouldAutoDetect);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -598,20 +543,18 @@ void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect)
 
 void MATSetMACAddress(const char* mac)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[21] func: MATSetMACAddress"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[20] func: MATSetMACAddress"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetMACAddress(mac);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -620,20 +563,18 @@ void MATSetMACAddress(const char* mac)
 
 void MATSetODIN1(const char* odin1)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[22] func: MATSetODIN1"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[21] func: MATSetODIN1"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetODIN1(odin1);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -642,20 +583,18 @@ void MATSetODIN1(const char* odin1)
 
 void MATSetUseCookieTracking(bool useCookieTracking)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[23] func: MATSetUseCookieTracking"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[22] func: MATSetUseCookieTracking"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetUseCookieTracking(useCookieTracking);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -664,20 +603,18 @@ void MATSetUseCookieTracking(bool useCookieTracking)
 
 void MATSetAge(int age)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[24] func: MATSetAge"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[23] func: MATSetAge"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetAge(age);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -686,20 +623,18 @@ void MATSetAge(int age)
 
 void MATSetGender(int gender)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[25] func: MATSetGender"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[24] func: MATSetGender"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetGender(gender);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -708,20 +643,18 @@ void MATSetGender(int gender)
 
 void MATSetLocation(double latitude, double longitude, double altitude)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[26] func: MATSetLocation"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[25] func: MATSetLocation"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetLocation(latitude, longitude, altitude);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -730,20 +663,18 @@ void MATSetLocation(double latitude, double longitude, double altitude)
 
 void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[27] func: MATStartAppToAppTracking"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[26] func: MATStartAppToAppTracking"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATStartAppToAppTracking(targetAppId, advertiserId, offerId, publisherId, shouldRedirect);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -752,20 +683,18 @@ void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId,
 
 void MATSetRedirectUrl(const char* redirectUrl)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[28] func: MATSetRedirectUrl"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[27] func: MATSetRedirectUrl"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetRedirectUrl(redirectUrl);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -774,20 +703,18 @@ void MATSetRedirectUrl(const char* redirectUrl)
 
 void MATSetAppleAdvertisingIdentifier(const char* advertiserId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[29] func: MATSetAppleAdvertisingIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[28] func: MATSetAppleAdvertisingIdentifier"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetAppleAdvertisingIdentifier(advertiserId);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -796,20 +723,18 @@ void MATSetAppleAdvertisingIdentifier(const char* advertiserId)
 
 void MATSetAppleVendorIdentifier(const char* vendorId)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[30] func: MATSetAppleVendorIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[29] func: MATSetAppleVendorIdentifier"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetAppleVendorIdentifier(vendorId);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -818,20 +743,18 @@ void MATSetAppleVendorIdentifier(const char* vendorId)
 
 void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[31] func: MATSetShouldAutoGenerateAppleVendorIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[30] func: MATSetShouldAutoGenerateAppleVendorIdentifier"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetShouldAutoGenerateAppleVendorIdentifier(shouldAutoGenerate);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -840,20 +763,38 @@ void MATSetShouldAutoGenerateAppleVendorIdentifier(bool shouldAutoGenerate)
 
 void MATSetShouldAutoGenerateAppleAdvertisingIdentifier(bool shouldAutoGenerate)
 {
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[32] func: MATSetShouldAutoGenerateAppleAdvertisingIdentifier"));
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[31] func: MATSetShouldAutoGenerateAppleAdvertisingIdentifier"));
 
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetShouldAutoGenerateAppleAdvertisingIdentifier(shouldAutoGenerate);
 
-#ifdef __mips
+#ifdef LOADER_CALL
+    s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
+#endif
+
+    return;
+}
+
+void MATSDKParameters()
+{
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[32] func: MATSDKParameters"));
+
+    if (!_extLoad())
+        return;
+
+#ifdef LOADER_CALL
+    s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
+#endif
+
+    g_Ext.m_MATSDKParameters();
+
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -867,15 +808,13 @@ void MATSetDebugMode(bool shouldDebug)
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetDebugMode(shouldDebug);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 
@@ -889,15 +828,13 @@ void MATSetAllowDuplicates(bool allowDuplicates)
     if (!_extLoad())
         return;
 
-#ifdef __mips
-    // For MIPs platform we do not have asm code for stack switching 
-    // implemented. So we make LoaderCallStart call manually to set GlobalLock
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallStart(S3E_TRUE, NULL);
 #endif
 
     g_Ext.m_MATSetAllowDuplicates(allowDuplicates);
 
-#ifdef __mips
+#ifdef LOADER_CALL
     s3eDeviceLoaderCallDone(S3E_TRUE, NULL);
 #endif
 

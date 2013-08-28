@@ -333,7 +333,7 @@ extern "C" {
                                                          currencyCode:CreateNSString(currency)];
     }
     
-    void trackActionWithEventItem(const char* eventName, bool isId, MATItem eventItems[], int eventItemCount, const char* refId, double revenue, const char* currency, int transactionState, const char* receiptData)
+    void trackActionWithEventItem(const char* eventName, bool isId, MATItem eventItems[], int eventItemCount, const char* refId, double revenue, const char* currency, int transactionState, const char* receiptData, const char* receiptSignature)
     {
         NSLog(@"Native: trackActionWithEventItem");
         
