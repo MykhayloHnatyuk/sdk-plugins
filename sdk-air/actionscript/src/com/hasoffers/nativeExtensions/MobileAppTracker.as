@@ -75,7 +75,7 @@ package com.hasoffers.nativeExtensions
 			extContext.call(NativeMethods.trackAction, event, revenue, currency, refId, isEventId);
 		}
 
-		public function trackActionWithEventItem(event:String, eventItems:Array, revenue:Number=0, currency:String="USD", refId:String=null, isEventId:Boolean=false, transactionState:int=0, receipt:String=null):void
+		public function trackActionWithEventItem(event:String, eventItems:Array, revenue:Number=0, currency:String="USD", refId:String=null, isEventId:Boolean=false, transactionState:int=0, receipt:String=null, receiptSignature:String=null):void
 		{
 			trace("MATAS.trackActionWithEventItem(" + event + ")");
 			
@@ -94,7 +94,7 @@ package com.hasoffers.nativeExtensions
 			}
 			
 			trace("MATAS.trackActionWithEventItem: arrItems = " + arrItems);
-			extContext.call(NativeMethods.trackActionWithEventItem, event, arrItems, revenue, currency, refId, isEventId, transactionState, receipt);		}
+			extContext.call(NativeMethods.trackActionWithEventItem, event, arrItems, revenue, currency, refId, isEventId, transactionState, receipt, receiptSignature);		}
 
 		public function trackUpdate(refId:String=null):void
 		{

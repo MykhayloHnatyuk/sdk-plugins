@@ -22,6 +22,8 @@ public class TrackActionWithEventItemFunction implements FREFunction {
                 String currency = "";
                 String refId = "";
                 ArrayList<MATEventItem> eventItems = new ArrayList<MATEventItem>();
+                String receiptData = null;
+                String receiptSignature = null;
                 
                 if (passedArgs[0] != null) {
                     event = passedArgs[0].getAsString();
@@ -65,6 +67,12 @@ public class TrackActionWithEventItemFunction implements FREFunction {
                 if (passedArgs[4] != null) {
                     refId = passedArgs[4].getAsString();
                 }
+                if (passedArgs[7] != null) {
+                    receiptData = passedArgs[7].getAsString();
+                }
+                if (passedArgs[8] != null) {
+                    receiptSignature = passedArgs[8].getAsString();
+                }
 
                 Log.i(MATExtensionContext.TAG, "Call " + NAME + " on event: " + event);
                 MATExtensionContext mec = (MATExtensionContext)context;
@@ -73,7 +81,7 @@ public class TrackActionWithEventItemFunction implements FREFunction {
                 }
                 mec.mat.setRevenue(revenue);
                 mec.mat.setCurrencyCode(currency);
-                mec.mat.trackAction(event, eventItems);
+                mec.mat.trackAction(event, eventItems, receiptData, receiptSignature);
                 
                 return FREObject.newObject(true);
             } catch (Exception e) {

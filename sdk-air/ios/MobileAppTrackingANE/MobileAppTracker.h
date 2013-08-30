@@ -2,13 +2,13 @@
 //  MobileAppTracker.h
 //  MobileAppTracker
 //
-//  Created by HasOffers on 07/16/13.
+//  Created by HasOffers on 08/06/13.
 //  Copyright (c) 2013 HasOffers. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define MATVERSION @"2.5.1"
+#define MATVERSION @"2.5.2"
 
 @protocol MobileAppTrackerDelegate;
 
