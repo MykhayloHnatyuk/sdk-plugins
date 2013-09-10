@@ -124,6 +124,28 @@ Allows the user's device ID to be recorded.
 
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+### iOS
+
+Build the Unity app for iOS platform.
+
+Note that a new iPhone Xcode project is generated.
+
+__Configure the iPhone project:__
+Open the iPhone project in Xcode.
+In the Project Navigator panel, go to the Classes folder and add the following classes:
+
+	MATNativeBridge.h
+	MATNativeBridge.mm
+	NSData+MATBase64.h
+	NSData+MATBase64.m
+
+In the Project Navigator panel, select the project. Under the Build Phases tab, open the Link Binary With Libraries drop-down and add the following frameworks:
+
+	MobileAppTracker.framework
+	AdSupport.framework
+	CoreTelephony.framework
+	MobileCoreServices.framework
+
 ## Installs and Updates
 
 As the success of attributing app events after the initial install is dependent upon first tracking that install, 
