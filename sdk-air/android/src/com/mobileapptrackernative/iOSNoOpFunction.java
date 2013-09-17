@@ -6,7 +6,7 @@ import com.adobe.fre.FREObject;
 
 public class iOSNoOpFunction implements FREFunction {
     public static final String GET_PARAMS           = "getSDKDataParameters";
-    public static final String SET_APP_AD_TRACKING  = "SetAppAdTracking";
+    public static final String SET_APP_AD_TRACKING  = "setAppAdTracking";
     public static final String SET_ADVERTISER       = "setAppleAdvertisingIdentifier";
     public static final String SET_VENDOR           = "setAppleVendorIdentifier";
     public static final String DELEGATE             = "setDelegate";
