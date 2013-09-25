@@ -388,7 +388,12 @@ void MATSetAppleAdvertisingIdentifier_platform(const char* advertiserId)
     
     NSLog(@"Native: setAppleAdvertisingIdentifier: %@", strAdvertiserId);
     
-    [[MobileAppTracker sharedManager] setAppleAdvertisingIdentifier:[[NSUUID alloc] initWithUUIDString:strAdvertiserId]];
+    id classNSUUID = NSClassFromString(@"NSUUID");
+    
+    if(classNSUUID)
+    {
+        [[MobileAppTracker sharedManager] setAppleAdvertisingIdentifier:[[classNSUUID alloc] initWithUUIDString:strAdvertiserId]];
+    }
 }
 
 void MATSetAppleVendorIdentifier_platform(const char* vendorId)
@@ -397,7 +402,12 @@ void MATSetAppleVendorIdentifier_platform(const char* vendorId)
     
     NSLog(@"Native: setAppleVendorIdentifier: %@", vendorId);
     
-    [[MobileAppTracker sharedManager] setAppleVendorIdentifier:[[NSUUID alloc] initWithUUIDString:strVendorId] ];
+    id classNSUUID = NSClassFromString(@"NSUUID");
+    
+    if(classNSUUID)
+    {
+        [[MobileAppTracker sharedManager] setAppleVendorIdentifier:[[classNSUUID alloc] initWithUUIDString:strVendorId] ];
+    }
 }
 
 void MATStartAppToAppTracking_platform(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect)
