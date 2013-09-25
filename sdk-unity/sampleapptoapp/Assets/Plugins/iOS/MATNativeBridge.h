@@ -1,7 +1,8 @@
 #import <Foundation/Foundation.h>
-#import <MobileAppTracker/MobileAppTracker.h>
 #import <string>
 #import <map>
+
+#import "MobileAppTracker.h"
 
 typedef struct MATItem
 {

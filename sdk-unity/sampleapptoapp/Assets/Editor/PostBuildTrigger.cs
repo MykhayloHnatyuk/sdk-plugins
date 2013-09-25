@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEditor;
@@ -9,34 +10,28 @@ public static class PostBuildTrigger
     // extracting the values from the generated project.pbxproj.  The format of this
     // file is not documented by Apple so the correct algorithm for generating these
     // ids is unknown.
-	
-	const string FRAMEWORK_MOBILEAPPTRACKER = "MobileAppTracker.framework";
-	const string FRAMEWORK_ID_MOBILEAPPTRACKER = "919BD0C3159C677000C931FE";
-	const string FRAMEWORK_FILEREFID_MOBILEAPPTRACKER = "919BD0C2159C677000C931FE";
-	
+
 	const string FRAMEWORK_ADSUPPORT = "AdSupport.framework";
 	const string FRAMEWORK_ID_ADSUPPORT = "919BD0C3159C677000C931BE";
 	const string FRAMEWORK_FILEREFID_ADSUPPORT = "919BD0C2159C677000C931BE";
-	
+
 	const string FRAMEWORK_CORETELEPHONY = "CoreTelephony.framework";
 	const string FRAMEWORK_ID_CORETELEPHONY = "919BD0C3159C677000C931CE";
 	const string FRAMEWORK_FILEREFID_CORETELEPHONY = "919BD0C2159C677000C931CE";
-	
+
 	const string FRAMEWORK_MOBILECORESERVICES = "MobileCoreServices.framework";
 	const string FRAMEWORK_ID_MOBILECORESERVICES = "919BD0C3159C677000C931DE";
 	const string FRAMEWORK_FILEREFID_MOBILECORESERVICES = "919BD0C2159C677000C931DE";
-	
+
 	const string FRAMEWORK_SYSTEMCONFIGURATION = "SystemConfiguration.framework";
 	const string FRAMEWORK_ID_SYSTEMCONFIGURATION = "919BD0C3159C677000C931EE";
 	const string FRAMEWORK_FILEREFID_SYSTEMCONFIGURATION = "919BD0C2159C677000C931EE";
-	
+
 	const string DEFAULT_FRAMEWORKS_FOLDER = "System/Library/Frameworks";
 	
 	const string DEFAULT_UNITY_IPHONE_PROJECT_NAME = "Unity-iPhone.xcodeproj";
-	
-	const string MAT_FRAMEWORK_FOLDER_PATH = "Assets/Plugins/iOS"; // <------- Path of folder that contains the MAT framework folder
-	
-    // List of all the frameworks to be added to the project
+
+    // custom class: framework
 	public struct framework
     {
         public string sName;
@@ -60,7 +55,9 @@ public static class PostBuildTrigger
 	public static void OnPostProcessBuild(BuildTarget target, string path)
     {
 		Debug.Log("New Post Processing Build: OnPostProcessBuild: path = " + path);
-		
+
+		Debug.Log("OnPostProcessBuild - START");
+
 		// 1: Proceed only if this is an iOS build
 
 #if UNITY_IPHONE
@@ -68,23 +65,23 @@ public static class PostBuildTrigger
 		string xcodeprojPath = Path.Combine(path, DEFAULT_UNITY_IPHONE_PROJECT_NAME);
 		
       	Debug.Log("We found xcodeprojPath to be : " + xcodeprojPath);
-		
-		// 2: We init our tab and process our project
-		// NOTE: !! MobileAppTracker.framework !! must be the first item in this array.
-        framework[] myFrameworks = { new framework(FRAMEWORK_MOBILEAPPTRACKER, FRAMEWORK_ID_MOBILEAPPTRACKER, FRAMEWORK_FILEREFID_MOBILEAPPTRACKER, Path.GetDirectoryName(xcodeprojPath), false),
-									 new framework(FRAMEWORK_ADSUPPORT, FRAMEWORK_ID_ADSUPPORT, FRAMEWORK_FILEREFID_ADSUPPORT, null, true),
-									 new framework(FRAMEWORK_CORETELEPHONY, FRAMEWORK_ID_CORETELEPHONY, FRAMEWORK_FILEREFID_CORETELEPHONY, null, true),
-									 new framework(FRAMEWORK_MOBILECORESERVICES, FRAMEWORK_ID_MOBILECORESERVICES, FRAMEWORK_FILEREFID_MOBILECORESERVICES, null, true),
-									 new framework(FRAMEWORK_SYSTEMCONFIGURATION, FRAMEWORK_ID_SYSTEMCONFIGURATION, FRAMEWORK_FILEREFID_SYSTEMCONFIGURATION, null, true),
-		};
-		
-        Debug.Log("OnPostProcessBuild - START");
-		
-        updateXcodeProject(xcodeprojPath, myFrameworks);
+
+		Dictionary<string, framework> dictFrameworks = new Dictionary<string, framework> ();
+
+		// List of all the frameworks to be added to the project
+		// since the minimum iOS version supported is 4.3, only AdSupport.framework needs to be "weak"ly referenced
+		dictFrameworks.Add(FRAMEWORK_ADSUPPORT, new framework (FRAMEWORK_ADSUPPORT, FRAMEWORK_ID_ADSUPPORT, FRAMEWORK_FILEREFID_ADSUPPORT, null, true));
+		dictFrameworks.Add(FRAMEWORK_CORETELEPHONY, new framework (FRAMEWORK_CORETELEPHONY, FRAMEWORK_ID_CORETELEPHONY, FRAMEWORK_FILEREFID_CORETELEPHONY, null, false));
+        dictFrameworks.Add(FRAMEWORK_MOBILECORESERVICES, new framework (FRAMEWORK_MOBILECORESERVICES, FRAMEWORK_ID_MOBILECORESERVICES, FRAMEWORK_FILEREFID_MOBILECORESERVICES, null, false));
+        dictFrameworks.Add(FRAMEWORK_SYSTEMCONFIGURATION, new framework (FRAMEWORK_SYSTEMCONFIGURATION, FRAMEWORK_ID_SYSTEMCONFIGURATION, FRAMEWORK_FILEREFID_SYSTEMCONFIGURATION, null, false));
+
+		// 2: process our project
+
+        updateXcodeProject(xcodeprojPath, dictFrameworks);
 		
 #else
         // 3: We do nothing if not iPhone
-        Debug.Log("OnPostProcessBuild - Warning: No PostProcessing required. This is not an iOS build");
+        Debug.Log("OnPostProcessBuild - Warning: No PostProcessing required. This is not an iOS build.");
 #endif
         Debug.Log("OnPostProcessBuild - END");
     }
@@ -92,45 +89,65 @@ public static class PostBuildTrigger
     // MAIN FUNCTION
 	// xcodeproj_filename - filename of the Xcode project to change
 	// frameworks - list of Apple standard frameworks to add to the project
-	public static void updateXcodeProject(string xcodeprojPath, framework[] listFrameworks)
+	public static void updateXcodeProject(string xcodeprojPath, Dictionary<string, framework> dictFrameworks)
 	{
-		Debug.Log("MAT framework source = " + Path.Combine(MAT_FRAMEWORK_FOLDER_PATH, listFrameworks[0].sName));
-		Debug.Log("MAT framework target = " + listFrameworks[0].sPath);
-		
-		// Copy the MobileAppTracker.framework
-		copyDirectory(Path.Combine(MAT_FRAMEWORK_FOLDER_PATH, listFrameworks[0].sName), Path.Combine(listFrameworks[0].sPath, listFrameworks[0].sName), true);
-		
-        // STEP 1 :
+		// STEP 1 :
         // Create an array of strings by reading in all lines from the xcode project file.
 
         string project = xcodeprojPath + "/project.pbxproj";
         string[] lines = System.IO.File.ReadAllLines(project);
 
         // STEP 2 :
-		// Loop through the project file text and check if MobileAppTracker.framework exists under the frameworks list.
-		// If it exists then the file has already been processed and we skip this file update.
+		// Loop through the project file text and find out if all the required frameworks already exist.
 
         int i = 0;
         bool bFound = false;
 		bool bEnd = false;
+
+		bool existsADSUPPORT = false;
+		bool existsCORETELEPHONY = false;
+		bool existsMOBILECORESERVICES = false;
+		bool existsSYSTEMCONFIGURATION = false;
+
+		Debug.Log ("total frameworks required = " + dictFrameworks.Count);
 
         while (!bFound && !bEnd)
         {
             if (lines[i].Length > 5 && (string.Compare(lines[i].Substring(3, 3), "End") == 0) )
                 bEnd = true;
 
-            bFound = lines[i].Contains(FRAMEWORK_MOBILEAPPTRACKER);
+			if (lines [i].Contains (FRAMEWORK_ADSUPPORT)) {
+				existsADSUPPORT = true;
+				dictFrameworks.Remove (FRAMEWORK_ADSUPPORT);
+			}
+			else if (lines [i].Contains (FRAMEWORK_CORETELEPHONY)) {
+				existsCORETELEPHONY = true;
+				dictFrameworks.Remove (FRAMEWORK_CORETELEPHONY);
+			}
+			else if (lines [i].Contains (FRAMEWORK_MOBILECORESERVICES)) {
+				existsMOBILECORESERVICES = true;
+				dictFrameworks.Remove (FRAMEWORK_MOBILECORESERVICES);
+			}
+			else if (lines [i].Contains (FRAMEWORK_SYSTEMCONFIGURATION)) {
+				existsSYSTEMCONFIGURATION = true;
+				dictFrameworks.Remove (FRAMEWORK_SYSTEMCONFIGURATION);
+			}
+
+			bFound = existsADSUPPORT && existsCORETELEPHONY && existsMOBILECORESERVICES && existsSYSTEMCONFIGURATION;
+
 			++i;
         }
 
+		Debug.Log ("frameworks to add = " + dictFrameworks.Count);
+
         if (bFound)
 		{
-            Debug.Log("OnPostProcessBuild - WARNING: Frameworks have already been added to Xcode project");
+            Debug.Log("OnPostProcessBuild - WARNING: The frameworks required by MobileAppTracker are already present in the Xcode project. Nothing to add.");
 		}
         else
 		{
             // STEP 3 :
-			// Edit the project.pbxproj to allow the use of MobileAppTracker.framework.
+			// Edit the project.pbxproj and include the missing frameworks required by MobileAppTracker.
 
             FileStream filestr = new FileStream(project, FileMode.Create); //Create new file and open it for read and write, if the file exists overwrite it.
             filestr.Close();
@@ -153,7 +170,7 @@ public static class PostBuildTrigger
                 fCurrentXcodeProjFile.WriteLine(line);
 
 //////////////////////////////////
-//  STEP 1 : Include Framewoks  //
+//  STEP 1 : Include Frameworks  //
 //////////////////////////////////
 
 // Each section starts with a comment such as : /* Begin PBXBuildFile section */'
@@ -161,12 +178,15 @@ public static class PostBuildTrigger
                 {
                     section = line.Split(' ')[2];
 
-                    Debug.Log("NEW_SECTION: "+section);
+                    Debug.Log("NEW_SECTION: " + section);
+
                     if (section == "PBXBuildFile")
                     {
 						// Add one entry for each framework to the PBXBuildFile section
-                        foreach (framework fr in listFrameworks)
+						// Loop over pairs with foreach
+						foreach (KeyValuePair<string, framework> pair in dictFrameworks)
 						{
+							framework fr = pair.Value;
                             add_build_file(fCurrentXcodeProjFile, fr.sId, fr.sName, fr.sFileId, fr.sWeak);
 						}
                     }
@@ -174,8 +194,10 @@ public static class PostBuildTrigger
                     if (section == "PBXFileReference")
                     {
 						// Add one entry for each framework to the PBXFileReference section
-                        foreach (framework fr in listFrameworks)
+						// Loop over pairs with foreach
+						foreach (KeyValuePair<string, framework> pair in dictFrameworks)
 						{
+							framework fr = pair.Value;
                             add_framework_file_reference(fCurrentXcodeProjFile, fr.sFileId, fr.sName, fr.sPath);
 						}
                     }
@@ -197,8 +219,10 @@ public static class PostBuildTrigger
 					&& !bFrameworks_build_added)
                 {
 					// Add one entry for each framework to the PBXFrameworksBuildPhase section
-                    foreach (framework fr in listFrameworks)
+					// Loop over pairs with foreach
+					foreach (KeyValuePair<string, framework> pair in dictFrameworks)
 					{
+						framework fr = pair.Value;
                         add_frameworks_build_phase(fCurrentXcodeProjFile, fr.sId, fr.sName);
 					}
 
@@ -213,8 +237,10 @@ public static class PostBuildTrigger
 					&& string.Compare(lines[i-2].Trim().Split(' ')[2] , "CustomTemplate" ) == 0 )
                 {
 					Debug.Log("Adding frameworks in PBXGroup");
-                    foreach (framework fr in listFrameworks)
+					// Loop over pairs with foreach
+					foreach (KeyValuePair<string, framework> pair in dictFrameworks)
 					{
+						framework fr = pair.Value;
 						Debug.Log(fr.sName);
                         add_group(fCurrentXcodeProjFile, fr.sFileId, fr.sName);
 					}
@@ -276,7 +302,7 @@ public static class PostBuildTrigger
         if (name == "libsqlite3.0.dylib")           // except for lidsqlite
             path = "usr/lib";
 	
-	    file.Write("\t\t" + id + " /* " + name + " */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = " + name + "; path = " + path + "/" + name + "; sourceTree = "+ sourceTree + "; };\n");
+	    file.Write("\t\t" + id + " /* " + name + " */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = " + name + "; path = \"" + path + "/" + name + "\"; sourceTree = "+ sourceTree + "; };\n");
     }
 
     // Adds a line into the PBXFrameworksBuildPhase section
@@ -293,41 +319,5 @@ public static class PostBuildTrigger
         Debug.Log("OnPostProcessBuild - Add group " + name);
 
         file.Write("\t\t\t\t" + id + " /* " + name + " */,\n");
-    }
-	
-	private static void copyDirectory(string sourceDirName, string destDirName, bool copySubDirs)
-    {
-		Debug.Log("copyDirectory: source = " + sourceDirName + ", destination = " + destDirName);
-		
-        DirectoryInfo dir = new DirectoryInfo(sourceDirName);
-        DirectoryInfo[] dirs = dir.GetDirectories();
-
-        if (!dir.Exists)
-        {
-            throw new DirectoryNotFoundException(
-                "Source directory does not exist or could not be found: "
-                + sourceDirName);
-        }
-		
-        if (!Directory.Exists(destDirName))
-        {
-            Directory.CreateDirectory(destDirName);
-        }
-
-        FileInfo[] files = dir.GetFiles();
-        foreach (FileInfo file in files)
-        {
-            string temppath = Path.Combine(destDirName, file.Name);
-            file.CopyTo(temppath, true);
-        }
-
-        if (copySubDirs)
-        {
-            foreach (DirectoryInfo subdir in dirs)
-            {
-                string temppath = Path.Combine(destDirName, subdir.Name);
-                copyDirectory(subdir.FullName, temppath, copySubDirs);
-            }
-        }
     }
 }
