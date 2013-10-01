@@ -28,8 +28,8 @@
 				trace("MATANESampleHomeView.init() start");
 				
 				matAdvertiserId = "877";
-				//matConversionKey = "5afe3bc434184096023e3d8b2ae27e1c"; // johng_test
-				matConversionKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // HarshalTestApp
+				//matConversionKey = "5afe3bc434184096023e3d8b2ae27e1c"; // Android test
+				matConversionKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // iOS test
 				
 				eventName = "evt123";
 				revenue = 0.42;
@@ -69,8 +69,8 @@
 				mobileAppTracker.setUIID("12345678-1234-1234-1234-123456789012");
 				mobileAppTracker.setAppAdTracking(true);
 				
-				//mobileAppTracker.setPackageName("com.hasofferstestapp"); // johng_test
-				mobileAppTracker.setPackageName("com.hasoffers.harshaltestapp"); // HarshalTestApp
+				//mobileAppTracker.setPackageName("com.hasofferstestapp"); // Android test
+				mobileAppTracker.setPackageName("com.hasoffers.harshaltestapp"); // iOS test
 				
 				trace("MATANESampleHomeView.init() end");
 			}

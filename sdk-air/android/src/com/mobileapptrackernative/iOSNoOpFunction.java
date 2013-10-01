@@ -20,7 +20,6 @@ public class iOSNoOpFunction implements FREFunction {
     public static final String GEN_ADVERTISER       = "setShouldAutoGenerateAppleAdvertisingIdentifier";
     public static final String GEN_VENDOR           = "setShouldAutoGenerateAppleVendorIdentifier";
     public static final String USE_COOKIE           = "setUseCookieTracking";
-    public static final String USE_HTTPS            = "setUseHTTPS";
 
     @Override
     public FREObject call(FREContext arg0, FREObject[] arg1) {

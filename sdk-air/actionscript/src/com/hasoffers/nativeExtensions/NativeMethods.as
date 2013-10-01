@@ -38,7 +38,6 @@ package com.hasoffers.nativeExtensions
 		internal static const setTRUSTeId 						: String = "setTRUSTeId";
 		internal static const setUIID 							: String = "setUIID";
 		internal static const setUseCookieTracking				: String = "setUseCookieTracking";
-		internal static const setUseHTTPS						: String = "setUseHTTPS";
 		internal static const setUserId 						: String = "setUserId";
 		
 		internal static const setAge	 						: String = "setAge";

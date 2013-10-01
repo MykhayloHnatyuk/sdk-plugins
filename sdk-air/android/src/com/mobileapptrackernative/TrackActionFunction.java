@@ -33,9 +33,8 @@ public class TrackActionFunction implements FREFunction {
                 Log.i(MATExtensionContext.TAG, "Call " + NAME + " on event: " + event + ", revenue: " + revenue + ", currency: " + currency + ", ref id: " + refId);
                 MATExtensionContext mec = (MATExtensionContext)context;
                 if (refId.length() > 0) {
-                    mec.mat.setRefId(refId);
-                }
-                if (currency.length() > 0) {
+                    mec.mat.trackAction(event, revenue, currency, refId);
+                } else if (currency.length() > 0) {
                     mec.mat.trackAction(event, revenue, currency);
                 } else if (revenue != 0) {
                     mec.mat.trackAction(event, revenue);

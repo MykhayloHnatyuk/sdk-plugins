@@ -61,7 +61,6 @@ public class MATExtensionContext extends FREContext {
         functionMap.put(iOSNoOpFunction.SET_VENDOR, new iOSNoOpFunction());
         
         functionMap.put(iOSNoOpFunction.USE_COOKIE, new iOSNoOpFunction());
-        functionMap.put(iOSNoOpFunction.USE_HTTPS, new iOSNoOpFunction());
 
         return functionMap;
     }

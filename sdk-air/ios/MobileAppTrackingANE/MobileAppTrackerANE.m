@@ -380,19 +380,6 @@ DEFINE_ANE_FUNCTION(SetUseCookieTrackingFunction)
     return NULL;
 }
 
-DEFINE_ANE_FUNCTION(SetUseHTTPSFunction)
-{
-    DLog(@"SetUseHTTPSFunction");
-    
-    uint32_t isUseHttps;
-    FREGetObjectAsBool(argv[0], &isUseHttps);
-    BOOL useHttps = 1 == isUseHttps;
-    
-    [[MobileAppTracker sharedManager] setUseCookieTracking:useHttps];
-    
-    return NULL;
-}
-
 DEFINE_ANE_FUNCTION(SetRedirectUrlFunction)
 {
     DLog(@"SetRedirectUrlFunction");
@@ -687,7 +674,6 @@ void MATExtContextInitializer(void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION(setTRUSTeId,                               NULL, SetTRUSTeIdFunction),
         MAP_FUNCTION(setUIID,                                   NULL, SetUIIDFunction),
         MAP_FUNCTION(setUseCookieTracking,                      NULL, SetUseCookieTrackingFunction),
-        MAP_FUNCTION(setUseHTTPS,                               NULL, SetUseHTTPSFunction),
         MAP_FUNCTION(setUserId,                                 NULL, SetUserIdFunction),
         
         MAP_FUNCTION(setAge,                                    NULL, SetAgeFunction),

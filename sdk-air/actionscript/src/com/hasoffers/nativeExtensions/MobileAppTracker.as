@@ -155,11 +155,6 @@ package com.hasoffers.nativeExtensions
 			trace("MATAS.setUseCookieTracking(" + useCookieTracking + ")");
 			extContext.call(NativeMethods.setUseCookieTracking, useCookieTracking);		}
 
-		public function setUseHTTPS(useHTTPS:Boolean):void
-		{
-			trace("MATAS.setUseHTTPS(" + useHTTPS + ")");
-			extContext.call(NativeMethods.setUseHTTPS, useHTTPS);		}
-
 		public function setSiteId(siteId:String):void
 		{
 			trace("MATAS.setSiteId(" + siteId + ")");
