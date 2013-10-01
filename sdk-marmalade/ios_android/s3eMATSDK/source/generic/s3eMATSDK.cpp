@@ -180,11 +180,6 @@ void MATSetAppleVendorIdentifier(const char* vendorId)
     MATSetAppleVendorIdentifier_platform(vendorId);
 }
 
-void MATSetUseHTTPS(bool useHTTPS)
-{
-    MATSetUseHTTPS_platform(useHTTPS);
-}
-
 void MATSetAge(int age)
 {
     MATSetAge_platform(age);

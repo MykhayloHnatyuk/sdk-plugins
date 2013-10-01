@@ -359,13 +359,6 @@ void MATSetAppAdTracking_platform(bool enable)
     [[MobileAppTracker sharedManager] setAppAdTracking:enable];
 }
 
-void MATSetUseHTTPS_platform(bool useHTTPS)
-{
-    NSLog(@"Native: setUseHTTPS: %d", useHTTPS);
-    
-    [[MobileAppTracker sharedManager] setUseHTTPS:useHTTPS];
-}
-
 void MATSetJailbroken_platform(bool isJailbroken)
 {
     NSLog(@"Native: setJailbroken: %d", isJailbroken);

@@ -75,9 +75,7 @@ class s3eMATSDK
     
     public void MATTrackAction(String eventIdOrName, boolean isId, double revenueAmount, String currencyCode)
     {
-        mat.setCurrencyCode(currencyCode);
-        mat.setRevenue(revenueAmount);
-        mat.trackAction(eventIdOrName);
+        mat.trackAction(eventIdOrName, revenueAmount, currencyCode);
     }
     
     public void MATStartAppToAppTracking(String targetAppId, String advertiserId, String offerId, String publisherId, boolean shouldRedirect)
@@ -203,11 +201,6 @@ class s3eMATSDK
     }
     
     public void MATSetUseCookieTracking(boolean useCookieTracking)
-    {
-        // not available in android
-    }
-    
-    public void MATSetUseHTTPS(boolean useHTTPS)
     {
         // not available in android
     }

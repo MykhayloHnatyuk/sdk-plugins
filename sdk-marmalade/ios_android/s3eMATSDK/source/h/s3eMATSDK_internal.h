@@ -81,7 +81,6 @@ void MATSetRevenue_platform(double revenue);
 void MATSetSiteId_platform(const char* siteId);
 void MATSetTRUSTeId_platform(const char* tpid);
 void MATSetUIID_platform(const char* uiid);
-void MATSetUseHTTPS_platform(bool useHTTPS);
 void MATSetUserId_platform(const char* userId);
 
 void MATSetShouldAutoDetectJailbroken_platform(bool shouldAutoDetect);

@@ -47,7 +47,6 @@ void MATSetSiteId(const char* siteId) run_on_os_thread
 void MATSetTRUSTeId(const char* tpid) run_on_os_thread
 void MATSetAppAdTracking(bool enable) run_on_os_thread
 void MATSetDelegate(bool enable) run_on_os_thread
-void MATSetUseHTTPS(bool enable) run_on_os_thread
 void MATSetJailbroken(bool isJailbroken) run_on_os_thread
 void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect) run_on_os_thread
 void MATSetMACAddress(const char* mac) run_on_os_thread

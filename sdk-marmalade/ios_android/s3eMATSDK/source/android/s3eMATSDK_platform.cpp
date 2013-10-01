@@ -225,7 +225,6 @@ void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenu
 
 void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
-    IwTrace(s3eMATSDK, ("In event items method"));
     JNIEnv* jni_env = s3eEdkJNIGetEnv();
     
     // local variables for the track action
@@ -462,11 +461,6 @@ void MATSetUIID_platform(const char* uiid)
 }
 
 void MATSetUseCookieTracking_platform(bool useCookieTracking)
-{
-    
-}
-
-void MATSetUseHTTPS_platform(bool useHTTPS)
 {
     
 }

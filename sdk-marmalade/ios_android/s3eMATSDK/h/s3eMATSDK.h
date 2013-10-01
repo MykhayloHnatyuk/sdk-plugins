@@ -82,8 +82,6 @@ void MATSetAppAdTracking(bool enable);
 
 void MATSetDelegate(bool enable);
 
-void MATSetUseHTTPS(bool enable);
-
 void MATSetJailbroken(bool isJailbroken);
 
 void MATSetShouldAutoDetectJailbroken(bool shouldAutoDetect);

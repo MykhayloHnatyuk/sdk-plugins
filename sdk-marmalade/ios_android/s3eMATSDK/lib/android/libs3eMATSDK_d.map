@@ -1,11 +1,11 @@
 Archive member included because of file (symbol)
 
-C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
                               debug\s3eMATSDK_platform.os (IwDebugTraceSetTraceChannel)
-C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
                               debug\s3eMATSDK_platform.os (s3eEdkThreadRunOnOS)
 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
-                              C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o) (__aeabi_ldivmod)
+                              C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o) (__aeabi_ldivmod)
 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
                               c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o) (__gnu_ldivmod_helper)
 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
@@ -69,45 +69,45 @@ Discarded input sections
  .bss           0x00000000        0x0 debug\s3eMATSDK_register.os
  .note.GNU-stack
                 0x00000000        0x0 debug\s3eMATSDK_register.os
- .text          0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
- .data          0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+ .text          0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+ .data          0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwAssertRegisterTextCallback
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwAssertRegisterCallback
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugErrorRegisterCallback
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugAssertSetUID
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugClearConfigCache
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugErrorShow
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugTraceLineVPrintf
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugAssertIsChannelOn
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugTraceDisable
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugAssertSetMessage
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugAssertSetSolution
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugAssertShow
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugTraceChannelSwitch
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .note.GNU-stack
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
- .text          0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .data          0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
- .bss           0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+ .text          0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .data          0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .bss           0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkThreadRunOnOSAsync
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .text.s3eEdkErrorSetString
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .note.GNU-stack
-                0x00000000        0x0 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x00000000        0x0 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .data          0x00000000        0x0 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
  .bss           0x00000000        0x0 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
  .note.GNU-stack
@@ -165,8 +165,8 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 LOAD debug\s3eMATSDK_platform.os
 LOAD debug\s3eMATSDK.os
 LOAD debug\s3eMATSDK_register.os
-LOAD C:\marmalade\6.3\s3e\edk\lib\android\libedk.a
-LOAD C:\marmalade\6.3\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
+LOAD C:\marmalade\6.4\s3e\edk\lib\android\libedk.a
+LOAD C:\marmalade\6.4\s3e\edk\lib\android/libplaceholderplaceholderplaceholderplaceholderplaceholder.so
 LOAD C:\Users\John\tools\android-ndk-r8c\platforms\android-9\arch-arm\usr\lib/liblog.so
 LOAD C:\Users\John\tools\android-ndk-r8c\sources\cxx-stl\gnu-libstdc++\4.4.3\libs\armeabi\libgnustl_static.a
 LOAD c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a
@@ -212,7 +212,7 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  .gnu.version_r
                 0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.rel.dyn        0x00000fa8      0x170
+.rel.dyn        0x00000fa8      0x168
  *(.rel.init)
  *(.rel.text .rel.text.* .rel.gnu.linkonce.t.*)
  *(.rel.fini)
@@ -224,12 +224,12 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  *(.rel.ctors)
  *(.rel.dtors)
  *(.rel.got)
- .rel.got       0x00000fa8      0x160 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .rel.got       0x00000fa8      0x158 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.rel.bss .rel.bss.* .rel.gnu.linkonce.b.*)
  .rel.fini_array
-                0x00001108        0x8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001100        0x8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  .rel.init_array
-                0x00001110        0x8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00001108        0x8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .rela.dyn
  *(.rela.init)
@@ -244,9 +244,9 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  *(.rela.got)
  *(.rela.bss .rela.bss.* .rela.gnu.linkonce.b.*)
 
-.rel.plt        0x00001118       0xa0
+.rel.plt        0x00001110       0xa0
  *(.rel.plt)
- .rel.plt       0x00001118       0xa0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .rel.plt       0x00001110       0xa0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
 .rela.plt
  *(.rela.plt)
@@ -254,431 +254,423 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 .init
  *(.init)
 
-.plt            0x000011b8      0x104
+.plt            0x000011b0      0x104
  *(.plt)
- .plt           0x000011b8      0x104 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .plt           0x000011b0      0x104 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
 
-.text           0x000012bc     0x5e74
+.text           0x000012b4     0x5d2c
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text.exit     0x000012bc       0x10 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x000012bc                __on_dlclose
+ .text.exit     0x000012b4       0x10 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x000012b4                __on_dlclose
  .text._ZN7_JNIEnv9FindClassEPKc
-                0x000012cc       0x38 debug\s3eMATSDK_platform.os
-                0x000012cc                _JNIEnv::FindClass(char const*)
+                0x000012c4       0x38 debug\s3eMATSDK_platform.os
+                0x000012c4                _JNIEnv::FindClass(char const*)
  .text._ZN7_JNIEnv17ExceptionOccurredEv
-                0x00001304       0x30 debug\s3eMATSDK_platform.os
-                0x00001304                _JNIEnv::ExceptionOccurred()
+                0x000012fc       0x30 debug\s3eMATSDK_platform.os
+                0x000012fc                _JNIEnv::ExceptionOccurred()
  .text._ZN7_JNIEnv17ExceptionDescribeEv
-                0x00001334       0x28 debug\s3eMATSDK_platform.os
-                0x00001334                _JNIEnv::ExceptionDescribe()
+                0x0000132c       0x28 debug\s3eMATSDK_platform.os
+                0x0000132c                _JNIEnv::ExceptionDescribe()
  .text._ZN7_JNIEnv14ExceptionClearEv
-                0x0000135c       0x28 debug\s3eMATSDK_platform.os
-                0x0000135c                _JNIEnv::ExceptionClear()
+                0x00001354       0x28 debug\s3eMATSDK_platform.os
+                0x00001354                _JNIEnv::ExceptionClear()
  .text._ZN7_JNIEnv12NewGlobalRefEP8_jobject
-                0x00001384       0x38 debug\s3eMATSDK_platform.os
-                0x00001384                _JNIEnv::NewGlobalRef(_jobject*)
+                0x0000137c       0x38 debug\s3eMATSDK_platform.os
+                0x0000137c                _JNIEnv::NewGlobalRef(_jobject*)
  .text._ZN7_JNIEnv15DeleteGlobalRefEP8_jobject
-                0x000013bc       0x30 debug\s3eMATSDK_platform.os
-                0x000013bc                _JNIEnv::DeleteGlobalRef(_jobject*)
+                0x000013b4       0x30 debug\s3eMATSDK_platform.os
+                0x000013b4                _JNIEnv::DeleteGlobalRef(_jobject*)
  .text._ZN7_JNIEnv14DeleteLocalRefEP8_jobject
-                0x000013ec       0x30 debug\s3eMATSDK_platform.os
-                0x000013ec                _JNIEnv::DeleteLocalRef(_jobject*)
+                0x000013e4       0x30 debug\s3eMATSDK_platform.os
+                0x000013e4                _JNIEnv::DeleteLocalRef(_jobject*)
  .text._ZN7_JNIEnv9NewObjectEP7_jclassP10_jmethodIDz
-                0x0000141c       0x5c debug\s3eMATSDK_platform.os
-                0x0000141c                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
+                0x00001414       0x5c debug\s3eMATSDK_platform.os
+                0x00001414                _JNIEnv::NewObject(_jclass*, _jmethodID*, ...)
  .text._ZN7_JNIEnv11GetMethodIDEP7_jclassPKcS3_
-                0x00001478       0x48 debug\s3eMATSDK_platform.os
-                0x00001478                _JNIEnv::GetMethodID(_jclass*, char const*, char const*)
+                0x00001470       0x48 debug\s3eMATSDK_platform.os
+                0x00001470                _JNIEnv::GetMethodID(_jclass*, char const*, char const*)
  .text._ZN7_JNIEnv17CallBooleanMethodEP8_jobjectP10_jmethodIDz
-                0x000014c0       0x5c debug\s3eMATSDK_platform.os
-                0x000014c0                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
+                0x000014b8       0x5c debug\s3eMATSDK_platform.os
+                0x000014b8                _JNIEnv::CallBooleanMethod(_jobject*, _jmethodID*, ...)
  .text._ZN7_JNIEnv14CallVoidMethodEP8_jobjectP10_jmethodIDz
-                0x0000151c       0x4c debug\s3eMATSDK_platform.os
-                0x0000151c                _JNIEnv::CallVoidMethod(_jobject*, _jmethodID*, ...)
+                0x00001514       0x4c debug\s3eMATSDK_platform.os
+                0x00001514                _JNIEnv::CallVoidMethod(_jobject*, _jmethodID*, ...)
  .text._ZN7_JNIEnv12NewStringUTFEPKc
-                0x00001568       0x38 debug\s3eMATSDK_platform.os
-                0x00001568                _JNIEnv::NewStringUTF(char const*)
+                0x00001560       0x38 debug\s3eMATSDK_platform.os
+                0x00001560                _JNIEnv::NewStringUTF(char const*)
  .text._ZN7_JavaVM6GetEnvEPPvi
-                0x000015a0       0x40 debug\s3eMATSDK_platform.os
-                0x000015a0                _JavaVM::GetEnv(void**, int)
+                0x00001598       0x40 debug\s3eMATSDK_platform.os
+                0x00001598                _JavaVM::GetEnv(void**, int)
  .text._ZL15s3eEdkJNIGetEnvv
-                0x000015e0       0x44 debug\s3eMATSDK_platform.os
+                0x000015d8       0x44 debug\s3eMATSDK_platform.os
  .text._ZL27s3eEdkAndroidFindClass_realPKc
-                0x00001624       0xa4 debug\s3eMATSDK_platform.os
+                0x0000161c       0xa4 debug\s3eMATSDK_platform.os
  .text._ZL22s3eEdkAndroidFindClassPKc
-                0x000016c8       0x38 debug\s3eMATSDK_platform.os
+                0x000016c0       0x38 debug\s3eMATSDK_platform.os
  .text._Z19MATSDKInit_platformv
-                0x00001700      0x928 debug\s3eMATSDK_platform.os
-                0x00001700                MATSDKInit_platform()
+                0x000016f8      0x928 debug\s3eMATSDK_platform.os
+                0x000016f8                MATSDKInit_platform()
  .text._Z24MATSDKTerminate_platformv
-                0x00002028        0x4 debug\s3eMATSDK_platform.os
-                0x00002028                MATSDKTerminate_platform()
+                0x00002020        0x4 debug\s3eMATSDK_platform.os
+                0x00002020                MATSDKTerminate_platform()
  .text._Z33MATStartMobileAppTracker_platformPKcS0_
-                0x0000202c       0xa8 debug\s3eMATSDK_platform.os
-                0x0000202c                MATStartMobileAppTracker_platform(char const*, char const*)
+                0x00002024       0xa8 debug\s3eMATSDK_platform.os
+                0x00002024                MATStartMobileAppTracker_platform(char const*, char const*)
  .text._Z25MATSDKParameters_platformv
-                0x000020d4       0x4c debug\s3eMATSDK_platform.os
-                0x000020d4                MATSDKParameters_platform()
+                0x000020cc       0x4c debug\s3eMATSDK_platform.os
+                0x000020cc                MATSDKParameters_platform()
  .text._Z24MATTrackInstall_platformv
-                0x00002120       0x4c debug\s3eMATSDK_platform.os
-                0x00002120                MATTrackInstall_platform()
+                0x00002118       0x4c debug\s3eMATSDK_platform.os
+                0x00002118                MATTrackInstall_platform()
  .text._Z23MATTrackUpdate_platformv
-                0x0000216c       0x4c debug\s3eMATSDK_platform.os
-                0x0000216c                MATTrackUpdate_platform()
+                0x00002164       0x4c debug\s3eMATSDK_platform.os
+                0x00002164                MATTrackUpdate_platform()
  .text._Z39MATTrackInstallWithReferenceId_platformPKc
-                0x000021b8       0x78 debug\s3eMATSDK_platform.os
-                0x000021b8                MATTrackInstallWithReferenceId_platform(char const*)
+                0x000021b0       0x78 debug\s3eMATSDK_platform.os
+                0x000021b0                MATTrackInstallWithReferenceId_platform(char const*)
  .text._Z39MATTrackActionForEventIdOrName_platformPKcbS0_
-                0x00002230       0xb8 debug\s3eMATSDK_platform.os
-                0x00002230                MATTrackActionForEventIdOrName_platform(char const*, bool, char const*)
+                0x00002228       0xb8 debug\s3eMATSDK_platform.os
+                0x00002228                MATTrackActionForEventIdOrName_platform(char const*, bool, char const*)
  .text._Z23MATTrackAction_platformPKcbdS0_
-                0x000022e8       0xc0 debug\s3eMATSDK_platform.os
-                0x000022e8                MATTrackAction_platform(char const*, bool, double, char const*)
+                0x000022e0       0xc0 debug\s3eMATSDK_platform.os
+                0x000022e0                MATTrackAction_platform(char const*, bool, double, char const*)
  .text._Z44MATTrackActionForEventIdOrNameItems_platformPKcbPK8MATArrayS0_dS0_hS0_S0_
-                0x000023a8      0x5f0 debug\s3eMATSDK_platform.os
-                0x000023a8                MATTrackActionForEventIdOrNameItems_platform(char const*, bool, MATArray const*, char const*, double, char const*, unsigned char, char const*, char const*)
+                0x000023a0      0x594 debug\s3eMATSDK_platform.os
+                0x000023a0                MATTrackActionForEventIdOrNameItems_platform(char const*, bool, MATArray const*, char const*, double, char const*, unsigned char, char const*, char const*)
  .text._Z33MATStartAppToAppTracking_platformPKcS0_S0_S0_b
-                0x00002998      0x110 debug\s3eMATSDK_platform.os
-                0x00002998                MATStartAppToAppTracking_platform(char const*, char const*, char const*, char const*, bool)
+                0x00002934      0x110 debug\s3eMATSDK_platform.os
+                0x00002934                MATStartAppToAppTracking_platform(char const*, char const*, char const*, char const*, bool)
  .text._Z26MATSetPackageName_platformPKc
-                0x00002aa8       0x78 debug\s3eMATSDK_platform.os
-                0x00002aa8                MATSetPackageName_platform(char const*)
+                0x00002a44       0x78 debug\s3eMATSDK_platform.os
+                0x00002a44                MATSetPackageName_platform(char const*)
  .text._Z27MATSetCurrencyCode_platformPKc
-                0x00002b20       0x78 debug\s3eMATSDK_platform.os
-                0x00002b20                MATSetCurrencyCode_platform(char const*)
+                0x00002abc       0x78 debug\s3eMATSDK_platform.os
+                0x00002abc                MATSetCurrencyCode_platform(char const*)
  .text._Z21MATSetUserId_platformPKc
-                0x00002b98       0x78 debug\s3eMATSDK_platform.os
-                0x00002b98                MATSetUserId_platform(char const*)
+                0x00002b34       0x78 debug\s3eMATSDK_platform.os
+                0x00002b34                MATSetUserId_platform(char const*)
  .text._Z22MATSetRevenue_platformd
-                0x00002c10       0x58 debug\s3eMATSDK_platform.os
-                0x00002c10                MATSetRevenue_platform(double)
+                0x00002bac       0x58 debug\s3eMATSDK_platform.os
+                0x00002bac                MATSetRevenue_platform(double)
  .text._Z21MATSetSiteId_platformPKc
-                0x00002c68       0x78 debug\s3eMATSDK_platform.os
-                0x00002c68                MATSetSiteId_platform(char const*)
+                0x00002c04       0x78 debug\s3eMATSDK_platform.os
+                0x00002c04                MATSetSiteId_platform(char const*)
  .text._Z23MATSetTRUSTeId_platformPKc
-                0x00002ce0       0x78 debug\s3eMATSDK_platform.os
-                0x00002ce0                MATSetTRUSTeId_platform(char const*)
+                0x00002c7c       0x78 debug\s3eMATSDK_platform.os
+                0x00002c7c                MATSetTRUSTeId_platform(char const*)
  .text._Z24MATSetDebugMode_platformb
-                0x00002d58       0x50 debug\s3eMATSDK_platform.os
-                0x00002d58                MATSetDebugMode_platform(bool)
+                0x00002cf4       0x50 debug\s3eMATSDK_platform.os
+                0x00002cf4                MATSetDebugMode_platform(bool)
  .text._Z30MATSetAllowDuplicates_platformb
-                0x00002da8       0x50 debug\s3eMATSDK_platform.os
-                0x00002da8                MATSetAllowDuplicates_platform(bool)
+                0x00002d44       0x50 debug\s3eMATSDK_platform.os
+                0x00002d44                MATSetAllowDuplicates_platform(bool)
  .text._Z18MATSetAge_platformi
-                0x00002df8       0x54 debug\s3eMATSDK_platform.os
-                0x00002df8                MATSetAge_platform(int)
+                0x00002d94       0x54 debug\s3eMATSDK_platform.os
+                0x00002d94                MATSetAge_platform(int)
  .text._Z21MATSetGender_platformi
-                0x00002e4c       0x54 debug\s3eMATSDK_platform.os
-                0x00002e4c                MATSetGender_platform(int)
+                0x00002de8       0x54 debug\s3eMATSDK_platform.os
+                0x00002de8                MATSetGender_platform(int)
  .text._Z23MATSetLocation_platformddd
-                0x00002ea0       0x6c debug\s3eMATSDK_platform.os
-                0x00002ea0                MATSetLocation_platform(double, double, double)
+                0x00002e3c       0x6c debug\s3eMATSDK_platform.os
+                0x00002e3c                MATSetLocation_platform(double, double, double)
  .text._Z41MATSetAppleAdvertisingIdentifier_platformPKc
-                0x00002f0c       0x10 debug\s3eMATSDK_platform.os
-                0x00002f0c                MATSetAppleAdvertisingIdentifier_platform(char const*)
+                0x00002ea8       0x10 debug\s3eMATSDK_platform.os
+                0x00002ea8                MATSetAppleAdvertisingIdentifier_platform(char const*)
  .text._Z36MATSetAppleVendorIdentifier_platformPKc
-                0x00002f1c       0x10 debug\s3eMATSDK_platform.os
-                0x00002f1c                MATSetAppleVendorIdentifier_platform(char const*)
+                0x00002eb8       0x10 debug\s3eMATSDK_platform.os
+                0x00002eb8                MATSetAppleVendorIdentifier_platform(char const*)
  .text._Z28MATSetAppAdTracking_platformb
-                0x00002f2c       0x14 debug\s3eMATSDK_platform.os
-                0x00002f2c                MATSetAppAdTracking_platform(bool)
+                0x00002ec8       0x14 debug\s3eMATSDK_platform.os
+                0x00002ec8                MATSetAppAdTracking_platform(bool)
  .text._Z23MATSetDelegate_platformb
-                0x00002f40       0x14 debug\s3eMATSDK_platform.os
-                0x00002f40                MATSetDelegate_platform(bool)
+                0x00002edc       0x14 debug\s3eMATSDK_platform.os
+                0x00002edc                MATSetDelegate_platform(bool)
  .text._Z25MATSetJailbroken_platformb
-                0x00002f54       0x14 debug\s3eMATSDK_platform.os
-                0x00002f54                MATSetJailbroken_platform(bool)
+                0x00002ef0       0x14 debug\s3eMATSDK_platform.os
+                0x00002ef0                MATSetJailbroken_platform(bool)
  .text._Z23MATSetOpenUDID_platformPKc
-                0x00002f68       0x10 debug\s3eMATSDK_platform.os
-                0x00002f68                MATSetOpenUDID_platform(char const*)
+                0x00002f04       0x10 debug\s3eMATSDK_platform.os
+                0x00002f04                MATSetOpenUDID_platform(char const*)
  .text._Z26MATSetRedirectUrl_platformPKc
-                0x00002f78       0x10 debug\s3eMATSDK_platform.os
-                0x00002f78                MATSetRedirectUrl_platform(char const*)
+                0x00002f14       0x10 debug\s3eMATSDK_platform.os
+                0x00002f14                MATSetRedirectUrl_platform(char const*)
  .text._Z41MATSetShouldAutoDetectJailbroken_platformb
-                0x00002f88       0x14 debug\s3eMATSDK_platform.os
-                0x00002f88                MATSetShouldAutoDetectJailbroken_platform(bool)
+                0x00002f24       0x14 debug\s3eMATSDK_platform.os
+                0x00002f24                MATSetShouldAutoDetectJailbroken_platform(bool)
  .text._Z59MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platformb
-                0x00002f9c       0x14 debug\s3eMATSDK_platform.os
-                0x00002f9c                MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool)
+                0x00002f38       0x14 debug\s3eMATSDK_platform.os
+                0x00002f38                MATSetShouldAutoGenerateAppleAdvertisingIdentifier_platform(bool)
  .text._Z54MATSetShouldAutoGenerateAppleVendorIdentifier_platformb
-                0x00002fb0       0x14 debug\s3eMATSDK_platform.os
-                0x00002fb0                MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool)
+                0x00002f4c       0x14 debug\s3eMATSDK_platform.os
+                0x00002f4c                MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool)
  .text._Z25MATSetMACAddress_platformPKc
-                0x00002fc4       0x10 debug\s3eMATSDK_platform.os
-                0x00002fc4                MATSetMACAddress_platform(char const*)
+                0x00002f60       0x10 debug\s3eMATSDK_platform.os
+                0x00002f60                MATSetMACAddress_platform(char const*)
  .text._Z20MATSetODIN1_platformPKc
-                0x00002fd4       0x10 debug\s3eMATSDK_platform.os
-                0x00002fd4                MATSetODIN1_platform(char const*)
+                0x00002f70       0x10 debug\s3eMATSDK_platform.os
+                0x00002f70                MATSetODIN1_platform(char const*)
  .text._Z19MATSetUIID_platformPKc
-                0x00002fe4       0x10 debug\s3eMATSDK_platform.os
-                0x00002fe4                MATSetUIID_platform(char const*)
+                0x00002f80       0x10 debug\s3eMATSDK_platform.os
+                0x00002f80                MATSetUIID_platform(char const*)
  .text._Z32MATSetUseCookieTracking_platformb
-                0x00002ff4       0x14 debug\s3eMATSDK_platform.os
-                0x00002ff4                MATSetUseCookieTracking_platform(bool)
- .text._Z23MATSetUseHTTPS_platformb
-                0x00003008       0x14 debug\s3eMATSDK_platform.os
-                0x00003008                MATSetUseHTTPS_platform(bool)
+                0x00002f90       0x14 debug\s3eMATSDK_platform.os
+                0x00002f90                MATSetUseCookieTracking_platform(bool)
  .text._Z13s3eMATSDKInitv
-                0x0000301c       0x14 debug\s3eMATSDK.os
-                0x0000301c                s3eMATSDKInit()
+                0x00002fa4       0x14 debug\s3eMATSDK.os
+                0x00002fa4                s3eMATSDKInit()
  .text._Z18s3eMATSDKTerminatev
-                0x00003030        0xc debug\s3eMATSDK.os
-                0x00003030                s3eMATSDKTerminate()
+                0x00002fb8        0xc debug\s3eMATSDK.os
+                0x00002fb8                s3eMATSDKTerminate()
  .text.MATStartMobileAppTracker
-                0x0000303c       0x24 debug\s3eMATSDK.os
-                0x0000303c                MATStartMobileAppTracker
+                0x00002fc4       0x24 debug\s3eMATSDK.os
+                0x00002fc4                MATStartMobileAppTracker
  .text.MATSDKParameters
-                0x00003060        0xc debug\s3eMATSDK.os
-                0x00003060                MATSDKParameters
+                0x00002fe8        0xc debug\s3eMATSDK.os
+                0x00002fe8                MATSDKParameters
  .text.MATTrackInstall
-                0x0000306c        0xc debug\s3eMATSDK.os
-                0x0000306c                MATTrackInstall
+                0x00002ff4        0xc debug\s3eMATSDK.os
+                0x00002ff4                MATTrackInstall
  .text.MATTrackUpdate
-                0x00003078        0xc debug\s3eMATSDK.os
-                0x00003078                MATTrackUpdate
+                0x00003000        0xc debug\s3eMATSDK.os
+                0x00003000                MATTrackUpdate
  .text.MATTrackInstallWithReferenceId
-                0x00003084       0x1c debug\s3eMATSDK.os
-                0x00003084                MATTrackInstallWithReferenceId
+                0x0000300c       0x1c debug\s3eMATSDK.os
+                0x0000300c                MATTrackInstallWithReferenceId
  .text.MATTrackActionForEventIdOrName
-                0x000030a0       0x34 debug\s3eMATSDK.os
-                0x000030a0                MATTrackActionForEventIdOrName
+                0x00003028       0x34 debug\s3eMATSDK.os
+                0x00003028                MATTrackActionForEventIdOrName
  .text.MATTrackActionForEventIdOrNameItems
-                0x000030d4       0x64 debug\s3eMATSDK.os
-                0x000030d4                MATTrackActionForEventIdOrNameItems
+                0x0000305c       0x64 debug\s3eMATSDK.os
+                0x0000305c                MATTrackActionForEventIdOrNameItems
  .text.MATTrackAction
-                0x00003138       0x3c debug\s3eMATSDK.os
-                0x00003138                MATTrackAction
+                0x000030c0       0x3c debug\s3eMATSDK.os
+                0x000030c0                MATTrackAction
  .text.MATStartAppToAppTracking
-                0x00003174       0x3c debug\s3eMATSDK.os
-                0x00003174                MATStartAppToAppTracking
+                0x000030fc       0x3c debug\s3eMATSDK.os
+                0x000030fc                MATStartAppToAppTracking
  .text.MATSetPackageName
-                0x000031b0       0x1c debug\s3eMATSDK.os
-                0x000031b0                MATSetPackageName
+                0x00003138       0x1c debug\s3eMATSDK.os
+                0x00003138                MATSetPackageName
  .text.MATSetCurrencyCode
-                0x000031cc       0x1c debug\s3eMATSDK.os
-                0x000031cc                MATSetCurrencyCode
+                0x00003154       0x1c debug\s3eMATSDK.os
+                0x00003154                MATSetCurrencyCode
  .text.MATSetJailbroken
-                0x000031e8       0x24 debug\s3eMATSDK.os
-                0x000031e8                MATSetJailbroken
+                0x00003170       0x24 debug\s3eMATSDK.os
+                0x00003170                MATSetJailbroken
  .text.MATSetOpenUDID
-                0x0000320c       0x1c debug\s3eMATSDK.os
-                0x0000320c                MATSetOpenUDID
+                0x00003194       0x1c debug\s3eMATSDK.os
+                0x00003194                MATSetOpenUDID
  .text.MATSetUserId
-                0x00003228       0x1c debug\s3eMATSDK.os
-                0x00003228                MATSetUserId
+                0x000031b0       0x1c debug\s3eMATSDK.os
+                0x000031b0                MATSetUserId
  .text.MATSetRevenue
-                0x00003244       0x1c debug\s3eMATSDK.os
-                0x00003244                MATSetRevenue
+                0x000031cc       0x1c debug\s3eMATSDK.os
+                0x000031cc                MATSetRevenue
  .text.MATSetSiteId
-                0x00003260       0x1c debug\s3eMATSDK.os
-                0x00003260                MATSetSiteId
+                0x000031e8       0x1c debug\s3eMATSDK.os
+                0x000031e8                MATSetSiteId
  .text.MATSetTRUSTeId
-                0x0000327c       0x1c debug\s3eMATSDK.os
-                0x0000327c                MATSetTRUSTeId
+                0x00003204       0x1c debug\s3eMATSDK.os
+                0x00003204                MATSetTRUSTeId
  .text.MATSetAppAdTracking
-                0x00003298       0x24 debug\s3eMATSDK.os
-                0x00003298                MATSetAppAdTracking
+                0x00003220       0x24 debug\s3eMATSDK.os
+                0x00003220                MATSetAppAdTracking
  .text.MATSetDelegate
-                0x000032bc       0x24 debug\s3eMATSDK.os
-                0x000032bc                MATSetDelegate
+                0x00003244       0x24 debug\s3eMATSDK.os
+                0x00003244                MATSetDelegate
  .text.MATSetDebugMode
-                0x000032e0       0x24 debug\s3eMATSDK.os
-                0x000032e0                MATSetDebugMode
+                0x00003268       0x24 debug\s3eMATSDK.os
+                0x00003268                MATSetDebugMode
  .text.MATSetAllowDuplicates
-                0x00003304       0x24 debug\s3eMATSDK.os
-                0x00003304                MATSetAllowDuplicates
+                0x0000328c       0x24 debug\s3eMATSDK.os
+                0x0000328c                MATSetAllowDuplicates
  .text.MATSetShouldAutoDetectJailbroken
-                0x00003328       0x24 debug\s3eMATSDK.os
-                0x00003328                MATSetShouldAutoDetectJailbroken
+                0x000032b0       0x24 debug\s3eMATSDK.os
+                0x000032b0                MATSetShouldAutoDetectJailbroken
  .text.MATSetMACAddress
-                0x0000334c       0x1c debug\s3eMATSDK.os
-                0x0000334c                MATSetMACAddress
+                0x000032d4       0x1c debug\s3eMATSDK.os
+                0x000032d4                MATSetMACAddress
  .text.MATSetODIN1
-                0x00003368       0x1c debug\s3eMATSDK.os
-                0x00003368                MATSetODIN1
+                0x000032f0       0x1c debug\s3eMATSDK.os
+                0x000032f0                MATSetODIN1
  .text.MATSetUIID
-                0x00003384       0x1c debug\s3eMATSDK.os
-                0x00003384                MATSetUIID
+                0x0000330c       0x1c debug\s3eMATSDK.os
+                0x0000330c                MATSetUIID
  .text.MATSetShouldAutoGenerateAppleVendorIdentifier
-                0x000033a0       0x24 debug\s3eMATSDK.os
-                0x000033a0                MATSetShouldAutoGenerateAppleVendorIdentifier
+                0x00003328       0x24 debug\s3eMATSDK.os
+                0x00003328                MATSetShouldAutoGenerateAppleVendorIdentifier
  .text.MATSetShouldAutoGenerateAppleAdvertisingIdentifier
-                0x000033c4       0x24 debug\s3eMATSDK.os
-                0x000033c4                MATSetShouldAutoGenerateAppleAdvertisingIdentifier
+                0x0000334c       0x24 debug\s3eMATSDK.os
+                0x0000334c                MATSetShouldAutoGenerateAppleAdvertisingIdentifier
  .text.MATSetUseCookieTracking
-                0x000033e8       0x24 debug\s3eMATSDK.os
-                0x000033e8                MATSetUseCookieTracking
+                0x00003370       0x24 debug\s3eMATSDK.os
+                0x00003370                MATSetUseCookieTracking
  .text.MATSetRedirectUrl
-                0x0000340c       0x1c debug\s3eMATSDK.os
-                0x0000340c                MATSetRedirectUrl
+                0x00003394       0x1c debug\s3eMATSDK.os
+                0x00003394                MATSetRedirectUrl
  .text.MATSetAppleAdvertisingIdentifier
-                0x00003428       0x1c debug\s3eMATSDK.os
-                0x00003428                MATSetAppleAdvertisingIdentifier
+                0x000033b0       0x1c debug\s3eMATSDK.os
+                0x000033b0                MATSetAppleAdvertisingIdentifier
  .text.MATSetAppleVendorIdentifier
-                0x00003444       0x1c debug\s3eMATSDK.os
-                0x00003444                MATSetAppleVendorIdentifier
- .text.MATSetUseHTTPS
-                0x00003460       0x24 debug\s3eMATSDK.os
-                0x00003460                MATSetUseHTTPS
+                0x000033cc       0x1c debug\s3eMATSDK.os
+                0x000033cc                MATSetAppleVendorIdentifier
  .text.MATSetAge
-                0x00003484       0x1c debug\s3eMATSDK.os
-                0x00003484                MATSetAge
+                0x000033e8       0x1c debug\s3eMATSDK.os
+                0x000033e8                MATSetAge
  .text.MATSetGender
-                0x000034a0       0x1c debug\s3eMATSDK.os
-                0x000034a0                MATSetGender
+                0x00003404       0x1c debug\s3eMATSDK.os
+                0x00003404                MATSetGender
  .text.MATSetLocation
-                0x000034bc       0x2c debug\s3eMATSDK.os
-                0x000034bc                MATSetLocation
+                0x00003420       0x2c debug\s3eMATSDK.os
+                0x00003420                MATSetLocation
  .text._ZL29MATStartMobileAppTracker_wrapPKcS0_
-                0x000034e8       0xa0 debug\s3eMATSDK_register.os
+                0x0000344c       0xa0 debug\s3eMATSDK_register.os
  .text._ZL20MATTrackInstall_wrapv
-                0x00003588       0x88 debug\s3eMATSDK_register.os
+                0x000034ec       0x88 debug\s3eMATSDK_register.os
  .text._ZL19MATTrackUpdate_wrapv
-                0x00003610       0x88 debug\s3eMATSDK_register.os
+                0x00003574       0x88 debug\s3eMATSDK_register.os
  .text._ZL35MATTrackInstallWithReferenceId_wrapPKc
-                0x00003698       0x98 debug\s3eMATSDK_register.os
+                0x000035fc       0x98 debug\s3eMATSDK_register.os
  .text._ZL35MATTrackActionForEventIdOrName_wrapPKcbS0_
-                0x00003730       0xb4 debug\s3eMATSDK_register.os
+                0x00003694       0xb4 debug\s3eMATSDK_register.os
  .text._ZL40MATTrackActionForEventIdOrNameItems_wrapPKcbPK8MATArrayS0_dS0_hS0_S0_
-                0x000037e4       0xe8 debug\s3eMATSDK_register.os
+                0x00003748       0xe8 debug\s3eMATSDK_register.os
  .text._ZL19MATTrackAction_wrapPKcbdS0_
-                0x000038cc       0xbc debug\s3eMATSDK_register.os
+                0x00003830       0xbc debug\s3eMATSDK_register.os
  .text._ZL22MATSetPackageName_wrapPKc
-                0x00003988       0x98 debug\s3eMATSDK_register.os
+                0x000038ec       0x98 debug\s3eMATSDK_register.os
  .text._ZL23MATSetCurrencyCode_wrapPKc
-                0x00003a20       0x98 debug\s3eMATSDK_register.os
+                0x00003984       0x98 debug\s3eMATSDK_register.os
  .text._ZL19MATSetOpenUDID_wrapPKc
-                0x00003ab8       0x98 debug\s3eMATSDK_register.os
+                0x00003a1c       0x98 debug\s3eMATSDK_register.os
  .text._ZL15MATSetUIID_wrapPKc
-                0x00003b50       0x98 debug\s3eMATSDK_register.os
+                0x00003ab4       0x98 debug\s3eMATSDK_register.os
  .text._ZL17MATSetUserId_wrapPKc
-                0x00003be8       0x98 debug\s3eMATSDK_register.os
+                0x00003b4c       0x98 debug\s3eMATSDK_register.os
  .text._ZL18MATSetRevenue_wrapd
-                0x00003c80       0x98 debug\s3eMATSDK_register.os
+                0x00003be4       0x98 debug\s3eMATSDK_register.os
  .text._ZL17MATSetSiteId_wrapPKc
-                0x00003d18       0x98 debug\s3eMATSDK_register.os
+                0x00003c7c       0x98 debug\s3eMATSDK_register.os
  .text._ZL19MATSetTRUSTeId_wrapPKc
-                0x00003db0       0x98 debug\s3eMATSDK_register.os
+                0x00003d14       0x98 debug\s3eMATSDK_register.os
  .text._ZL24MATSetAppAdTracking_wrapb
-                0x00003e48       0xa4 debug\s3eMATSDK_register.os
+                0x00003dac       0xa4 debug\s3eMATSDK_register.os
  .text._ZL19MATSetDelegate_wrapb
-                0x00003eec       0xa4 debug\s3eMATSDK_register.os
- .text._ZL19MATSetUseHTTPS_wrapb
-                0x00003f90       0xa4 debug\s3eMATSDK_register.os
+                0x00003e50       0xa4 debug\s3eMATSDK_register.os
  .text._ZL21MATSetJailbroken_wrapb
-                0x00004034       0xa4 debug\s3eMATSDK_register.os
+                0x00003ef4       0xa4 debug\s3eMATSDK_register.os
  .text._ZL37MATSetShouldAutoDetectJailbroken_wrapb
-                0x000040d8       0xa4 debug\s3eMATSDK_register.os
+                0x00003f98       0xa4 debug\s3eMATSDK_register.os
  .text._ZL21MATSetMACAddress_wrapPKc
-                0x0000417c       0x98 debug\s3eMATSDK_register.os
+                0x0000403c       0x98 debug\s3eMATSDK_register.os
  .text._ZL16MATSetODIN1_wrapPKc
-                0x00004214       0x98 debug\s3eMATSDK_register.os
+                0x000040d4       0x98 debug\s3eMATSDK_register.os
  .text._ZL28MATSetUseCookieTracking_wrapb
-                0x000042ac       0xa4 debug\s3eMATSDK_register.os
+                0x0000416c       0xa4 debug\s3eMATSDK_register.os
  .text._ZL14MATSetAge_wrapi
-                0x00004350       0x98 debug\s3eMATSDK_register.os
+                0x00004210       0x98 debug\s3eMATSDK_register.os
  .text._ZL17MATSetGender_wrapi
-                0x000043e8       0x98 debug\s3eMATSDK_register.os
+                0x000042a8       0x98 debug\s3eMATSDK_register.os
  .text._ZL19MATSetLocation_wrapddd
-                0x00004480       0xac debug\s3eMATSDK_register.os
+                0x00004340       0xac debug\s3eMATSDK_register.os
  .text._ZL29MATStartAppToAppTracking_wrapPKcS0_S0_S0_b
-                0x0000452c       0xc0 debug\s3eMATSDK_register.os
+                0x000043ec       0xc0 debug\s3eMATSDK_register.os
  .text._ZL22MATSetRedirectUrl_wrapPKc
-                0x000045ec       0x98 debug\s3eMATSDK_register.os
+                0x000044ac       0x98 debug\s3eMATSDK_register.os
  .text._ZL37MATSetAppleAdvertisingIdentifier_wrapPKc
-                0x00004684       0x98 debug\s3eMATSDK_register.os
+                0x00004544       0x98 debug\s3eMATSDK_register.os
  .text._ZL32MATSetAppleVendorIdentifier_wrapPKc
-                0x0000471c       0x98 debug\s3eMATSDK_register.os
+                0x000045dc       0x98 debug\s3eMATSDK_register.os
  .text._ZL50MATSetShouldAutoGenerateAppleVendorIdentifier_wrapb
-                0x000047b4       0xa4 debug\s3eMATSDK_register.os
+                0x00004674       0xa4 debug\s3eMATSDK_register.os
  .text._ZL55MATSetShouldAutoGenerateAppleAdvertisingIdentifier_wrapb
-                0x00004858       0xa4 debug\s3eMATSDK_register.os
+                0x00004718       0xa4 debug\s3eMATSDK_register.os
  .text._ZL21MATSDKParameters_wrapv
-                0x000048fc       0x88 debug\s3eMATSDK_register.os
+                0x000047bc       0x88 debug\s3eMATSDK_register.os
  .text._ZL20MATSetDebugMode_wrapb
-                0x00004984       0xa4 debug\s3eMATSDK_register.os
+                0x00004844       0xa4 debug\s3eMATSDK_register.os
  .text._ZL26MATSetAllowDuplicates_wrapb
-                0x00004a28       0xa4 debug\s3eMATSDK_register.os
+                0x000048e8       0xa4 debug\s3eMATSDK_register.os
  .text._Z20s3eMATSDKRegisterExtv
-                0x00004acc      0x2b4 debug\s3eMATSDK_register.os
-                0x00004acc                s3eMATSDKRegisterExt()
+                0x0000498c      0x2a4 debug\s3eMATSDK_register.os
+                0x0000498c                s3eMATSDKRegisterExt()
  .text.RegisterExt
-                0x00004d80        0xc debug\s3eMATSDK_register.os
-                0x00004d80                RegisterExt
+                0x00004c30        0xc debug\s3eMATSDK_register.os
+                0x00004c30                RegisterExt
  .text.IwDebugTraceSetTraceChannel
-                0x00004d8c       0x1c C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
-                0x00004d8c                IwDebugTraceSetTraceChannel
+                0x00004c3c       0x1c C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00004c3c                IwDebugTraceSetTraceChannel
  .text._GLOBAL__I_Z__sdk_modules_iwcore_source_IwDebug.cpp
-                0x00004da8       0xa4 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00004c58       0xa4 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .text.IwDebugTraceIsChannelOn
-                0x00004e4c      0x2b8 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
-                0x00004e4c                IwDebugTraceIsChannelOn
+                0x00004cfc      0x2b8 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00004cfc                IwDebugTraceIsChannelOn
  .text.IwDebugTraceLinePrintf
-                0x00005104      0x10c C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
-                0x00005104                IwDebugTraceLinePrintf
+                0x00004fb4      0x10c C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00004fb4                IwDebugTraceLinePrintf
  .text.s3eEdkThreadRunOnOS
-                0x00005210       0x30 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
-                0x00005210                s3eEdkThreadRunOnOS
- .text          0x00005240       0x1c c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
-                0x00005240                __aeabi_ldivmod
- .text          0x0000525c       0x88 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
-                0x0000525c                __gnu_uldivmod_helper
-                0x000052a0                __gnu_ldivmod_helper
- .text          0x000052e4      0xec4 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
-                0x00005d0c                __gnu_Unwind_RaiseException
-                0x00005864                __aeabi_unwind_cpp_pr0
-                0x00005394                _Unwind_GetCFA
-                0x00005330                _Unwind_VRS_Set
-                0x00005aa8                __gnu_Unwind_Backtrace
-                0x00005e3c                _Unwind_VRS_Pop
-                0x00005854                __aeabi_unwind_cpp_pr2
-                0x000053a0                _Unwind_DeleteException
-                0x0000539c                _Unwind_Complete
-                0x00005dd0                __gnu_Unwind_Resume
-                0x00005c98                __gnu_Unwind_ForcedUnwind
-                0x00005db0                __gnu_Unwind_Resume_or_Rethrow
-                0x000052e4                _Unwind_VRS_Get
-                0x0000585c                __aeabi_unwind_cpp_pr1
- .text          0x000061a8      0x1a8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
-                0x00006308                ___Unwind_ForcedUnwind
-                0x000061c4                __gnu_Unwind_Save_VFP
-                0x000062e4                _Unwind_Resume_or_Rethrow
-                0x000062e4                ___Unwind_Resume_or_Rethrow
-                0x0000632c                _Unwind_Backtrace
-                0x000061a8                __restore_core_regs
-                0x000061e4                __gnu_Unwind_Save_VFP_D_16_to_31
-                0x000061d4                __gnu_Unwind_Save_VFP_D
-                0x0000632c                ___Unwind_Backtrace
-                0x0000629c                ___Unwind_RaiseException
-                0x000062c0                ___Unwind_Resume
-                0x000061ec                __gnu_Unwind_Restore_WMMXD
-                0x000061bc                __gnu_Unwind_Restore_VFP
-                0x000062c0                _Unwind_Resume
-                0x000061cc                __gnu_Unwind_Restore_VFP_D
-                0x000061dc                __gnu_Unwind_Restore_VFP_D_16_to_31
-                0x0000629c                _Unwind_RaiseException
-                0x000061a8                restore_core_regs
-                0x00006288                __gnu_Unwind_Save_WMMXC
-                0x00006274                __gnu_Unwind_Restore_WMMXC
-                0x00006308                _Unwind_ForcedUnwind
-                0x00006230                __gnu_Unwind_Save_WMMXD
- .text          0x00006350      0x484 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
-                0x000063f0                _Unwind_GetRegionStart
-                0x0000641c                __gnu_unwind_execute
-                0x000063a8                _Unwind_GetTextRelBase
-                0x000063b8                _Unwind_GetLanguageSpecificData
-                0x00006794                __gnu_unwind_frame
-                0x000063b0                _Unwind_GetDataRelBase
- .text          0x000067d4      0x47c c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
-                0x000067d4                __divdi3
- .text          0x00006c50      0x40c c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
-                0x00006c50                __udivdi3
- .text          0x0000705c       0xc4 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
-                0x0000705c                __udivsi3
-                0x0000705c                __aeabi_uidiv
-                0x00007108                __aeabi_uidivmod
- .text          0x00007120       0x10 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
-                0x00007120                __div0
+                0x000050c0       0x30 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x000050c0                s3eEdkThreadRunOnOS
+ .text          0x000050f0       0x1c c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
+                0x000050f0                __aeabi_ldivmod
+ .text          0x0000510c       0x88 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+                0x0000510c                __gnu_uldivmod_helper
+                0x00005150                __gnu_ldivmod_helper
+ .text          0x00005194      0xec4 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+                0x00005bbc                __gnu_Unwind_RaiseException
+                0x00005714                __aeabi_unwind_cpp_pr0
+                0x00005244                _Unwind_GetCFA
+                0x000051e0                _Unwind_VRS_Set
+                0x00005958                __gnu_Unwind_Backtrace
+                0x00005cec                _Unwind_VRS_Pop
+                0x00005704                __aeabi_unwind_cpp_pr2
+                0x00005250                _Unwind_DeleteException
+                0x0000524c                _Unwind_Complete
+                0x00005c80                __gnu_Unwind_Resume
+                0x00005b48                __gnu_Unwind_ForcedUnwind
+                0x00005c60                __gnu_Unwind_Resume_or_Rethrow
+                0x00005194                _Unwind_VRS_Get
+                0x0000570c                __aeabi_unwind_cpp_pr1
+ .text          0x00006058      0x1a8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
+                0x000061b8                ___Unwind_ForcedUnwind
+                0x00006074                __gnu_Unwind_Save_VFP
+                0x00006194                _Unwind_Resume_or_Rethrow
+                0x00006194                ___Unwind_Resume_or_Rethrow
+                0x000061dc                _Unwind_Backtrace
+                0x00006058                __restore_core_regs
+                0x00006094                __gnu_Unwind_Save_VFP_D_16_to_31
+                0x00006084                __gnu_Unwind_Save_VFP_D
+                0x000061dc                ___Unwind_Backtrace
+                0x0000614c                ___Unwind_RaiseException
+                0x00006170                ___Unwind_Resume
+                0x0000609c                __gnu_Unwind_Restore_WMMXD
+                0x0000606c                __gnu_Unwind_Restore_VFP
+                0x00006170                _Unwind_Resume
+                0x0000607c                __gnu_Unwind_Restore_VFP_D
+                0x0000608c                __gnu_Unwind_Restore_VFP_D_16_to_31
+                0x0000614c                _Unwind_RaiseException
+                0x00006058                restore_core_regs
+                0x00006138                __gnu_Unwind_Save_WMMXC
+                0x00006124                __gnu_Unwind_Restore_WMMXC
+                0x000061b8                _Unwind_ForcedUnwind
+                0x000060e0                __gnu_Unwind_Save_WMMXD
+ .text          0x00006200      0x484 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+                0x000062a0                _Unwind_GetRegionStart
+                0x000062cc                __gnu_unwind_execute
+                0x00006258                _Unwind_GetTextRelBase
+                0x00006268                _Unwind_GetLanguageSpecificData
+                0x00006644                __gnu_unwind_frame
+                0x00006260                _Unwind_GetDataRelBase
+ .text          0x00006684      0x47c c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+                0x00006684                __divdi3
+ .text          0x00006b00      0x40c c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+                0x00006b00                __udivdi3
+ .text          0x00006f0c       0xc4 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
+                0x00006f0c                __udivsi3
+                0x00006f0c                __aeabi_uidiv
+                0x00006fb8                __aeabi_uidivmod
+ .text          0x00006fd0       0x10 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
+                0x00006fd0                __div0
  *(.gnu.warning)
  *(.glue_7t)
  .glue_7t       0x00000000        0x0 linker stubs
@@ -691,34 +683,34 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 
 .fini
  *(.fini)
-                0x00007130                PROVIDE (__etext, .)
-                0x00007130                PROVIDE (_etext, .)
-                0x00007130                PROVIDE (etext, .)
+                0x00006fe0                PROVIDE (__etext, .)
+                0x00006fe0                PROVIDE (_etext, .)
+                0x00006fe0                PROVIDE (etext, .)
 
-.rodata         0x00007130      0xdf4
+.rodata         0x00006fe0      0xda4
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00007130      0x458 debug\s3eMATSDK_platform.os
- .rodata        0x00007588      0x880 debug\s3eMATSDK_register.os
+ .rodata        0x00006fe0      0x440 debug\s3eMATSDK_platform.os
+ .rodata        0x00007420      0x848 debug\s3eMATSDK_register.os
  .rodata.str1.4
-                0x00007e08      0x11c C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00007c68      0x11c C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
                                 0x120 (size before relaxing)
 
 .rodata1
  *(.rodata1)
 
-.ARM.extab      0x00007f24       0x24
+.ARM.extab      0x00007d84       0x24
  *(.ARM.extab* .gnu.linkonce.armextab.*)
- .ARM.extab     0x00007f24       0x24 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
-                0x00007f48                __exidx_start = .
+ .ARM.extab     0x00007d84       0x24 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+                0x00007da8                __exidx_start = .
 
-.ARM.exidx      0x00007f48       0xf8
+.ARM.exidx      0x00007da8       0xf8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x00007f48       0x10 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
- .ARM.exidx     0x00007f58       0xa0 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
- .ARM.exidx     0x00007ff8       0x38 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
- .ARM.exidx     0x00008030        0x8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
- .ARM.exidx     0x00008038        0x8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
-                0x00008040                __exidx_end = .
+ .ARM.exidx     0x00007da8       0x10 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+ .ARM.exidx     0x00007db8       0xa0 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .ARM.exidx     0x00007e58       0x38 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .ARM.exidx     0x00007e90        0x8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .ARM.exidx     0x00007e98        0x8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+                0x00007ea0                __exidx_end = .
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
@@ -728,8 +720,8 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 
 .gcc_except_table
  *(.gcc_except_table .gcc_except_table.*)
-                0x00008040                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
-                0x00009e0c                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
+                0x00007ea0                . = (ALIGN (0x1000) - ((0x1000 - .) & 0xfff))
+                0x00008e10                . = (0x1000 DATA_SEGMENT_ALIGN 0x1000)
 
 .eh_frame
  *(.eh_frame)
@@ -747,16 +739,16 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 .preinit_array
  *(.preinit_array)
 
-.init_array     0x00009e0c        0x8
+.init_array     0x00008e10        0x8
  *(SORT(.init_array.*))
  *(.init_array)
- .init_array    0x00009e0c        0x4 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
- .init_array    0x00009e10        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .init_array    0x00008e10        0x4 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+ .init_array    0x00008e14        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
 
-.fini_array     0x00009e14        0x8
+.fini_array     0x00008e18        0x8
  *(.fini_array)
- .fini_array    0x00009e14        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
- .fini_array    0x00009e18        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
+ .fini_array    0x00008e18        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+ .fini_array    0x00008e1c        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtend_so.o
  *(SORT(.fini_array.*))
 
 .ctors
@@ -780,49 +772,49 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  *(.data.rel.ro.local* .gnu.linkonce.d.rel.ro.local.*)
  *(.data.rel.ro* .gnu.linkonce.d.rel.ro.*)
 
-.dynamic        0x00009e1c       0xd8
+.dynamic        0x00008e20       0xd8
  *(.dynamic)
- .dynamic       0x00009e1c       0xd8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00009e1c                _DYNAMIC
+ .dynamic       0x00008e20       0xd8 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00008e20                _DYNAMIC
 
-.got            0x00009ef4      0x10c
+.got            0x00008ef8      0x108
  *(.got.plt)
- .got.plt       0x00009ef4       0x5c C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x00009ef4                _GLOBAL_OFFSET_TABLE_
+ .got.plt       0x00008ef8       0x5c C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00008ef8                _GLOBAL_OFFSET_TABLE_
  *(.got)
- .got           0x00009f50       0xb0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x0000a000                . = (. DATA_SEGMENT_RELRO_END 0x0)
+ .got           0x00008f54       0xac C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00009000                . = (. DATA_SEGMENT_RELRO_END 0x0)
 
-.data           0x0000a000        0x4
-                0x0000a000                __data_start = .
+.data           0x00009000        0x4
+                0x00009000                __data_start = .
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x0000a000        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
-                0x0000a000                __dso_handle
+ .data          0x00009000        0x4 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
+                0x00009000                __dso_handle
 
 .data1
  *(.data1)
-                0x0000a004                _edata = .
-                0x0000a004                PROVIDE (edata, .)
-                0x0000a004                __bss_start = .
-                0x0000a004                __bss_start__ = .
+                0x00009004                _edata = .
+                0x00009004                PROVIDE (edata, .)
+                0x00009004                __bss_start = .
+                0x00009004                __bss_start__ = .
 
-.bss            0x0000a004     0x1a7c
+.bss            0x00009004     0x1a7c
  *(.dynbss)
  .dynbss        0x00000000        0x0 C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/crtbegin_so.o
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000a004       0x54 debug\s3eMATSDK_platform.os
- .bss           0x0000a058     0x1a28 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
-                0x0000a058                g_DebugGlobals
+ .bss           0x00009004       0x54 debug\s3eMATSDK_platform.os
+ .bss           0x00009058     0x1a28 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x00009058                g_DebugGlobals
  *(COMMON)
-                0x0000ba80                . = ALIGN ((. != 0x0)?0x4:0x1)
-                0x0000ba80                _bss_end__ = .
-                0x0000ba80                __bss_end__ = .
-                0x0000ba80                . = ALIGN (0x4)
-                0x0000ba80                . = ALIGN (0x4)
-                0x0000ba80                __end__ = .
-                0x0000ba80                _end = .
-                0x0000ba80                PROVIDE (end, .)
-                0x0000ba80                . = DATA_SEGMENT_END (.)
+                0x0000aa80                . = ALIGN ((. != 0x0)?0x4:0x1)
+                0x0000aa80                _bss_end__ = .
+                0x0000aa80                __bss_end__ = .
+                0x0000aa80                . = ALIGN (0x4)
+                0x0000aa80                . = ALIGN (0x4)
+                0x0000aa80                __end__ = .
+                0x0000aa80                _end = .
+                0x0000aa80                PROVIDE (end, .)
+                0x0000aa80                . = DATA_SEGMENT_END (.)
 
 .stab
  *(.stab)
@@ -849,8 +841,8 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  .comment       0x00000025       0x12 debug\s3eMATSDK_platform.os
  .comment       0x00000037       0x12 debug\s3eMATSDK.os
  .comment       0x00000049       0x12 debug\s3eMATSDK_register.os
- .comment       0x0000005b       0x12 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
- .comment       0x0000006d       0x12 C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+ .comment       0x0000005b       0x12 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
+ .comment       0x0000006d       0x12 C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .comment       0x0000007f       0x12 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
  .comment       0x00000091       0x12 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
  .comment       0x000000a3       0x12 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
@@ -869,67 +861,67 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x560
+.debug_aranges  0x00000000      0x548
  *(.debug_aranges)
  .debug_aranges
-                0x00000000      0x1c0 debug\s3eMATSDK_platform.os
+                0x00000000      0x1b8 debug\s3eMATSDK_platform.os
  .debug_aranges
-                0x000001c0      0x140 debug\s3eMATSDK.os
+                0x000001b8      0x138 debug\s3eMATSDK.os
  .debug_aranges
-                0x00000300      0x140 debug\s3eMATSDK_register.os
+                0x000002f0      0x138 debug\s3eMATSDK_register.os
  .debug_aranges
-                0x00000440       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
+                0x00000428       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
  .debug_aranges
-                0x00000460       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+                0x00000448       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
  .debug_aranges
-                0x00000480       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+                0x00000468       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
  .debug_aranges
-                0x000004a0       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
+                0x00000488       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
  .debug_aranges
-                0x000004c0       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+                0x000004a8       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
  .debug_aranges
-                0x000004e0       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+                0x000004c8       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
  .debug_aranges
-                0x00000500       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+                0x000004e8       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
  .debug_aranges
-                0x00000520       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
+                0x00000508       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
  .debug_aranges
-                0x00000540       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
+                0x00000528       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
 
 .debug_pubnames
-                0x00000000      0xcdb
+                0x00000000      0xcac
  *(.debug_pubnames)
  .debug_pubnames
-                0x00000000      0x649 debug\s3eMATSDK_platform.os
+                0x00000000      0x62d debug\s3eMATSDK_platform.os
  .debug_pubnames
-                0x00000649      0x3a5 debug\s3eMATSDK.os
+                0x0000062d      0x392 debug\s3eMATSDK.os
  .debug_pubnames
-                0x000009ee       0x3b debug\s3eMATSDK_register.os
+                0x000009bf       0x3b debug\s3eMATSDK_register.os
  .debug_pubnames
-                0x00000a29       0x45 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+                0x000009fa       0x45 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
  .debug_pubnames
-                0x00000a6e      0x177 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+                0x00000a3f      0x177 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
  .debug_pubnames
-                0x00000be5       0xb7 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+                0x00000bb6       0xb7 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
  .debug_pubnames
-                0x00000c9c       0x1f c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+                0x00000c6d       0x1f c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
  .debug_pubnames
-                0x00000cbb       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+                0x00000c8c       0x20 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
 
-.debug_info     0x00000000     0xa154
+.debug_info     0x00000000     0xa0da
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x6787 debug\s3eMATSDK_platform.os
- .debug_info    0x00006787      0x767 debug\s3eMATSDK.os
- .debug_info    0x00006eee      0x779 debug\s3eMATSDK_register.os
- .debug_info    0x00007667       0xf5 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
- .debug_info    0x0000775c       0xde c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
- .debug_info    0x0000783a     0x1424 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
- .debug_info    0x00008c5e       0xf9 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
- .debug_info    0x00008d57      0x636 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
- .debug_info    0x0000938d      0x606 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
- .debug_info    0x00009993      0x5cb c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
- .debug_info    0x00009f5e       0xfb c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
- .debug_info    0x0000a059       0xfb c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
+ .debug_info    0x00000000     0x675a debug\s3eMATSDK_platform.os
+ .debug_info    0x0000675a      0x740 debug\s3eMATSDK.os
+ .debug_info    0x00006e9a      0x753 debug\s3eMATSDK_register.os
+ .debug_info    0x000075ed       0xf5 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
+ .debug_info    0x000076e2       0xde c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+ .debug_info    0x000077c0     0x1424 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .debug_info    0x00008be4       0xf9 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
+ .debug_info    0x00008cdd      0x636 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .debug_info    0x00009313      0x606 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .debug_info    0x00009919      0x5cb c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+ .debug_info    0x00009ee4       0xfb c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
+ .debug_info    0x00009fdf       0xfb c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
 
 .debug_abbrev   0x00000000      0xe64
  *(.debug_abbrev)
@@ -946,62 +938,62 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
  .debug_abbrev  0x00000e3c       0x14 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
  .debug_abbrev  0x00000e50       0x14 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
 
-.debug_line     0x00000000     0x1b51
+.debug_line     0x00000000     0x1aed
  *(.debug_line)
- .debug_line    0x00000000      0x6a5 debug\s3eMATSDK_platform.os
- .debug_line    0x000006a5      0x35a debug\s3eMATSDK.os
- .debug_line    0x000009ff      0x442 debug\s3eMATSDK_register.os
- .debug_line    0x00000e41       0xa5 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
- .debug_line    0x00000ee6       0xab c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
- .debug_line    0x00000f91      0x4d2 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
- .debug_line    0x00001463       0xf1 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
- .debug_line    0x00001554      0x1d2 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
- .debug_line    0x00001726      0x162 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
- .debug_line    0x00001888      0x152 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
- .debug_line    0x000019da       0xcc c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
- .debug_line    0x00001aa6       0xab c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
+ .debug_line    0x00000000      0x683 debug\s3eMATSDK_platform.os
+ .debug_line    0x00000683      0x33c debug\s3eMATSDK.os
+ .debug_line    0x000009bf      0x41e debug\s3eMATSDK_register.os
+ .debug_line    0x00000ddd       0xa5 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
+ .debug_line    0x00000e82       0xab c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+ .debug_line    0x00000f2d      0x4d2 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .debug_line    0x000013ff       0xf1 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(libunwind.o)
+ .debug_line    0x000014f0      0x1d2 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .debug_line    0x000016c2      0x162 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .debug_line    0x00001824      0x152 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+ .debug_line    0x00001976       0xcc c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
+ .debug_line    0x00001a42       0xab c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_dvmd_lnx.o)
 
-.debug_frame    0x00000000     0x1210
+.debug_frame    0x00000000     0x11c4
  *(.debug_frame)
- .debug_frame   0x00000000      0x570 debug\s3eMATSDK_platform.os
- .debug_frame   0x00000570      0x41c debug\s3eMATSDK.os
- .debug_frame   0x0000098c      0x420 debug\s3eMATSDK_register.os
- .debug_frame   0x00000dac       0x60 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
- .debug_frame   0x00000e0c      0x248 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
- .debug_frame   0x00001054      0x108 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
- .debug_frame   0x0000115c       0x44 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
- .debug_frame   0x000011a0       0x48 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
- .debug_frame   0x000011e8       0x28 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000000      0x55c debug\s3eMATSDK_platform.os
+ .debug_frame   0x0000055c      0x400 debug\s3eMATSDK.os
+ .debug_frame   0x0000095c      0x404 debug\s3eMATSDK_register.os
+ .debug_frame   0x00000d60       0x60 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+ .debug_frame   0x00000dc0      0x248 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .debug_frame   0x00001008      0x108 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .debug_frame   0x00001110       0x44 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .debug_frame   0x00001154       0x48 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+ .debug_frame   0x0000119c       0x28 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivsi3.o)
 
-.debug_str      0x00000000     0x682e
+.debug_str      0x00000000     0x679c
  *(.debug_str)
- .debug_str     0x00000000     0x563c debug\s3eMATSDK_platform.os
-                               0x57c1 (size before relaxing)
- .debug_str     0x0000563c      0x23b debug\s3eMATSDK.os
-                                0x6b7 (size before relaxing)
- .debug_str     0x00005877      0x43e debug\s3eMATSDK_register.os
-                                0x72c (size before relaxing)
- .debug_str     0x00005cb5       0xb9 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+ .debug_str     0x00000000     0x55e5 debug\s3eMATSDK_platform.os
+                               0x576a (size before relaxing)
+ .debug_str     0x000055e5      0x220 debug\s3eMATSDK.os
+                                0x686 (size before relaxing)
+ .debug_str     0x00005805      0x41e debug\s3eMATSDK_register.os
+                                0x6ff (size before relaxing)
+ .debug_str     0x00005c23       0xb9 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
                                  0xde (size before relaxing)
- .debug_str     0x00005d6e      0x814 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .debug_str     0x00005cdc      0x814 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
                                 0x8f4 (size before relaxing)
- .debug_str     0x00006582      0x13d c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .debug_str     0x000064f0      0x13d c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
                                 0x45a (size before relaxing)
- .debug_str     0x000066bf      0x165 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .debug_str     0x0000662d      0x165 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
                                 0x215 (size before relaxing)
- .debug_str     0x00006824        0xa c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+ .debug_str     0x00006792        0xa c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
                                 0x216 (size before relaxing)
 
-.debug_loc      0x00000000     0x35bd
+.debug_loc      0x00000000     0x3545
  *(.debug_loc)
- .debug_loc     0x00000000      0x863 debug\s3eMATSDK_platform.os
- .debug_loc     0x00000863      0x620 debug\s3eMATSDK.os
- .debug_loc     0x00000e83      0x62d debug\s3eMATSDK_register.os
- .debug_loc     0x000014b0      0x120 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
- .debug_loc     0x000015d0      0xfef c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
- .debug_loc     0x000025bf      0x2f9 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
- .debug_loc     0x000028b8      0x6cf c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
- .debug_loc     0x00002f87      0x636 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+ .debug_loc     0x00000000      0x843 debug\s3eMATSDK_platform.os
+ .debug_loc     0x00000843      0x5f4 debug\s3eMATSDK.os
+ .debug_loc     0x00000e37      0x601 debug\s3eMATSDK_register.os
+ .debug_loc     0x00001438      0x120 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(bpabi.o)
+ .debug_loc     0x00001558      0xfef c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .debug_loc     0x00002547      0x2f9 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .debug_loc     0x00002840      0x6cf c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .debug_loc     0x00002f0f      0x636 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1021,15 +1013,15 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x760
+.debug_ranges   0x00000000      0x748
  *(.debug_ranges)
- .debug_ranges  0x00000000      0x1b0 debug\s3eMATSDK_platform.os
- .debug_ranges  0x000001b0      0x130 debug\s3eMATSDK.os
- .debug_ranges  0x000002e0      0x130 debug\s3eMATSDK_register.os
- .debug_ranges  0x00000410      0x1f8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
- .debug_ranges  0x00000608       0x30 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
- .debug_ranges  0x00000638       0xa0 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
- .debug_ranges  0x000006d8       0x88 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
+ .debug_ranges  0x00000000      0x1a8 debug\s3eMATSDK_platform.os
+ .debug_ranges  0x000001a8      0x128 debug\s3eMATSDK.os
+ .debug_ranges  0x000002d0      0x128 debug\s3eMATSDK_register.os
+ .debug_ranges  0x000003f8      0x1f8 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(unwind-arm.o)
+ .debug_ranges  0x000005f0       0x30 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(pr-support.o)
+ .debug_ranges  0x00000620       0xa0 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_divdi3.o)
+ .debug_ranges  0x000006c0       0x88 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_udivdi3.o)
 
 .gnu.attributes
  *(.gnu.attributes)
@@ -1040,7 +1032,7 @@ LOAD C:/Users/John/tools/android-ndk-r8c/platforms/android-9/arch-arm/usr/lib/cr
 /DISCARD/
  *(.note.GNU-stack)
  *(.gnu_debuglink)
-OUTPUT(C:\Users\John\Documents\GitHub\harshal-sdk\sdk\sdk-marmalade\ios_android\s3eMATSDK\lib\android\libs3eMATSDK_d.so elf32-littlearm)
+OUTPUT(C:\Users\John\Documents\GitHub\sdk\sdk-marmalade\ios_android\s3eMATSDK\lib\android\libs3eMATSDK_d.so elf32-littlearm)
 
 .ARM.attributes
                 0x00000000       0x31
@@ -1053,9 +1045,9 @@ OUTPUT(C:\Users\John\Documents\GitHub\harshal-sdk\sdk\sdk-marmalade\ios_android\
  .ARM.attributes
                 0x00000087       0x2d debug\s3eMATSDK_register.os
  .ARM.attributes
-                0x000000b4       0x2b C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(IwDebug.o)
+                0x000000b4       0x2b C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(IwDebug.o)
  .ARM.attributes
-                0x000000df       0x2b C:\marmalade\6.3\s3e\edk\lib\android\libedk.a(edk_helpers.o)
+                0x000000df       0x2b C:\marmalade\6.4\s3e\edk\lib\android\libedk.a(edk_helpers.o)
  .ARM.attributes
                 0x0000010a       0x19 c:/Users/John/tools/android-ndk-r8c/toolchains/arm-linux-androideabi-4.4.3/prebuilt/windows/bin/../lib/gcc/arm-linux-androideabi/4.4.3\libgcc.a(_aeabi_ldivmod.o)
  .ARM.attributes

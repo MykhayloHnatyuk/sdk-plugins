@@ -126,12 +126,6 @@ static void MATSetDelegate_wrap(bool enable)
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetDelegate, 1, enable);
 }
 
-static void MATSetUseHTTPS_wrap(bool enable)
-{
-    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetUseHTTPS"));
-    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetUseHTTPS, 1, enable);
-}
-
 static void MATSetJailbroken_wrap(bool isJailbroken)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetJailbroken"));
@@ -251,7 +245,6 @@ static void MATSetAllowDuplicates_wrap(bool allowDuplicates)
 #define MATSetTRUSTeId MATSetTRUSTeId_wrap
 #define MATSetAppAdTracking MATSetAppAdTracking_wrap
 #define MATSetDelegate MATSetDelegate_wrap
-#define MATSetUseHTTPS MATSetUseHTTPS_wrap
 #define MATSetJailbroken MATSetJailbroken_wrap
 #define MATSetShouldAutoDetectJailbroken MATSetShouldAutoDetectJailbroken_wrap
 #define MATSetMACAddress MATSetMACAddress_wrap
@@ -275,7 +268,7 @@ static void MATSetAllowDuplicates_wrap(bool allowDuplicates)
 void s3eMATSDKRegisterExt()
 {
     /* fill in the function pointer struct for this extension */
-    void* funcPtrs[35];
+    void* funcPtrs[34];
     funcPtrs[0] = (void*)MATStartMobileAppTracker;
     funcPtrs[1] = (void*)MATTrackInstall;
     funcPtrs[2] = (void*)MATTrackUpdate;
@@ -293,29 +286,28 @@ void s3eMATSDKRegisterExt()
     funcPtrs[14] = (void*)MATSetTRUSTeId;
     funcPtrs[15] = (void*)MATSetAppAdTracking;
     funcPtrs[16] = (void*)MATSetDelegate;
-    funcPtrs[17] = (void*)MATSetUseHTTPS;
-    funcPtrs[18] = (void*)MATSetJailbroken;
-    funcPtrs[19] = (void*)MATSetShouldAutoDetectJailbroken;
-    funcPtrs[20] = (void*)MATSetMACAddress;
-    funcPtrs[21] = (void*)MATSetODIN1;
-    funcPtrs[22] = (void*)MATSetUseCookieTracking;
-    funcPtrs[23] = (void*)MATSetAge;
-    funcPtrs[24] = (void*)MATSetGender;
-    funcPtrs[25] = (void*)MATSetLocation;
-    funcPtrs[26] = (void*)MATStartAppToAppTracking;
-    funcPtrs[27] = (void*)MATSetRedirectUrl;
-    funcPtrs[28] = (void*)MATSetAppleAdvertisingIdentifier;
-    funcPtrs[29] = (void*)MATSetAppleVendorIdentifier;
-    funcPtrs[30] = (void*)MATSetShouldAutoGenerateAppleVendorIdentifier;
-    funcPtrs[31] = (void*)MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
-    funcPtrs[32] = (void*)MATSDKParameters;
-    funcPtrs[33] = (void*)MATSetDebugMode;
-    funcPtrs[34] = (void*)MATSetAllowDuplicates;
+    funcPtrs[17] = (void*)MATSetJailbroken;
+    funcPtrs[18] = (void*)MATSetShouldAutoDetectJailbroken;
+    funcPtrs[19] = (void*)MATSetMACAddress;
+    funcPtrs[20] = (void*)MATSetODIN1;
+    funcPtrs[21] = (void*)MATSetUseCookieTracking;
+    funcPtrs[22] = (void*)MATSetAge;
+    funcPtrs[23] = (void*)MATSetGender;
+    funcPtrs[24] = (void*)MATSetLocation;
+    funcPtrs[25] = (void*)MATStartAppToAppTracking;
+    funcPtrs[26] = (void*)MATSetRedirectUrl;
+    funcPtrs[27] = (void*)MATSetAppleAdvertisingIdentifier;
+    funcPtrs[28] = (void*)MATSetAppleVendorIdentifier;
+    funcPtrs[29] = (void*)MATSetShouldAutoGenerateAppleVendorIdentifier;
+    funcPtrs[30] = (void*)MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
+    funcPtrs[31] = (void*)MATSDKParameters;
+    funcPtrs[32] = (void*)MATSetDebugMode;
+    funcPtrs[33] = (void*)MATSetAllowDuplicates;
 
     /*
      * Flags that specify the extension's use of locking and stackswitching
      */
-    int flags[35] = { 0 };
+    int flags[34] = { 0 };
 
     /*
      * Register the extension
