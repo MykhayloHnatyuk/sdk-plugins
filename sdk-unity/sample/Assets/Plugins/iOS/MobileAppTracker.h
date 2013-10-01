@@ -2,13 +2,13 @@
 //  MobileAppTracker.h
 //  MobileAppTracker
 //
-//  Created by HasOffers on 08/06/13.
+//  Created by HasOffers on 09/27/13.
 //  Copyright (c) 2013 HasOffers. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define MATVERSION @"2.5.2"
+#define MATVERSION @"2.5.3"
 
 @protocol MobileAppTrackerDelegate;
 
@@ -194,13 +194,6 @@ extern const NSInteger MAT_GENDER_FEMALE;
  @param trusteTPID - Trusted Preference Identifier (TPID)
  */
 - (void)setTrusteTPID:(NSString *)trusteTPID;
-
-/*!
- Use HTTPS for requests to the MAT server.
- YES/NO
- @param yesorno YES means use https, defaults to YES.
- */
-- (void)setUseHTTPS:(BOOL)yesorno;
 
 /*!
  Sets the user id.
@@ -644,11 +637,20 @@ extern const NSInteger MAT_GENDER_FEMALE;
 /** @name Methods to create MATEventItem objects.*/
 
 /*!
+ Method to create an event item. Revenue will be calculated using (quantity * unitPrice).
+ 
+ @param name name of the event item
+ @param unitPrice unit price of the event item
+ @param quantity quantity of the event item
+ */
++ (MATEventItem *)eventItemWithName:(NSString *)name unitPrice:(float)unitPrice quantity:(int)quantity;
+
+/*!
  Method to create an event item.
  @param name name of the event item
  @param unitPrice unit price of the event item
  @param quantity quantity of the event item
- @param revenue revenue of the event item
+ @param revenue revenue of the event item, to be used instead of (quantity * unitPrice)
  */
 + (MATEventItem *)eventItemWithName:(NSString *)name unitPrice:(float)unitPrice quantity:(int)quantity revenue:(float)revenue;
 
@@ -673,7 +675,7 @@ extern const NSInteger MAT_GENDER_FEMALE;
  @param name name of the event item
  @param unitPrice unit price of the event item
  @param quantity quantity of the event item
- @param revenue revenue of the event item
+ @param revenue revenue of the event item, to be used instead of (quantity * unitPrice)
  @param attribute1 an extra parameter that corresponds to attribute_sub1 property of the event item
  @param attribute2 an extra parameter that corresponds to attribute_sub2 property of the event item
  @param attribute3 an extra parameter that corresponds to attribute_sub3 property of the event item

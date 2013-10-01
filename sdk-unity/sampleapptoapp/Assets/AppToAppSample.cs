@@ -66,8 +66,6 @@ public class AppToAppSample : MonoBehaviour {
 	[DllImport ("mobileapptracker")]	
 	private static extern void setUseCookieTracking(bool useCookieTracking);
 	[DllImport ("mobileapptracker")]	
-	private static extern void setUseHTTPS(bool useHTTPS);
-	[DllImport ("mobileapptracker")]	
 	private static extern void setAdvertiserIdentifier(string advertiserIdentifier);
 	[DllImport ("mobileapptracker")]	
 	private static extern void setVendorIdentifier(string vendorIdentifier);
@@ -103,8 +101,6 @@ public class AppToAppSample : MonoBehaviour {
 	private static extern void setUserId(string user_id);
 	[DllImport ("__Internal")]
 	private static extern void setUseCookieTracking(bool useCookieTracking);
-	[DllImport ("__Internal")]
-	private static extern void setUseHTTPS(bool useHTTPS);
 	[DllImport ("__Internal")]
 	private static extern void setAdvertiserIdentifier(string advertiserIdentifier);
 	[DllImport ("__Internal")]

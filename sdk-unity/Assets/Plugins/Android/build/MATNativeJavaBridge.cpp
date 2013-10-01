@@ -397,12 +397,7 @@ extern "C"
 		return;
 	}
 
-	const void setUseHTTPS(bool useHTTPS)
-	{
-		return;
-	}
-    
-    const void setUIID(char* uiid)
+	const void setUIID(char* uiid)
 	{
 		return;
 	}

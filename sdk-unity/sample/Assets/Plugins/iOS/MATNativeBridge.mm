@@ -162,13 +162,6 @@ extern "C" {
         [[MobileAppTracker sharedManager] setJailbroken:isJailbroken];
     }
     
-	void setUseHTTPS(bool useHTTPS)
-    {
-        NSLog(@"Native: setUseHTTPS = %d", useHTTPS);
-        
-        [[MobileAppTracker sharedManager] setUseHTTPS:useHTTPS];
-    }
-    
     void setAppAdTracking(bool enable)
     {
         NSLog(@"Native: setAppAdTracking = %d", enable);

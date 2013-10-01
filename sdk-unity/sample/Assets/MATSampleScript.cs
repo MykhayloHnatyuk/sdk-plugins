@@ -87,8 +87,6 @@ public class MATSampleScript : MonoBehaviour {
         [DllImport ("mobileapptracker")]
         private static extern void setUseCookieTracking(bool useCookieTracking);
         [DllImport ("mobileapptracker")]
-        private static extern void setUseHTTPS(bool useHTTPS);
-        [DllImport ("mobileapptracker")]
         private static extern void setAdvertiserIdentifier(string advertiserIdentifier);
         [DllImport ("mobileapptracker")]
         private static extern void setVendorIdentifier(string vendorIdentifier);
@@ -136,8 +134,6 @@ public class MATSampleScript : MonoBehaviour {
         private static extern void setUIID(string uiid);
         [DllImport ("__Internal")]
         private static extern void setUserId(string userId);
-        [DllImport ("__Internal")]
-        private static extern void setUseHTTPS(bool useHTTPS);
         [DllImport ("__Internal")]
         private static extern void setJailbroken(bool isJailbroken);
         [DllImport ("__Internal")]
