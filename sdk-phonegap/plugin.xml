@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    id="com.hasoffers.plugins.MATPhoneGap" 
+    version="1.0.0">
+
+    <name>MATPlugin</name>
+    
+    <description>
+      This plugin allows you to track installs and events using MobileAppTracking.
+    </description>
+
+    <license>Apache 2.0</license>
+
+    <asset src="www/MATPlugin.js" target="MATPlugin.js" />
+    
+    <engines>
+        <engine name="cordova" version=">=2.0.0" />
+    </engines>
+    
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MATPlugin" >
+                <param name="android-package" value="com.phonegap.plugins.mobileapptracker.MATPlugin" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <Uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver android:name="com.mobileapptracker.Tracker" android:exported="true">
+                <intent-filter>
+                    <action android:name="com.android.vending.INSTALL_REFERRER" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+
+        <source-file src="src/android/lib/MobileAppTracker.jar" target-dir="libs/" />
+        <source-file src="src/android/com/phonegap/plugins/mobileapptracker/MATPlugin.java"
+                     target-dir="src/com/phonegap/plugins/mobileapptracker" />
+    </platform>
+    
+    <!-- ios -->
+    <platform name="ios">
+        <!-- Cordova < 2.3 -->
+        <plugins-plist key="MATPlugin" string="MATPlugin" />
+      
+        <config-file target="config.xml" parent="/*">
+	        <feature name="MATPlugin">
+				<param name="ios-package" value="MATPlugin" />
+				<param name="onload" value="true" />
+			</feature>
+        </config-file>
+        
+        <source-file src="src/ios/MATPlugin.m" />
+        <header-file src="src/ios/MATPlugin.h" />
+
+        <!-- MobileAppTracker framework -->
+        <source-file src="src/ios/MobileAppTracker.a" framework="true" />
+
+        <header-file src="src/ios/MobileAppTracker.h" />
+        
+        <!-- system frameworks -->
+        <framework src="AdSupport.framework" weak="true" />
+        <framework src="CoreTelephony.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="SystemConfiguration.framework" />
+    </platform>
+
+</plugin>

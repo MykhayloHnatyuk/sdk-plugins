@@ -132,7 +132,7 @@ This script updates the iOS project as necessary -- adds the MAT plugin .h, .mm 
 ## Installs and Updates
 
 As the success of attributing app events after the initial install is dependent upon first tracking that install, 
-we require that the install is the first event tracked. To track install of your iOS mobile app, use the “trackInstall” 
+we require that the install is the first event tracked. To track install of your mobile app, use the “trackInstall” 
 method. If users have already installed your app prior to SDK implementation, then these users should be tracked as updates.
 
 ### Track Installs
