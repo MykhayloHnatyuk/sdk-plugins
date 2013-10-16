@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define MATVERSION @"2.5.3"
+#define MATVERSION @"2.6"
 
 @protocol MobileAppTrackerDelegate;
 
