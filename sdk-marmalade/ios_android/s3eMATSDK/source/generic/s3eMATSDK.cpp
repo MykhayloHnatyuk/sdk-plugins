@@ -55,12 +55,12 @@ void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const 
 	MATTrackActionForEventIdOrName_platform(eventIdOrName, isId, refId);
 }
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
-	MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt, receiptSignature);
+    MATTrackActionForEventIdOrNameItems_platform(eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt, receiptSignature);
 }
 
-void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
+void MATTrackAction(const char* eventIdOrName, bool isId, const char* revenue, const char*  currency)
 {
     MATTrackAction_platform(eventIdOrName, isId, revenue, currency);
 }
@@ -95,7 +95,7 @@ void MATSetUserId(const char* userId)
     MATSetUserId_platform(userId);
 }
 
-void MATSetRevenue(double revenue)
+void MATSetRevenue(const char* revenue)
 {
     MATSetRevenue_platform(revenue);
 }
@@ -190,7 +190,7 @@ void MATSetGender(int gender)
     MATSetGender_platform(gender);
 }
 
-void MATSetLocation(double latitude, double longitude, double altitude)
+void MATSetLocation(const char* latitude, const char* longitude, const char* altitude)
 {
     MATSetLocation_platform(latitude, longitude, altitude);
 }

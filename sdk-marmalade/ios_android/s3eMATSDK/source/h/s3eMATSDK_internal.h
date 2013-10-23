@@ -54,9 +54,9 @@ void MATTrackInstallWithReferenceId_platform(const char* refId);
 
 void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId);
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
 
-void MATTrackAction_platform(const char* action, bool isId, double revenue, const char*  currency);
+void MATTrackAction_platform(const char* action, bool isId, const char* revenue, const char* currency);
 
 void MATStartAppToAppTracking_platform(const char *targetAppId, const char *advertiserId, const char *offerId, const char *publisherId, bool shouldRedirect);
 
@@ -72,12 +72,12 @@ void MATSetDelegate_platform(bool enable);
 void MATSetDebugMode_platform(bool shouldDebug);
 void MATSetGender_platform(int gender);
 void MATSetJailbroken_platform(bool isJailbroken);
-void MATSetLocation_platform(double latitude, double longitude, double altitude);
+void MATSetLocation_platform(const char* latitude, const char* longitude, const char* altitude);
 void MATSetMACAddress_platform(const char* mac);
 void MATSetODIN1_platform(const char* odin1);
 void MATSetOpenUDID_platform(const char* openUDID);
 void MATSetPackageName_platform(const char* packageName);
-void MATSetRevenue_platform(double revenue);
+void MATSetRevenue_platform(const char* revenue);
 void MATSetSiteId_platform(const char* siteId);
 void MATSetTRUSTeId_platform(const char* tpid);
 void MATSetUIID_platform(const char* uiid);

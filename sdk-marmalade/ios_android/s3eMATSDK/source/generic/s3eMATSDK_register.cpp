@@ -54,13 +54,13 @@ static void MATTrackActionForEventIdOrName_wrap(const char* eventIdOrName, bool 
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackActionForEventIdOrName, 3, eventIdOrName, isId, refId);
 }
 
-static void MATTrackActionForEventIdOrNameItems_wrap(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
+static void MATTrackActionForEventIdOrNameItems_wrap(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackActionForEventIdOrNameItems"));
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackActionForEventIdOrNameItems, 9, eventIdOrName, isId, items, refId, revenueAmount, currencyCode, transactionState, receipt, receiptSignature);
 }
 
-static void MATTrackAction_wrap(const char* eventIdOrName, bool isId, double revenue, const char* currency)
+static void MATTrackAction_wrap(const char* eventIdOrName, bool isId, const char* revenue, const char* currency)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATTrackAction"));
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATTrackAction, 4, eventIdOrName, isId, revenue, currency);
@@ -96,7 +96,7 @@ static void MATSetUserId_wrap(const char* userId)
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetUserId, 1, userId);
 }
 
-static void MATSetRevenue_wrap(double revenue)
+static void MATSetRevenue_wrap(const char* revenue)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetRevenue"));
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetRevenue, 1, revenue);
@@ -168,7 +168,7 @@ static void MATSetGender_wrap(int gender)
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetGender, 1, gender);
 }
 
-static void MATSetLocation_wrap(double latitude, double longitude, double altitude)
+static void MATSetLocation_wrap(const char* latitude, const char* longitude, const char* altitude)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetLocation"));
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetLocation, 3, latitude, longitude, altitude);

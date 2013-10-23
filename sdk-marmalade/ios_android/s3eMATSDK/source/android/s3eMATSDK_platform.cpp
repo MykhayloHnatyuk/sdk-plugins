@@ -85,11 +85,11 @@ s3eResult MATSDKInit_platform()
     if (!g_MATTrackActionForEventIdOrName)
         goto fail;
 
-    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;DLjava/lang/String;ILjava/lang/String;Ljava/lang/String;)V");
+    g_MATTrackActionForEventIdOrNameItems = env->GetMethodID(cls, "MATTrackActionForEventIdOrNameItems", "(Ljava/lang/String;ZLjava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;)V");
     if (!g_MATTrackActionForEventIdOrNameItems)
         goto fail;
     
-    g_MATTrackAction = env->GetMethodID(cls, "MATTrackAction", "(Ljava/lang/String;ZDLjava/lang/String;)V");
+    g_MATTrackAction = env->GetMethodID(cls, "MATTrackAction", "(Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;)V");
     if (!g_MATTrackAction)
         goto fail;
 
@@ -109,7 +109,7 @@ s3eResult MATSDKInit_platform()
     if (!g_MATSetUserId)
         goto fail;
     
-    g_MATSetRevenue = env->GetMethodID(cls, "MATSetRevenue", "(D)V");
+    g_MATSetRevenue = env->GetMethodID(cls, "MATSetRevenue", "(Ljava/lang/String;)V");
     if (!g_MATSetRevenue)
         goto fail;
     
@@ -213,23 +213,26 @@ void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isI
     env->DeleteLocalRef(refId_jstr);
 }
 
-void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenue, const char*  currency)
+void MATTrackAction_platform(const char* eventIdOrName, bool isId, const char* revenue, const char* currency)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring eventIdOrName_jstr = env->NewStringUTF(eventIdOrName);
+    jstring revenue_jstr = env->NewStringUTF(revenue);
     jstring currency_jstr = env->NewStringUTF(currency);
-    env->CallVoidMethod(g_Obj, g_MATTrackAction, eventIdOrName_jstr, isId, revenue, currency_jstr);
+    env->CallVoidMethod(g_Obj, g_MATTrackAction, eventIdOrName_jstr, isId, revenue_jstr, currency_jstr);
     env->DeleteLocalRef(eventIdOrName_jstr);
+    env->DeleteLocalRef(revenue_jstr);
     env->DeleteLocalRef(currency_jstr);
 }
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
     JNIEnv* jni_env = s3eEdkJNIGetEnv();
     
     // local variables for the track action
     jstring eventIdOrName_jstr = jni_env->NewStringUTF(eventIdOrName);
     jstring refId_jstr = jni_env->NewStringUTF(refId);
+    jstring revenue_jstr = jni_env->NewStringUTF(revenueAmount);
     jstring currencyCode_jstr = jni_env->NewStringUTF(currencyCode);
     jstring receipt_jstr = jni_env->NewStringUTF(receipt);
     jstring receiptSignature_jstr = jni_env->NewStringUTF(receiptSignature);
@@ -249,31 +252,22 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
 
     // Add a MATEventItem for each item to a List
     for (uint i = 0; i < items->m_count; i++) {
-        /*
-        IwTrace(s3eMATSDK, ("Item %s, unitPrice %f, quantity %i, revenue %f, attribute1 %s, attribute2 %s, attribute3 %s, attribute4 %s, attribute5 %s",
-            ((MATSDKEventItem*)items->m_items)[i].name,
-            ((MATSDKEventItem*)items->m_items)[i].unitPrice,
-            ((MATSDKEventItem*)items->m_items)[i].quantity,
-            ((MATSDKEventItem*)items->m_items)[i].revenue,
-            ((MATSDKEventItem*)items->m_items)[i].attribute1,
-            ((MATSDKEventItem*)items->m_items)[i].attribute2,
-            ((MATSDKEventItem*)items->m_items)[i].attribute3,
-            ((MATSDKEventItem*)items->m_items)[i].attribute4,
-            ((MATSDKEventItem*)items->m_items)[i].attribute5));*/
-
         jstring nameVal = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].name);
         jstring att1Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute1);
         jstring att2Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute2);
         jstring att3Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute3);
         jstring att4Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute4);
         jstring att5Val = jni_env->NewStringUTF(((MATSDKEventItem*)items->m_items)[i].attribute5);
+
+        double unitPrice = strtod(((MATSDKEventItem*)items->m_items)[i].unitPrice, NULL);
+        double revenue = strtod(((MATSDKEventItem*)items->m_items)[i].revenue, NULL);
         
         // Create a MATEventItem
         jobject jeventitemobj = jni_env->NewObject(clsMATEventItem, constructorID,
             nameVal,
             ((MATSDKEventItem*)items->m_items)[i].quantity,
-            ((MATSDKEventItem*)items->m_items)[i].unitPrice,
-            ((MATSDKEventItem*)items->m_items)[i].revenue,
+            unitPrice,
+            revenue,
             att1Val,
             att2Val,
             att3Val,
@@ -291,10 +285,11 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
         jni_env->DeleteLocalRef(att5Val);
     }
 
-    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenueAmount, currencyCode_jstr, transactionState, receipt_jstr, receiptSignature_jstr);
+    jni_env->CallVoidMethod(g_Obj, g_MATTrackActionForEventIdOrNameItems, eventIdOrName_jstr, isId, jlistobj, refId_jstr, revenue_jstr, currencyCode_jstr, transactionState, receipt_jstr, receiptSignature_jstr);
     
     jni_env->DeleteLocalRef(eventIdOrName_jstr);
     jni_env->DeleteLocalRef(refId_jstr);
+    jni_env->DeleteLocalRef(revenue_jstr);
     jni_env->DeleteLocalRef(currencyCode_jstr);
     jni_env->DeleteLocalRef(receipt_jstr);
     jni_env->DeleteLocalRef(receiptSignature_jstr);
@@ -344,11 +339,13 @@ void MATSetUserId_platform(const char* userId)
     env->CallVoidMethod(g_Obj, g_MATSetUserId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
-void MATSetRevenue_platform(double revenue)
+
+void MATSetRevenue_platform(const char* revenue)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
     env->CallVoidMethod(g_Obj, g_MATSetRevenue, revenue);
 }
+
 void MATSetSiteId_platform(const char* siteId)
 {
     JNIEnv* env = s3eEdkJNIGetEnv();
@@ -387,10 +384,10 @@ void MATSetGender_platform(int gender)
 	env->CallVoidMethod(g_Obj, g_MATSetGender, gender);
 }
 
-void MATSetLocation_platform(double latitude, double longitude, double altitude)
+void MATSetLocation_platform(const char * latitude, const char * longitude, const char * altitude)
 {
-	JNIEnv* env = s3eEdkJNIGetEnv();
-	env->CallVoidMethod(g_Obj, g_MATSetLocation, latitude, longitude, altitude);
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    env->CallVoidMethod(g_Obj, g_MATSetLocation, latitude, longitude, altitude);
 }
 
 // iOS only functions that do nothing on Android

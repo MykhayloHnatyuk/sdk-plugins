@@ -71,7 +71,7 @@ void MATSDKTerminate_platform()
 
 void MATStartMobileAppTracker_platform(const char* adId, const char* convKey)
 {
-    NSLog(@"Starting MAT");
+    NSLog(@"Native: Starting MAT");
     
     if(NULL != adId && NULL != convKey)
     {
@@ -88,18 +88,18 @@ void MATStartMobileAppTracker_platform(const char* adId, const char* convKey)
 void MATSDKParameters_platform()
 {
     NSDictionary *dict = [[MobileAppTracker sharedManager] sdkDataParameters];
-    NSLog(@"get SDK data parameters = %@", dict);
+    NSLog(@"Native: get SDK data parameters = %@", dict);
 }
 
 void MATTrackInstall_platform()
 {
-    NSLog(@"track install");
+    NSLog(@"Native: trackInstall");
     [[MobileAppTracker sharedManager] trackInstall];
 }
 
 void MATTrackUpdate_platform()
 {
-    NSLog(@"track udpate");
+    NSLog(@"Native: trackUdpate");
     [[MobileAppTracker sharedManager] trackUpdate];
 }
 
@@ -107,13 +107,13 @@ void MATTrackInstallWithReferenceId_platform(const char* refId)
 {
     NSString *strRefId = NULL == refId ? nil : [NSString stringWithUTF8String:refId];
     
-    NSLog(@"track install %@", strRefId);
+    NSLog(@"Native: trackInstallWithRef: %@", strRefId);
     [[MobileAppTracker sharedManager] trackInstallWithReferenceId:strRefId];
 }
 
 void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isId, const char* refId)
 {
-    NSLog(@"track action");
+    NSLog(@"Native: MATTrackActionForEventIdOrName");
     
     NSString *strEventIdOrName = NULL == eventIdOrName ? nil : [NSString stringWithUTF8String:eventIdOrName];
     NSString *strRefId = NULL == refId ? nil : [NSString stringWithUTF8String:refId];
@@ -121,31 +121,35 @@ void MATTrackActionForEventIdOrName_platform(const char* eventIdOrName, bool isI
     [[MobileAppTracker sharedManager] trackActionForEventIdOrName:strEventIdOrName eventIsId:isId referenceId:strRefId];
 }
 
-void MATTrackAction_platform(const char* eventIdOrName, bool isId, double revenue, const char*  currencyCode)
+void MATTrackAction_platform(const char* eventIdOrName, bool isId, const char* revenue, const char*  currencyCode)
 {
-    NSLog(@"MATTrackAction");
+    NSLog(@"Native: MATTrackAction");
     
     NSString *strEventIdOrName = NULL == eventIdOrName ? nil : [NSString stringWithUTF8String:eventIdOrName];
+    
+    NSString *strRevenue = NULL == revenue ? nil : [NSString stringWithUTF8String:revenue];
+    
     NSString *strCurrencyCode = NULL == currencyCode ? nil : [NSString stringWithUTF8String:currencyCode];
 
     [[MobileAppTracker sharedManager] trackActionForEventIdOrName:strEventIdOrName
                                                         eventIsId:isId
-                                                    revenueAmount:revenue
+                                                    revenueAmount:[strRevenue floatValue]
                                                      currencyCode:strCurrencyCode];
 }
 
-void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
+void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
     NSString *strEventIdOrName = NULL == eventIdOrName ? nil : [NSString stringWithUTF8String:eventIdOrName];
     NSString *strRefId = NULL == refId ? nil : [NSString stringWithUTF8String:refId];
+    NSString *strRevenueAmount = NULL == revenueAmount ? nil : [NSString stringWithUTF8String:revenueAmount];
     NSString *strCurrencyCode = NULL == currencyCode ? nil : [NSString stringWithUTF8String:currencyCode];
     NSString *strReceipt = NULL == receipt ? nil : [NSString stringWithUTF8String:receipt];
     // iOS does not use the receiptSignature param, it's only for Android.
     
-    NSLog(@"track action");
+    NSLog(@"Native: trackActionForEventIdOrNameItems");
     NSLog(@"eventName        = %@", strEventIdOrName);
     NSLog(@"refId            = %@", strRefId);
-    NSLog(@"revenueAmount    = %f", revenueAmount);
+    NSLog(@"revenueAmount    = %@", strRevenueAmount);
     NSLog(@"transactionState = %i", (unsigned int)transactionState);
     NSLog(@"currCode         = %@", strCurrencyCode);
     NSLog(@"receipt          = %@", strReceipt);
@@ -154,7 +158,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     NSLog(@"MATSDK events array: %i", items->m_count);
     for (uint i=0; i < items->m_count; i++)
     {
-        NSLog(@"Item name = %s, unitPrice = %f, quanity = %i, revenue = %f, attribute1 = %s, attribute2 = %s, attribute3 = %s, attribute4 = %s, attribute5 = %s",
+        NSLog(@"Item name = %s, unitPrice = %s, quantity = %i, revenue = %s, attribute1 = %s, attribute2 = %s, attribute3 = %s, attribute4 = %s, attribute5 = %s",
                             ((MATSDKEventItem*)items->m_items)[i].name,
                             ((MATSDKEventItem*)items->m_items)[i].unitPrice,
                             ((MATSDKEventItem*)items->m_items)[i].quantity,
@@ -171,9 +175,10 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
     for (uint i=0; i < items->m_count; i++)
     {
         NSString *name = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].name];
-        float unitPrice = ((MATSDKEventItem*)items->m_items)[i].unitPrice;
+        
+        NSString *strUnitPrice = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].unitPrice];
         int quantity = ((MATSDKEventItem*)items->m_items)[i].quantity;
-        float revenue = ((MATSDKEventItem*)items->m_items)[i].revenue;
+        NSString *strRevenue = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].revenue];
         
         NSString *attribute1 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute1];
         NSString *attribute2 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute2];
@@ -181,7 +186,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
         NSString *attribute4 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute4];
         NSString *attribute5 = [NSString stringWithUTF8String:((MATSDKEventItem*)items->m_items)[i].attribute5];
         
-        MATEventItem *item = [MATEventItem eventItemWithName:name unitPrice:unitPrice quantity:quantity revenue:revenue attribute1:attribute1 attribute2:attribute2 attribute3:attribute3 attribute4:attribute4 attribute5:attribute5];
+        MATEventItem *item = [MATEventItem eventItemWithName:name unitPrice:[strUnitPrice floatValue] quantity:quantity revenue:[strRevenue floatValue] attribute1:attribute1 attribute2:attribute2 attribute3:attribute3 attribute4:attribute4 attribute5:attribute5];
         
         [array addObject:item];
     }
@@ -192,7 +197,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
                                                         eventIsId:isId
                                                        eventItems:array
                                                       referenceId:strRefId
-                                                    revenueAmount:revenueAmount
+                                                    revenueAmount:[strRevenueAmount floatValue]
                                                      currencyCode:strCurrencyCode
                                                  transactionState:(int)transactionState
                                                           receipt:[strReceipt dataUsingEncoding:NSUTF8StringEncoding]];
@@ -200,7 +205,7 @@ void MATTrackActionForEventIdOrNameItems_platform(const char* eventIdOrName, boo
 
 void MATSetPackageName_platform(const char* packageName)
 {
-    NSLog(@"MATSetPackageName_platform packageName = %s", packageName);
+    NSLog(@"Native: setPackageName = %s", packageName);
     
     NSString *strPackageName = NULL == packageName ? nil : [NSString stringWithUTF8String:packageName];
     
@@ -209,7 +214,7 @@ void MATSetPackageName_platform(const char* packageName)
 
 void MATSetCurrencyCode_platform(const char* currencyCode)
 {
-    NSLog(@"MATSetCurrencyCode_platform currencyCode = %s", currencyCode);
+    NSLog(@"Native: setCurrencyCode = %s", currencyCode);
     
     NSString *strCurrencyCode = NULL == currencyCode ? nil : [NSString stringWithUTF8String:currencyCode];
     
@@ -218,21 +223,21 @@ void MATSetCurrencyCode_platform(const char* currencyCode)
 
 void MATSetUserId_platform(const char* userId)
 {
-    NSLog(@"MATSetUserId_platform id = %s", userId);
+    NSLog(@"Native: setUserId = %s", userId);
     
     NSString *strUserId = NULL == userId ? nil : [NSString stringWithUTF8String:userId];
     
     [[MobileAppTracker sharedManager] setUserId:strUserId];
 }
 
-void MATSetRevenue_platform(double revenue)
+void MATSetRevenue_platform(const char* revenue)
 {
     // NOT IMPLEMENTED FOR iOS
 }
 
 void MATSetSiteId_platform(const char* siteId)
 {
-    NSLog(@"MATSetSiteId_platform id = %s", siteId);
+    NSLog(@"Native: setSiteId = %s", siteId);
     
     NSString *strSiteId = NULL == siteId ? nil : [NSString stringWithUTF8String:siteId];
     
@@ -241,7 +246,7 @@ void MATSetSiteId_platform(const char* siteId)
 
 void MATSetTRUSTeId_platform(const char* tpid)
 {
-    NSLog(@"MATSetTRUSTeId_platform id = %s", tpid);
+    NSLog(@"Native: setTRUSTeId = %s", tpid);
     
     NSString *strTpid = NULL == tpid ? nil : [NSString stringWithUTF8String:tpid];
     
@@ -252,33 +257,39 @@ void MATSetDelegate_platform(bool enable)
 {
     matDelegate = enable ? (matDelegate ? matDelegate : [[MATSDKDelegate alloc] init]) : nil;
     
-    NSLog(@"MATSetDelegate_platform delegate = %d", enable);
+    NSLog(@"Native: setDelegate = %d", enable);
     
     [[MobileAppTracker sharedManager] setDelegate:matDelegate];
 }
 
 void MATSetDebugMode_platform(bool shouldDebug)
 {
-    NSLog(@"MATSetDebugMode_platform debug mode = %d", shouldDebug);
+    NSLog(@"Native: setDebug mode = %d", shouldDebug);
     [[MobileAppTracker sharedManager] setDebugMode:shouldDebug];
 }
 
 void MATSetAge_platform(int age)
 {
-    NSLog(@"MATSetAge_platform age = %d", age);
+    NSLog(@"Native: setAge = %d", age);
     [[MobileAppTracker sharedManager] setAge:age];
 }
 
 void MATSetGender_platform(int gender)
 {
-    NSLog(@"MATSetGender_platform gender = %d", gender);
+    NSLog(@"Native: setGender = %d", gender);
     
     [[MobileAppTracker sharedManager] setGender:gender];
 }
 
-void MATSetLocation_platform(double latitude, double longitude, double altitude)
+void MATSetLocation_platform(const char* latitude, const char* longitude, const char* altitude)
 {
-    [[MobileAppTracker sharedManager] setLatitude:latitude longitude:longitude altitude:altitude];
+	NSString *strLat = NULL == latitude ? nil : [NSString stringWithUTF8String:latitude];
+	NSString *strLong = NULL == longitude ? nil : [NSString stringWithUTF8String:longitude];
+	NSString *strAlt = NULL == altitude ? nil : [NSString stringWithUTF8String:altitude];
+	
+	NSLog(@"Native: setLocation = %@, %@, %@", strLat, strLong, strAlt);
+	
+    [[MobileAppTracker sharedManager] setLatitude:[strLat floatValue] longitude:[strLong floatValue] altitude:[strAlt floatValue]];
 }
 
 void MATSetAllowDuplicates_platform(bool allowDuplicates)

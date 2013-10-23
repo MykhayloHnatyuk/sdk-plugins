@@ -25,14 +25,14 @@ typedef       void(*MATTrackInstall_t)();
 typedef       void(*MATTrackUpdate_t)();
 typedef       void(*MATTrackInstallWithReferenceId_t)(const char* refId);
 typedef       void(*MATTrackActionForEventIdOrName_t)(const char* eventIdOrName, bool isId, const char* refId);
-typedef       void(*MATTrackActionForEventIdOrNameItems_t)(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
-typedef       void(*MATTrackAction_t)(const char* eventIdOrName, bool isId, double revenue, const char* currency);
+typedef       void(*MATTrackActionForEventIdOrNameItems_t)(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
+typedef       void(*MATTrackAction_t)(const char* eventIdOrName, bool isId, const char* revenue, const char* currency);
 typedef       void(*MATSetPackageName_t)(const char* packageName);
 typedef       void(*MATSetCurrencyCode_t)(const char* currencyCode);
 typedef       void(*MATSetOpenUDID_t)(const char* openUDID);
 typedef       void(*MATSetUIID_t)(const char* uiid);
 typedef       void(*MATSetUserId_t)(const char* userId);
-typedef       void(*MATSetRevenue_t)(double revenue);
+typedef       void(*MATSetRevenue_t)(const char* revenue);
 typedef       void(*MATSetSiteId_t)(const char* siteId);
 typedef       void(*MATSetTRUSTeId_t)(const char* tpid);
 typedef       void(*MATSetAppAdTracking_t)(bool enable);
@@ -44,7 +44,7 @@ typedef       void(*MATSetODIN1_t)(const char* odin1);
 typedef       void(*MATSetUseCookieTracking_t)(bool useCookieTracking);
 typedef       void(*MATSetAge_t)(int age);
 typedef       void(*MATSetGender_t)(int gender);
-typedef       void(*MATSetLocation_t)(double latitude, double longitude, double altitude);
+typedef       void(*MATSetLocation_t)(const char* latitude, const char* longitude, const char* altitude);
 typedef       void(*MATStartAppToAppTracking_t)(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
 typedef       void(*MATSetRedirectUrl_t)(const char* redirectUrl);
 typedef       void(*MATSetAppleAdvertisingIdentifier_t)(const char* advertiserId);
@@ -239,7 +239,7 @@ void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const 
     return;
 }
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[5] func: MATTrackActionForEventIdOrNameItems"));
 
@@ -259,7 +259,7 @@ void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, c
     return;
 }
 
-void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency)
+void MATTrackAction(const char* eventIdOrName, bool isId, const char* revenue, const char* currency)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[6] func: MATTrackAction"));
 
@@ -379,7 +379,7 @@ void MATSetUserId(const char* userId)
     return;
 }
 
-void MATSetRevenue(double revenue)
+void MATSetRevenue(const char* revenue)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[12] func: MATSetRevenue"));
 
@@ -619,7 +619,7 @@ void MATSetGender(int gender)
     return;
 }
 
-void MATSetLocation(double latitude, double longitude, double altitude)
+void MATSetLocation(const char* latitude, const char* longitude, const char* altitude)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK[24] func: MATSetLocation"));
 

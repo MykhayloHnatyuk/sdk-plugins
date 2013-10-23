@@ -25,9 +25,9 @@ struct s3eMATTracker;
 typedef struct MATSDKEventItem
 {
 	char		name[S3E_MATSDK_STRING_MAX];
-	float 		unitPrice;
+	char 		unitPrice[S3E_MATSDK_STRING_MAX];;
 	int			quantity;
-	float		revenue;
+	char		revenue[S3E_MATSDK_STRING_MAX];;
 	char		attribute1[S3E_MATSDK_STRING_MAX];
 	char		attribute2[S3E_MATSDK_STRING_MAX];
 	char		attribute3[S3E_MATSDK_STRING_MAX];
@@ -58,9 +58,9 @@ void MATTrackInstallWithReferenceId(const char* refId);
 
 void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId);
 
-void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
+void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature);
 
-void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency);
+void MATTrackAction(const char* eventIdOrName, bool isId, const char* revenue, const char* currency);
 
 void MATSetPackageName(const char* packageName);
 
@@ -72,7 +72,7 @@ void MATSetUIID(const char* uiid);
 
 void MATSetUserId(const char* userId);
 
-void MATSetRevenue(double revenue);
+void MATSetRevenue(const char* revenue);
 
 void MATSetSiteId(const char* siteId);
 
@@ -96,7 +96,7 @@ void MATSetAge(int age);
 
 void MATSetGender(int gender);
 
-void MATSetLocation(double latitude, double longitude, double altitude);
+void MATSetLocation(const char* latitude, const char* longitude, const char* altitude);
 
 void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect);
 

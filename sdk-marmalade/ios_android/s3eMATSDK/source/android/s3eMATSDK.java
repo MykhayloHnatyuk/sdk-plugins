@@ -20,7 +20,6 @@ import com.mobileapptracker.MATEventItem;
 import com.mobileapptracker.MobileAppTracker;
 import android.util.Log;
 
-//import android.content.Context;
 import android.R;
 import android.widget.Button;
 import android.widget.TextView;
@@ -61,11 +60,11 @@ class s3eMATSDK
     }
     
     // items is one or more event item hash maps
-    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List<MATEventItem> items, String refId, double revenueAmount, String currencyCode, int transactionState, String receipt, String receiptSignature)
+    public void MATTrackActionForEventIdOrNameItems(String eventIdOrName, boolean isId, List<MATEventItem> items, String refId, String revenueAmount, String currencyCode, int transactionState, String receipt, String receiptSignature)
     {
         mat.setCurrencyCode(currencyCode);
         mat.setRefId(refId);
-        mat.setRevenue(revenueAmount);
+        mat.setRevenue(Double.parseDouble(revenueAmount));
         if (receiptSignature != null && receiptSignature.length() > 0) {
             mat.trackAction(eventIdOrName, items, receipt, receiptSignature);
         } else {
@@ -73,9 +72,9 @@ class s3eMATSDK
         }
     }
     
-    public void MATTrackAction(String eventIdOrName, boolean isId, double revenueAmount, String currencyCode)
+    public void MATTrackAction(String eventIdOrName, boolean isId, String revenueAmount, String currencyCode)
     {
-        mat.trackAction(eventIdOrName, revenueAmount, currencyCode);
+        mat.trackAction(eventIdOrName, Double.parseDouble(revenueAmount), currencyCode);
     }
     
     public void MATStartAppToAppTracking(String targetAppId, String advertiserId, String offerId, String publisherId, boolean shouldRedirect)
@@ -97,10 +96,10 @@ class s3eMATSDK
     {
         mat.setUserId(userId);
     }
-    
-    public void MATSetRevenue(double revenue)
+
+    public void MATSetRevenue(String revenue)
     {
-        mat.setRevenue(revenue);
+        mat.setRevenue(Double.parseDouble(revenue));
     }
     
     public void MATSetSiteId(String siteId)

@@ -68,13 +68,13 @@ Once the user is online, the SDK will process all queued events.
 
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-__c. Wifi State Permission (Required):__
+__c. Wifi State Permission (Optional):__
 
 These permissions enable the SDK to access information about whether you are connected to a Wi-Fi network and obtain the device's MAC address.
 
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-__d. Phone State Permission (Required):__
+__d. Phone State Permission (Optional):__
 
 Allows the user's device ID to be recorded.
 
@@ -124,7 +124,7 @@ reaching a certain level in a game or making an in-app purchase. The “MATTrack
 
 All "MATTrackAction" methods are used in the following format:
 
-	MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currencyCode)
+	MATTrackAction(const char* eventIdOrName, bool isId, const char* revenue, const char* currencyCode)
 
 	MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId)
 
@@ -138,9 +138,9 @@ and accessed as {advertiser_ref_id} as a postback variable.
 
 ### Registration
 
-If you have a registration process, its recommended to track it by calling MATTrackAction and setting eventIdOrName to “registration”.
+If you have a registration process, it's recommended to track it by calling MATTrackAction and setting eventIdOrName to “registration”.
 
-	MATTrackAction("registration", false, 0, "USD");
+	MATTrackAction("registration", false, "0", "USD");
 	MATTrackActionForEventIdOrName("registration", false, 0);
 
 You can find these events in the platform by viewing Reports > Event Logs. Then filter the report by the “registration” event.
@@ -155,12 +155,12 @@ The best way to analyze the value of your publishers and marketing campaigns is 
 By tracking in-app purchases for a user, the data can be correlated back to the install and analyzed on a cohort basis 
 to determine revenue per install and lifetime value.
 
-	MATTrackAction("purchase", false, 0.99, "USD");
+	MATTrackAction("purchase", false, "0.99", "USD");
 
 __Track In-App Purchases__
 The basic way to track purchases is to track an event with a name of purchase and then define the revenue (sale amount) and currency code.
 
-Note: Pass the revenue in as a Double and the currency of the amount if necessary.  Currency is set to "USD" by default.
+Note: Pass the revenue in as a string and the currency of the amount if necessary.  Currency is set to "USD" by default.
 See [Setting Currency Code](http://support.mobileapptracking.com/entries/23697946-Customize-SDK-Settings) for currencies we support.
 
 You can find these events in platform by viewing Reports > Logs > Events. Then filter the report by the “purchase” event.
@@ -284,9 +284,14 @@ The event item is defined as such:
 	typedef struct MATSDKEventItem
 	{
 	   char        item[S3E_MATSDK_STRING_MAX];
-	   float       unitPrice;
+	   char        unitPrice;
 	   int         quantity;
-	   float       revenue;
+	   char        revenue;
+	   char        attribute1;
+	   char        attribute2;
+	   char        attribute3;
+	   char        attribute4;
+	   char        attribute5;
 	} MATSDKEventItem;
 
 Create a MATArray of MATSDKEventItem that stores all the event items you wish to pass with the event to pass into
@@ -297,7 +302,7 @@ the "TrackActionForEventIdOrNameItems" method which takes parameters:
 		bool isId,
 		const s3eMATArray* items,
 		const char* refId,
-		double revenueAmount,
+		const char* revenueAmount,
 		const char* currencyCode,
 		unit* transactionState,
 		const char* receipt,
@@ -320,16 +325,15 @@ Sample tracking code:
 	MATSDKEventItem *items = (MATSDKEventItem *)s3eMalloc(sizeof(MATSDKEventItem));
 
 	strncpy(items[0].item, “sword”, S3E_MATSDK_STRING_MAX);
-	items[0].unitPrice = 1.55;
+	items[0].unitPrice = "1.55";
 	items[0].quantity = 1;
-	items[0].revenue = 1.55;
+	items[0].revenue = "1.55";
 
 	MATArray array;
 	array.m_count = 1;
 	array.m_items = items;
 
-	double revAmount = 1.67;
-	MATTrackActionForEventIdOrNameItems(“putEventNameHere”, false, &array, “refId”, revAmount, “USD”, 0, "", "");
+	MATTrackActionForEventIdOrNameItems(“putEventNameHere”, false, &array, “refId”, "1.67", “USD”, 0, "", "");
 
 ### App to App Tracking
 
@@ -552,8 +556,8 @@ Here are the methods defined in the s3eMATSDK.s4e file:
 	void MATTrackUpdate() run_on_os_thread
 	void MATTrackInstallWithReferenceId(const char* refId) run_on_os_thread
 	void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId) run_on_os_thread
-	void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, double revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature) run_on_os_thread
-	void MATTrackAction(const char* eventIdOrName, bool isId, double revenue, const char* currency) run_on_os_thread
+	void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature) run_on_os_thread
+	void MATTrackAction(const char* eventIdOrName, bool isId, const char* revenue, const char* currency) run_on_os_thread
 
 	// Setter Methods
 	void MATSetPackageName(const char* packageName) run_on_os_thread
@@ -561,7 +565,7 @@ Here are the methods defined in the s3eMATSDK.s4e file:
 	void MATSetOpenUDID(const char* openUDID) run_on_os_thread
 	void MATSetUIID(const char* uiid) run_on_os_thread
 	void MATSetUserId(const char* userId) run_on_os_thread
-	void MATSetRevenue(double revenue) run_on_os_thread
+	void MATSetRevenue(const char* revenue) run_on_os_thread
 	void MATSetSiteId(const char* siteId) run_on_os_thread
 	void MATSetTRUSTeId(const char* tpid) run_on_os_thread
 	void MATSetAppAdTracking(bool enable) run_on_os_thread
@@ -574,7 +578,7 @@ Here are the methods defined in the s3eMATSDK.s4e file:
 	void MATSetUseCookieTracking(bool useCookieTracking) run_on_os_thread
 	void MATSetAge(int age) run_on_os_thread
 	void MATSetGender(int gender) run_on_os_thread
-	void MATSetLocation(double latitude, double longitude, double altitude) run_on_os_thread
+	void MATSetLocation(const char* latitude, const char* longitude, const char* altitude) run_on_os_thread
 
 	// App-to-App Tracking
 	void MATStartAppToAppTracking(const char* targetAppId, const char* advertiserId, const char* offerId, const char* publisherId, bool shouldRedirect) run_on_os_thread
