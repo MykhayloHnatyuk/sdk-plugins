@@ -298,9 +298,6 @@ public class MATPlugin extends CordovaPlugin {
         @Override
         public void run() {
             tracker = new MobileAppTracker(context, advertiserId, advertiserKey);
-            tracker.setDebugMode(true);
-            tracker.setAllowDuplicates(true);
-            tracker.setPackageName("com.hasofferstestapp");
             cbc.success();
         }
     }

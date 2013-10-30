@@ -276,20 +276,20 @@ __OpenUDID__ (iOS only)
 This sets the OpenUDID of the device. Can be generated with the official implementation at [http://OpenUDID.org](http://OpenUDID.org).
 Calling this will do nothing on Android apps.
 
-    mat.setOpenUDID("your_open_udid");
+    mat.setOpenUDID(success, failure, "your_open_udid");
 
 __TRUSTe ID__
 
 If you are integrating with the TRUSTe SDK, you can pass in your TRUSTe ID with setTRUSTeId, which populates the “TPID” field.
 
-    mat.setTrusteTPID("your_truste_id");
+    mat.setTrusteTPID(success, failure, "your_truste_id");
 
 __User ID__
 
 If you have a user ID of your own that you wish to track, pass it in as a string with setUserId. This populates the “User ID”
 field in our reporting, and also the postback variable {user_id}.
 
-    mat.setUserID("custom_user_id");
+    mat.setUserId(success, failure, "custom_user_id");
 
 The SDK supports several custom identifiers that you can use as alternate means to identify your installs or events.
 Please navigate to the [Custom SDK Settings](http://support.mobileapptracking.com/entries/23738686-Customize-SDK-Settings) page for more information.
