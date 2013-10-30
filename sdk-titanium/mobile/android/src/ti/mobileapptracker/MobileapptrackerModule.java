@@ -250,8 +250,6 @@ public class MobileapptrackerModule extends KrollModule {
     private List<MATEventItem> convertToMATEventItems(Object[] arrItemMaps) {
         List<MATEventItem> listItems = new ArrayList<MATEventItem>();
 
-        System.out.println(Arrays.toString(arrItemMaps));
-
         try {
             JSONArray arr = new JSONArray(Arrays.toString(arrItemMaps));
 
