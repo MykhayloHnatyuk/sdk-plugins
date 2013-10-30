@@ -1,0 +1,9 @@
+#appname:TestMAT
+#appid:com.hasoffers.TestTitaniumMAT
+#type:ipad
+#guid:0f8c681e-b075-4d47-b96b-69fe4d14535c
+#version:1.0
+#publisher:HasOffers Inc.
+#url:http://www.hasoffers.com
+#image:appicon.png
+#desc:App to test MAT SDK in Titanium.

@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0
+apiversion: 2
+description: MobileAppTracker module for Titanium
+author: HasOffers Inc
+license: Specify your license
+copyright: 2013 HasOffers Inc
+
+
+# these should not be edited
+name: MobileAppTrackerModule
+moduleid: ti.mobileapptracker
+guid: f3c233bb-5f94-40d2-93a7-2ae3b77f8d9b
+platform: iphone
+minsdk: 3.1.3.GA
