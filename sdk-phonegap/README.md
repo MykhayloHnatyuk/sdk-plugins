@@ -159,13 +159,12 @@ where
     currency = ISO 4217 currency code of revenue
 
 You need to supply the "eventName" field with the appropriate value for the event; e.g. "registration". If the event does
-not exist, it will be dynamically created in our site and incremented. You may pass a revenue value, currency code,
+not exist, it will be dynamically created in our site. You may pass a revenue value, currency code,
 or whether you are using an event ID or event name, as optional fields.
 
 #### Registration
 
 If you have a registration process, it's recommended to track it by calling trackAction set to “registration”.
-Using the aforementioned import code, you would call the following:
 
     mat.trackAction(success, failure, "registration", false, "some_username". 0, “USD”);
 
@@ -181,8 +180,6 @@ The best way to analyze the value of your publishers and marketing campaigns is 
 By tracking in-app purchases for a user, the data can be correlated back to the install and analyzed on a cohort basis 
 to determine revenue per install and lifetime value.
 
-Using the aforementioned import code, you would call the following:
-
     mat.trackAction(success, failure, "purchase", false, "", 0.99, “USD”);
 
 __Track In-App Purchases__
@@ -197,8 +194,6 @@ You can find these events in platform by viewing Reports > Logs > Events. Then f
 
 The SDK allows you to analyze user engagement by tracking unique opens. The SDK has built in functionality to only track one “open” event
 per user on any given day to minimize footprint. All subsequent “open” events fired on the same day are ignored and will not show up on the platform.
-
-Using the aforementioned import code, you would call the following:
 
     mat.trackAction(success, failure, "open", false, "", 0, “USD”);
 
