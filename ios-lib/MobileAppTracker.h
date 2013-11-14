@@ -2,13 +2,13 @@
 //  MobileAppTracker.h
 //  MobileAppTracker
 //
-//  Created by HasOffers on 09/27/13.
+//  Created by HasOffers on 10/30/13.
 //  Copyright (c) 2013 HasOffers. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define MATVERSION @"2.5.3"
+#define MATVERSION @"2.6.1"
 
 @protocol MobileAppTrackerDelegate;
 
@@ -486,75 +486,6 @@ extern const NSInteger MAT_GENDER_FEMALE;
  @param sourceApplication the source used to open your app. For example, mobile safari.
  */
 - (void)applicationDidOpenURL:(NSString *)urlString sourceApplication:(NSString *)sourceApplication;
-
-@end
-
-
-#pragma mark - Deprecated Methods
-
-@interface MobileAppTracker (Deprecated)
-
-// Note: A method identified as deprecated has been superseded and may become unsupported in the future.
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use startTrackerWithMATAdvertiserId:MATConversionKey
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (BOOL)startTrackerWithAdvertiserId:(NSString *)aid advertiserKey:(NSString *)key withError:(NSError **)error __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use startTrackerWithMATAdvertiserId:MATConversionKey
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (BOOL)startTrackerWithMATAdvertiserId:(NSString *)aid MATConversionKey:(NSString *)key withError:(NSError **)error __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setMATAdvertiserId:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setAdvertiserId:(NSString *)advertiser_id __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setMATConversionKey:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setAdvertiserKey:(NSString *)advertiser_key __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setAppleAdvertisingIdentifier:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setAdvertiserIdentifier:(NSUUID *)advertiser_identifier __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setAppleVendorIdentifier:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setVendorIdentifier:(NSUUID * )vendor_identifier __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setShouldAutoGenerateAppleAdvertisingIdentifier:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setShouldAutoGenerateAdvertiserIdentifier:(BOOL)yesorno __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setShouldAutoGenerateAppleVendorIdentifier:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setShouldAutoGenerateVendorIdentifier:(BOOL)yesorno __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setDebugMode:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setShouldDebugResponseFromServer:(BOOL)yesorno __deprecated;
-
-/*!
- <span style="color:red">Deprecated Method:</span> Instead use setAllowDuplicateRequests:
- @warning <span style="color:red">Deprecated Method</span>
- */
-- (void)setShouldAllowDuplicateRequests:(BOOL)yesorno __deprecated;
 
 @end
 
