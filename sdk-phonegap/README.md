@@ -20,7 +20,7 @@ You may use whichever method best fits into your build process.
 
 Run the following [plugman](https://github.com/apache/cordova-plugman) command:
 
-    plugman --platform [PLATFORM] --project [PROJECT-PATH] --plugin [PLUGIN-PATH]
+    plugman install --platform [PLATFORM] --project [PROJECT-PATH] --plugin [PLUGIN-PATH]
 
     [PLATFORM] = android or ios
     [PROJECT-PATH] = path to folder of your phonegap project
@@ -51,35 +51,40 @@ Run the following [plugman](https://github.com/apache/cordova-plugman) command:
 ### Manual iOS Installation
 
 1. Make sure the PhoneGap project exists, if not:
-	phonegap create <PROJECT-NAME>
+
+        phonegap create <PROJECT-NAME>
 
 2. Make sure the iOS project has been created, if not:
-	cd <PROJECT-NAME>
-	phonegap build ios
 
-3. Copy the MATPlugin.js file to the 'platforms/ios/www' folder
+        cd <PROJECT-NAME>
+        phonegap build ios
 
-4. Create a folder 'platforms/ios/Plugins/com.hasoffers.plugins.MATPhoneGap'. 
+3. Copy the MATPlugin.js file to the `platforms/ios/www` folder
 
-5. Copy and paste the files -- MATPlugin.h, MATPlugin.m, MobileAppTracker.h, MobileAppTracker.a -- from the downloaded MAT plugin's src/ios folder.
+4. Create a folder `platforms/ios/Plugins/com.hasoffers.plugins.MATPhoneGap`. 
+
+5. Copy and paste the files -- `MATPlugin.h`, `MATPlugin.m`, `MobileAppTracker.h`, `MobileAppTracker.a` -- from the downloaded MAT plugin's `src/ios` folder.
 
 6. Open the iOS project in Xcode.
 
-7. In the Project Explorer, Ctrl+Click Plugins folder and click 'Add Files To "<PROJECT-NAME>"'. 
-   Browse to the folder mentioned in #4 above and add the .h and .m files to the project.
+7. In the Project Explorer, Ctrl+Click Plugins folder and click **Add Files To _"`<PROJECT-NAME>`"_**. 
+   Browse to the folder mentioned in #4 above and add the `.h` and `.m` files to the project.
 
 8. Go to the project settings Build Phase page. In the Link Binary With Libraries section add the required frameworks:
-	MobileAppTracker.a -- from the folder mentioned in #4 above
-	AdSupport.framework -- Optional
-	CoreTelephony.framework
-	MobileCoreServices.framework
-	SystemConfiguration.framework
-	
-9. Copy the MATPlugin feature tag to 'platforms/ios/<PROJECT-NAME>/config.xml' file.
-	<feature name="MATPlugin">
-		<param name="ios-package" value="MATPlugin" />
-		<param name="onload" value="true" />
-	</feature>
+
+        MobileAppTracker.a -- from the folder mentioned in #4 above
+        AdSupport.framework -- Optional
+        CoreTelephony.framework
+        MobileCoreServices.framework
+        SystemConfiguration.framework
+
+
+9. Copy the MATPlugin feature tag to **platforms/ios/_`<PROJECT-NAME>`_/config.xml** file.
+
+        <feature name="MATPlugin">
+            <param name="ios-package" value="MATPlugin" />
+            <param name="onload" value="true" />
+        </feature>
 
 
 ## Integration
@@ -95,11 +100,12 @@ First, add the JavaScript file used by the plugin to your `index.html`:
 This makes the MobileAppTracking methods available in a window.plugins.matPlugin object.
 
 You can create a JavaScript var to easily access the MAT object defined in MATPlugin.js:
+
     var mat = window.plugins.matPlugin;
 
 The MAT object can be used to call methods defined in MatPlugin.js.
 
-After receiving your "deviceready" event, initialize the MAT tracker with the `initTracker` function, passing in
+After receiving your `deviceready` event, initialize the MAT tracker with the `initTracker` function, passing in
 a success callback, error callback, your MAT advertiser ID and key:
 
     mat.initTracker(success, failure, "advertiser_id","advertiser_key");
@@ -107,7 +113,7 @@ a success callback, error callback, your MAT advertiser ID and key:
 ### Installs and Updates
 
 As the success of attributing app events after the initial install is dependent upon first tracking that install, 
-we require that the install is the first event tracked. To track install of your mobile app, use the “trackInstall” 
+we require that the install is the first event tracked. To track install of your mobile app, use the `trackInstall` 
 method. If users have already installed your app prior to SDK implementation, then these users should be tracked as updates.
 
 #### Track Installs
@@ -115,9 +121,9 @@ method. If users have already installed your app prior to SDK implementation, th
 To track installs of your mobile app, use the Track Install method. Track Install is used to track when users install your 
 mobile app on their device and will only record one conversion per install in reports.
 
-        mat.trackInstall(success, failure);
+    mat.trackInstall(success, failure);
 
-The “trackInstall” method automatically tracks updates of your app if the app version differs from the last app version it saw.
+The `trackInstall` method automatically tracks updates of your app if the app version differs from the last app version it saw.
 
 #### Handling Installs Prior to SDK Implementation - Track as Updates
 
@@ -126,11 +132,11 @@ the app to the new version that contains the MAT SDK?
 
 MAT provides you two ways to make sure that the existing users do not count towards new app installs.
 
-1. Call SDK method "trackUpdate" instead of "trackInstall".
+1. Call SDK method `trackUpdate` instead of `trackInstall`.
 
-    If you are integrating MAT into an existing app where you have users you’ve seen before, you can track an update yourself with the trackUpdate method.
+    If you are integrating MAT into an existing app where you have users you’ve seen before, you can track an update yourself with the `trackUpdate` method.
 
-        mat.trackUpdate(success, failure);
+    mat.trackUpdate(success, failure);
 
 2. Import prior installs to the platform.
 
@@ -143,8 +149,8 @@ a [spike of total installs](http://support.mobileapptracking.com/entries/2290059
 
 ### Events
 
-After the install has been tracked, the “trackAction” method is intended to be used to track user actions such as reaching a 
-certain level in a game or making an in-app purchase. The “trackAction” method allows you to define the event name dynamically.
+After the install has been tracked, the `trackAction` method is intended to be used to track user actions such as reaching a 
+certain level in a game or making an in-app purchase. The `trackAction` method allows you to define the event name dynamically.
 
     trackAction(success, failure, eventName, isId, referenceId, revenue, currency)
 
@@ -164,11 +170,11 @@ or whether you are using an event ID or event name, as optional fields.
 
 #### Registration
 
-If you have a registration process, it's recommended to track it by calling trackAction set to “registration”.
+If you have a registration process, it's recommended to track it by calling trackAction set to "registration".
 
-    mat.trackAction(success, failure, "registration", false, "some_username". 0, “USD”);
+    mat.trackAction(success, failure, "registration", false, "some_username", 0, "USD");
 
-You can find these events in the platform by viewing Reports > Event Logs. Then filter the report by the “registration” event.
+You can find these events in the platform by viewing Reports > Event Logs. Then filter the report by the "registration" event.
 
 While our platform always blocks the tracking of duplicate installs, by default it does not block duplicate event requests. 
 However, a registration event may be an event that you only want tracked once per device/user. 
@@ -180,22 +186,22 @@ The best way to analyze the value of your publishers and marketing campaigns is 
 By tracking in-app purchases for a user, the data can be correlated back to the install and analyzed on a cohort basis 
 to determine revenue per install and lifetime value.
 
-    mat.trackAction(success, failure, "purchase", false, "", 0.99, “USD”);
+    mat.trackAction(success, failure, "purchase", false, "", 0.99, "USD");
 
 __Track In-App Purchases__
 The basic way to track purchases is to track an event with a name of purchase and then define the revenue (sale amount) and currency code.
 
-Note: Pass the revenue in as a Double and the currency of the amount if necessary.  Currency is set to "USD" by default.
+__Note__: Pass the revenue in as a Double and the currency of the amount if necessary.  Currency is set to "USD" by default.
 See [Setting Currency Code](http://support.mobileapptracking.com/entries/23697946-Customize-SDK-Settings) for currencies we support.
 
-You can find these events in platform by viewing Reports > Logs > Events. Then filter the report by the “purchase” event.
+You can find these events in platform by viewing Reports > Logs > Events. Then filter the report by the "purchase" event.
 
 #### Opens
 
-The SDK allows you to analyze user engagement by tracking unique opens. The SDK has built in functionality to only track one “open” event
-per user on any given day to minimize footprint. All subsequent “open” events fired on the same day are ignored and will not show up on the platform.
+The SDK allows you to analyze user engagement by tracking unique opens. The SDK has built in functionality to only track one "open" event
+per user on any given day to minimize footprint. All subsequent "open" events fired on the same day are ignored and will not show up on the platform.
 
-    mat.trackAction(success, failure, "open", false, "", 0, “USD”);
+    mat.trackAction(success, failure, "open", false, "", 0, "USD");
 
 You can find counts of Opens by viewing Reports > Mobile Apps. Include the parameter of Opens to see the aggregated count.
 The platform does not provide logs of Opens. If you track Opens using a name other than "open" then these tracked events will
@@ -203,10 +209,10 @@ cost the same price as all other events to track.
 
 #### Other Events
 
-You can track other events in your app dynamically by calling “trackAction”. The “trackAction” method is intended for tracking
+You can track other events in your app dynamically by calling `trackAction`. The `trackAction` method is intended for tracking
 any user actions. This method allows you to define the event name.
 
-To dynamically track an event, replace “eventName” with the name of the event you want to track. The tracking engine
+To dynamically track an event, replace "eventName" with the name of the event you want to track. The tracking engine
 will then look up the event by the name. If an event with the defined name doesn’t exist, the tracking engine will automatically
 create an event for you with that name. An Event Name has to be alphanumeric.
 
@@ -236,7 +242,7 @@ tracking requests.
 
 __Note__: For Android, debug mode log output can be found in LogCat under the tag "MobileAppTracker".
 
-To debug log messages that show the event status and server response, call the "setDebugMode" method with Boolean true:
+To debug log messages that show the event status and server response, call the `setDebugMode` method with Boolean true:
 
     mat.setDebugMode(success, failure, true);
 
@@ -245,9 +251,9 @@ __Allow Duplicates__
 The platform rejects installs from devices it has seen before.  For testing purposes, you may want to bypass this behavior
 and fire multiple installs from the same testing device.
  
-There are two methods you can employ to do so: (1) calling the "setAllowDuplicates" method, and (2) set up a test profile.
+There are two methods you can employ to do so: (1) calling the `setAllowDuplicates` method, and (2) set up a test profile.
 
-(1) Call the “setAllowDuplicates” after initializing MobileAppTracker, with Boolean true:
+(1) Call the `setAllowDuplicates` after initializing `MobileAppTracker`, with Boolean true:
 
     mat.setAllowDuplicates(success, failure, true);
 
@@ -275,13 +281,13 @@ Calling this will do nothing on Android apps.
 
 __TRUSTe ID__
 
-If you are integrating with the TRUSTe SDK, you can pass in your TRUSTe ID with setTRUSTeId, which populates the “TPID” field.
+If you are integrating with the TRUSTe SDK, you can pass in your TRUSTe ID with `setTRUSTeId`, which populates the "TPID" field.
 
     mat.setTrusteTPID(success, failure, "your_truste_id");
 
 __User ID__
 
-If you have a user ID of your own that you wish to track, pass it in as a string with setUserId. This populates the “User ID”
+If you have a user ID of your own that you wish to track, pass it in as a string with `setUserId`. This populates the "User ID"
 field in our reporting, and also the postback variable {user_id}.
 
     mat.setUserId(success, failure, "custom_user_id");
@@ -292,7 +298,7 @@ Please navigate to the [Custom SDK Settings](http://support.mobileapptracking.co
 #### Event Items
 
 While an event is like your receipt for a purchase, the event items are the individual items you purchased.
-Event items allow you to define multiple items for a single event. The “trackAction” method can include this event item data.
+Event items allow you to define multiple items for a single event. The `trackAction` method can include this event item data.
 
 The function for tracking event items looks like this:
 
@@ -300,7 +306,8 @@ The function for tracking event items looks like this:
 
 items is an array of "event items" that have the following format:
 
-    {"item":"item_name",    // name of the item
+    {
+     "item":"item_name",    // name of the item
      "quantity":1,          // # of items
      "unit_price":0.99,     // individual unit price
      "revenue":0.99,        // total revenue of event item, defaults to quantity x unit price
@@ -315,7 +322,8 @@ Sample tracking code:
 
     var eventItems = new Array();
 
-    var eventItem1 = {"item":"apple",
+    var eventItem1 = {
+                      "item":"apple",
                       "quantity":1,
                       "unit_price":0.99,
                       "revenue":0.99,
@@ -327,14 +335,16 @@ Sample tracking code:
                      };
     eventItems[0] = eventItem1;
                 
-    var eventItem2 = {"item":"banana",
+    var eventItem2 = {
+                      "item":"banana",
                       "quantity":2,
                       "unit_price":0.50,
                       "revenue":1
                      };
     eventItems[1] = eventItem2;
                 
-    mat.trackActionWithItems(success,
+    mat.trackActionWithItems(
+                             success,
                              failure,
                              "purchase",
                              false,
