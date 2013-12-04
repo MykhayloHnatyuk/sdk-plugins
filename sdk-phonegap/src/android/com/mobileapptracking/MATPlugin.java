@@ -1,4 +1,4 @@
-package com.phonegap.plugins.mobileapptracker;
+package com.mobileapptracking;
 
 import java.util.ArrayList;
 import java.util.List;

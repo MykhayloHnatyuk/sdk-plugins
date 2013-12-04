@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" 
-    xmlns:android="http://schemas.android.com/apk/res/android" 
-    id="com.hasoffers.plugins.MATPhoneGap" 
-    version="1.0.0">
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+        xmlns:android="http://schemas.android.com/apk/res/android" 
+        id="com.mobileapptracking.matplugin" 
+        version="1.0.0">
 
     <name>MATPlugin</name>
-    
-    <description>
-      This plugin allows you to track installs and events using MobileAppTracking.
-    </description>
 
+    <description>This plugin allows you to track installs and events using MobileAppTracking.</description>
+    <repo>https://github.com/john-gu/phonegap-mat-plugin.git</repo>
+    <keywords>cordova,mat,mobileapptracking,tracking</keywords>
     <license>Apache 2.0</license>
-
-    <asset src="www/MATPlugin.js" target="MATPlugin.js" />
     
     <engines>
         <engine name="cordova" version=">=2.0.0" />
     </engines>
+        
+    <js-module src="www/MATPlugin.js" name="MATPlugin">
+        <clobbers target="window.plugins.matPlugin" />
+    </js-module>
     
     <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="MATPlugin" >
-                <param name="android-package" value="com.phonegap.plugins.mobileapptracker.MATPlugin" />
+                <param name="android-package" value="com.mobileapptracking.MATPlugin" />
             </feature>
         </config-file>
 
@@ -42,8 +44,8 @@
         </config-file>
 
         <source-file src="src/android/lib/MobileAppTracker.jar" target-dir="libs/" />
-        <source-file src="src/android/com/phonegap/plugins/mobileapptracker/MATPlugin.java"
-                     target-dir="src/com/phonegap/plugins/mobileapptracker" />
+        <source-file src="src/android/com/mobileapptracking/MATPlugin.java"
+                     target-dir="src/com/mobileapptracking" />
     </platform>
     
     <!-- ios -->

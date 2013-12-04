@@ -18,7 +18,7 @@ You may use whichever method best fits into your build process.
 
 ### Plugman
 
-Run the following [plugman](https://github.com/apache/cordova-plugman) command:
+Run the following [plugman](https://github.com/apache/cordova-plugman) command from your project's `platforms\[PLATFORM]\` folder:
 
     plugman install --platform [PLATFORM] --project [PROJECT-PATH] --plugin [PLUGIN-PATH]
 
@@ -27,15 +27,31 @@ Run the following [plugman](https://github.com/apache/cordova-plugman) command:
     [PLUGIN-PATH] = path to folder of this plugin
 
 
+### Cordova/PhoneGap CLI
+
+Run the follow command-line interface commands from your project's folder:
+
+Cordova:
+
+    cordova plugin add [PLUGIN-PATH]
+
+Cordova Registry:
+
+    cordova plugin add com.mobileapptracking.matplugin
+
+PhoneGap:
+
+    phonegap local plugin add [PLUGIN-PATH]
+
 ### Manual Android Installation
 
 1. Add the following to your `res/xml/config.xml` file:
 
         <feature name="MATPlugin" >
-            <param name="android-package" value="com.phonegap.plugins.mobileapptracker.MATPlugin" />
+            <param name="android-package" value="com.mobileapptracking.MATPlugin" />
         </feature>
 
-2. Add `com/phonegap/plugins/mobileapptracker/MATPlugin.java` from MAT PhoneGap's `src/android` folder to your Android project's `src` folder.
+2. Add `com/mobileapptracking/MATPlugin.java` from MAT PhoneGap's `src/android` folder to your Android project's `src` folder.
     You may simply copy the `com` folder from repo to your `src` folder.
 
 3. Add necessary plugin permissions to your `AndroidManifest.xml`.
@@ -47,6 +63,9 @@ Run the following [plugman](https://github.com/apache/cordova-plugman) command:
 
 4. Copy the `MATPlugin.js` file from MAT PhoneGap's `www` folder into your application's `assets/www` folder.
 
+5. Import the MATPlugin.js script in your html file:
+        
+        <script type="text/javascript" src="MATPlugin.js"></script>
 
 ### Manual iOS Installation
 
@@ -61,16 +80,20 @@ Run the following [plugman](https://github.com/apache/cordova-plugman) command:
 
 3. Copy the MATPlugin.js file to the `platforms/ios/www` folder
 
-4. Create a folder `platforms/ios/Plugins/com.hasoffers.plugins.MATPhoneGap`. 
+4. Import the MATPlugin.js script in your html file:
+        
+        <script type="text/javascript" src="MATPlugin.js"></script>
 
-5. Copy and paste the files -- `MATPlugin.h`, `MATPlugin.m`, `MobileAppTracker.h`, `MobileAppTracker.a` -- from the downloaded MAT plugin's `src/ios` folder.
+5. Create a folder `platforms/ios/Plugins/com.mobileapptracking.MATPlugin`. 
 
-6. Open the iOS project in Xcode.
+6. Copy and paste the files -- `MATPlugin.h`, `MATPlugin.m`, `MobileAppTracker.h`, `MobileAppTracker.a` -- from the downloaded MAT plugin's `src/ios` folder.
 
-7. In the Project Explorer, Ctrl+Click Plugins folder and click **Add Files To _"`<PROJECT-NAME>`"_**. 
+7. Open the iOS project in Xcode.
+
+8. In the Project Explorer, Ctrl+Click Plugins folder and click **Add Files To _"`<PROJECT-NAME>`"_**. 
    Browse to the folder mentioned in #4 above and add the `.h` and `.m` files to the project.
 
-8. Go to the project settings Build Phase page. In the Link Binary With Libraries section add the required frameworks:
+9. Go to the project settings Build Phase page. In the Link Binary With Libraries section add the required frameworks:
 
         MobileAppTracker.a -- from the folder mentioned in #4 above
         AdSupport.framework -- Optional
@@ -79,7 +102,7 @@ Run the following [plugman](https://github.com/apache/cordova-plugman) command:
         SystemConfiguration.framework
 
 
-9. Copy the MATPlugin feature tag to **platforms/ios/_`<PROJECT-NAME>`_/config.xml** file.
+10. Copy the MATPlugin feature tag to **platforms/ios/_`<PROJECT-NAME>`_/config.xml** file.
 
         <feature name="MATPlugin">
             <param name="ios-package" value="MATPlugin" />
@@ -93,11 +116,7 @@ Now that the plugin is installed, here are instructions on how to use the Mobile
 
 For a complete example, see the implementation in the `example/www/index.html` file of the plugin folder.
 
-First, add the JavaScript file used by the plugin to your `index.html`:
-
-    <script type="text/javascript" src="MATPlugin.js"></script>
-
-This makes the MobileAppTracking methods available in a window.plugins.matPlugin object.
+The MobileAppTracking methods are available in a window.plugins.matPlugin object.
 
 You can create a JavaScript var to easily access the MAT object defined in MATPlugin.js:
 
