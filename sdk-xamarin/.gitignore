@@ -1,0 +1,4 @@
+**/obj
+**/*.userprefs
+android/MobileAppTrackerBindingAndroid/TestApp/bin
+ios/MobileAppTrackerBindingAndroid/TestApp/bin
