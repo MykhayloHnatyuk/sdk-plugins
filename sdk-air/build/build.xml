@@ -13,7 +13,7 @@
     <target name="clean" description="Clean the output and temp folders">
         <echo level="verbose">Cleaning ANE output and temp folders...</echo>
         <delete dir="../temp"/>
-        <delete file="../bin/${name}.ane"/>
+        <delete file="../dist/${name}.ane"/>
     </target>
     
     <!-- iOS -->
@@ -75,7 +75,7 @@
 
         <javac srcdir="../android/src" destdir="../android/temp/classes" includeantruntime="false">
             <classpath>
-                <pathelement location="${android.sdk}/android.jar"/>
+                <pathelement location="${android.platform}/android.jar"/>
                 <pathelement location="${flex.sdk}/lib/android/FlashRuntimeExtensions.jar"/>
                 <pathelement location="../android/libs/MobileAppTracker.jar"/>
             </classpath>
@@ -135,7 +135,7 @@
 			<arg value="-package"/>
 			<arg value="-target"/>
 			<arg value="ane"/>
-			<arg value="../bin/${name}.ane"/>
+			<arg value="../dist/${name}.ane"/>
 			<arg value="../build/extension.xml"/>
 			<arg line="-swc swc/MATAS.swc"/>
             <arg line="-platform iPhone-ARM -C ios/ . -platformoptions ../build/platformios.xml"/>

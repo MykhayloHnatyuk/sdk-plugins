@@ -2,7 +2,6 @@
 //  FRETypeConversionHelper.m
 //  MobileAppTrackerANE
 //
-//  Created by Harshal Ogale on 12/19/12.
 //  Copyright (c) 2012 Sebastien Flory. All rights reserved.
 //
 

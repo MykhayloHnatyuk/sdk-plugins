@@ -238,7 +238,7 @@ implement setAllowDuplicateRequests in the code and instead allow duplicate requ
 The SDK supports several custom identifiers that you can use as alternate means to identify your installs or events.
 Call these setters before calling the corresponding trackInstall or trackAction code.
 
-__OpenUDID__ (iOS only)
+__OpenUDID__ (iOS only, deprecated - use setAppleAdvertisingIdentifier instead)
 
 This sets the OpenUDID of the device. Can be generated with the official implementation at [http://OpenUDID.org](http://OpenUDID.org).
 Calling this will do nothing on Android apps.

@@ -26,6 +26,7 @@ public class InitFunction implements FREFunction {
                 e.printStackTrace();
             }
             mec.mat = new MobileAppTracker(context.getActivity(), advertiserId, conversionKey);
+            mec.mat.setPluginName("air");
 
             return FREObject.newObject(true);
         } catch (Exception e) {

@@ -79,6 +79,7 @@ DEFINE_ANE_FUNCTION(initNativeCode)
     
     [[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:advId
                                                      MATConversionKey:conversionKey];
+    [[MobileAppTracker sharedManager] setPluginName:@"air"];
     
     DLog(@"initNativeCode end");
     
@@ -432,6 +433,42 @@ DEFINE_ANE_FUNCTION(SetUserIdFunction)
     return NULL;
 }
 
+DEFINE_ANE_FUNCTION(SetFacebookUserIdFunction)
+{
+    DLog(@"SetFacebookUserIdFunction");
+    
+    NSString *userId = nil;
+    MAT_FREGetObjectAsString(argv[0], &userId);
+    
+    [[MobileAppTracker sharedManager] setFacebookUserId:userId];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetTwitterUserIdFunction)
+{
+    DLog(@"SetTwitterUserIdFunction");
+    
+    NSString *userId = nil;
+    MAT_FREGetObjectAsString(argv[0], &userId);
+    
+    [[MobileAppTracker sharedManager] setTwitterUserId:userId];
+    
+    return NULL;
+}
+
+DEFINE_ANE_FUNCTION(SetGoogleUserIdFunction)
+{
+    DLog(@"SetGoogleUserIdFunction");
+    
+    NSString *userId = nil;
+    MAT_FREGetObjectAsString(argv[0], &userId);
+    
+    [[MobileAppTracker sharedManager] setGoogleUserId:userId];
+    
+    return NULL;
+}
+
 DEFINE_ANE_FUNCTION(SetAppAdTrackingFunction)
 {
     DLog(@"SetAppAdTrackingFunction");
@@ -675,6 +712,9 @@ void MATExtContextInitializer(void* extData, const uint8_t* ctxType, FREContext 
         MAP_FUNCTION(setUIID,                                   NULL, SetUIIDFunction),
         MAP_FUNCTION(setUseCookieTracking,                      NULL, SetUseCookieTrackingFunction),
         MAP_FUNCTION(setUserId,                                 NULL, SetUserIdFunction),
+        MAP_FUNCTION(setFacebookUserId,                         NULL, SetFacebookUserIdFunction),
+        MAP_FUNCTION(setTwitterUserId,                          NULL, SetTwitterUserIdFunction),
+        MAP_FUNCTION(setGoogleUserId,                           NULL, SetGoogleUserIdFunction),
         
         MAP_FUNCTION(setAge,                                    NULL, SetAgeFunction),
         MAP_FUNCTION(setGender,                                 NULL, SetGenderFunction),

@@ -39,6 +39,9 @@ package com.hasoffers.nativeExtensions
 		internal static const setUIID 							: String = "setUIID";
 		internal static const setUseCookieTracking				: String = "setUseCookieTracking";
 		internal static const setUserId 						: String = "setUserId";
+		internal static const setFacebookUserId 				: String = "setFacebookUserId";
+		internal static const setTwitterUserId 					: String = "setTwitterUserId";
+		internal static const setGoogleUserId 					: String = "setGoogleUserId";
 		
 		internal static const setAge	 						: String = "setAge";
 		internal static const setGender 						: String = "setGender";
