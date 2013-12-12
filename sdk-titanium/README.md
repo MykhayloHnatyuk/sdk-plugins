@@ -282,6 +282,12 @@ Modify the `<project_dir>/build/generated/jni/Android.mk`
 
     LOCAL_DISABLE_FORMAT_STRING_CHECKS=true
 
+** JAB 12/5/13: Step 1 doesn't seem necessary; step 2 doesn't help.**  
+This on Mac with NDK r9 and Titanium 3.1.3. Instead, the step 2 fix was
+modifying `~/Library/Application\ Support/Titanium/mobilesdk/osx/3.1.3.GA/module/android/build.xml` by inserting `<arg value="LOCAL_DISABLE_FORMAT_STRING_CHECKS=true"/>`
+at line 287 (inside `<exec executable="${ndk.build}">...</exec>`).
+
+
 
 ## Author
 
