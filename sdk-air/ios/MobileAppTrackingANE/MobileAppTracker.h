@@ -2,13 +2,13 @@
 //  MobileAppTracker.h
 //  MobileAppTracker
 //
-//  Created by HasOffers on 10/30/13.
+//  Created by HasOffers on 01/02/13.
 //  Copyright (c) 2013 HasOffers. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-#define MATVERSION @"2.6.1"
+#define MATVERSION @"2.7"
 
 @protocol MobileAppTrackerDelegate;
 
@@ -23,8 +23,11 @@
 
 /** @name Gender type constants */
 typedef enum {
-    MAT_GENDER_MALE=0,   // Gender type MALE. Equals 0.
-    MAT_GENDER_FEMALE=1  // Gender type FEMALE. Equals 1.
+    MATGenderMale=0,                   // Gender type MALE. Equals 0.
+    MATGenderFemale=1,                 // Gender type FEMALE. Equals 1.
+    
+    MAT_GENDER_MALE=MATGenderMale,     // Backward-compatible alias for MATGenderMale.
+    MAT_GENDER_FEMALE=MATGenderFemale  // Backward-compatible alias for MATGenderFemale.
 } MATGender;
 
 
@@ -226,7 +229,7 @@ typedef enum {
 
 /*!
  Sets the user's gender.
- @param userGender user's gender, possible values MAT_GENDER_MALE (0), MAT_GENDER_FEMALE (1).
+ @param userGender user's gender, possible values MATGenderMale, MATGenderFemale
  */
 - (void)setGender:(MATGender)userGender;
 

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42DC93F7185B730300C838DC /* MobileAppTracker-2.7.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42DC93F6185B730300C838DC /* MobileAppTracker-2.7.a */; };
 		96318CCA16020DC10075B93E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96318CC916020DC10075B93E /* Foundation.framework */; };
 		96318CD116020DC10075B93E /* MobileAppTrackerANE.m in Sources */ = {isa = PBXBuildFile; fileRef = 96318CD016020DC10075B93E /* MobileAppTrackerANE.m */; };
 		F86BA3801682889000916B89 /* FRETypeConversionHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F86BA37F1682889000916B89 /* FRETypeConversionHelper.m */; };
-		F86BA39E168E556B00916B89 /* MobileAppTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BA39D168E556B00916B89 /* MobileAppTracker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42DC93F6185B730300C838DC /* MobileAppTracker-2.7.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "MobileAppTracker-2.7.a"; path = "MobileAppTrackingANE/MobileAppTracker-2.7.a"; sourceTree = "<group>"; };
 		96318CC616020DC10075B93E /* libMobileAppTrackerANE.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobileAppTrackerANE.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		96318CC916020DC10075B93E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		96318CCD16020DC10075B93E /* MobileAppTrackingANE-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MobileAppTrackingANE-Prefix.pch"; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		F86BA37E1682889000916B89 /* FRETypeConversionHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRETypeConversionHelper.h; sourceTree = "<group>"; };
 		F86BA37F1682889000916B89 /* FRETypeConversionHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRETypeConversionHelper.m; sourceTree = "<group>"; };
 		F86BA393168BB32700916B89 /* MobileAppTracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MobileAppTracker.h; sourceTree = "<group>"; };
-		F86BA39D168E556B00916B89 /* MobileAppTracker.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = MobileAppTracker.a; path = MobileAppTrackingANE/MobileAppTracker.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96318CCA16020DC10075B93E /* Foundation.framework in Frameworks */,
-				F86BA39E168E556B00916B89 /* MobileAppTracker.a in Frameworks */,
+				42DC93F7185B730300C838DC /* MobileAppTracker-2.7.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 		96318CC816020DC10075B93E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F86BA39D168E556B00916B89 /* MobileAppTracker.a */,
+				42DC93F6185B730300C838DC /* MobileAppTracker-2.7.a */,
 				96318CC916020DC10075B93E /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -238,7 +238,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/MobileAppTrackingANE\"",
+					"\\\"$(SRCROOT)/MobileAppTrackingANE\\\"",
+					"/Users/johnb/src/sdk/sdk-air/ios/MobileAppTrackingANE",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -268,7 +269,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/MobileAppTrackingANE\"",
+					"\\\"$(SRCROOT)/MobileAppTrackingANE\\\"",
+					"/Users/johnb/src/sdk/sdk-air/ios/MobileAppTrackingANE",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";

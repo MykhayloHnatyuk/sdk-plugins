@@ -11,7 +11,7 @@ This document outlines the AIR Native Extension integration and use cases.
 ## Implementation
 
 1. To integrate the MobileAppTracking ANE in your AIR app, use the file MobileAppTrackerANE.ane
-located in the dist folder. Add this file as a Native Extension to your AIR app by right clicking
+located in the /dist/ folder. Add this file as a Native Extension to your AIR app by right clicking
 your project and selecting Properties->Flex Build Path->Native Extensions->Add ANE.
 
 ![air-sdk1](./docs/img/air-sdk1.png "Add ANE")

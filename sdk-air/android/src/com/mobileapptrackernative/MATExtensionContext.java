@@ -30,9 +30,12 @@ public class MATExtensionContext extends FREContext {
         functionMap.put(SetAllowDuplicatesFunction.NAME, new SetAllowDuplicatesFunction());
         functionMap.put(SetCurrencyCodeFunction.NAME, new SetCurrencyCodeFunction());
         functionMap.put(SetDebugModeFunction.NAME, new SetDebugModeFunction());
+        functionMap.put(SetFacebookUserIdFunction.NAME, new SetFacebookUserIdFunction());
+        functionMap.put(SetGoogleUserIdFunction.NAME, new SetGoogleUserIdFunction());
         functionMap.put(SetPackageNameFunction.NAME, new SetPackageNameFunction());
         functionMap.put(SetSiteIdFunction.NAME, new SetSiteIdFunction());
         functionMap.put(SetTRUSTeIdFunction.NAME,  new SetTRUSTeIdFunction());
+        functionMap.put(SetTwitterUserIdFunction.NAME, new SetTwitterUserIdFunction());
         functionMap.put(SetUserIdFunction.NAME,  new SetUserIdFunction());
 
         functionMap.put(SetAgeFunction.NAME,  new SetAgeFunction());

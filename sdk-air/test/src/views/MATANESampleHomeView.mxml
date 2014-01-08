@@ -8,9 +8,10 @@
 			
 			import spark.events.TextOperationEvent;
 
-			public var mobileAppTracker:MobileAppTracker;
+			public var mat:MobileAppTracker;
 			public var matAdvertiserId:String;
 			public var matConversionKey:String;
+			public var matPackageName:String;
 			public var eventName:String;
 			public var revenue:Number;
 			public var currencyCode:String;
@@ -21,15 +22,20 @@
 			public var attr1:String;
 			public var attr2:String;
 			
+			public var isAndroidPlatform:Boolean;
+			
 			public var flagAutoGenerateParams:Boolean = false;
 
 			public function init():void 
 			{
+				var platform:String = String(Capabilities.manufacturer);
+				isAndroidPlatform = -1 != platform.toLowerCase().search("linux");
+				
 				trace("MATANESampleHomeView.init() start");
 				
 				matAdvertiserId = "877";
-				//matConversionKey = "5afe3bc434184096023e3d8b2ae27e1c"; // Android test
-				matConversionKey = "47d95c07c10f6fdefedbbf4c38f709bb"; // iOS test
+				matConversionKey = "8c14d6bbe466b65211e781d62e301eec";
+				matPackageName = "com.hasoffers.airtestapp";
 				
 				eventName = "evt123";
 				revenue = 0.42;
@@ -56,33 +62,32 @@
 				
 				trace("MATANESampleHomeView.init(): getting MobileAppTracker singleton instance.");
 				
-				mobileAppTracker = MobileAppTracker.instance;
+				mat = MobileAppTracker.instance;
 				
-				trace("mobileAppTracker = " + mobileAppTracker);
+				trace("mobileAppTracker = " + mat);
 				
-				mobileAppTracker.init(matAdvertiserId, matConversionKey);
+				mat.init(matAdvertiserId, matConversionKey);
 				
-				mobileAppTracker.setDelegate(true);
-				mobileAppTracker.setDebugMode(true);
-				mobileAppTracker.setAllowDuplicates(true);
+				mat.setDelegate(true);
+				mat.setDebugMode(true);
+				mat.setAllowDuplicates(true);
 				
-				mobileAppTracker.setUIID("12345678-1234-1234-1234-123456789012");
-				mobileAppTracker.setAppAdTracking(true);
+				mat.setUIID("12345678-1234-1234-1234-123456789012");
+				mat.setAppAdTracking(true);
 				
-				//mobileAppTracker.setPackageName("com.hasofferstestapp"); // Android test
-				mobileAppTracker.setPackageName("com.hasoffers.harshaltestapp"); // iOS test
+				mat.setPackageName(matPackageName);
 				
 				trace("MATANESampleHomeView.init() end");
 			}
 
 			protected function trackInstall_clickHandler(event:MouseEvent):void
 			{
-				mobileAppTracker.trackInstall("someref1");
+				mat.trackInstall("someref1");
 			}
 
 			protected function trackAction_clickHandler(event:MouseEvent):void
 			{
-				mobileAppTracker.trackAction(eventName, revenue, currencyCode, "ref111", false);
+				mat.trackAction(eventName, revenue, currencyCode, "ref111", false);
 			}
 
 			protected function trackActionWithEventItem_clickHandler(event:MouseEvent):void
@@ -102,7 +107,9 @@
 				
 				arrEvents.push(dict);
 				
-				mobileAppTracker.trackActionWithEventItem(eventName, arrEvents, revenue, currencyCode, null, false, 0, getSampleiTunesIAPReceipt(), null);
+				var storeReceipt:String = isAndroidPlatform ? null : getSampleiTunesIAPReceipt();
+				
+				mat.trackActionWithEventItem(eventName, arrEvents, revenue, currencyCode, null, false, 0, storeReceipt, null);
 			}
 			
 			protected function getSampleiTunesIAPReceipt():String
@@ -171,23 +178,31 @@
 			{
 				flagAutoGenerateParams = !flagAutoGenerateParams;
 				
-				mobileAppTracker.setShouldAutoGenerateAppleAdvertisingIdentifier(flagAutoGenerateParams);
-				mobileAppTracker.setShouldAutoGenerateAppleVendorIdentifier(flagAutoGenerateParams);
+				mat.setShouldAutoGenerateAppleAdvertisingIdentifier(flagAutoGenerateParams);
+				mat.setShouldAutoGenerateAppleVendorIdentifier(flagAutoGenerateParams);
 				
-				var sdkDataParams:String = mobileAppTracker.getSDKDataParameters();
-				sdkDataParams = sdkDataParams.split('","').join('",\n"');
-				textSDKDataParams.text = sdkDataParams;
+				var sdkDataParams:String = mat.getSDKDataParameters();
+				
+				if(null != sdkDataParams)
+				{
+					sdkDataParams = sdkDataParams.split('","').join('",\n"');
+					textSDKDataParams.text = sdkDataParams;
+				}
 			}
 			
 			protected function printSDKDataParameters_changeHandler(event:MouseEvent):void
 			{
-				var sdkDataParams:String = mobileAppTracker.getSDKDataParameters();
-				sdkDataParams = sdkDataParams.split('","').join('",\n"');
-				trace(sdkDataParams);
+				var sdkDataParams:String = mat.getSDKDataParameters();
 				
-				textSDKDataParams.text = sdkDataParams;
+				if(null != sdkDataParams)
+				{
+					sdkDataParams = sdkDataParams.split('","').join('",\n"');
+					trace(sdkDataParams);
 				
-				textSDKDataParams.invalidateDisplayList();
+					textSDKDataParams.text = sdkDataParams;
+				
+					textSDKDataParams.invalidateDisplayList();
+				}
 			}
 		]]>
 	</fx:Script>
