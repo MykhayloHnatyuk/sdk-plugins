@@ -10,4 +10,6 @@ LOCAL_CFLAGS    := -Werror
 LOCAL_SRC_FILES := MATNativeJavaBridge.cpp
 LOCAL_LDLIBS    := -llog
 
+LOCAL_DISABLE_FORMAT_STRING_CHECKS := true
+
 include $(BUILD_SHARED_LIBRARY)

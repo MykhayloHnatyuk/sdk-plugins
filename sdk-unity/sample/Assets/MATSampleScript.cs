@@ -40,6 +40,12 @@ public class MATSampleScript : MonoBehaviour {
         private static extern void setTRUSTeId(string trusteId);
         [DllImport ("mobileapptracker")]
         private static extern void setUserId(string userId);
+        [DllImport ("mobileapptracker")]
+        private static extern void setFacebookUserId(string facebookUserId);
+        [DllImport ("mobileapptracker")]
+        private static extern void setGoogleUserId(string googleUserId);
+        [DllImport ("mobileapptracker")]
+        private static extern void setTwitterUserId(string twitterUserId);
 
         [DllImport ("mobileapptracker")]
         private static extern void startAppToAppTracking(string targetAppId, string advertiserId, string offerId, string publisherId, bool shouldRedirect);
@@ -63,7 +69,7 @@ public class MATSampleScript : MonoBehaviour {
         [DllImport ("mobileapptracker")]
         private static extern void setAppAdTracking(bool enable);
         [DllImport ("mobileapptracker")]
-        private static extern void setDelegate(bool enable);	
+        private static extern void setDelegate(bool enable);
         [DllImport ("mobileapptracker")]
         private static extern void setMACAddress(string mac);
         [DllImport ("mobileapptracker")]
@@ -71,7 +77,7 @@ public class MATSampleScript : MonoBehaviour {
         [DllImport ("mobileapptracker")]
         private static extern void setOpenUDID(string openUDID);
         [DllImport ("mobileapptracker")]
-        private static extern void setRedirectUrl(string redirectUrl);	
+        private static extern void setRedirectUrl(string redirectUrl);
         [DllImport ("mobileapptracker")]
         private static extern void setUIID(string uiid);
         [DllImport ("mobileapptracker")]
@@ -134,6 +140,12 @@ public class MATSampleScript : MonoBehaviour {
         private static extern void setUIID(string uiid);
         [DllImport ("__Internal")]
         private static extern void setUserId(string userId);
+        [DllImport ("__Internal")]
+        private static extern void setFacebookUserId(string facebookUserId);
+        [DllImport ("__Internal")]
+        private static extern void setTwitterUserId(string twitterUserId);
+        [DllImport ("__Internal")]
+        private static extern void setGoogleUserId(string googleUserId);
         [DllImport ("__Internal")]
         private static extern void setJailbroken(bool isJailbroken);
         [DllImport ("__Internal")]
@@ -215,6 +227,10 @@ public class MATSampleScript : MonoBehaviour {
 
             setAge(28);
             setGender(1); // 0 = male, 1 = female
+		
+			setTwitterUserId("mytwitter");
+			setGoogleUserId("mygoogle");
+			setFacebookUserId("myfacebook");
 
             print("MATSampleScript Awake: sdk data parameters: " + getSDKDataParameters());
 

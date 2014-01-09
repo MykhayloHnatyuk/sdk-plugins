@@ -80,6 +80,7 @@ extern "C" {
         
         [[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:CreateNSString(advertiserId)
                                                          MATConversionKey:CreateNSString(conversionKey)];
+        [[MobileAppTracker sharedManager] setPluginName:@"unity"];
     }
     
     void setDelegate(bool enable)
@@ -216,6 +217,27 @@ extern "C" {
         NSLog(@"Native: setUserId: %s", userId);
         
         [[MobileAppTracker sharedManager] setUserId:CreateNSString(userId)];
+    }
+
+    void setFacebookUserId(const char* userId)
+    {
+        NSLog(@"Native: setFacebookUserId: %s", userId);
+        
+        [[MobileAppTracker sharedManager] setFacebookUserId:CreateNSString(userId)];
+    }
+
+    void setTwitterUserId(const char* userId)
+    {
+        NSLog(@"Native: setTwitterUserId: %s", userId);
+        
+        [[MobileAppTracker sharedManager] setTwitterUserId:CreateNSString(userId)];
+    }
+
+    void setGoogleUserId(const char* userId)
+    {
+        NSLog(@"Native: setGoogleUserId: %s", userId);
+        
+        [[MobileAppTracker sharedManager] setGoogleUserId:CreateNSString(userId)];
     }
     
     void setAppleAdvertisingIdentifier(const char* appleAdvertisingId)

@@ -30,11 +30,11 @@ extern "C"
 	jmethodID	setAgeMethod;
 	jmethodID	setAllowDuplicatesMethod;
 	jmethodID	setAltitudeMethod;
-	jmethodID	setAppAdTrackingMethod;
 	jmethodID	setCurrencyCodeMethod;
 	jmethodID	setDebugModeMethod;
 	jmethodID	setGenderMethod;
 	jmethodID	setLatitudeMethod;
+	jmethodID	setLimitAdTrackingEnabledMethod;
 	jmethodID	setLongitudeMethod;
 	jmethodID	setPackageNameMethod;
 	jmethodID	setRefIdMethod;
@@ -42,6 +42,9 @@ extern "C"
 	jmethodID	setSiteIdMethod;
 	jmethodID	setTRUSTeIdMethod;
 	jmethodID	setUserIdMethod;
+	jmethodID	setFacebookUserIdMethod;
+	jmethodID	setTwitterUserIdMethod;
+	jmethodID	setGoogleUserIdMethod;
 	jmethodID	startAppToAppTrackingMethod;
 
 	jint JNI_OnLoad(JavaVM* vm, void* reserved)
@@ -75,6 +78,11 @@ extern "C"
 		jobject obj_MobileAppTracker	= jni_env->NewObject(cls_MobileAppTracker, mid_MobileAppTracker, obj_Activity, advertiserIdUTF, conversionKeyUTF);
 		__android_log_print(ANDROID_LOG_INFO, "MATJavaBridge", "[%s] MobileAppTracker object = %08x\n", __FUNCTION__, obj_MobileAppTracker);
 
+		// Set SDK plugin name
+		jmethodID setPluginMethod = jni_env->GetMethodID(cls_MobileAppTracker, "setPluginName", "(Ljava/lang/String;)V");
+		jstring pluginUTF = jni_env->NewStringUTF("unity");
+		jni_env->CallVoidMethod(obj_MobileAppTracker, setPluginMethod, pluginUTF);
+
 		// Create a global reference to the MobileAppTracker object and fetch method ids
 		MobileAppTracker		= jni_env->NewGlobalRef(obj_MobileAppTracker);
 		trackInstallMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "trackInstall", "()I");
@@ -86,11 +94,11 @@ extern "C"
 		setAgeMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setAge", "(I)V");
 		setAllowDuplicatesMethod 	= jni_env->GetMethodID(cls_MobileAppTracker, "setAllowDuplicates", "(Z)V");
 		setAltitudeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setAltitude", "(D)V");
-		setAppAdTrackingMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setAppAdTracking", "(Z)V");
 		setCurrencyCodeMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setCurrencyCode", "(Ljava/lang/String;)V");
 		setDebugModeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setDebugMode", "(Z)V");
 		setGenderMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setGender", "(I)V");
 		setLatitudeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setLatitude", "(D)V");
+		setLimitAdTrackingEnabledMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setLimitAdTrackingEnabled", "(Z)V");
 		setLongitudeMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setLongitude", "(D)V");
 		setPackageNameMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setPackageName", "(Ljava/lang/String;)V");
 		setRefIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setRefId", "(Ljava/lang/String;)V");
@@ -98,12 +106,16 @@ extern "C"
 		setSiteIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setSiteId", "(Ljava/lang/String;)V");
 		setTRUSTeIdMethod		= jni_env->GetMethodID(cls_MobileAppTracker, "setTRUSTeId", "(Ljava/lang/String;)V");
 		setUserIdMethod			= jni_env->GetMethodID(cls_MobileAppTracker, "setUserId", "(Ljava/lang/String;)V");
+		setFacebookUserIdMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setFacebookUserId", "(Ljava/lang/String;)V");
+		setTwitterUserIdMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setTwitterUserId", "(Ljava/lang/String;)V");
+		setGoogleUserIdMethod	= jni_env->GetMethodID(cls_MobileAppTracker, "setGoogleUserId", "(Ljava/lang/String;)V");
 
 		startAppToAppTrackingMethod = jni_env->GetMethodID(cls_MobileAppTracker, "setTracking", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Ljava/lang/String;");
 
 		// Explicitly remove the local variables to prevent leaks
 		jni_env->DeleteLocalRef(advertiserIdUTF);
 		jni_env->DeleteLocalRef(conversionKeyUTF);
+		jni_env->DeleteLocalRef(pluginUTF);
 
 		return;
 	}
@@ -276,7 +288,7 @@ extern "C"
 	}
 
 	const void setAppAdTracking(bool appAdTracking) {
-		jni_env->CallVoidMethod(MobileAppTracker, setAppAdTrackingMethod, appAdTracking);
+		jni_env->CallVoidMethod(MobileAppTracker, setLimitAdTrackingEnabledMethod, !appAdTracking);
 		return;
 	}
 	
@@ -336,6 +348,30 @@ extern "C"
 	{
 		jstring userIdUTF = jni_env->NewStringUTF(userId);
 		jni_env->CallVoidMethod(MobileAppTracker, setUserIdMethod, userIdUTF);
+		jni_env->DeleteLocalRef(userIdUTF);
+		return;
+	}
+
+	const void setFacebookUserId(char* facebookUserId)
+	{
+		jstring userIdUTF = jni_env->NewStringUTF(facebookUserId);
+		jni_env->CallVoidMethod(MobileAppTracker, setFacebookUserIdMethod, userIdUTF);
+		jni_env->DeleteLocalRef(userIdUTF);
+		return;
+	}
+
+	const void setTwitterUserId(char* twitterUserId)
+	{
+		jstring userIdUTF = jni_env->NewStringUTF(twitterUserId);
+		jni_env->CallVoidMethod(MobileAppTracker, setTwitterUserIdMethod, userIdUTF);
+		jni_env->DeleteLocalRef(userIdUTF);
+		return;
+	}
+
+	const void setGoogleUserId(char* googleUserId)
+	{
+		jstring userIdUTF = jni_env->NewStringUTF(googleUserId);
+		jni_env->CallVoidMethod(MobileAppTracker, setGoogleUserIdMethod, userIdUTF);
 		jni_env->DeleteLocalRef(userIdUTF);
 		return;
 	}
