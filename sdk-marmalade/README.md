@@ -402,9 +402,10 @@ s3eMATSDK_android_java.mkb
 
 - Auto-generate java make file.
 
+
 __To Build the Extension for iOS__
 
-The MobileAppTracking iOS static library must have its object files extracted and then combined and build into the .s4e Marmalade extension file.
+The MobileAppTracking iOS static library must have its object files extracted and then combined and built into the .s4e Marmalade extension file.
 
 1. Create or add/modify prototype methods in the .s4e file.
 
@@ -422,8 +423,7 @@ The MobileAppTracking iOS static library must have its object files extracted an
 
 3. Rebuild the extension files. From the ios_android folder, run:
 
-		/Developer/Marmalade/6.2/s3e/lib/python/run_python
-		/Developer/Marmalade/6.2/s3e/edk/builder/edk_build.py s3eMATSDK/s3eMATSDK.s4e --platform=iphone 
+		/Developer/Marmalade/6.2/s3e/lib/python/run_python /Developer/Marmalade/6.2/s3e/edk/builder/edk_build.py s3eMATSDK/s3eMATSDK.s4e --platform=iphone 
 
 	that creates:
 
@@ -441,14 +441,14 @@ The MobileAppTracking iOS static library must have its object files extracted an
 
 		/Developer/Marmalade/6.2/s3e/bin/mkb s3eMATSDK/s3eMATSDK_iphone.mkb --arm
 
+
 __To Build the Extension for Android__
 
 1. Create or add/modify prototypes in the .s4e file.
 
 2. Rebuild the extension files:
 
-		/Developer/Marmalade/6.2/s3e/lib/python/run_python
-		/Developer/Marmalade/6.2/s3e/edk/builder/edk_build.py s3eMATSDK/s3eMATSDK.s4e --platform=android
+		/Developer/Marmalade/6.2/s3e/lib/python/run_python /Developer/Marmalade/6.2/s3e/edk/builder/edk_build.py s3eMATSDK/s3eMATSDK.s4e --platform=android
 
 	that creates:
 	
@@ -460,7 +460,7 @@ __To Build the Extension for Android__
 
 	- source/generic/s3eMATSDK.cpp
 	- source/h/s3eMATSDK_internal.h
-	- source/android/s3eMATSDK_platform.mm ← add new or changed methods here; these pass thru to the .java file.
+	- source/android/s3eMATSDK_platform.cpp ← add new or changed methods here; these pass thru to the .java file.
 	- source/android/s3eMATSDK.java ← this is the code that actually calls the mobileapptracker.jar file
 
 4. Build the library files to be used in the test app.
@@ -476,6 +476,7 @@ __To Build the Extension for Android__
 5. Build the java .jar file.
 
 		/Developer/Marmalade/6.2/s3e/bin/mkb s3eMATSDK/s3eMATSDK_android_java.mkb
+
 
 ### Test Application
 
@@ -558,6 +559,7 @@ Here are the methods defined in the s3eMATSDK.s4e file:
 	void MATTrackActionForEventIdOrName(const char* eventIdOrName, bool isId, const char* refId) run_on_os_thread
 	void MATTrackActionForEventIdOrNameItems(const char* eventIdOrName, bool isId, const MATArray* items, const char* refId, const char* revenueAmount, const char* currencyCode, uint8 transactionState, const char* receipt, const char* receiptSignature) run_on_os_thread
 	void MATTrackAction(const char* eventIdOrName, bool isId, const char* revenue, const char* currency) run_on_os_thread
+    void MATSetPluginName(const char* pluginName) run_on_os_thread
 
 	// Setter Methods
 	void MATSetPackageName(const char* packageName) run_on_os_thread
@@ -565,6 +567,9 @@ Here are the methods defined in the s3eMATSDK.s4e file:
 	void MATSetOpenUDID(const char* openUDID) run_on_os_thread
 	void MATSetUIID(const char* uiid) run_on_os_thread
 	void MATSetUserId(const char* userId) run_on_os_thread
+    void MATSetFacebookUserId(const char* userFacebookId) run_on_os_thread
+    void MATSetTwitterUserId(const char* userTwitterId) run_on_os_thread
+    void MATSetGoogleUserId(const char* userGoogleId) run_on_os_thread
 	void MATSetRevenue(const char* revenue) run_on_os_thread
 	void MATSetSiteId(const char* siteId) run_on_os_thread
 	void MATSetTRUSTeId(const char* tpid) run_on_os_thread

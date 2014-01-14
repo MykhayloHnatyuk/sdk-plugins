@@ -8,9 +8,9 @@ struct s3eMATTracker;
 typedef struct MATSDKEventItem
 {
 	char		name[S3E_MATSDK_STRING_MAX];
-	char 		unitPrice[S3E_MATSDK_STRING_MAX];;
+	char 		unitPrice[S3E_MATSDK_STRING_MAX];
 	int			quantity;
-	char		revenue[S3E_MATSDK_STRING_MAX];;
+	char		revenue[S3E_MATSDK_STRING_MAX];
 	char		attribute1[S3E_MATSDK_STRING_MAX];
 	char		attribute2[S3E_MATSDK_STRING_MAX];
 	char		attribute3[S3E_MATSDK_STRING_MAX];
@@ -42,6 +42,9 @@ void MATSetCurrencyCode(const char* currencyCode) run_on_os_thread
 void MATSetOpenUDID(const char* openUDID) run_on_os_thread
 void MATSetUIID(const char* uiid) run_on_os_thread
 void MATSetUserId(const char* userId) run_on_os_thread
+void MATSetFacebookUserId(const char* userFacebookId) run_on_os_thread
+void MATSetTwitterUserId(const char* userTwitterId) run_on_os_thread
+void MATSetGoogleUserId(const char* userGoogleId) run_on_os_thread
 void MATSetRevenue(const char* revenue) run_on_os_thread
 void MATSetSiteId(const char* siteId) run_on_os_thread
 void MATSetTRUSTeId(const char* tpid) run_on_os_thread

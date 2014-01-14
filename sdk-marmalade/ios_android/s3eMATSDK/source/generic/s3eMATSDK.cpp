@@ -95,6 +95,21 @@ void MATSetUserId(const char* userId)
     MATSetUserId_platform(userId);
 }
 
+void MATSetFacebookUserId(const char* userFacebookId)
+{
+    MATSetFacebookUserId_platform(userFacebookId);
+}
+
+void MATSetTwitterUserId(const char* userTwitterId)
+{
+    MATSetTwitterUserId_platform(userTwitterId);
+}
+
+void MATSetGoogleUserId(const char* userGoogleId)
+{
+    MATSetGoogleUserId_platform(userGoogleId);
+}
+
 void MATSetRevenue(const char* revenue)
 {
     MATSetRevenue_platform(revenue);

@@ -82,6 +82,9 @@ void MATSetSiteId_platform(const char* siteId);
 void MATSetTRUSTeId_platform(const char* tpid);
 void MATSetUIID_platform(const char* uiid);
 void MATSetUserId_platform(const char* userId);
+void MATSetFacebookUserId_platform(const char* userFacebookId);
+void MATSetTwitterUserId_platform(const char* userTwitterId);
+void MATSetGoogleUserId_platform(const char* userGoogleId);
 
 void MATSetShouldAutoDetectJailbroken_platform(bool shouldAutoDetect);
 void MATSetShouldAutoGenerateAppleVendorIdentifier_platform(bool shouldAutoGenerate);
