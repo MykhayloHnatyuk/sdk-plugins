@@ -19,25 +19,28 @@
         [self.commandDelegate runInBackground:^{
             NSString* advid = [arguments objectAtIndex:0];
             NSString* convkey = [arguments objectAtIndex:1];
-
+            
             NSLog(@"MATPlugin: initTracker: adv id = %@, conv key = %@", advid, convkey);
             
             [[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:advid
-                                                          MATConversionKey:convkey];
+                                                             MATConversionKey:convkey];
+            [[MobileAppTracker sharedManager] setPluginName:@"phonegap"];
+            
+            CDVPluginResult* pluginResult = nil;
+            if (advid == nil || convkey == nil)
+            {
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Arg was null"];
+            }
+            else
+            {
+                pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+            }
+            [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+            
         }];
     }
-        
-//    CDVPluginResult* pluginResult = nil;
-//    if (advid == nil)
-//    {
-//        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
-//    } else {
-//        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"Arg was null"];
-//    }
-//    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    
 }
-
+    
 - (void)setDebugMode:(CDVInvokedUrlCommand*)command
 {
 	NSLog(@"MATPlugin: setDebugMode");
@@ -455,6 +458,51 @@
         [self.commandDelegate runInBackground:^{
             NSString *userId = [arguments objectAtIndex:0];
             [[MobileAppTracker sharedManager] setUserId:userId];
+        }];
+    }
+}
+
+- (void)setFacebookUserId:(CDVInvokedUrlCommand*)command
+{
+    NSLog(@"MATPlugin: setFacebookUserId");
+    
+    NSArray* arguments = command.arguments;
+    
+    if ([arguments count] == 1)
+    {
+        [self.commandDelegate runInBackground:^{
+            NSString *userId = [arguments objectAtIndex:0];
+            [[MobileAppTracker sharedManager] setFacebookUserId:userId];
+        }];
+    }
+}
+
+- (void)setTwitterUserId:(CDVInvokedUrlCommand*)command
+{
+    NSLog(@"MATPlugin: setTwitterUserId");
+    
+    NSArray* arguments = command.arguments;
+    
+    if ([arguments count] == 1)
+    {
+        [self.commandDelegate runInBackground:^{
+            NSString *userId = [arguments objectAtIndex:0];
+            [[MobileAppTracker sharedManager] setTwitterUserId:userId];
+        }];
+    }
+}
+
+- (void)setGoogleUserId:(CDVInvokedUrlCommand*)command
+{
+    NSLog(@"MATPlugin: setGoogleUserId");
+    
+    NSArray* arguments = command.arguments;
+    
+    if ([arguments count] == 1)
+    {
+        [self.commandDelegate runInBackground:^{
+            NSString *userId = [arguments objectAtIndex:0];
+            [[MobileAppTracker sharedManager] setGoogleUserId:userId];
         }];
     }
 }

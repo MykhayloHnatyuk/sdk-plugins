@@ -49,6 +49,21 @@ MATPlugin.prototype.setUserId = function(success, failure, userId) {
     cordova.exec(success, failure, "MATPlugin", "setUserId", [userId]);
 };
 
+MATPlugin.prototype.setFacebookUserId = function(success, failure, facebookUserId) {
+    console.log("MATPlugin.js: Calling setFacebookUserId");
+    cordova.exec(success, failure, "MATPlugin", "setFacebookUserId", [facebookUserId]);
+};
+
+MATPlugin.prototype.setTwitterUserId = function(success, failure, twitterUserId) {
+    console.log("MATPlugin.js: Calling setTwitterUserId");
+    cordova.exec(success, failure, "MATPlugin", "setTwitterUserId", [twitterUserId]);
+};
+
+MATPlugin.prototype.setGoogleUserId = function(success, failure, googleUserId) {
+    console.log("MATPlugin.js: Calling setGoogleUserId");
+    cordova.exec(success, failure, "MATPlugin", "setGoogleUserId", [googleUserId]);
+};
+
 MATPlugin.prototype.setUIID = function(success, failure, uiid) {
     console.log("MATPlugin.js: Calling setUIID");
     cordova.exec(success, failure, "MATPlugin", "setUIID", [uiid]);

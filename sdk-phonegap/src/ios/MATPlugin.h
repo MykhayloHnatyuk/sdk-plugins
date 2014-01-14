@@ -43,6 +43,9 @@
 - (void)setUIID:(CDVInvokedUrlCommand*)command;
 - (void)setUseCookieTracking:(CDVInvokedUrlCommand*)command;
 - (void)setUserId:(CDVInvokedUrlCommand*)command;
+- (void)setFacebookUserId:(CDVInvokedUrlCommand*)command;
+- (void)setTwitterUserId:(CDVInvokedUrlCommand*)command;
+- (void)setGoogleUserId:(CDVInvokedUrlCommand*)command;
 
 - (void)setShouldAutoDetectJailbroken:(CDVInvokedUrlCommand*)command;
 - (void)setShouldAutoGenerateAppleAdvertisingIdentifier:(CDVInvokedUrlCommand*)command;
