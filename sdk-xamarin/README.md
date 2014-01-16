@@ -28,10 +28,11 @@ The MAT methods can be accessed using the shared object MobileAppTracker.SharedM
     MobileAppTracker mat;
 
 After receiving `FinishedLaunching` event in AppDelegate.cs, initialize the MAT tracker with the `InitTracker` function, passing in
-your MAT Advertiser ID and MAT Conversion Key:
+your MAT Advertiser ID and MAT Conversion Key. Also, notify the library that you're using the Xamarin plugin:
 
     mat = MobileAppTracker.SharedManager;
     mat.InitTracker ("<YOUR_MAT_ADVERTISER_ID>", "<YOUR_MAT_CONVERSION_KEY>");
+    mat.setPluginName ("xamarin");
 
 ### Use MAT binding in Android project
 
@@ -39,9 +40,10 @@ Create a MobileAppTracker object in MainActivity.cs file.
 
     MobileAppTracker mat;
 
-After receiving `OnCreate` event in MainActivity.cs, initialize MAT:
+After receiving `OnCreate` event in MainActivity.cs, initialize MAT and notify the library that you're using the Xamarin plugin:
 
     mat = new MobileAppTracker (this, MAT_ADVERTISER_ID, MAT_CONVERSION_KEY);
+    mat.setPluginName ("xamarin");
 
 ### Installs and Updates
 
