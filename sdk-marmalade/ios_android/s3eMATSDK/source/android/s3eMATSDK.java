@@ -35,6 +35,7 @@ class s3eMATSDK
     public void MATStartMobileAppTracker(String adId, String convKey)
     {
         mat = new MobileAppTracker(LoaderAPI.getActivity(), adId, convKey);
+        mat.setPluginName("marmalade");
     }
     public void MATSDKParameters()
     {
@@ -95,6 +96,21 @@ class s3eMATSDK
     public void MATSetUserId(String userId)
     {
         mat.setUserId(userId);
+    }
+
+    public void MATSetFacebookUserId(String facebookUserId)
+    {
+        mat.setFacebookUserId(facebookUserId);
+    }
+
+    public void MATSetTwitterUserId(String twitterUserId)
+    {
+        mat.setTwitterUserId(twitterUserId);
+    }
+
+    public void MATSetGoogleUserId(String googleUserId)
+    {
+        mat.setGoogleUserId(googleUserId);
     }
 
     public void MATSetRevenue(String revenue)

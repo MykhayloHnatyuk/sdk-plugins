@@ -28,6 +28,9 @@ static jmethodID g_MATStartAppToAppTracking;
 
 static jmethodID g_MATSetCurrencyCode;
 static jmethodID g_MATSetUserId;
+static jmethodID g_MATSetFacebookUserId;
+static jmethodID g_MATSetTwitterUserId;
+static jmethodID g_MATSetGoogleUserId;
 static jmethodID g_MATSetRevenue;
 static jmethodID g_MATSetSiteId;
 static jmethodID g_MATSetTRUSTeId;
@@ -107,6 +110,18 @@ s3eResult MATSDKInit_platform()
     
     g_MATSetUserId = env->GetMethodID(cls, "MATSetUserId", "(Ljava/lang/String;)V");
     if (!g_MATSetUserId)
+        goto fail;
+
+    g_MATSetFacebookUserId = env->GetMethodID(cls, "MATSetFacebookUserId", "(Ljava/lang/String;)V");
+    if (!g_MATSetFacebookUserId)
+        goto fail;
+
+    g_MATSetTwitterUserId = env->GetMethodID(cls, "MATSetTwitterUserId", "(Ljava/lang/String;)V");
+    if (!g_MATSetTwitterUserId)
+        goto fail;
+
+    g_MATSetGoogleUserId = env->GetMethodID(cls, "MATSetGoogleUserId", "(Ljava/lang/String;)V");
+    if (!g_MATSetGoogleUserId)
         goto fail;
     
     g_MATSetRevenue = env->GetMethodID(cls, "MATSetRevenue", "(Ljava/lang/String;)V");
@@ -337,6 +352,30 @@ void MATSetUserId_platform(const char* userId)
     JNIEnv* env = s3eEdkJNIGetEnv();
     jstring data_jstr = env->NewStringUTF(userId);
     env->CallVoidMethod(g_Obj, g_MATSetUserId, data_jstr);
+    env->DeleteLocalRef(data_jstr);
+}
+
+void MATSetFacebookUserId_platform(const char* userId)
+{
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    jstring data_jstr = env->NewStringUTF(userId);
+    env->CallVoidMethod(g_Obj, g_MATSetFacebookUserId, data_jstr);
+    env->DeleteLocalRef(data_jstr);
+}
+
+void MATSetTwitterUserId_platform(const char* userId)
+{
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    jstring data_jstr = env->NewStringUTF(userId);
+    env->CallVoidMethod(g_Obj, g_MATSetTwitterUserId, data_jstr);
+    env->DeleteLocalRef(data_jstr);
+}
+
+void MATSetGoogleUserId_platform(const char* userId)
+{
+    JNIEnv* env = s3eEdkJNIGetEnv();
+    jstring data_jstr = env->NewStringUTF(userId);
+    env->CallVoidMethod(g_Obj, g_MATSetGoogleUserId, data_jstr);
     env->DeleteLocalRef(data_jstr);
 }
 

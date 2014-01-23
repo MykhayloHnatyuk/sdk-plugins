@@ -8,7 +8,7 @@ files
     s3eMATSDK.java
 }
 
-librarypath "lib/android/libMATSDK/MobileAppTracker.jar"
+librarypath "lib/android/libMATSDK/MobileAppTracker-2.7.jar"
 librarypath "$MARMALADE_ROOT/s3e/deploy/plugins/android/android.jar"
 librarypath "$MARMALADE_ROOT/s3e/loader/android/s3e_release.jar"
 

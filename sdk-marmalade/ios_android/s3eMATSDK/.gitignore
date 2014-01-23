@@ -1,0 +1,5 @@
+h/
+incoming/MobileAppTrackerArmv7.a
+incoming/*.o
+incoming/__.SYMDEF
+interface/

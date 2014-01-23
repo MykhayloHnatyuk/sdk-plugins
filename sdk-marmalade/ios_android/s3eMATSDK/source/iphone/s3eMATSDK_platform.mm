@@ -20,6 +20,13 @@
 #define S3E_DEVICE_MATSDK S3E_EXT_MATSDK_HASH
 #define PARAMETERS
 
+// Converts C style string to NSString
+NSString* CreateNSString (const char* string)
+{
+    return [NSString stringWithUTF8String:string ? string : ""];
+}
+
+
 @interface MATSDKDelegate : NSObject <MobileAppTrackerDelegate>
 
 @end
@@ -78,6 +85,7 @@ void MATStartMobileAppTracker_platform(const char* adId, const char* convKey)
         NSString *aid = [NSString stringWithUTF8String:adId];
         NSString *ckey = [NSString stringWithUTF8String:convKey];
         [[MobileAppTracker sharedManager] startTrackerWithMATAdvertiserId:aid MATConversionKey:ckey];
+        [[MobileAppTracker sharedManager] setPluginName:@"marmalade"];
     }
     else
     {
@@ -230,6 +238,27 @@ void MATSetUserId_platform(const char* userId)
     [[MobileAppTracker sharedManager] setUserId:strUserId];
 }
 
+void MATSetFacebookUserId_platform(const char* userId)
+{
+    NSLog(@"Native: setFacebookUserId: %s", userId);
+
+    [[MobileAppTracker sharedManager] setFacebookUserId:CreateNSString(userId)];
+}
+
+void MATSetTwitterUserId_platform(const char* userId)
+{
+    NSLog(@"Native: setTwitterUserId: %s", userId);
+    
+    [[MobileAppTracker sharedManager] setTwitterUserId:CreateNSString(userId)];
+}
+
+void MATSetGoogleUserId_platform(const char* userId)
+{
+    NSLog(@"Native: setGoogleUserId: %s", userId);
+    
+    [[MobileAppTracker sharedManager] setGoogleUserId:CreateNSString(userId)];
+}
+
 void MATSetRevenue_platform(const char* revenue)
 {
     // NOT IMPLEMENTED FOR iOS
@@ -277,8 +306,11 @@ void MATSetAge_platform(int age)
 void MATSetGender_platform(int gender)
 {
     NSLog(@"Native: setGender = %d", gender);
+
+    MATGender matGender = MAT_GENDER_MALE;
+    if( gender == MAT_GENDER_FEMALE ) matGender = MAT_GENDER_FEMALE;
     
-    [[MobileAppTracker sharedManager] setGender:gender];
+    [[MobileAppTracker sharedManager] setGender:matGender];
 }
 
 void MATSetLocation_platform(const char* latitude, const char* longitude, const char* altitude)
@@ -404,7 +436,7 @@ void MATSetAppleVendorIdentifier_platform(const char* vendorId)
 {
     NSString *strVendorId = NULL == vendorId ? nil : [NSString stringWithUTF8String:vendorId];
     
-    NSLog(@"Native: setAppleVendorIdentifier: %@", vendorId);
+    NSLog(@"Native: setAppleVendorIdentifier: %@", strVendorId);
     
     id classNSUUID = NSClassFromString(@"NSUUID");
     

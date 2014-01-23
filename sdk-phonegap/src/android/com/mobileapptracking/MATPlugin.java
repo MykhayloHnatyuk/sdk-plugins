@@ -32,6 +32,9 @@ public class MATPlugin extends CordovaPlugin {
     public static final String SETREFID = "setRefId";
     public static final String SETTPID = "setTrusteTPID";
     public static final String SETUSERID = "setUserId";
+    public static final String SETFBUSERID = "setFacebookUserId";
+    public static final String SETTWUSERID = "setTwitterUserId";
+    public static final String SETGGUSERID = "setGoogleUserId";
     
     private MobileAppTracker tracker;
     
@@ -186,7 +189,7 @@ public class MATPlugin extends CordovaPlugin {
             } else if (SETAPPADTRACKING.equals(action)) {
                 boolean adTracking = args.getBoolean(0);
                 if (tracker != null) {
-                    tracker.setAppAdTracking(adTracking);
+                    tracker.setLimitAdTrackingEnabled(!adTracking);
                 }
                 callbackContext.success();
                 return true;
@@ -272,6 +275,42 @@ public class MATPlugin extends CordovaPlugin {
                     callbackContext.error("User ID null or empty");
                     return false;
                 }
+            } else if (SETFBUSERID.equals(action)) {
+                String userId = args.getString(0);
+                if (userId != null && userId.length() > 0) {
+                    if (tracker != null) {
+                        tracker.setFacebookUserId(userId);
+                    }
+                    callbackContext.success();
+                    return true;
+                } else {
+                    callbackContext.error("FB User ID null or empty");
+                    return false;
+                }
+            } else if (SETTWUSERID.equals(action)) {
+                String userId = args.getString(0);
+                if (userId != null && userId.length() > 0) {
+                    if (tracker != null) {
+                        tracker.setTwitterUserId(userId);
+                    }
+                    callbackContext.success();
+                    return true;
+                } else {
+                    callbackContext.error("TW User ID null or empty");
+                    return false;
+                }
+            } else if (SETGGUSERID.equals(action)) {
+                String userId = args.getString(0);
+                if (userId != null && userId.length() > 0) {
+                    if (tracker != null) {
+                        tracker.setGoogleUserId(userId);
+                    }
+                    callbackContext.success();
+                    return true;
+                } else {
+                    callbackContext.error("G+ User ID null or empty");
+                    return false;
+                }
             } else {
                 callbackContext.error("Unsupported action on Android");
                 return false;
@@ -298,6 +337,7 @@ public class MATPlugin extends CordovaPlugin {
         @Override
         public void run() {
             tracker = new MobileAppTracker(context, advertiserId, advertiserKey);
+            tracker.setPluginName("phonegap");
             cbc.success();
         }
     }

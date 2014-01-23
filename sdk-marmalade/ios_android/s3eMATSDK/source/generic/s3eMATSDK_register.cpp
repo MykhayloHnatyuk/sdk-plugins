@@ -96,6 +96,24 @@ static void MATSetUserId_wrap(const char* userId)
     s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetUserId, 1, userId);
 }
 
+static void MATSetFacebookUserId_wrap(const char* userFacebookId)
+{
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetFacebookUserId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetFacebookUserId, 1, userFacebookId);
+}
+
+static void MATSetTwitterUserId_wrap(const char* userTwitterId)
+{
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetTwitterUserId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetTwitterUserId, 1, userTwitterId);
+}
+
+static void MATSetGoogleUserId_wrap(const char* userGoogleId)
+{
+    IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetGoogleUserId"));
+    s3eEdkThreadRunOnOS((s3eEdkThreadFunc)MATSetGoogleUserId, 1, userGoogleId);
+}
+
 static void MATSetRevenue_wrap(const char* revenue)
 {
     IwTrace(MATSDK_VERBOSE, ("calling s3eMATSDK func on main thread: MATSetRevenue"));
@@ -240,6 +258,9 @@ static void MATSetAllowDuplicates_wrap(bool allowDuplicates)
 #define MATSetOpenUDID MATSetOpenUDID_wrap
 #define MATSetUIID MATSetUIID_wrap
 #define MATSetUserId MATSetUserId_wrap
+#define MATSetFacebookUserId MATSetFacebookUserId_wrap
+#define MATSetTwitterUserId MATSetTwitterUserId_wrap
+#define MATSetGoogleUserId MATSetGoogleUserId_wrap
 #define MATSetRevenue MATSetRevenue_wrap
 #define MATSetSiteId MATSetSiteId_wrap
 #define MATSetTRUSTeId MATSetTRUSTeId_wrap
@@ -268,7 +289,7 @@ static void MATSetAllowDuplicates_wrap(bool allowDuplicates)
 void s3eMATSDKRegisterExt()
 {
     /* fill in the function pointer struct for this extension */
-    void* funcPtrs[34];
+    void* funcPtrs[37];
     funcPtrs[0] = (void*)MATStartMobileAppTracker;
     funcPtrs[1] = (void*)MATTrackInstall;
     funcPtrs[2] = (void*)MATTrackUpdate;
@@ -281,33 +302,36 @@ void s3eMATSDKRegisterExt()
     funcPtrs[9] = (void*)MATSetOpenUDID;
     funcPtrs[10] = (void*)MATSetUIID;
     funcPtrs[11] = (void*)MATSetUserId;
-    funcPtrs[12] = (void*)MATSetRevenue;
-    funcPtrs[13] = (void*)MATSetSiteId;
-    funcPtrs[14] = (void*)MATSetTRUSTeId;
-    funcPtrs[15] = (void*)MATSetAppAdTracking;
-    funcPtrs[16] = (void*)MATSetDelegate;
-    funcPtrs[17] = (void*)MATSetJailbroken;
-    funcPtrs[18] = (void*)MATSetShouldAutoDetectJailbroken;
-    funcPtrs[19] = (void*)MATSetMACAddress;
-    funcPtrs[20] = (void*)MATSetODIN1;
-    funcPtrs[21] = (void*)MATSetUseCookieTracking;
-    funcPtrs[22] = (void*)MATSetAge;
-    funcPtrs[23] = (void*)MATSetGender;
-    funcPtrs[24] = (void*)MATSetLocation;
-    funcPtrs[25] = (void*)MATStartAppToAppTracking;
-    funcPtrs[26] = (void*)MATSetRedirectUrl;
-    funcPtrs[27] = (void*)MATSetAppleAdvertisingIdentifier;
-    funcPtrs[28] = (void*)MATSetAppleVendorIdentifier;
-    funcPtrs[29] = (void*)MATSetShouldAutoGenerateAppleVendorIdentifier;
-    funcPtrs[30] = (void*)MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
-    funcPtrs[31] = (void*)MATSDKParameters;
-    funcPtrs[32] = (void*)MATSetDebugMode;
-    funcPtrs[33] = (void*)MATSetAllowDuplicates;
+    funcPtrs[12] = (void*)MATSetFacebookUserId;
+    funcPtrs[13] = (void*)MATSetTwitterUserId;
+    funcPtrs[14] = (void*)MATSetGoogleUserId;
+    funcPtrs[15] = (void*)MATSetRevenue;
+    funcPtrs[16] = (void*)MATSetSiteId;
+    funcPtrs[17] = (void*)MATSetTRUSTeId;
+    funcPtrs[18] = (void*)MATSetAppAdTracking;
+    funcPtrs[19] = (void*)MATSetDelegate;
+    funcPtrs[20] = (void*)MATSetJailbroken;
+    funcPtrs[21] = (void*)MATSetShouldAutoDetectJailbroken;
+    funcPtrs[22] = (void*)MATSetMACAddress;
+    funcPtrs[23] = (void*)MATSetODIN1;
+    funcPtrs[24] = (void*)MATSetUseCookieTracking;
+    funcPtrs[25] = (void*)MATSetAge;
+    funcPtrs[26] = (void*)MATSetGender;
+    funcPtrs[27] = (void*)MATSetLocation;
+    funcPtrs[28] = (void*)MATStartAppToAppTracking;
+    funcPtrs[29] = (void*)MATSetRedirectUrl;
+    funcPtrs[30] = (void*)MATSetAppleAdvertisingIdentifier;
+    funcPtrs[31] = (void*)MATSetAppleVendorIdentifier;
+    funcPtrs[32] = (void*)MATSetShouldAutoGenerateAppleVendorIdentifier;
+    funcPtrs[33] = (void*)MATSetShouldAutoGenerateAppleAdvertisingIdentifier;
+    funcPtrs[34] = (void*)MATSDKParameters;
+    funcPtrs[35] = (void*)MATSetDebugMode;
+    funcPtrs[36] = (void*)MATSetAllowDuplicates;
 
     /*
      * Flags that specify the extension's use of locking and stackswitching
      */
-    int flags[34] = { 0 };
+    int flags[37] = { 0 };
 
     /*
      * Register the extension

@@ -27,13 +27,6 @@
         <title>MAT PhoneGap Test App</title>
     </head>
     <body>
-        <div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
-            </div>
-        </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript">
             document.addEventListener("deviceready", onDeviceReady, true);
@@ -62,7 +55,13 @@
             
             function startMAT()
             {
-                mat.initTracker(resultHandler, errorHandler, "877", "8c14d6bbe466b65211e781d62e301eec");
+                mat.initTracker(initResultHandler, errorHandler, "877", "8c14d6bbe466b65211e781d62e301eec");
+            }
+            
+            function initResultHandler (result)
+            {
+            	console.log('initResultHandler: ' + result);
+                mat.setPackageName(resultHandler, errorHandler, "com.hasoffers.phonegaptestapp");
             }
             
             function testSetters()
@@ -72,7 +71,10 @@
                 mat.setMACAddress(resultHandler, errorHandler, "tempMACAddress");
                 mat.setTrusteTPID(resultHandler, errorHandler, "tempTrusteTPID");
                 mat.setUserId(resultHandler, errorHandler, "tempUserId");
-                
+                mat.setFacebookUserId(resultHandler, errorHandler, "tempFacebookId");
+                mat.setTwitterUserId(resultHandler, errorHandler, "tempTwitterId");
+                mat.setGoogleUserId(resultHandler, errorHandler, "tempGoogleId");
+
                 mat.setUIID(resultHandler, errorHandler, "tempUIID");
                 mat.setCurrencyCode(resultHandler, errorHandler, "tempCurrencyCode");
                 mat.setGender(resultHandler, errorHandler, 1);
@@ -86,6 +88,7 @@
                 mat.setMATConversionKey(resultHandler, errorHandler, "tempMATConvKey");
                 mat.setAppleAdvertisingIdentifier(resultHandler, errorHandler, "12345678-1234-1234-1234-123456789012");
                 mat.setAppleVendorIdentifier(resultHandler, errorHandler, "12345678-1234-1234-1234-123456789012");
+                mat.setPackageName(resultHandler, errorHandler, "testPackageName");
                 
                 // print the sdk data params
                 mat.setDelegate(resultHandler, errorHandler, true);
@@ -204,9 +207,12 @@
             {
                 console.log('errorHandler: ' + error);
             }
+            
         </script>
         
         <div>
+	        <br>
+    	    <br>
             <div><input id="btnStart" type="button" value="Start MAT" onclick="startMAT();" /></div>
             <br>
             <div><input id="btnDebug" type="button" value="MAT Debug Mode" onclick="setMATDebugMode();" /></div>
