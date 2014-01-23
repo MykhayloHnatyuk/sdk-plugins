@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-#define MATVERSION @"2.7"
+#define MATVERSION @"2.7.1"
 
 @protocol MobileAppTrackerDelegate;
 
@@ -124,13 +125,14 @@ typedef enum {
  Sets the MAT advertiser id.
  @param advertiserId The string id for the MAT advertiser id.
  */
-- (void)setMATAdvertiserId:(NSString *)advertiserId;
+- (void)setMATAdvertiserId:(NSString *)advertiserId __deprecated;
 
 /*!
  Sets the MAT conversion key.
+ @warning This should be set when startTracker is called and not modified thereafter.
  @param conversionKey The string value for the MAT conversion key.
  */
-- (void)setMATConversionKey:(NSString *)conversionKey;
+- (void)setMATConversionKey:(NSString *)conversionKey __deprecated;
 
 /*!
  Sets the package name (bundle_id).
@@ -145,13 +147,6 @@ typedef enum {
  @param yesorno YES will detect if the device is jailbroken, defaults to YES.
  */
 - (void)setShouldAutoDetectJailbroken:(BOOL)yesorno;
-
-/*!
- Specifies if the sdk should pull the Apple Advertising Identifier from the device.
- YES/NO
- @param yesorno YES will set the Apple Advertising Identifier, defaults to NO.
- */
-- (void)setShouldAutoGenerateAppleAdvertisingIdentifier:(BOOL)yesorno;
 
 /*!
  Specifies if the sdk should pull the Apple Vendor Identifier from the device.
@@ -260,6 +255,23 @@ typedef enum {
  @param pluginName
  */
 - (void)setPluginName:(NSString *)pluginName;
+
+
+#pragma mark - Show iAd advertising
+
+/** @name iAd advertising */
+
+/*!
+ Display an iAd banner in a parent view. The parent view will be faded in and out
+ when an iAd is received or failed to display. The MobileAppTracker's delegate
+ object will receive notifications when this happens.
+ */
+- (void) displayiAdInView:(UIView *)view;
+
+/*!
+ Removes the currently displayed iAd, if any.
+ */
+- (void) removeiAd;
 
 
 #pragma mark - Track Install/Update Methods
@@ -533,6 +545,23 @@ typedef enum {
  @param error Error object returned by the MobileAppTracker.
  */
 - (void)mobileAppTracker:(MobileAppTracker *)tracker didFailWithError:(NSError *)error;
+
+
+/*!
+ Delegate method called when an iAd is displayed and its parent view is faded in.
+ */
+- (void) mobileAppTrackerDidDisplayiAd;
+
+/*!
+ Delegate method called when an iAd failed to display and its parent view is faded out.
+ */
+- (void) mobileAppTrackerDidRemoveiAd;
+
+/*!
+ Delegate method called to pass through an iAd display error.
+ @param error Error object returned by the iAd framework.
+ */
+- (void) mobileAppTrackerFailedToReceiveiAdWithError:(NSError *)error;
 
 @end
 
